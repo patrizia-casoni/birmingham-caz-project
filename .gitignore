@@ -1,0 +1,8 @@
+# Ignore all raw data files
+*.csv
+*.xlsx
+
+# Ignore temporary DBeaver files
+.dbeaver/
+
+scratchpad.sql
