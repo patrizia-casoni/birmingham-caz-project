@@ -1,5 +1,10 @@
-create table if not exists monitoring_sites (
-site_id VARCHAR(50) primary key,
+-- ==========================================
+-- 0. METADATA TABLE (Monitoring Sites)
+-- ==========================================
+-- Note: 'site_id' serves as the primary key to uniquely identify each monitoring station.
+
+CREATE TABLE IF NOT EXISTS monitoring_sites (
+site_id VARCHAR(50) PRIMARY KEY,
 site_name VARCHAR(100),
 site_type VARCHAR(30),
 caz_zone VARCHAR(30),
