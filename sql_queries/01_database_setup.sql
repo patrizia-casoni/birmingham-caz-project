@@ -56,3 +56,28 @@ SELECT
     no2
 FROM no2_readings_staging
 ON CONFLICT (site_id, date_time) DO NOTHING;
+
+
+-- ==========================================
+-- CAZ TRAFFIC COMPLIANCE TABLE
+-- ==========================================
+-- Note: Tracks monthly vehicle volumes. Supports both fully broken-down 
+-- metrics and categories that only report a total vehicle count.
+
+CREATE TABLE IF NOT EXISTS caz_traffic_compliance (
+    date DATE NOT NULL,
+    vehicle_type VARCHAR(100) NOT NULL,
+    compliant_vehicles INTEGER NULL,
+    noncompliant_vehicles INTEGER NULL,
+    total_vehicles INTEGER NOT NULL,
+    
+    CONSTRAINT pk_caz_traffic_compliance PRIMARY KEY (date, vehicle_type),
+    
+   -- Integrity Check: Ensures either a valid math breakdown exists OR both 
+   -- compliant/non-compliant are completely omitted
+    
+    CONSTRAINT chk_traffic_volume_integrity CHECK (
+        (compliant_vehicles IS NULL AND noncompliant_vehicles IS NULL) OR
+        (compliant_vehicles + noncompliant_vehicles = total_vehicles)
+    )
+);
