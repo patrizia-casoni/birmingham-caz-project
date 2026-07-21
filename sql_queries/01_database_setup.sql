@@ -81,3 +81,41 @@ CREATE TABLE IF NOT EXISTS caz_traffic_compliance (
         (compliant_vehicles + noncompliant_vehicles = total_vehicles)
     )
 );
+
+
+-- Title: Database Setup for Wards and Hospital Admissions
+-- Description: Normalized production-ready schema for Birmingham health data.
+-- =========================================================================
+
+-- 1. Create central Wards Metadata Dimension Table
+CREATE TABLE IF NOT EXISTS wards_metadata (
+    area_code CHAR(9) PRIMARY KEY,
+    area_name VARCHAR(150) NOT NULL,
+    latitude FLOAT8 NOT NULL,
+    longitude FLOAT8 NOT NULL
+);
+
+-- 2. Create Hospital Admissions Fact Table
+CREATE TABLE IF NOT EXISTS birmingham_hospital_admissions (
+    health_condition VARCHAR(100) NOT NULL,
+    area_code CHAR(9) NOT NULL,
+    fiscal_start_date DATE NOT NULL,
+    
+    -- Automatically generates reporting string (e.g. '2019/20')
+    fiscal_year VARCHAR(7) GENERATED ALWAYS AS (
+        EXTRACT(YEAR FROM fiscal_start_date)::TEXT || '/' || 
+        RIGHT((EXTRACT(YEAR FROM fiscal_start_date) + 1)::TEXT, 2)
+    ) STORED,
+
+    admissions INTEGER NOT NULL,
+    population INTEGER NOT NULL,
+    standardised_rate NUMERIC(6,2) NOT NULL,
+
+    -- Primary Key
+    CONSTRAINT pk_birmingham_hospital_admissions 
+        PRIMARY KEY (health_condition, area_code, fiscal_start_date),
+
+    -- Foreign Key Relationship
+    CONSTRAINT fk_hospital_admissions_ward 
+        FOREIGN KEY (area_code) REFERENCES wards_metadata(area_code)
+);
