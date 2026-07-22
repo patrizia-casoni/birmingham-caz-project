@@ -125,3 +125,90 @@ SELECT
     end_date
 FROM monitoring_sites
 WHERE end_date IS NOT NULL;
+
+/*******************************************************************************
+  SECTION 2: NO2 TIME-SERIES READINGS DIAGNOSTICS (no2_readings)
+  Schema: (site_id, date_time, no2)
+  Assumptions: FK and Composite PK constraints enforced at database layer.
+*******************************************************************************/
+
+-- -----------------------------------------------------------------------------
+-- 1B.1 Column-Level Completeness Audit
+-- Quantifies total record volume and NULL counts across all three columns.
+-- -----------------------------------------------------------------------------
+
+SELECT
+    COUNT(*) AS total_records,
+    COUNT(*) - COUNT(site_id)   AS site_id_nulls,
+    COUNT(*) - COUNT(date_time) AS date_time_nulls,
+    COUNT(*) - COUNT(no2)       AS no2_nulls,
+    ROUND(((COUNT(*) - COUNT(no2))::numeric / COUNT(*)) * 100, 2) AS no2_nulls_percentage
+FROM no2_readings;
+
+-- -----------------------------------------------------------------------------
+-- 1B.2 Temporal Horizon & Clock Sanity Check
+-- Asserts earliest and latest timestamps while flagging invalid future dates.
+-- -----------------------------------------------------------------------------
+SELECT 
+    MIN(date_time) AS earliest_reading,
+    MAX(date_time) AS latest_reading,
+    COUNT(CASE WHEN date_time > CURRENT_TIMESTAMP THEN 1 END) AS future_readings_count
+FROM no2_readings;
+
+
+-- -----------------------------------------------------------------------------
+-- 1B.3 Statistical Distribution & Physical Boundary Assertions (by Site)
+-- Calculates baseline metrics per site and flags sensor hardware anomalies:
+--   - Negative values (zero-point drift / calibration errors)
+--   - Zero values (frozen/stuck sensor output)
+--   - Extreme spikes > 500 µg/m³ (physically implausible electrical noise)
+-- -----------------------------------------------------------------------------
+SELECT 
+    site_id,
+    site_name,
+    COUNT(*) AS total_readings,
+    MIN(no2) AS min_no2,
+    MAX(no2) AS max_no2,
+    ROUND(AVG(no2)::numeric, 2) AS avg_no2,
+    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY no2) AS median_no2,
+    -- Physical anomaly counts
+    COUNT(CASE WHEN no2 < 0 THEN 1 END)   AS negative_values,
+    COUNT(CASE WHEN no2 = 0 THEN 1 END)   AS zero_values,
+    COUNT(CASE WHEN no2 > 500 THEN 1 END) AS extreme_spikes
+FROM no2_readings
+GROUP BY site_id
+ORDER BY site_id;
+
+
+-- -----------------------------------------------------------------------------
+-- 1B.4 Negative Value Severity Breakdown
+-- Differentiates acceptable baseline zero-drift (-1.0 to 0 µg/m³) from
+-- severe hardware malfunctions (< -1.0 µg/m³).
+-- -----------------------------------------------------------------------------
+SELECT
+    site_id,
+    site_name,
+    COUNT(*) AS total_site_readings,
+    
+    -- Negative breakdown
+    COUNT(CASE WHEN no2 < 0 THEN 1 END) AS total_negative_readings,
+    
+    COUNT(CASE WHEN no2 BETWEEN -1.0 AND 0 THEN 1 END) AS minor_drift_count,
+    ROUND(
+        (COUNT(CASE WHEN no2 BETWEEN -1.0 AND 0 THEN 1 END)::numeric / COUNT(*)) * 100, 
+        4
+    ) AS minor_drift_pct_of_site_total,
+    
+    COUNT(CASE WHEN no2 < -1.0 THEN 1 END) AS severe_anomaly_count,
+    ROUND(
+        (COUNT(CASE WHEN no2 < -1.0 THEN 1 END)::numeric / COUNT(*)) * 100, 
+        4
+    ) AS severe_anomaly_pct_of_site_total,
+    
+    MIN(no2) AS worst_negative_reading
+FROM no2_readings AS r
+INNER JOIN monitoring_sites AS s
+    USING (site_id)
+GROUP BY site_id, site_name
+ORDER BY site_id, site_name;
+
