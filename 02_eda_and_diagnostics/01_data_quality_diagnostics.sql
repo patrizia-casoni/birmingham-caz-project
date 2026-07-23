@@ -211,3 +211,77 @@ INNER JOIN monitoring_sites AS s
 GROUP BY site_id, site_name
 ORDER BY site_id, site_name;
 
+-- =============================================================================
+-- 2.2 NO2 Data Capture & LAQM Compliance Assessment
+-- Purpose: 
+--   1. Replaces severe negative anomalies (< -1.0 ug/m3) with NULLs (retains drift 0 to -1.0).
+--   2. Calculates monthly data capture percentages per site.
+--   3. Determines valid months per year based on DEFRA 75% threshold.
+--   4. Flags annual compliance status (PASS, ANNUALISATION REQUIRED, or EXCLUDE).
+-- =============================================================================
+
+WITH cleaned_readings AS (
+    -- Step 1: Nullify severe anomalies dynamically without altering base table
+    SELECT 
+        site_id,
+        date_time,
+        EXTRACT(YEAR FROM date_time) AS reading_year,
+        EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE 
+            WHEN no2 < -1.0 THEN NULL 
+            ELSE no2 
+        END AS no2_diagnosed
+    FROM no2_readings
+),
+
+monthly_completeness AS (
+    -- Step 2: Calculate data capture percentage for every site and month
+    SELECT 
+        site_id,
+        reading_year,
+        reading_month,
+        COUNT(*) AS total_expected_slots,
+        COUNT(no2_diagnosed) AS valid_readings_count,
+        ROUND(
+            (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) * 100, 
+            2
+        ) AS monthly_data_capture_pct,
+        -- DEFRA standard: Month passes if it achieves >= 75% valid data capture
+        CASE 
+            WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
+            ELSE 0 
+        END AS is_valid_month
+    FROM cleaned_readings
+    GROUP BY site_id, reading_year, reading_month
+),
+
+annual_laqm_assessment AS (
+    -- Step 3: Aggregate valid months per year and assign LAQM status
+    SELECT 
+        site_id,
+        reading_year,
+        COUNT(reading_month) AS total_monitored_months,
+        SUM(is_valid_month) AS valid_months_count,
+        ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
+        CASE 
+            WHEN SUM(is_valid_month) >= 9 
+                THEN 'PASS (Use As-Is)'
+            WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
+                THEN 'ACTION (Requires Annualisation)'
+            ELSE 'ACTION (Exclude - Insufficient Data)'
+        END AS laqm_action_required
+    FROM monthly_completeness
+    GROUP BY site_id, reading_year
+)
+
+-- Step 4: Final output combining annual compliance status with site metadata
+SELECT 
+    a.site_id,
+    a.reading_year,
+    a.total_monitored_months,
+    a.valid_months_count,
+    a.yearly_avg_monthly_capture_pct,
+    a.laqm_action_required
+FROM annual_laqm_assessment a
+ORDER BY a.site_id, a.reading_year;
+
