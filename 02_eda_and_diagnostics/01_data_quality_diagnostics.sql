@@ -13,21 +13,20 @@
 -- SECTION 1: MONITORING SITES METADATA TABLE (monitoring_sites)
 -- =============================================================================
 
--- -----------------------------------------------------------------------------
--- 1.1 Primary Key & Descriptive Identifier Uniqueness Checks
--- -----------------------------------------------------------------------------
--- 1.1a. Verify Primary Key (site_id) is unique (Should return 0 rows)
-SELECT 
-    site_id, 
-    COUNT(*) AS occurrence_count
-FROM monitoring_sites
-GROUP BY site_id
-HAVING COUNT(*) > 1;
+-- =============================================================================
+-- 1.1 Identifier Integrity Checks
+-- =============================================================================
 
--- 1.1b. Verify site_names have no duplicates (Should return 0 rows)
+-- NOTE: site_id primary key uniqueness is enforced at schema creation (DDL).
+-- Primary key diagnostic skipped as constraint active.
+
+
+-- 1.1b. Business Logic Audit: Descriptive Identifier Uniqueness
+-- Checks if multiple distinct site_ids were assigned to the same site_name
 SELECT 
     site_name, 
-    COUNT(*) AS occurrence_count
+    COUNT(DISTINCT site_id) AS distinct_site_ids,
+    COUNT(*) AS total_occurrences
 FROM monitoring_sites
 GROUP BY site_name
 HAVING COUNT(*) > 1;
