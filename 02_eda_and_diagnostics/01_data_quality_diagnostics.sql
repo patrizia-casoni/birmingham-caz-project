@@ -369,6 +369,60 @@ FROM caz_traffic_compliance
 GROUP BY vehicle_type
 ORDER BY vehicle_type;
 
+-- =============================================================================
+-- Wards Metadata Data Quality Diagnostic
+-- Table: wards_metadata
+-- Description: Direct-load validation covering volume, uniqueness, string 
+--              hygiene, and spatial bounding box integrity.
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- CHECK 1: Total Ward Count Integrity (Expecting All 69 Birmingham Wards)
+-- -----------------------------------------------------------------------------
+SELECT 
+    COUNT(*) AS total_wards_logged,
+    COUNT(DISTINCT area_code) AS unique_area_codes,
+    CASE 
+        WHEN COUNT(*) = 69 AND COUNT(DISTINCT area_code) = 69 
+        THEN 'PASS: All 69 Unique Wards Accounted For'
+        ELSE 'FAIL: Incorrect Ward Count or Duplicate Area Codes'
+    END AS count_check
+FROM wards_metadata;
+
+
+-- -----------------------------------------------------------------------------
+-- CHECK 2: Area Name Uniqueness & Whitespace Hygiene
+-- -----------------------------------------------------------------------------
+SELECT 
+    COUNT(area_name) AS total_names,
+    COUNT(DISTINCT area_name) AS unique_names,
+    COUNT(CASE WHEN area_name != TRIM(area_name) THEN 1 END) AS names_with_whitespace,
+    CASE 
+        WHEN COUNT(area_name) = COUNT(DISTINCT area_name) 
+         AND COUNT(CASE WHEN area_name != TRIM(area_name) THEN 1 END) = 0 
+        THEN 'PASS: All Names Unique & Clean'
+        ELSE 'FAIL: Duplicate Names or Whitespace Detected'
+    END AS name_integrity_check
+FROM wards_metadata;
+
+
+-- -----------------------------------------------------------------------------
+-- CHECK 3: Geographic Bounds Verification (Unified Birmingham Bounding Box)
+-- -----------------------------------------------------------------------------
+SELECT 
+    MIN(latitude) AS min_lat,
+    MAX(latitude) AS max_lat,
+    MIN(longitude) AS min_lon,
+    MAX(longitude) AS max_lon,
+    COUNT(
+        CASE 
+            WHEN latitude NOT BETWEEN 52.30 AND 52.60 
+              OR longitude NOT BETWEEN -2.05 AND -1.70 
+            THEN 1 
+        END
+    ) AS out_of_bounds_coords
+FROM wards_metadata;
+
 
 
 
