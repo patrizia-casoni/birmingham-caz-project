@@ -318,3 +318,57 @@ SELECT
 
 FROM caz_traffic_compliance;
 
+
+-- -----------------------------------------------------------------------------
+-- CHECK 2: Summary Statistics by Vehicle Type
+-- -----------------------------------------------------------------------------
+SELECT 
+    vehicle_type,
+    
+    -- Compliant Vehicles
+    MIN(compliant_vehicles) AS min_compliant,
+    MAX(compliant_vehicles) AS max_compliant,
+    ROUND(AVG(compliant_vehicles), 1) AS avg_compliant,
+    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY compliant_vehicles) AS median_compliant,
+    
+    -- Non-Compliant Vehicles
+    MIN(noncompliant_vehicles) AS min_noncompliant,
+    MAX(noncompliant_vehicles) AS max_noncompliant,
+    ROUND(AVG(noncompliant_vehicles), 1) AS avg_noncompliant,
+    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY noncompliant_vehicles) AS median_noncompliant,
+    
+    -- Total Vehicles
+    MIN(total_vehicles) AS min_total,
+    MAX(total_vehicles) AS max_total,
+    ROUND(AVG(total_vehicles), 1) AS avg_total,
+    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY total_vehicles) AS median_total,
+    
+    -- Compliance Rate (%) Summary
+    ROUND(MIN(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS min_compliance_rate_pct,
+    ROUND(MAX(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS max_compliance_rate_pct,
+    ROUND(AVG(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS avg_compliance_rate_pct,
+    ROUND(
+        PERCENTILE_CONT(0.50) WITHIN GROUP (
+            ORDER BY (100.0 * compliant_vehicles / NULLIF(total_vehicles, 0))
+        )::NUMERIC, 2
+    ) AS median_compliance_rate_pct
+    
+FROM caz_traffic_compliance
+GROUP BY vehicle_type
+ORDER BY vehicle_type;
+
+-- -----------------------------------------------------------------------------
+-- CHECK 3: Vehicle Type Temporal Bounds & Alignment Check
+-- -----------------------------------------------------------------------------
+SELECT 
+    vehicle_type,
+    MIN(date) AS start_date,
+    MAX(date) AS end_date,
+    COUNT(DISTINCT date) AS unique_months
+FROM caz_traffic_compliance
+GROUP BY vehicle_type
+ORDER BY vehicle_type;
+
+
+
+
