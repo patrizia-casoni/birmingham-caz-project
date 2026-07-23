@@ -423,6 +423,63 @@ SELECT
     ) AS out_of_bounds_coords
 FROM wards_metadata;
 
+-- =============================================================================
+-- Hospital Admissions Data Quality Diagnostic
+-- Table: birmingham_hospital_admissions
+-- Description: Direct-load validation covering system-generated logic, 
+--              numeric sanity, and longitudinal panel balance.
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- CHECK 1: System-Generated Fiscal Year Completeness
+-- -----------------------------------------------------------------------------
+SELECT 
+    COUNT(*) AS total_rows,
+    COUNT(*) - COUNT(fiscal_year) AS missing_fiscal_years,
+    CASE 
+        WHEN COUNT(*) = COUNT(fiscal_year) 
+        THEN 'PASS: Fiscal Year Auto-Generation Complete'
+        ELSE 'FAIL: NULL Values Found in Fiscal Year'
+    END AS fiscal_year_check
+FROM birmingham_hospital_admissions;
+
+
+-- -----------------------------------------------------------------------------
+-- CHECK 2: Metric Range & Numeric Sanity
+-- Note: admissions and standardised_rate can legitimately be 0 (e.g., zero 
+--       recorded hospital visits in a ward for a given condition), but must 
+--       never be negative (< 0). Population must be strictly positive (> 0).
+-- -----------------------------------------------------------------------------
+SELECT 
+    MIN(admissions) AS min_admissions,
+    MAX(admissions) AS max_admissions,
+    MIN(population) AS min_population,
+    MAX(population) AS max_population,
+    MIN(standardised_rate) AS min_std_rate,
+    MAX(standardised_rate) AS max_std_rate,
+    COUNT(CASE WHEN admissions < 0 OR population <= 0 OR standardised_rate < 0 THEN 1 END) AS invalid_metric_rows,
+    CASE 
+        WHEN COUNT(CASE WHEN admissions < 0 OR population <= 0 OR standardised_rate < 0 THEN 1 END) = 0 
+        THEN 'PASS: All Numeric Metrics Within Valid Ranges'
+        ELSE 'FAIL: Negative or Zero Values Detected in Metrics'
+    END AS metric_range_check
+FROM birmingham_hospital_admissions;
+
+
+-- -----------------------------------------------------------------------------
+-- CHECK 3: Health Condition Panel Balance & Temporal Coverage
+-- -----------------------------------------------------------------------------
+SELECT 
+    health_condition,
+    MIN(fiscal_start_date) AS earliest_start_date,
+    MAX(fiscal_start_date) AS latest_start_date,
+    COUNT(DISTINCT fiscal_start_date) AS total_fiscal_periods,
+    COUNT(DISTINCT area_code) AS wards_covered,
+    COUNT(*) AS total_records
+FROM birmingham_hospital_admissions
+GROUP BY health_condition
+ORDER BY health_condition;
+
 
 
 
