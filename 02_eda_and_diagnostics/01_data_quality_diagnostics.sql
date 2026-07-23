@@ -285,3 +285,36 @@ SELECT
 FROM annual_laqm_assessment a
 ORDER BY a.site_id, a.reading_year;
 
+-- =============================================================================
+-- 2.3 Traffic Data Quality & Statistical Profiling Diagnostic
+-- Table: caz_traffic_compliance
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- CHECK 1: Missingness & Logic Anomalies (Column-by-Column)
+-- -----------------------------------------------------------------------------
+SELECT 
+    COUNT(*) AS total_rows,
+    
+    -- Missingness (Compliant & Non-Compliant tied by DDL constraint)
+    COUNT(CASE WHEN compliant_vehicles IS NULL THEN 1 END) AS compliance_nulls,
+    ROUND(
+        100.0 * COUNT(CASE WHEN compliant_vehicles IS NULL THEN 1 END) / COUNT(*), 
+        2
+    ) AS compliance_nulls_pct,
+    
+    -- Negative Values Count (per column)
+    COUNT(CASE WHEN compliant_vehicles < 0 THEN 1 END) AS negative_compliant_count,
+    COUNT(CASE WHEN noncompliant_vehicles < 0 THEN 1 END) AS negative_noncompliant_count,
+    COUNT(CASE WHEN total_vehicles < 0 THEN 1 END) AS negative_total_count,
+    
+    -- Zero Traffic Count (per column)
+    COUNT(CASE WHEN compliant_vehicles = 0 THEN 1 END) AS zero_compliant_count,
+    COUNT(CASE WHEN noncompliant_vehicles = 0 THEN 1 END) AS zero_noncompliant_count,
+    COUNT(CASE WHEN total_vehicles = 0 THEN 1 END) AS zero_total_count,
+    
+    -- Categorical Integrity
+    COUNT(DISTINCT vehicle_type) AS distinct_vehicle_types
+
+FROM caz_traffic_compliance;
+
