@@ -211,17 +211,15 @@ INNER JOIN monitoring_sites AS s
 GROUP BY site_id, site_name
 ORDER BY site_id, site_name;
 
--- =============================================================================
--- 2.2 NO2 Data Capture & LAQM Compliance Assessment
--- Purpose: 
---   1. Replaces severe negative anomalies (< -1.0 ug/m3) with NULLs (retains drift 0 to -1.0).
---   2. Calculates monthly data capture percentages per site.
---   3. Determines valid months per year based on DEFRA 75% threshold.
---   4. Flags annual compliance status (PASS, ANNUALISATION REQUIRED, or EXCLUDE).
--- =============================================================================
+/*******************************************************************************
+  SECTION 2.2A: DATA CAPTURE & ANNUAL MEAN AUDIT (LAQM Compliance)
+  Purpose: 
+    1. Nullifies severe negative anomalies (< -1.0 ug/m3) dynamically.
+    2. Measures monthly data capture using DEFRA's 75% threshold.
+    3. Categorises site-years for Annual Mean processing (Pass vs. Annualise vs. Reject).
+*******************************************************************************/
 
 WITH cleaned_readings AS (
-    -- Step 1: Nullify severe anomalies dynamically without altering base table
     SELECT 
         site_id,
         date_time,
@@ -235,7 +233,6 @@ WITH cleaned_readings AS (
 ),
 
 monthly_completeness AS (
-    -- Step 2: Calculate data capture percentage for every site and month
     SELECT 
         site_id,
         reading_year,
@@ -246,33 +243,88 @@ monthly_completeness AS (
             (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) * 100, 
             2
         ) AS monthly_data_capture_pct,
-        -- DEFRA standard: Month passes if it achieves >= 75% valid data capture
         CASE 
             WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
             ELSE 0 
         END AS is_valid_month
     FROM cleaned_readings
     GROUP BY site_id, reading_year, reading_month
+)
+
+SELECT 
+    site_id,
+    reading_year,
+    COUNT(reading_month) AS total_monitored_months,
+    SUM(is_valid_month) AS valid_months_count,
+    ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
+    CASE 
+        WHEN SUM(is_valid_month) >= 9 
+            THEN 'PASS (Use As-Is)'
+        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
+            THEN 'ACTION (Requires Annualisation)'
+        ELSE 'ACTION (Exclude - Insufficient Data)'
+    END AS laqm_annual_mean_status
+FROM monthly_completeness
+GROUP BY site_id, reading_year
+ORDER BY site_id, reading_year;
+
+/*******************************************************************************
+  SECTION 2.2B: ACUTE PEAK (99.8th PERCENTILE) ELIGIBILITY AUDIT
+  Purpose: 
+    1. Evaluates temporal coverage against strict 99.8th percentile requirements.
+    2. Flags incomplete years to prevent seasonal bias in peak exceedance calculations.
+    3. Assigns remediation directives (Calculate Direct vs. Nullify & Proxy).
+*******************************************************************************/
+
+WITH cleaned_readings AS (
+    SELECT 
+        site_id,
+        date_time,
+        EXTRACT(YEAR FROM date_time) AS reading_year,
+        EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE 
+            WHEN no2 < -1.0 THEN NULL 
+            ELSE no2 
+        END AS no2_diagnosed
+    FROM no2_readings
 ),
 
-annual_laqm_assessment AS (
-    -- Step 3: Aggregate valid months per year and assign LAQM status
+monthly_completeness AS (
     SELECT 
         site_id,
         reading_year,
-        COUNT(reading_month) AS total_monitored_months,
-        SUM(is_valid_month) AS valid_months_count,
-        ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
+        reading_month,
         CASE 
-            WHEN SUM(is_valid_month) >= 9 
-                THEN 'PASS (Use As-Is)'
-            WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
-                THEN 'ACTION (Requires Annualisation)'
-            ELSE 'ACTION (Exclude - Insufficient Data)'
-        END AS laqm_action_required
-    FROM monthly_completeness
-    GROUP BY site_id, reading_year
+            WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
+            ELSE 0 
+        END AS is_valid_month
+    FROM cleaned_readings
+    GROUP BY site_id, reading_year, reading_month
 )
+
+SELECT 
+    site_id,
+    reading_year,
+    SUM(is_valid_month) AS valid_months_count,
+    
+    -- Percentile Data Validity Status
+    CASE 
+        WHEN SUM(is_valid_month) >= 9 THEN 'VALID'
+        ELSE 'INVALID (Seasonal Bias Risk)'
+    END AS percentile_99_8_status,
+    
+    -- Downstream Pipeline Directive
+    CASE 
+        WHEN SUM(is_valid_month) >= 9 
+            THEN 'Compute PERCENTILE_CONT(0.998) from hourly data'
+        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
+            THEN 'Nullify Percentile; Flag via DEFRA > 60 µg/m³ Mean Proxy'
+        ELSE 'Suppress from acute peak reporting entirely'
+    END AS remediation_instruction
+
+FROM monthly_completeness
+GROUP BY site_id, reading_year
+ORDER BY site_id, reading_year;
 
 -- Step 4: Final output combining annual compliance status with site metadata
 SELECT 
