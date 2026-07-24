@@ -118,4 +118,143 @@ CREATE TABLE IF NOT EXISTS birmingham_hospital_admissions (
     -- Foreign Key Relationship
     CONSTRAINT fk_hospital_admissions_ward 
         FOREIGN KEY (area_code) REFERENCES wards_metadata(area_code)
+        
+        /*******************************************************************************
+  PHASE 0: DATABASE INITIALIZATION & POSTGIS SPATIAL CONFIGURATION
+  Project: Birmingham CAZ Data Engineering Pipeline
+  
+  Executes core setup:
+    1. Enables the PostGIS spatial engine.
+    2. Adds projected EPSG:27700 (British National Grid) geometry columns.
+    3. Transforms WGS84 Lat/Lon coordinates into planar meter projections.
+    4. Builds Spatial GiST & Relational B-Tree Indexes across all project tables.
+    5. Builds and populates the CAZ Boundary Polygon table.
+*******************************************************************************/
+
+-- =============================================================================
+-- 1. EXTENSION & SPATIAL GEOMETRY COLUMNS SETUP
+-- =============================================================================
+
+-- Enable PostGIS Extension
+CREATE EXTENSION IF NOT EXISTS postgis;
+
+--------------------------------------------------------------------------------
+-- 1.1 Monitoring Sites: Add & Transform EPSG:27700 Geometry
+--------------------------------------------------------------------------------
+ALTER TABLE monitoring_sites 
+ADD COLUMN IF NOT EXISTS geom_27700 GEOMETRY(Point, 27700);
+
+UPDATE monitoring_sites
+SET geom_27700 = ST_Transform(
+    ST_SetSRID(ST_MakePoint(longitude, latitude), 4326),
+    27700
+)
+WHERE latitude IS NOT NULL AND longitude IS NOT NULL;
+
+--------------------------------------------------------------------------------
+-- 1.2 Wards Metadata: Add & Transform EPSG:27700 Geometry
+--------------------------------------------------------------------------------
+ALTER TABLE wards_metadata 
+ADD COLUMN IF NOT EXISTS geom_27700 GEOMETRY(Point, 27700);
+
+UPDATE wards_metadata
+SET geom_27700 = ST_Transform(
+    ST_SetSRID(ST_MakePoint(longitude, latitude), 4326),
+    27700
+)
+WHERE latitude IS NOT NULL AND longitude IS NOT NULL;
+
+
+-- =============================================================================
+-- 2. COMPREHENSIVE INDEX SUITE (SPATIAL & TIME-SERIES)
+-- Builds all required GiST and B-Tree indexes for optimal query execution
+-- =============================================================================
+
+--------------------------------------------------------------------------------
+-- 2.1 Spatial GiST Indexes (Accelerates Distance & Boundary Calculations)
+--------------------------------------------------------------------------------
+-- Monitoring Sites 2D Geometry Index
+CREATE INDEX IF NOT EXISTS idx_monitoring_sites_geom 
+ON monitoring_sites USING GIST (geom_27700);
+
+-- Wards Metadata 2D Geometry Index
+CREATE INDEX IF NOT EXISTS idx_wards_metadata_geom 
+ON wards_metadata USING GIST (geom_27700);
+
+-- CAZ Polygon Base WGS84 Spatial Index
+CREATE INDEX IF NOT EXISTS idx_caz_polygon_geom 
+ON caz_polygon USING GIST (geom);
+
+-- CAZ Polygon Functional Index (Pre-projects ST_Transform to EPSG:27700)
+CREATE INDEX IF NOT EXISTS idx_caz_polygon_geom_27700 
+ON caz_polygon USING GIST (ST_Transform(geom, 27700));
+
+
+--------------------------------------------------------------------------------
+-- 2.2 Relational & Time-Series B-Tree Indexes (Accelerates Joins & Filters)
+--------------------------------------------------------------------------------
+-- Time-Series NO2 Hourly Readings Lookup
+CREATE INDEX IF NOT EXISTS idx_no2_readings_site_timestamp 
+ON no2_readings (site_id, date_time);
+
+-- Hospital Admissions Condition & Date Lookup
+CREATE INDEX IF NOT EXISTS idx_birmingham_hosp_area_condition 
+ON birmingham_hospital_admissions (area_code, health_condition);
+
+CREATE INDEX IF NOT EXISTS idx_birmingham_hosp_area_date 
+ON birmingham_hospital_admissions (area_code, fiscal_start_date);
+
+-- Traffic Compliance Vehicle Type & Temporal Lookup
+CREATE INDEX IF NOT EXISTS idx_traffic_compliance_date_vehicle 
+ON caz_traffic_compliance (date, vehicle_type);
+
+
+-- =============================================================================
+-- 3. CAZ BOUNDARY POLYGON CREATION & VERIFICATION
+-- Defines the Birmingham A4540 Middleway Ring Road boundary geometry
+-- =============================================================================
+
+CREATE TABLE IF NOT EXISTS caz_polygon (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    geom GEOMETRY(Polygon, 4326)
+);
+
+-- Insert central Birmingham CAZ boundary representation (A4540 Ring Road perimeter)
+INSERT INTO caz_polygon (name, geom)
+VALUES (
+    'Birmingham CAZ (A4540 Ring Road)',
+    ST_GeomFromText(
+        'POLYGON((-1.9168 52.4883, -1.8801 52.4891, -1.8715 52.4741, -1.8902 52.4635, -1.9150 52.4690, -1.9168 52.4883))',
+        4326
+    )
+)
+ON CONFLICT DO NOTHING;
+
+
+-- =============================================================================
+-- 4. SPATIAL SETUP DIAGNOSTIC VERIFICATION
+-- Asserts SRID, Dimensions, and Geometry Types across spatial tables
+-- =============================================================================
+
+SELECT 
+    'caz_polygon' AS spatial_table,
+    id, 
+    name, 
+    ST_SRID(geom) AS srid, 
+    ST_NDims(geom) AS dimensions, 
+    ST_GeometryType(geom) AS geom_type 
+FROM caz_polygon
+
+UNION ALL
+
+SELECT 
+    'monitoring_sites',
+    site_id AS id,
+    site_name AS name,
+    ST_SRID(geom_27700) AS srid,
+    ST_NDims(geom_27700) AS dimensions,
+    ST_GeometryType(geom_27700) AS geom_type
+FROM monitoring_sites
+LIMIT 1;
 );
