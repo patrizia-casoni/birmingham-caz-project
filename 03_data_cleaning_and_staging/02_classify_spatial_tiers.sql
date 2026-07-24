@@ -10,8 +10,8 @@
       - 1. Inside CAZ: Within the ring road polygon
       - 2. Close Boundary: Straddles boundary OR <= 500m from ring road
       - 3. Near Boundary: 500m to 2,000m (2km) from ring road
-      - 4. Background: 2,000m to 5,000m (up to the 5km control boundary)
-      - Excluded: > 5,000m from CAZ boundary
+      - 4. Background: 2,000m to 5,000m (local control group)
+      - 5. Outer Regional Control: > 5,000m (macro-level regional trend baseline)
 *******************************************************************************/
 
 -- =============================================================================
@@ -40,7 +40,7 @@ WITH site_tier_calculation AS (
                 THEN '3. Near Boundary (500m-2km)'
             WHEN ST_Distance(ms.geom_27700, ST_Transform(caz.geom, 27700)) <= 5000 
                 THEN '4. Background (2km-5km)'
-            ELSE 'Excluded (>5km Control)'
+            ELSE '5. Outer Regional Control (>5km)'
         END AS calculated_tier,
         ROUND(ST_Distance(ms.geom_27700, ST_Transform(caz.geom, 27700))::numeric, 2) AS calculated_distance
     FROM monitoring_sites AS ms
@@ -79,8 +79,8 @@ WITH ward_tier_calculation AS (
             WHEN ST_Distance(w.geom_27700, ST_Transform(caz.geom, 27700)) <= 5000 
                 THEN '4. Background (2km-5km)'
             
-            -- Excluded from study (>5km control limit)
-            ELSE 'Excluded (>5km Control)'
+            -- Tier 5: Outer regional baseline (>5km)
+            ELSE '5. Outer Regional Control (>5km)'
         END AS calculated_tier,
         ROUND(ST_Distance(w.geom_27700, ST_Transform(caz.geom, 27700))::numeric, 2) AS calculated_distance
     FROM wards_metadata AS w
