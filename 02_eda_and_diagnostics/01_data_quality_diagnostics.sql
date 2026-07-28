@@ -532,6 +532,68 @@ FROM birmingham_hospital_admissions
 GROUP BY health_condition
 ORDER BY health_condition;
 
+--------------------------------------------------------------------------------
+-- Data Diagnostics: Fiscal Year Translation & Annualisation Assessment
+-- Description: Translates calendar years into UK NHS fiscal years (April–March) 
+--              for monitoring wards, and checks monthly completeness to 
+--              determine which years require annualisation.
+--------------------------------------------------------------------------------
+
+WITH cleaned_readings AS (
+    SELECT 
+        site_id,
+        date_time,
+        EXTRACT(YEAR FROM date_time) AS reading_year,
+        EXTRACT(MONTH FROM date_time) AS reading_month,
+        -- Dynamically assign UK NHS Fiscal Year (e.g., '2022/23')
+        CASE 
+            WHEN EXTRACT(MONTH FROM date_time) >= 4 
+            THEN EXTRACT(YEAR FROM date_time)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) + 1 - 2000)::text, 2, '0')
+            ELSE (EXTRACT(YEAR FROM date_time) - 1)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) - 2000)::text, 2, '0')
+        END AS fiscal_year,
+        CASE 
+            WHEN no2 < -1.0 THEN NULL 
+            ELSE no2 
+        END AS no2_diagnosed
+    FROM no2_readings
+),
+
+monthly_completeness AS (
+    SELECT 
+        site_id,
+        fiscal_year,
+        reading_month,
+        COUNT(*) AS total_expected_slots,
+        COUNT(no2_diagnosed) AS valid_readings_count,
+        ROUND(
+            (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) * 100, 
+            2
+        ) AS monthly_data_capture_pct,
+        CASE 
+            WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
+            ELSE 0 
+        END AS is_valid_month
+    FROM cleaned_readings
+    GROUP BY site_id, fiscal_year, reading_month
+)
+
+SELECT 
+    site_id,
+    fiscal_year,
+    COUNT(reading_month) AS total_monitored_months,
+    SUM(is_valid_month) AS valid_months_count,
+    ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
+    CASE 
+        WHEN SUM(is_valid_month) >= 9 
+            THEN 'PASS (Use As-Is)'
+        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
+            THEN 'ACTION (Requires Annualisation)'
+        ELSE 'ACTION (Exclude - Insufficient Data)'
+    END AS laqm_annual_mean_status
+FROM monthly_completeness
+GROUP BY site_id, fiscal_year
+ORDER BY site_id, fiscal_year;
+
 
 
 
