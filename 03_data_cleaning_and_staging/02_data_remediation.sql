@@ -95,18 +95,20 @@ WITH monthly_agg AS (
     GROUP BY site_id, EXTRACT(YEAR FROM date_time), EXTRACT(MONTH FROM date_time)
 )
 SELECT 
-    site_id,
-    reading_year,
-    COUNT(reading_month) AS total_monitored_months,
-    SUM(is_valid_month) AS valid_months_count,
-    AVG(monthly_mean) AS raw_direct_mean,
+    m.site_id,
+    s.site_name,
+    m.reading_year,
+    COUNT(m.reading_month) AS total_monitored_months,
+    SUM(m.is_valid_month) AS valid_months_count,
+    AVG(m.monthly_mean) AS raw_direct_mean,
     CASE 
-        WHEN SUM(is_valid_month) >= 9 THEN 'PASS (Use As-Is)'
-        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 THEN 'ACTION (Requires Annualisation)'
+        WHEN SUM(m.is_valid_month) >= 9 THEN 'PASS (Use As-Is)'
+        WHEN SUM(m.is_valid_month) BETWEEN 3 AND 8 THEN 'ACTION (Requires Annualisation)'
         ELSE 'ACTION (Exclude - Insufficient Data)'
     END AS laqm_annual_mean_status
-FROM monthly_agg
-GROUP BY site_id, reading_year;
+FROM monthly_agg m
+JOIN monitoring_sites s ON m.site_id = s.site_id
+GROUP BY m.site_id, s.site_name, m.reading_year;
 
 
 -- ============================================================================
@@ -148,6 +150,7 @@ full_ref_avgs AS (
 )
 SELECT 
     m.site_id,
+    m.site_name,
     m.reading_year,
     m.valid_months_count,
     m.laqm_annual_mean_status,
