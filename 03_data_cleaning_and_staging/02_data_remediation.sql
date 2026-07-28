@@ -171,4 +171,191 @@ LEFT JOIN ratios r ON m.site_id = r.target_site_id AND m.reading_year = r.readin
 LEFT JOIN full_ref_avgs f ON m.site_id = f.target_site_id AND m.reading_year = f.reading_year;
 
 
+--------------------------------------------------------------------------------
+-- STAGE 1: Reference Site Mapping (Fiscal Year Basis)
+-- Description: Maps target sites requiring annualisation to nearby background 
+--              reference sites using UK NHS fiscal years (April–March).
+--------------------------------------------------------------------------------
+DROP TABLE IF EXISTS stg_reference_mapping_fy;
+
+CREATE TABLE stg_reference_mapping_fy AS
+WITH cleaned_readings AS (
+    SELECT 
+        site_id,
+        date_time,
+        EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE 
+            WHEN EXTRACT(MONTH FROM date_time) >= 4 
+            THEN EXTRACT(YEAR FROM date_time)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) + 1 - 2000)::text, 2, '0')
+            ELSE (EXTRACT(YEAR FROM date_time) - 1)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) - 2000)::text, 2, '0')
+        END AS fiscal_year,
+        CASE WHEN no2 < -1.0 THEN NULL ELSE no2 END AS no2_diagnosed
+    FROM no2_readings
+),
+monthly_agg AS (
+    SELECT 
+        site_id,
+        fiscal_year,
+        reading_month,
+        COUNT(no2_diagnosed) AS valid_count,
+        COUNT(*) AS total_count,
+        AVG(no2_diagnosed) AS monthly_mean
+    FROM cleaned_readings
+    GROUP BY site_id, fiscal_year, reading_month
+),
+site_fiscal_yearly AS (
+    SELECT 
+        site_id,
+        fiscal_year,
+        SUM(CASE WHEN (valid_count::NUMERIC / NULLIF(total_count, 0)::NUMERIC) >= 0.75 THEN 1 ELSE 0 END) AS valid_months_count
+    FROM monthly_agg
+    GROUP BY site_id, fiscal_year
+),
+target_fiscal_years AS (
+    SELECT site_id, fiscal_year 
+    FROM site_fiscal_yearly 
+    WHERE valid_months_count BETWEEN 3 AND 8
+)
+SELECT DISTINCT ON (t.site_id, t.fiscal_year)
+    t.site_id,
+    t.fiscal_year,
+    ref_meta.site_id AS assigned_reference_site_id
+FROM target_fiscal_years t
+CROSS JOIN LATERAL (
+    SELECT 
+        m.site_id,
+        SQRT(POWER(target_meta.longitude - ref_meta.longitude, 2) + 
+             POWER(target_meta.latitude - ref_meta.latitude, 2)) AS distance
+    FROM monthly_agg m
+    JOIN monitoring_sites ref_meta ON m.site_id = ref_meta.site_id
+    JOIN site_fiscal_yearly ref_status ON m.site_id = ref_status.site_id AND m.fiscal_year = ref_status.fiscal_year
+    JOIN monitoring_sites target_meta ON target_meta.site_id = t.site_id
+    WHERE UPPER(ref_meta.site_type) = 'BACKGROUND'
+      AND ref_status.valid_months_count >= 9
+      AND m.fiscal_year = t.fiscal_year
+      AND m.site_id <> t.site_id
+    GROUP BY m.site_id, target_meta.longitude, target_meta.latitude, ref_meta.longitude, ref_meta.latitude
+    HAVING SUM(CASE WHEN (m.valid_count::NUMERIC / NULLIF(m.total_count, 0)::NUMERIC) >= 0.75 THEN 1 ELSE 0 END) >= 9
+    ORDER BY distance ASC
+    LIMIT 1
+) ref_meta;
+
+
+--------------------------------------------------------------------------------
+-- STAGE 2: Site Fiscal-Yearly Metrics & LAQM Status Determination
+--------------------------------------------------------------------------------
+DROP TABLE IF EXISTS stg_site_yearly_metrics_fy;
+
+CREATE TABLE stg_site_yearly_metrics_fy AS
+WITH cleaned_readings AS (
+    SELECT 
+        site_id,
+        date_time,
+        EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE 
+            WHEN EXTRACT(MONTH FROM date_time) >= 4 
+            THEN EXTRACT(YEAR FROM date_time)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) + 1 - 2000)::text, 2, '0')
+            ELSE (EXTRACT(YEAR FROM date_time) - 1)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) - 2000)::text, 2, '0')
+        END AS fiscal_year,
+        CASE WHEN no2 < -1.0 THEN NULL ELSE no2 END AS no2_diagnosed
+    FROM no2_readings
+),
+monthly_agg AS (
+    SELECT 
+        site_id,
+        fiscal_year,
+        reading_month,
+        AVG(no2_diagnosed) AS monthly_mean,
+        CASE WHEN (COUNT(no2_diagnosed)::NUMERIC / NULLIF(COUNT(*), 0)::NUMERIC) >= 0.75 THEN 1 ELSE 0 END AS is_valid_month
+    FROM cleaned_readings
+    GROUP BY site_id, fiscal_year, reading_month
+)
+SELECT 
+    m.site_id,
+    s.site_name,
+    m.fiscal_year,
+    COUNT(m.reading_month) AS total_monitored_months,
+    SUM(m.is_valid_month) AS valid_months_count,
+    AVG(m.monthly_mean) AS raw_direct_mean,
+    CASE 
+        WHEN SUM(m.is_valid_month) >= 9 THEN 'PASS (Use As-Is)'
+        WHEN SUM(m.is_valid_month) BETWEEN 3 AND 8 THEN 'ACTION (Requires Annualisation)'
+        ELSE 'ACTION (Exclude - Insufficient Data)'
+    END AS laqm_annual_mean_status
+FROM monthly_agg m
+JOIN monitoring_sites s ON m.site_id = s.site_id
+GROUP BY m.site_id, s.site_name, m.fiscal_year;
+
+
+--------------------------------------------------------------------------------
+-- STAGE 3: Final Annualised Means Calculation (Fiscal Year Basis)
+--------------------------------------------------------------------------------
+DROP TABLE IF EXISTS stg_final_annualised_means_fy;
+
+CREATE TABLE stg_final_annualised_means_fy AS
+WITH cleaned_readings AS (
+    SELECT 
+        site_id,
+        date_time,
+        EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE 
+            WHEN EXTRACT(MONTH FROM date_time) >= 4 
+            THEN EXTRACT(YEAR FROM date_time)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) + 1 - 2000)::text, 2, '0')
+            ELSE (EXTRACT(YEAR FROM date_time) - 1)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) - 2000)::text, 2, '0')
+        END AS fiscal_year,
+        CASE WHEN no2 < -1.0 THEN NULL ELSE no2 END AS no2_diagnosed
+    FROM no2_readings
+),
+monthly_data AS (
+    SELECT 
+        site_id,
+        fiscal_year,
+        reading_month,
+        AVG(no2_diagnosed) AS monthly_mean
+    FROM cleaned_readings
+    GROUP BY site_id, fiscal_year, reading_month
+),
+ratios AS (
+    SELECT 
+        m.site_id AS target_site_id,
+        m.fiscal_year,
+        AVG(t_mo.monthly_mean) AS target_period_mean,
+        AVG(ref_mo.monthly_mean) AS ref_period_mean
+    FROM stg_site_yearly_metrics_fy m
+    JOIN stg_reference_mapping_fy map ON m.site_id = map.site_id AND m.fiscal_year = map.fiscal_year
+    JOIN monthly_data t_mo ON m.site_id = t_mo.site_id AND m.fiscal_year = t_mo.fiscal_year
+    JOIN monthly_data ref_mo ON map.assigned_reference_site_id = ref_mo.site_id AND map.fiscal_year = ref_mo.fiscal_year AND t_mo.reading_month = ref_mo.reading_month
+    WHERE t_mo.monthly_mean IS NOT NULL AND ref_mo.monthly_mean IS NOT NULL
+    GROUP BY m.site_id, m.fiscal_year
+),
+full_ref_avgs AS (
+    SELECT 
+        map.site_id AS target_site_id,
+        map.fiscal_year,
+        AVG(ref_mo.monthly_mean) AS ref_full_year_mean
+    FROM stg_reference_mapping_fy map
+    JOIN monthly_data ref_mo ON map.assigned_reference_site_id = ref_mo.site_id AND map.fiscal_year = ref_mo.fiscal_year
+    GROUP BY map.site_id, map.fiscal_year
+)
+SELECT 
+    m.site_id,
+    m.site_name,
+    m.fiscal_year,
+    m.valid_months_count,
+    m.laqm_annual_mean_status,
+    map.assigned_reference_site_id,
+    ROUND(
+        (
+            CASE 
+                WHEN m.valid_months_count >= 9 THEN m.raw_direct_mean
+                WHEN m.valid_months_count BETWEEN 3 AND 8 AND r.ref_period_mean > 0 THEN 
+                    m.raw_direct_mean * (f.ref_full_year_mean / r.ref_period_mean)
+                ELSE NULL 
+            END
+        )::numeric, 2
+    ) AS final_annualised_mean
+FROM stg_site_yearly_metrics_fy m
+LEFT JOIN stg_reference_mapping_fy map ON m.site_id = map.site_id AND m.fiscal_year = map.fiscal_year
+LEFT JOIN ratios r ON m.site_id = r.target_site_id AND m.fiscal_year = r.fiscal_year
+LEFT JOIN full_ref_avgs f ON m.site_id = f.target_site_id AND m.fiscal_year = f.fiscal_year;
 
