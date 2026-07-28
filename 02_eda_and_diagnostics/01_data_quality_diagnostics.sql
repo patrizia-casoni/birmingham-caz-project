@@ -5,9 +5,9 @@
   Contains comprehensive diagnostic assertions across all project tables:
     - Section 1: Monitoring Sites Metadata (monitoring_sites)
     - Section 2: NO2 Time-Series Readings (no2_readings)
-    - Section 3: 
+    - Section 3: Traffic & Hospital Admissions Quality Diagnostics
+    - Section 4: PostGIS Spatial Reference & Tier Classification Diagnostics
 *******************************************************************************/
-
 
 -- =============================================================================
 -- SECTION 1: MONITORING SITES METADATA TABLE (monitoring_sites)

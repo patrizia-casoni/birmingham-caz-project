@@ -64,3 +64,44 @@ SELECT
 FROM caz_traffic_compliance
 GROUP BY EXTRACT(YEAR FROM date)
 ORDER BY year ASC;
+
+
+--------------------------------------------------------------------------------
+-- Master Table Creation: Birmingham Clean Air Zone (CAZ) & Respiratory Health
+-- Description: Aggregates hospital admissions by CAZ tier and fiscal year, 
+--              calculates standardized rates for COPD and respiratory diseases,
+--              and computes Year-over-Year (YoY) percentage changes.
+--------------------------------------------------------------------------------
+
+CREATE TABLE caz_respiratory_master AS
+WITH aggregated_admissions AS (
+    -- Step 1: Aggregate annual hospital admission rates per CAZ tier and fiscal year
+    SELECT 
+        w.caz_tier,
+        h.fiscal_year,
+        ROUND(AVG(CASE WHEN h.health_condition ILIKE '%copd%' THEN h.standardised_rate END)::numeric, 2) AS avg_copd_standardised_rate,
+        ROUND(AVG(CASE WHEN h.health_condition ILIKE '%respiratory%' THEN h.standardised_rate END)::numeric, 2) AS avg_respiratory_standardised_rate,
+        COUNT(DISTINCT w.area_name) AS ward_count
+    FROM wards_metadata AS w
+    JOIN birmingham_hospital_admissions AS h 
+    ON w.area_code = h.area_code
+    GROUP BY w.caz_tier, h.fiscal_year
+)
+-- Step 2: Apply window functions to calculate YoY percentage change per tier
+SELECT 
+    caz_tier,
+    fiscal_year,
+    avg_copd_standardised_rate,
+    ROUND(
+        ((avg_copd_standardised_rate - LAG(avg_copd_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year)) 
+        / NULLIF(LAG(avg_copd_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year), 0)) * 100, 
+        2
+    ) AS copd_yoy_pct_change,
+    avg_respiratory_standardised_rate,
+    ROUND(
+        ((avg_respiratory_standardised_rate - LAG(avg_respiratory_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year)) 
+        / NULLIF(LAG(avg_respiratory_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year), 0)) * 100, 
+        2
+    ) AS respiratory_yoy_pct_change,
+    ward_count
+FROM aggregated_admissions;

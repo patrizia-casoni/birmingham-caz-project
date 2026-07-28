@@ -169,3 +169,6 @@ FROM stg_site_yearly_metrics m
 LEFT JOIN stg_reference_mapping map ON m.site_id = map.site_id AND m.reading_year = map.reading_year
 LEFT JOIN ratios r ON m.site_id = r.target_site_id AND m.reading_year = r.reading_year
 LEFT JOIN full_ref_avgs f ON m.site_id = f.target_site_id AND m.reading_year = f.reading_year;
+
+
+
