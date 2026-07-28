@@ -28,3 +28,39 @@ FROM
 ORDER BY 
     fam.site_id, 
     fam.reading_year;
+
+--------------------------------------------------------------------------------
+-- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
+-- PURPOSE: Aggregates yearly traffic volumes, calculates baseline absolute variances 
+--          from 2022, and computes a Weighted Fleet Pollution Load Index to 
+--          evaluate whether traffic growth offsets vehicle compliance gains.
+-- TARGET: Output table optimized for direct ingestion into Tableau for dual-axis 
+--          air quality (NO2) correlation analysis.
+--------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS analytics_yearly_traffic_summary;
+
+CREATE TABLE analytics_yearly_traffic_summary AS
+SELECT 
+    EXTRACT(YEAR FROM date) AS year,
+    SUM(compliant_vehicles) AS total_compliant_vehicles,
+    SUM(noncompliant_vehicles) AS total_non_compliant_vehicles,
+    SUM(total_vehicles) AS total_caz_vehicles,
+    ROUND(
+        (SUM(noncompliant_vehicles)::NUMERIC / NULLIF(SUM(total_vehicles), 0)::NUMERIC) * 100, 2
+    ) AS overall_non_compliant_pct,
+    
+    -- Absolute change vs 2022 baseline (Polluting vehicles)
+    SUM(noncompliant_vehicles) - SUM(SUM(CASE WHEN EXTRACT(YEAR FROM date) = 2022 THEN noncompliant_vehicles END)) OVER () AS absolute_change_vs_2022_polluters,
+    
+    -- Absolute change vs 2022 baseline (Clean/Compliant vehicles)
+    SUM(compliant_vehicles) - SUM(SUM(CASE WHEN EXTRACT(YEAR FROM date) = 2022 THEN compliant_vehicles END)) OVER () AS absolute_change_vs_2022_clean,
+    
+    -- Weighted Pollution Load Index: 
+    -- Note: Accounts for the reality that compliant vehicles are not zero-emission, 
+    -- assigning a 25% (0.25) baseline pollution weighting relative to gross non-compliant polluters.
+    SUM(noncompliant_vehicles) + (SUM(compliant_vehicles) * 0.25) AS estimated_total_pollution_load
+
+FROM caz_traffic_compliance
+GROUP BY EXTRACT(YEAR FROM date)
+ORDER BY year ASC;
