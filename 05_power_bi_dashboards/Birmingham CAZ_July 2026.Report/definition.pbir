@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Birmingham CAZ_July 2026.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

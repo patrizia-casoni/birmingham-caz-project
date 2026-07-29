@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Birmingham CAZ_July 2026"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "314ed303-e236-4b27-96b1-f04205aa67da"
+  }
+}

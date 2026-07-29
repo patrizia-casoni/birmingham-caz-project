@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 21.489376223069389,
+        "y": 126.40809188416846
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 434.01234136206438,
+            "y": 0
+          },
+          "nodeIndex": "public analytics_site_yearly_summary",
+          "nodeLineageTag": "c15da455-061a-4e75-9312-a449f8f1c544",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 669.20734668686237
+          },
+          "nodeIndex": "public analytics_yearly_traffic_summary",
+          "nodeLineageTag": "ba4626b4-f14d-48b7-ab6b-59add70afbcc",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1319.4679069581325,
+            "y": 570.85134291544568
+          },
+          "nodeIndex": "public caz_polygon",
+          "nodeLineageTag": "2e20da6c-f9fa-4b30-84dc-7024c848ce03",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 924.01038690108749,
+            "y": 594.89097710075134
+          },
+          "nodeIndex": "public caz_respiratory_master",
+          "nodeLineageTag": "97d50ab2-8809-482f-810f-aa3c6ae893aa",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 811.69613871253625,
+            "y": 408.55544284820718
+          },
+          "nodeIndex": "public dim_caz_tiers",
+          "nodeLineageTag": "e5abd806-e6cf-4dfb-b885-36d24e73e47e",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 168.71640322528219,
+            "y": 376.61547005750111
+          },
+          "nodeIndex": "public dim_years",
+          "nodeLineageTag": "7e977f45-bf77-4c61-aea1-ad8f6a974a72",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 573.26564702739984,
+            "y": 388.59187662936131
+          },
+          "nodeIndex": "public monitoring_sites",
+          "nodeLineageTag": "d4bd457c-63df-4427-8874-14c14fa2820b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 330.4366631078293,
+            "y": 1105.7992233162238
+          },
+          "nodeIndex": "public wards_metadata",
+          "nodeLineageTag": "dd386b6a-6b78-4e18-8e72-35b824fe0db4",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 4
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 63.287087723234059,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
