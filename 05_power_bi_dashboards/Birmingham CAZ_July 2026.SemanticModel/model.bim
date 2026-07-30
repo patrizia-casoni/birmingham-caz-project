@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public caz_polygon\",\"public wards_metadata\",\"Errors in public monitoring_sites\",\"Errors in public caz_polygon\",\"Errors in public wards_metadata\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public wards_metadata\",\"Errors in public monitoring_sites\",\"Errors in public wards_metadata\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -70,40 +70,6 @@
         ],
         "kind": "m",
         "lineageTag": "23d063d5-e3e0-4dff-a1c0-e6a4389ea026",
-        "queryGroup": "Query Errors - 29/07/2026 17:48:32"
-      },
-      {
-        "name": "Errors in public caz_polygon",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "expression": [
-          "let",
-          "Source = #\"public caz_polygon\",",
-          "  #\"Detected Type Mismatches\" = let",
-          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),",
-          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),",
-          "    fieldNames = Record.FieldNames(recordTypeFields),",
-          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),",
-          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})",
-          "in",
-          "    Table.TransformColumns(Source, pairs),",
-          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),",
-          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"id\", \"name\", \"geom\"}),",
-          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"id\", \"name\", \"geom\"}),",
-          "    #\"Removed Columns\" = Table.RemoveColumns(#\"Reordered Columns\",{\"geom\"})",
-          "in",
-          "  #\"Removed Columns\""
-        ],
-        "kind": "m",
-        "lineageTag": "87188c5e-9a1e-4fa8-82d1-04eb907b9784",
         "queryGroup": "Query Errors - 29/07/2026 17:48:32"
       },
       {
@@ -1629,74 +1595,6 @@
           }
         ],
         "showAsVariationsOnly": true
-      },
-      {
-        "name": "public caz_polygon",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "95afc2cf-3122-4d67-b6ed-698d9240913a",
-            "sourceColumn": "id",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "09d7df39-be7c-46a5-8a11-8cec5ad8903a",
-            "sourceColumn": "name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "geom",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "fa045bbe-5703-4177-a2c2-9e82f6893a56",
-            "sourceColumn": "geom",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "2e20da6c-f9fa-4b30-84dc-7024c848ce03",
-        "partitions": [
-          {
-            "name": "public caz_polygon",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
-                "    public_caz_polygon = Source{[Schema=\"public\",Item=\"caz_polygon\"]}[Data]",
-                "in",
-                "    public_caz_polygon"
-              ],
-              "type": "m"
-            }
-          }
-        ]
       },
       {
         "name": "public wards_metadata",

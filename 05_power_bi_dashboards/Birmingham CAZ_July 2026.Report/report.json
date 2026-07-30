@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.57\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.57\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
   "resourcePackages": [
     {
@@ -10,6 +10,11 @@
             "name": "CY24SU08",
             "path": "BaseThemes/CY24SU08.json",
             "type": 202
+          },
+          {
+            "name": "usa.states.topo",
+            "path": "Shapemaps/usa.states.topo.json",
+            "type": 200
           }
         ],
         "name": "SharedResources",
@@ -25,7 +30,17 @@
       "filters": "[]",
       "height": 720.00,
       "name": "ffe6a72993b7cecd000e",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"122ac755e6bbe4555775\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.605521030503024,\"y\":0,\"z\":0,\"width\":1071.701703546123,\"height\":568.0979580897503,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shapeMap\",\"projections\":{\"Category\":[{\"queryRef\":\"public caz_polygon.name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public caz_polygon\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"name\"},\"Name\":\"public caz_polygon.name\",\"NativeReferenceName\":\"name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"map\":{\"geoJson\":{\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'shared'\"}}},\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'usa.states.topo'\"}}},\"content\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"ShapeMap\",\"PackageType\":2,\"ItemName\":\"usa.states.topo\"}}}}},\"projectionEnum\":{\"expr\":{\"Literal\":{\"Value\":\"'albersUsa'\"}}}}}],\"dataPoint\":[{\"properties\":{\"fillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'minColor'\"}}}},\"max\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'maxColor'\"}}}},\"nullColoringStrategy\":{\"strategy\":{\"expr\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 568.10,
+          "width": 1071.70,
+          "x": 9.61,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
