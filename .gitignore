@@ -1,7 +1,2 @@
-# Ignore all raw data files
-*.xlsx
-
-# Ignore temporary DBeaver files
-.dbeaver/
-
-scratchpad.sql
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

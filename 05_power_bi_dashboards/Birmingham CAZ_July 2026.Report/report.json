@@ -1,6 +1,16 @@
 {
   "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.57\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "ffe6a72993b7cecd000e",
+      "config": "{\"acceptsFilterContext\":1}",
+      "name": "2bd91fbe173ea00e0609"
+    }
+  ],
+  "publicCustomVisuals": [
+    "iconMapProE938B1CED4834168A55864E1F8E7242E"
+  ],
   "resourcePackages": [
     {
       "resourcePackage": {
@@ -10,11 +20,6 @@
             "name": "CY24SU08",
             "path": "BaseThemes/CY24SU08.json",
             "type": 202
-          },
-          {
-            "name": "usa.states.topo",
-            "path": "Shapemaps/usa.states.topo.json",
-            "type": 200
           }
         ],
         "name": "SharedResources",
@@ -32,11 +37,11 @@
       "name": "ffe6a72993b7cecd000e",
       "visualContainers": [
         {
-          "config": "{\"name\":\"122ac755e6bbe4555775\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.605521030503024,\"y\":0,\"z\":0,\"width\":1071.701703546123,\"height\":568.0979580897503,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shapeMap\",\"projections\":{\"Category\":[{\"queryRef\":\"public caz_polygon.name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public caz_polygon\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"name\"},\"Name\":\"public caz_polygon.name\",\"NativeReferenceName\":\"name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"map\":{\"geoJson\":{\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'shared'\"}}},\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'usa.states.topo'\"}}},\"content\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"ShapeMap\",\"PackageType\":2,\"ItemName\":\"usa.states.topo\"}}}}},\"projectionEnum\":{\"expr\":{\"Literal\":{\"Value\":\"'albersUsa'\"}}}}}],\"dataPoint\":[{\"properties\":{\"fillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'minColor'\"}}}},\"max\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'maxColor'\"}}}},\"nullColoringStrategy\":{\"strategy\":{\"expr\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}}]}}}",
+          "config": "{\"name\":\"050d5d279b81dda80ec3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.469774150554125,\"y\":0,\"z\":0,\"width\":1220.4765295503094,\"height\":655.1087254203867,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"iconMapProE938B1CED4834168A55864E1F8E7242E\",\"projections\":{\"category\":[{\"queryRef\":\"map_caz tiers and sites.map_id\",\"active\":true}],\"Latitude\":[{\"queryRef\":\"Avg(map_caz tiers and sites.latitude)\"}],\"Longitude\":[{\"queryRef\":\"Avg(map_caz tiers and sites.longitude)\"}],\"Size\":[{\"queryRef\":\"CountNonNull(map_caz tiers and sites.circle_size)\"}],\"imageWKT\":[{\"queryRef\":\"Min(map_caz tiers and sites.wkt_geometry)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"map_caz tiers and sites\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"map_id\"},\"Name\":\"map_caz tiers and sites.map_id\",\"NativeReferenceName\":\"map_id\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"latitude\"}},\"Function\":1},\"Name\":\"Avg(map_caz tiers and sites.latitude)\",\"NativeReferenceName\":\"Average of latitude\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"longitude\"}},\"Function\":1},\"Name\":\"Avg(map_caz tiers and sites.longitude)\",\"NativeReferenceName\":\"Average of longitude\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"circle_size\"}},\"Function\":5},\"Name\":\"CountNonNull(map_caz tiers and sites.circle_size)\",\"NativeReferenceName\":\"Count of circle_size\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"wkt_geometry\"}},\"Function\":3},\"Name\":\"Min(map_caz tiers and sites.wkt_geometry)\",\"NativeReferenceName\":\"First wkt_geometry\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"longitude\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"iconMapProVersion\":[{\"properties\":{\"apikey\":{\"expr\":{\"Literal\":{\"Value\":\"'d3d77a3c-e77b-4474-b726-0041db4fdab3'\"}}},\"optOutTracking\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"optInDetailedTracking\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"customerReference\":{\"expr\":{\"Literal\":{\"Value\":\"''\"}}},\"instanceID\":{\"expr\":{\"Literal\":{\"Value\":\"'d7589bf9-6e66-4afd-8bd0-81456bbeb1ec'\"}}},\"version\":{\"expr\":{\"Literal\":{\"Value\":\"'baafa3dd-2143-4bc4-a579-4b7d0f16f81f'\"}}},\"debug\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"wktConfiguration\":[{\"properties\":{\"includeWktLayer\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"circlesFormatting\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}],\"wktFormatting\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.6}}}}}}}]}}}",
           "filters": "[]",
-          "height": 568.10,
-          "width": 1071.70,
-          "x": 9.61,
+          "height": 655.11,
+          "width": 1220.48,
+          "x": 10.47,
           "y": 0.00,
           "z": 0.00
         }

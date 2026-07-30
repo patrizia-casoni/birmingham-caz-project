@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public wards_metadata\",\"Errors in public monitoring_sites\",\"Errors in public wards_metadata\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public wards_metadata\",\"map_polygons\",\"map_sites\",\"map_caz tiers and sites\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -37,76 +37,6 @@
       "returnErrorValuesAsNull": true
     },
     "defaultPowerBIDataSourceVersion": "powerBI_V3",
-    "expressions": [
-      {
-        "name": "Errors in public monitoring_sites",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "expression": [
-          "let",
-          "Source = #\"public monitoring_sites\",",
-          "  #\"Detected Type Mismatches\" = let",
-          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),",
-          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),",
-          "    fieldNames = Record.FieldNames(recordTypeFields),",
-          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),",
-          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})",
-          "in",
-          "    Table.TransformColumns(Source, pairs),",
-          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),",
-          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"site_id\", \"site_name\", \"site_type\", \"latitude\", \"longitude\", \"data_source\", \"start_date\", \"end_date\", \"geom_27700\", \"caz_tier\", \"distance_to_caz_metres\", \"public.analytics_site_yearly_summary\", \"public.dim_caz_tiers\", \"public.no2_readings\"}),",
-          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"site_id\", \"site_name\", \"site_type\", \"latitude\", \"longitude\", \"data_source\", \"start_date\", \"end_date\", \"geom_27700\", \"caz_tier\", \"distance_to_caz_metres\", \"public.analytics_site_yearly_summary\", \"public.dim_caz_tiers\", \"public.no2_readings\"}),",
-          "    #\"Removed Columns\" = Table.RemoveColumns(#\"Reordered Columns\",{\"geom_27700\"})",
-          "in",
-          "  #\"Removed Columns\""
-        ],
-        "kind": "m",
-        "lineageTag": "23d063d5-e3e0-4dff-a1c0-e6a4389ea026",
-        "queryGroup": "Query Errors - 29/07/2026 17:48:32"
-      },
-      {
-        "name": "Errors in public wards_metadata",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "expression": [
-          "let",
-          "Source = #\"public wards_metadata\",",
-          "  #\"Detected Type Mismatches\" = let",
-          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),",
-          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),",
-          "    fieldNames = Record.FieldNames(recordTypeFields),",
-          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),",
-          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})",
-          "in",
-          "    Table.TransformColumns(Source, pairs),",
-          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),",
-          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"area_code\", \"area_name\", \"latitude\", \"longitude\", \"geom_27700\", \"caz_tier\", \"distance_to_caz_metres\", \"public.birmingham_hospital_admissions\", \"public.dim_caz_tiers\"}),",
-          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"area_code\", \"area_name\", \"latitude\", \"longitude\", \"geom_27700\", \"caz_tier\", \"distance_to_caz_metres\", \"public.birmingham_hospital_admissions\", \"public.dim_caz_tiers\"}),",
-          "    #\"Removed Columns\" = Table.RemoveColumns(#\"Reordered Columns\",{\"geom_27700\"})",
-          "in",
-          "  #\"Removed Columns\""
-        ],
-        "kind": "m",
-        "lineageTag": "b500d812-cde5-46a6-aa39-ebd729c92814",
-        "queryGroup": "Query Errors - 29/07/2026 17:48:32"
-      }
-    ],
     "queryGroups": [
       {
         "annotations": [
@@ -222,6 +152,22 @@
         "fromTable": "public caz_respiratory_master",
         "toColumn": "fiscal_year",
         "toTable": "public dim_years"
+      },
+      {
+        "name": "ed273de3-bcdc-495c-9b4a-fe5822fd2dd3",
+        "fromColumn": "start_date",
+        "fromTable": "map_sites",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_a0f7930b-59ab-4c1f-9ad6-849e5d04188c"
+      },
+      {
+        "name": "4a0924d8-a843-49a8-9f2b-7085d7aed43e",
+        "fromColumn": "end_date",
+        "fromTable": "map_sites",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_6c4a52f9-7902-4db7-bb5f-9cbfecb231f3"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -232,6 +178,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -247,6 +197,19 @@
             "lineageTag": "ca14e7fc-b85f-46a7-a490-d3e07bb4c2bc",
             "sourceColumn": "caz_tier",
             "summarizeBy": "none"
+          },
+          {
+            "name": "geom",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "da23f724-3653-4900-8b7e-f8aff956faa5",
+            "sourceColumn": "geom",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "e5abd806-e6cf-4dfb-b885-36d24e73e47e",
@@ -257,10 +220,9 @@
             "source": {
               "expression": [
                 "let",
-                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
-                "    public_dim_caz_tiers = Source{[Schema=\"public\",Item=\"dim_caz_tiers\"]}[Data]",
+                "    Source = Value.NativeQuery(PostgreSQL.Database(\"localhost:5432\", \"postgres\"), \"SELECT #(lf)    caz_tier, #(lf)    ST_AsText(ST_Transform(ST_Simplify(geom, 0.0005), 4326)) AS geom #(lf)FROM public.dim_caz_tiers\", null, [EnableFolding=true])",
                 "in",
-                "    public_dim_caz_tiers"
+                "    Source"
               ],
               "type": "m"
             }
@@ -975,6 +937,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -1123,19 +1089,6 @@
             ]
           },
           {
-            "name": "geom_27700",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "60739bdc-26a9-4657-a4ed-e4794fc540cb",
-            "sourceColumn": "geom_27700",
-            "summarizeBy": "none"
-          },
-          {
             "name": "caz_tier",
             "annotations": [
               {
@@ -1167,6 +1120,14 @@
           }
         ],
         "lineageTag": "d4bd457c-63df-4427-8874-14c14fa2820b",
+        "measures": [
+          {
+            "name": "Fixed Circle Size",
+            "expression": "10",
+            "formatString": "0",
+            "lineageTag": "f18e0041-6e79-4f10-b3e9-f0d8bc4cad43"
+          }
+        ],
         "partitions": [
           {
             "name": "public monitoring_sites",
@@ -1175,9 +1136,10 @@
               "expression": [
                 "let",
                 "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
-                "    public_monitoring_sites = Source{[Schema=\"public\",Item=\"monitoring_sites\"]}[Data]",
+                "    public_monitoring_sites = Source{[Schema=\"public\",Item=\"monitoring_sites\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(public_monitoring_sites,{\"geom_27700\"})",
                 "in",
-                "    public_monitoring_sites"
+                "    #\"Removed Columns\""
               ],
               "type": "m"
             }
@@ -1602,6 +1564,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -1666,19 +1632,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "geom_27700",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "1b93d8e2-0202-4eb7-9680-50bd627caf77",
-            "sourceColumn": "geom_27700",
-            "summarizeBy": "none"
-          },
-          {
             "name": "caz_tier",
             "annotations": [
               {
@@ -1718,9 +1671,904 @@
               "expression": [
                 "let",
                 "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
-                "    public_wards_metadata = Source{[Schema=\"public\",Item=\"wards_metadata\"]}[Data]",
+                "    public_wards_metadata = Source{[Schema=\"public\",Item=\"wards_metadata\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(public_wards_metadata,{\"geom_27700\"})",
                 "in",
-                "    public_wards_metadata"
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "map_polygons",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "caz_tier",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6730d633-a46a-4399-8013-266d7094bbda",
+            "sourceColumn": "caz_tier",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wkt_geometry",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8498df7e-dffd-402b-9b7b-b4adaced79f4",
+            "sourceColumn": "wkt_geometry",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "map_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f60a31a7-2d3b-4dc3-980f-7f6b6080a4fd",
+            "sourceColumn": "map_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Latitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "b4b922c0-852f-4c89-a8a5-74ca515b14f1",
+            "sourceColumn": "Latitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Longitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "0b0a8882-528f-4948-962f-1079d8e41e90",
+            "sourceColumn": "Longitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "circle_size",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f7676f48-0413-4637-a2f5-88989d6c40db",
+            "sourceColumn": "circle_size",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "d8d15ac6-c79e-4294-acd0-4c936e0a9573",
+        "partitions": [
+          {
+            "name": "map_polygons",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = #\"public dim_caz_tiers\",",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(Source, \"caz_tier\", \"caz_tier - Copy\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Duplicated Column\",{{\"caz_tier - Copy\", \"map_id\"}}),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Renamed Columns\",{{\"geom\", \"wkt_geometry\"}}),",
+                "    #\"Sorted Rows\" = Table.Sort(#\"Renamed Columns1\",{{\"map_id\", Order.Ascending}}),",
+                "    #\"Added Latitude\" = Table.AddColumn(#\"Sorted Rows\", \"Latitude\", each null, type nullable number),",
+                "    #\"Added Longitude\" = Table.AddColumn(#\"Added Latitude\", \"Longitude\", each null, type nullable number),",
+                "    #\"Added Custom\" = Table.AddColumn(#\"Added Longitude\", \"circle_size\", each null, Int64.Type)",
+                "in",
+                "    #\"Added Custom\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "map_sites",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "site_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "caa27da9-0881-44a9-9d6f-e9d2fc548d01",
+            "sourceColumn": "site_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "site_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2b11a6ab-acd2-4996-beb0-5c28590ede87",
+            "sourceColumn": "site_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "site_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "52edc251-8c91-4736-b3a8-2b0c015b93c5",
+            "sourceColumn": "site_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "70819cea-0589-4ad7-ab63-e1a4de9cdd09",
+            "sourceColumn": "latitude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "longitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "6672cf52-f207-418f-b292-03c2b3523450",
+            "sourceColumn": "longitude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "data_source",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "146ab798-d571-46d2-afc7-bce2a7fc9896",
+            "sourceColumn": "data_source",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "start_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "8f471762-b660-477d-9665-d991c52d9e3d",
+            "sourceColumn": "start_date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_a0f7930b-59ab-4c1f-9ad6-849e5d04188c"
+                },
+                "isDefault": true,
+                "relationship": "ed273de3-bcdc-495c-9b4a-fe5822fd2dd3"
+              }
+            ]
+          },
+          {
+            "name": "end_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "65ff8178-0bab-47cb-8781-c083c1e44f18",
+            "sourceColumn": "end_date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_6c4a52f9-7902-4db7-bb5f-9cbfecb231f3"
+                },
+                "isDefault": true,
+                "relationship": "4a0924d8-a843-49a8-9f2b-7085d7aed43e"
+              }
+            ]
+          },
+          {
+            "name": "caz_tier",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f4b1f56d-e06d-4b88-9067-128aa5eaf3f7",
+            "sourceColumn": "caz_tier",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "distance_to_caz_metres",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "bfeade41-e893-4090-9aa4-e698fe164122",
+            "sourceColumn": "distance_to_caz_metres",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "map_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "24a372ed-ba4e-4b35-b4fa-d8981ca6062a",
+            "sourceColumn": "map_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wkt_geometry",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a0be0a21-eb0e-4281-b47c-67635ccdf87a",
+            "sourceColumn": "wkt_geometry",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "circle_size",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "8c866fd6-1e69-4f82-b9e2-e0c2c73b405a",
+            "sourceColumn": "circle_size",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "e01e692e-ce5f-4241-96e3-b57088b5853c",
+        "partitions": [
+          {
+            "name": "map_sites",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = #\"public monitoring_sites\",",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(Source, \"site_id\", \"site_id - Copy\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Duplicated Column\",{{\"site_id - Copy\", \"map_id\"}}),",
+                "    #\"Added WKT Geometry\" = Table.AddColumn(#\"Renamed Columns\", \"wkt_geometry\", each null, type nullable text),",
+                "    #\"Added Circle Size\" = Table.AddColumn(#\"Added WKT Geometry\", \"circle_size\", each 10, Int64.Type)",
+                "in",
+                "    #\"Added Circle Size\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_a0f7930b-59ab-4c1f-9ad6-849e5d04188c",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "5394d27e-5bbd-49d7-b716-6050825813e1",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "c22dce4a-41b1-4e6e-9fd5-a46a3aa281b4",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "7d5670fe-a443-461a-ba8a-bd74a5dc21cd",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "db2ea95c-d99a-4a87-abf8-ba8275da8bb7",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "9a10a93e-a25d-4477-b498-bcfe52794b48",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "86b1a842-5bd7-4350-93c6-f2a115a031ba",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "0b510c02-a33d-4d25-b2d7-1f95c6840b34",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "41bc73c6-971f-498c-b51c-cc2821ee1a48",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "d5603edb-14c5-4b1e-af8b-33a823e68933",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "7f20631b-5e15-4868-a19b-7fbf653f5c3d",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "da619a81-2f15-4dad-bcce-adde3fef3a7b",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "2da29f03-bdd3-4b63-ad61-f548c5f56935"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "13b1428d-1c85-4e40-9eb1-fc565b30fe8b",
+        "partitions": [
+          {
+            "name": "LocalDateTable_a0f7930b-59ab-4c1f-9ad6-849e5d04188c",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('map_sites'[start_date])), 1, 1), Date(Year(MAX('map_sites'[start_date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_6c4a52f9-7902-4db7-bb5f-9cbfecb231f3",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "a4a94180-1f16-4637-b315-45c2c9b0b901",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ca48fb5f-4d7c-4a0d-8ab1-0250239c76bf",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "77a4dae0-36e2-4665-aaa9-c58bb3badab9",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "ace8f3e1-fa6f-45d8-aad3-27492cf9fa4d",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "fb46ce2f-2abe-411b-b087-5966509a9b74",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "5e32280e-7889-4c57-9444-a9bc2faab1a0",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "c0b73b48-8f3c-44a8-87b2-01eab51e22ac",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "3ea2d2a3-c92d-48da-83b0-e0ac5da1b60f",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "dd003310-4cf7-410d-b5d6-56b3265cf836",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "2008d17d-38c0-4543-bbcc-1d71ce1f0c5a",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "67e19c7f-ca5b-4741-8783-d76eb8db88b1",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "2e380973-45e4-4da1-b613-e8880ae5499a"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "90f9b1b3-2414-4dc8-b037-082f079853c9",
+        "partitions": [
+          {
+            "name": "LocalDateTable_6c4a52f9-7902-4db7-bb5f-9cbfecb231f3",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('map_sites'[end_date])), 1, 1), Date(Year(MAX('map_sites'[end_date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "map_caz tiers and sites",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "longitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataCategory": "Longitude",
+            "dataType": "double",
+            "lineageTag": "1ee3c045-77ab-42ef-ba1d-af7ccc3fe071",
+            "sourceColumn": "longitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataCategory": "Latitude",
+            "dataType": "double",
+            "lineageTag": "adb0b135-a283-4335-b175-e0254a4bb431",
+            "sourceColumn": "latitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wkt_geometry",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "734953f8-6062-4af2-98e0-c5418bca6c23",
+            "sourceColumn": "wkt_geometry",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "map_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6286f740-aae1-4381-af9b-1c457e56c204",
+            "sourceColumn": "map_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "circle_size",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "509c7903-72e0-4104-8d98-d6ce70510782",
+            "sourceColumn": "circle_size",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "419d2bb3-6edb-445b-a2a4-de4a7b6a1d60",
+        "partitions": [
+          {
+            "name": "map_caz tiers and sites",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.Combine({map_sites, map_polygons}),",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(Source,{\"longitude\", \"latitude\", \"wkt_geometry\", \"map_id\", \"circle_size\"})",
+                "in",
+                "    #\"Removed Other Columns\""
               ],
               "type": "m"
             }
