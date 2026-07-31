@@ -194,3 +194,83 @@ FROM
 LEFT JOIN 
     birmingham_wards w 
     ON m.area_code = w."WD23CD";
+
+
+/* =================================================================================================
+VIEW NAME: public.vw_caz_and_sites_map
+PURPOSE:   Provides a unified, single-layer spatial dataset for Power BI (Icon Map Pro).
+
+RATIONALE & ARCHITECTURE:
+1. The "Roche's Maxim" Approach: 
+   Instead of appending disparate spatial datasets inside Power Query (which can degrade model 
+   refresh performance), we transform and stack the data upstream in PostgreSQL using a UNION ALL.
+
+2. Polymorphic Dimension:
+   This view acts as a single dimension table in the Power BI Star Schema. Because 'map_id' holds 
+   both CAZ Tier IDs and Site IDs, it can independently filter multiple fact tables (e.g., NO2 
+   Readings, Respiratory Admissions) depending on which map element the user clicks.
+
+3. Icon Map Pro & WKT (Well-Known Text):
+   To render both Polygons (CAZ boundaries) and Points (Monitoring sites) on the same map layer, 
+   Icon Map Pro requires a WKT text string. 
+   - Polygons are generated natively from the PostGIS 'geom' column.
+   - Points are manually concatenated into a 'POINT(X Y)' string.
+
+4. Bypassing Power BI Limits (The 32k Character Rule):
+   Power BI strictly limits text cells to 32,766 characters. Complex polygons with 14-decimal-place 
+   precision will exceed this limit, causing the map visual to break or render blanks. 
+   We apply ST_Simplify() to reduce vertex count and force ST_AsText() to round to 5 decimal places.
+
+5. Retaining Raw Coordinates:
+   While the 'wkt_geometry' column drives the visual rendering, raw Latitude and Longitude columns 
+   are retained as NUMERIC data types to support human-readable tooltips and future DAX calculations.
+================================================================================================= */
+
+CREATE OR REPLACE VIEW vw_caz_and_sites_map AS 
+
+-- ==========================================
+-- LAYER 1: The CAZ Tiers (Polygons)
+-- ==========================================
+SELECT 
+    caz_tier::TEXT AS map_id,
+    'CAZ Tier ' || caz_tier AS map_label,
+    
+    -- SPATIAL FIX: Simplifies the geometry to reduce vertices and rounds to 5 decimal places 
+    -- to prevent exceeding Power BI's 32k character limit.
+    ST_AsText(ST_Simplify(geom, 0.0001), 5) AS wkt_geometry, 
+    
+    'CAZ Boundary' AS layer_type,
+    caz_tier,
+    NULL::TEXT AS site_type,
+    NULL::NUMERIC AS latitude,
+    NULL::NUMERIC AS longitude,
+    NULL::TEXT AS data_source,
+    NULL::DATE AS start_date,
+    NULL::DATE AS end_date,
+    NULL::NUMERIC AS distance_to_caz_metres
+FROM 
+    dim_caz_tiers
+
+UNION ALL
+
+-- ==========================================
+-- LAYER 2: Monitoring Sites (Points)
+-- ==========================================
+SELECT 
+    site_id::TEXT AS map_id,                   
+    site_name AS map_label, 
+    
+    -- SPATIAL FIX: Manually constructs the WKT Point string from raw coordinates.                  
+    'POINT(' || longitude || ' ' || latitude || ')' AS wkt_geometry, 
+    
+    'Monitoring Site' AS layer_type,           
+    caz_tier,                                  
+    site_type,                                 
+    latitude,                                  
+    longitude,                                 
+    data_source,                               
+    start_date,                                
+    end_date,                                  
+    distance_to_caz_metres                     
+FROM 
+    monitoring_sites;
