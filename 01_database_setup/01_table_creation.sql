@@ -258,3 +258,34 @@ SELECT
 FROM monitoring_sites
 LIMIT 1;
 );
+
+-- =========================================================================
+-- BIRMINGHAM WARD BOUNDARIES (69 WARDS) - TABLE SETUP & ETL DOCUMENTATION
+-- =========================================================================
+/*
+    PIPELINE DOCUMENTATION & WORKFLOW:
+    1. Source Data: ONS (Office for National Statistics) spatial boundary data 
+       for Birmingham, comprising exactly 69 wards using 'WD23NM' nomenclature.
+    2. Spatial Transformation (QGIS): 
+       - Downloaded the raw spatial data as a nested GeoJSON file.
+       - Processed the file in QGIS to flatten the geometry structures into a 
+         standardized Well-Known Text (WKT) format.
+       - Maintained the coordinate system as EPSG:4326 (WGS 84).
+       - Exported the output as a flat CSV containing the WKT geometry string 
+       - and associated ward metadata attributes (e.g., WD23CD, WD23NM, LAD23CD).
+    3. Database Ingestion (PostgreSQL / DBeaver):
+       - Imported the flat CSV into a dedicated relational table.
+       - Handled data type constraints by mapping the geometry column to 'TEXT' 
+         to prevent string data right truncation errors during ingestion.
+*/
+
+-- Create the flat relational table for Birmingham Wards spatial data
+CREATE TABLE IF NOT EXISTS birmingham_wards (
+    fid INTEGER,
+    wd23cd VARCHAR(20),
+    wd23nm VARCHAR(100) PRIMARY KEY,
+    wd23nmw VARCHAR(100),
+    lad23cd VARCHAR(20),
+    lad23nm VARCHAR(100),
+    wkt TEXT NOT NULL
+);
