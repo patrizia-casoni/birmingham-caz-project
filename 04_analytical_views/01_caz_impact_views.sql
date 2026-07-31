@@ -274,3 +274,91 @@ SELECT
     distance_to_caz_metres                     
 FROM 
     monitoring_sites;
+    
+    /* =================================================================================================
+VIEW NAME: public.vw_caz_and_wards_map
+PURPOSE:   Provides a unified spatial dataset for Power BI (Icon Map Pro) to render both 
+           CAZ boundaries and Ward polygons on a single map layer.
+
+RATIONALE & ARCHITECTURE:
+1. Polymorphic Dimension: 
+   Combines 'caz_tier' and 'area_code' into a single 'map_id' column to filter downstream 
+   fact tables from one map visual.
+2. 32k Limit Prevention (CAZ Tiers): 
+   Applies ST_Simplify and rounding to 5 decimal places to the raw 'geom' MULTIPOLYGON.
+3. 32k Limit Prevention (Wards): 
+   Because vw_dim_wards outputs an unsimplified WKT text string, we use ST_GeomFromText() 
+   to cast it back to a spatial object, simplify the vertices, and round the text output 
+   to 5 decimal places to prevent visual rendering failures in Power BI.
+================================================================================================= */
+
+/* =================================================================================================
+VIEW NAME: public.vw_caz_and_wards_map
+PURPOSE:   Provides a unified spatial dataset for Power BI (Icon Map Pro) to render both 
+           CAZ boundaries and Ward polygons on a single map layer.
+
+RATIONALE & ARCHITECTURE:
+1. Polymorphic Dimension: 
+   Combines 'caz_tier' and 'area_code' into a single 'map_id' column to filter downstream 
+   fact tables from one map visual.
+2. 32k Limit Prevention (CAZ Tiers): 
+   Applies ST_Simplify and rounding to 5 decimal places to the raw 'geom' MULTIPOLYGON.
+3. 32k Limit Prevention (Wards): 
+   Because vw_dim_wards outputs an unsimplified WKT text string, we use ST_GeomFromText() 
+   to cast it back to a spatial object, simplify the vertices, and round the text output 
+   to 5 decimal places to prevent visual rendering failures in Power BI.
+================================================================================================= */
+
+CREATE OR REPLACE VIEW public.vw_caz_and_wards_map AS 
+
+-- ==========================================
+-- LAYER 1: CAZ Tiers (Polygons)
+-- ==========================================
+SELECT 
+    -- 1. Unified Map Identifiers
+    caz_tier::TEXT AS map_id,
+    'CAZ Tier ' || caz_tier AS map_label, 
+    
+    -- 2. Spatial Output: Simplify the native MULTIPOLYGON and round to 5 decimals
+    ST_AsText(ST_Simplify(geom, 0.0001), 5) AS wkt_geometry, 
+    
+    -- 3. Layer Discriminator
+    'CAZ Boundary'::TEXT AS layer_type,
+    
+    -- 4. Attributes 
+    caz_tier::TEXT AS caz_tier,
+    NULL::TEXT AS area_code,
+    NULL::TEXT AS area_name,
+    NULL::NUMERIC AS distance_to_caz_metres,
+    NULL::NUMERIC AS latitude,
+    NULL::NUMERIC AS longitude
+
+FROM 
+    public.dim_caz_tiers
+
+UNION ALL
+
+-- ==========================================
+-- LAYER 2: Wards (Polygons)
+-- ==========================================
+SELECT 
+    -- 1. Unified Map Identifiers
+    area_code::TEXT AS map_id,
+    area_name::TEXT AS map_label,
+    
+    -- 2. Spatial Output: Parse the unrounded text back to geometry, simplify, and round
+    ST_AsText(ST_Simplify(ST_GeomFromText(wkt_geometry), 0.0001), 5) AS wkt_geometry, 
+    
+    -- 3. Layer Discriminator
+    'Ward Boundary'::TEXT AS layer_type,
+    
+    -- 4. Attributes
+    caz_tier::TEXT AS caz_tier,
+    area_code::TEXT AS area_code,
+    area_name::TEXT AS area_name,
+    distance_to_caz_metres::NUMERIC AS distance_to_caz_metres,
+    latitude::NUMERIC AS latitude,
+    longitude::NUMERIC AS longitude
+
+FROM 
+    public.vw_dim_wards;
