@@ -186,4 +186,6 @@ count(case when total_vehicles =0 then 1 end) as total_vehicles_zerovalues,
 count(distinct vehicle_type) as distinct_vehicle_types
 from caz_traffic_compliance;
 
+DROP TABLE IF EXISTS public.birmingham_wards;
+
 

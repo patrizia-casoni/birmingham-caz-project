@@ -147,3 +147,22 @@ SELECT
     ) AS respiratory_yoy_pct_change,
     ward_count
 FROM combined_metrics;
+
+--------------------------------------------------------------------------------
+-- VIEW: vw_hospital_wards_map
+-- DESCRIPTION: Formats the 69 Birmingham ward boundaries and WKT geometries 
+--              into a clean, standardized schema for direct ingestion and map 
+--              rendering in Power BI alongside CAZ tiers.
+--------------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_hospital_wards_map;
+
+CREATE VIEW vw_hospital_wards_map AS
+SELECT 
+    wd23cd AS ward_code,
+    wd23nm AS ward_name,
+    lad23nm AS local_authority,
+    wkt AS wkt_geometry,
+    'Hospital Ward Boundary' AS layer_type
+FROM 
+    birmingham_wards;
