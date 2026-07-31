@@ -166,3 +166,31 @@ SELECT
     'Hospital Ward Boundary' AS layer_type
 FROM 
     birmingham_wards;
+
+--------------------------------------------------------------------------------
+-- VIEW: vw_dim_wards
+-- DESCRIPTION: Denormalized dimension view combining ward metadata with 
+--              WKT (Well-Known Text) spatial boundaries from QGIS. 
+--              By flattening the 1-to-1 relationship into a single view, 
+--              this optimizes the Power BI Star Schema, avoids slow Power 
+--              Query merges, and seamlessly links to dim_caz_tiers.
+--------------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_hospital_wards_map; -- Cleans up your old view
+DROP VIEW IF EXISTS vw_dim_wards;
+
+CREATE VIEW vw_dim_wards AS 
+SELECT 
+    m.area_code,
+    m.area_name,
+    m.caz_tier,
+    m.distance_to_caz_metres,
+    m.latitude,
+    m.longitude,
+    w."WKT" AS wkt_geometry,
+    'Ward Boundary' AS layer_type
+FROM 
+    wards_metadata m
+LEFT JOIN 
+    birmingham_wards w 
+    ON m.area_code = w."WD23CD";

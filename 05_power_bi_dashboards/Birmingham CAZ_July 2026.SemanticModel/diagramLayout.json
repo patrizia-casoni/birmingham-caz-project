@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 707.88531455134319,
-        "y": 257.87250262161757
+        "x": 84.215727634757727,
+        "y": 0
       },
       "nodes": [
         {
@@ -19,7 +19,7 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 3
         },
         {
           "location": {
@@ -32,7 +32,7 @@
             "height": 272,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 4
         },
         {
           "location": {
@@ -76,8 +76,8 @@
         },
         {
           "location": {
-            "x": 573.26564702739984,
-            "y": 388.59187662936131
+            "x": 487.94018500558605,
+            "y": 404.39288811488234
           },
           "nodeIndex": "public monitoring_sites",
           "nodeLineageTag": "d4bd457c-63df-4427-8874-14c14fa2820b",
@@ -86,19 +86,6 @@
             "width": 235.98621991990626
           },
           "zIndex": 8
-        },
-        {
-          "location": {
-            "x": 330.4366631078293,
-            "y": 1105.7992233162238
-          },
-          "nodeIndex": "public wards_metadata",
-          "nodeLineageTag": "dd386b6a-6b78-4e18-8e72-35b824fe0db4",
-          "size": {
-            "height": 248,
-            "width": 234
-          },
-          "zIndex": 4
         },
         {
           "location": {
@@ -124,7 +111,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 2
         },
         {
           "location": {
@@ -138,10 +125,23 @@
             "width": 234
           },
           "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 2060.0103869010873,
+            "y": 552.89961165811189
+          },
+          "nodeIndex": "public vw_dim_wards",
+          "nodeLineageTag": "e71d708c-be5b-407e-9388-249872fe7ca5",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 1
         }
       ],
       "name": "All tables",
-      "zoomValue": 63.287087723234073,
+      "zoomValue": 50.346892102823169,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public wards_metadata\",\"map_polygons\",\"map_sites\",\"map_caz tiers and sites\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"map_polygons\",\"map_sites\",\"map_caz tiers and sites\",\"public vw_dim_wards\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -8874,631 +8874,6 @@
                     }
                   }
                 ]
-              },
-              "public_wards_metadata": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "public wards_metadata"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "public wards_metadata": {
-                      "State": "Generated"
-                    }
-                  }
-                ]
-              },
-              "public_wards_metadata.area_code": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "public wards_metadata",
-                    "ConceptualProperty": "area_code"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "area code": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "area_code": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  },
-                  {
-                    "area id": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "area key": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
-                    }
-                  },
-                  {
-                    "region code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
-                    "locale code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
-                    "locality code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
-                    "neighbourhood code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
-                    "district code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.582
-                    }
-                  },
-                  {
-                    "continent code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.582
-                    }
-                  },
-                  {
-                    "field code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.582
-                    }
-                  },
-                  {
-                    "neighborhood code": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.582
-                    }
-                  }
-                ]
-              },
-              "public_wards_metadata.area_name": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "public wards_metadata",
-                    "ConceptualProperty": "area_name"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "area name": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "area_name": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  },
-                  {
-                    "area": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "region": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.736
-                    }
-                  },
-                  {
-                    "locale": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.736
-                    }
-                  },
-                  {
-                    "locality": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.736
-                    }
-                  },
-                  {
-                    "neighbourhood": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.736
-                    }
-                  },
-                  {
-                    "area nickname": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
-                    }
-                  },
-                  {
-                    "area title": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
-                    }
-                  },
-                  {
-                    "area label": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
-                    }
-                  },
-                  {
-                    "area tag": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
-                    }
-                  },
-                  {
-                    "district": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.714
-                    }
-                  },
-                  {
-                    "continent": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.714
-                    }
-                  }
-                ]
-              },
-              "public_wards_metadata.caz_tier": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "public wards_metadata",
-                    "ConceptualProperty": "caz_tier"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "caz tier": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "caz_tier": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  },
-                  {
-                    "caz row": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.485
-                    }
-                  },
-                  {
-                    "caz level": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.485
-                    }
-                  },
-                  {
-                    "caz layer": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.485
-                    }
-                  },
-                  {
-                    "caz stage": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.485
-                    }
-                  },
-                  {
-                    "caz rank": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.485
-                    }
-                  },
-                  {
-                    "caz step": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.485
-                    }
-                  },
-                  {
-                    "caz story": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.485
-                    }
-                  }
-                ],
-                "Visibility": {
-                  "Value": "Hidden"
-                }
-              },
-              "public_wards_metadata.distance_to_caz_metres": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "public wards_metadata",
-                    "ConceptualProperty": "distance_to_caz_metres"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "distance to caz metres": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "distance to caz metre": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.78
-                    }
-                  },
-                  {
-                    "distance_to_caz_metres": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  },
-                  {
-                    "coldness to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "aloofness to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "detachment to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "remoteness to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "reserve to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.499
-                    }
-                  },
-                  {
-                    "expanse to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.489
-                    }
-                  },
-                  {
-                    "vastness to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.489
-                    }
-                  },
-                  {
-                    "space to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.474
-                    }
-                  },
-                  {
-                    "void to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.474
-                    }
-                  },
-                  {
-                    "gap to caz metre": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.474
-                    }
-                  }
-                ]
-              },
-              "public_wards_metadata.latitude": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "public wards_metadata",
-                    "ConceptualProperty": "latitude"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "latitude": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "leeway": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.491
-                    }
-                  },
-                  {
-                    "freedom": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.491
-                    }
-                  },
-                  {
-                    "autonomy": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.491
-                    }
-                  },
-                  {
-                    "liberty": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.491
-                    }
-                  },
-                  {
-                    "opportunity": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.491
-                    }
-                  },
-                  {
-                    "room": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.476
-                    }
-                  },
-                  {
-                    "scope": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.476
-                    }
-                  },
-                  {
-                    "space": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.476
-                    }
-                  },
-                  {
-                    "rope": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.476
-                    }
-                  },
-                  {
-                    "location": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.466
-                    }
-                  }
-                ]
-              },
-              "public_wards_metadata.longitude": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "public wards_metadata",
-                    "ConceptualProperty": "longitude"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "longitude": {
-                      "State": "Generated"
-                    }
-                  }
-                ]
               }
             },
             "Language": "en-US",
@@ -12741,307 +12116,6 @@
                   }
                 },
                 "State": "Generated"
-              },
-              "public_wards_metadata_has_area_code": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_wards_metadata.area_code"
-                      },
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "ID": "public_wards_metadatas_have_area_codes",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  },
-                  "public_wards_metadata.area_code": {
-                    "Target": {
-                      "Entity": "public_wards_metadata.area_code"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_wards_metadata_has_area_name": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_wards_metadata.area_name"
-                      },
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "ID": "public_wards_metadatas_have_area_names",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  },
-                  "public_wards_metadata.area_name": {
-                    "Target": {
-                      "Entity": "public_wards_metadata.area_name"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_wards_metadata_has_distance_to_caz_metres": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_wards_metadata.distance_to_caz_metres"
-                      },
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "ID": "public_wards_metadatas_have_distance_to_caz_metres",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  },
-                  "public_wards_metadata.distance_to_caz_metres": {
-                    "Target": {
-                      "Entity": "public_wards_metadata.distance_to_caz_metres"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_wards_metadata_has_latitude": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_wards_metadata.latitude"
-                      },
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "ID": "public_wards_metadatas_have_latitudes",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  },
-                  "public_wards_metadata.latitude": {
-                    "Target": {
-                      "Entity": "public_wards_metadata.latitude"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_wards_metadata_has_longitude": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_wards_metadata.longitude"
-                      },
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "ID": "public_wards_metadatas_have_longitudes",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  },
-                  "public_wards_metadata.longitude": {
-                    "Target": {
-                      "Entity": "public_wards_metadata.longitude"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_wards_metadata_has_public_dim_caz_tier": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_dim_caz_tier"
-                      },
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "ID": "public_wards_metadatas_have_public_dim_caz_tiers",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  },
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_wards_metadata"
-                      },
-                      "Subject": {
-                        "Role": "public_dim_caz_tier"
-                      }
-                    },
-                    "ID": "public_dim_caz_tiers_have_public_wards_metadatas",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_dim_caz_tier": {
-                    "Target": {
-                      "Entity": "public_dim_caz_tier"
-                    }
-                  },
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_wards_metadata_in_area_code": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "ID": "public_wards_metadatas_are_in_area_codes",
-                    "Preposition": {
-                      "Object": {
-                        "Role": "public_wards_metadata.area_code"
-                      },
-                      "Prepositions": [
-                        {
-                          "in": {
-                            "State": "Generated"
-                          }
-                        }
-                      ],
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  },
-                  "public_wards_metadata.area_code": {
-                    "Target": {
-                      "Entity": "public_wards_metadata.area_code"
-                    }
-                  }
-                },
-                "SemanticSlots": {
-                  "Where": {
-                    "Role": "public_wards_metadata.area_code"
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_wards_metadata_in_area_name": {
-                "Binding": {
-                  "ConceptualEntity": "public wards_metadata"
-                },
-                "Phrasings": [
-                  {
-                    "ID": "public_wards_metadatas_are_in_area_names",
-                    "Preposition": {
-                      "Object": {
-                        "Role": "public_wards_metadata.area_name"
-                      },
-                      "Prepositions": [
-                        {
-                          "in": {
-                            "State": "Generated"
-                          }
-                        }
-                      ],
-                      "Subject": {
-                        "Role": "public_wards_metadata"
-                      }
-                    },
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_wards_metadata": {
-                    "Target": {
-                      "Entity": "public_wards_metadata"
-                    }
-                  },
-                  "public_wards_metadata.area_name": {
-                    "Target": {
-                      "Entity": "public_wards_metadata.area_name"
-                    }
-                  }
-                },
-                "SemanticSlots": {
-                  "Where": {
-                    "Role": "public_wards_metadata.area_name"
-                  }
-                },
-                "State": "Generated"
               }
             },
             "Version": "3.5.0"
@@ -13152,19 +12226,6 @@
         "toTable": "public dim_caz_tiers"
       },
       {
-        "name": "dc6c407a-7744-4077-8568-ba4ae236e193",
-        "annotations": [
-          {
-            "name": "PBI_IsFromSource",
-            "value": "FS"
-          }
-        ],
-        "fromColumn": "caz_tier",
-        "fromTable": "public wards_metadata",
-        "toColumn": "caz_tier",
-        "toTable": "public dim_caz_tiers"
-      },
-      {
         "name": "d820ee8f-ccf0-0a31-29a8-80b753f10550",
         "fromColumn": "fiscal_year",
         "fromTable": "public caz_respiratory_master",
@@ -13186,6 +12247,13 @@
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_6c4a52f9-7902-4db7-bb5f-9cbfecb231f3"
+      },
+      {
+        "name": "629da0a8-90a5-d9d5-406b-bd318d13094a",
+        "fromColumn": "caz_tier",
+        "fromTable": "public vw_dim_wards",
+        "toColumn": "caz_tier",
+        "toTable": "public dim_caz_tiers"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -14577,129 +13645,6 @@
         "showAsVariationsOnly": true
       },
       {
-        "name": "public wards_metadata",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          }
-        ],
-        "columns": [
-          {
-            "name": "area_code",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "17727178-09e6-41e9-a74b-8a91ab256f56",
-            "sourceColumn": "area_code",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "area_name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "f7ed0313-5f0e-4967-978e-ae282aa6b67a",
-            "sourceColumn": "area_name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "latitude",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "05e68fe4-8e28-434a-b0de-2fae6b6c5817",
-            "sourceColumn": "latitude",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "longitude",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "88f564c9-8436-4e12-88b0-e9a04bd63c60",
-            "sourceColumn": "longitude",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "caz_tier",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "84f4de2b-08b7-43ad-be64-1972f69c3b08",
-            "sourceColumn": "caz_tier",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "distance_to_caz_metres",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "eb6f1112-f886-4b79-83f6-c2ef876c6bd6",
-            "sourceColumn": "distance_to_caz_metres",
-            "summarizeBy": "sum"
-          }
-        ],
-        "lineageTag": "dd386b6a-6b78-4e18-8e72-35b824fe0db4",
-        "partitions": [
-          {
-            "name": "public wards_metadata",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
-                "    public_wards_metadata = Source{[Schema=\"public\",Item=\"wards_metadata\"]}[Data],",
-                "    #\"Removed Columns\" = Table.RemoveColumns(public_wards_metadata,{\"geom_27700\"})",
-                "in",
-                "    #\"Removed Columns\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
         "name": "map_polygons",
         "annotations": [
           {
@@ -15672,6 +14617,131 @@
                 "    #\"Removed Other Columns\" = Table.SelectColumns(Source,{\"longitude\", \"latitude\", \"wkt_geometry\", \"map_id\", \"circle_size\", \"site_type\", \"distance_to_caz_metres\"})",
                 "in",
                 "    #\"Removed Other Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "public vw_dim_wards",
+        "columns": [
+          {
+            "name": "area_code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a276ce13-92d4-4560-b38d-f2b65d5f8ea4",
+            "sourceColumn": "area_code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "area_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "37f19b36-43e3-4f58-8be5-2a5db5b6a67e",
+            "sourceColumn": "area_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "caz_tier",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c679a015-4123-4b75-b545-bf7e35229a9e",
+            "sourceColumn": "caz_tier",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "distance_to_caz_metres",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "d7690146-9700-4b7a-94b7-bf31103d39ba",
+            "sourceColumn": "distance_to_caz_metres",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "latitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "deaee28d-329b-4ba6-b155-81c620f63572",
+            "sourceColumn": "latitude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "longitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "36ee435d-8fcb-47c8-a729-3360c745af89",
+            "sourceColumn": "longitude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "wkt_geometry",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a1ff8e38-8247-49de-8e5d-c3fa4f2adcf4",
+            "sourceColumn": "wkt_geometry",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "e71d708c-be5b-407e-9388-249872fe7ca5",
+        "partitions": [
+          {
+            "name": "public vw_dim_wards",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
+                "    public_vw_dim_wards = Source{[Schema=\"public\",Item=\"vw_dim_wards\"]}[Data]",
+                "in",
+                "    public_vw_dim_wards"
               ],
               "type": "m"
             }
