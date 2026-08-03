@@ -1,10 +1,10 @@
 {
-  "compatibilityLevel": 1550,
+  "compatibilityLevel": 1567,
   "model": {
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -6882,6 +6882,15 @@
         "fromTable": "public vw_ward_hospital_admissions",
         "toColumn": "area_code",
         "toTable": "public vw_dim_wards"
+      },
+      {
+        "name": "c08b8776-9bff-786d-ad4a-33bf25eb24b7",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "area_code",
+        "fromTable": "public vw_caz_and_wards_map",
+        "toCardinality": "many",
+        "toColumn": "area_code",
+        "toTable": "public vw_ward_hospital_admissions"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -9582,6 +9591,68 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "_Measures",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Column1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "53a70121-3430-4bb6-be8a-60256e03d8ed",
+            "sourceColumn": "Column1",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "56623d63-ec1c-45aa-89df-3354df0881c1",
+        "measures": [
+          {
+            "name": "Dynamic Transparency",
+            "expression": [
+              "",
+              "IF (",
+              "    MAX('public vw_caz_and_wards_map'[layer_type]) = \"CAZ Boundary\",",
+              "    100, ",
+              "    0    ",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "6be363b6-d9f0-4a13-9db2-91b658ebae3e"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Measures",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }
