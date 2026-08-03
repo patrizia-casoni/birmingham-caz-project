@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -6847,18 +6847,26 @@
         "toTable": "LocalDateTable_c651416a-31e1-461d-8c83-ee8f4ec9fb7b"
       },
       {
-        "name": "b72e3a94-01a7-5d78-3c6c-87e3bda19b37",
-        "fromColumn": "site_id",
-        "fromTable": "public analytics_site_yearly_summary",
-        "toColumn": "map_id",
-        "toTable": "public vw_caz_and_sites_map"
+        "name": "7429dc0e-c694-d45b-66e1-af114fe3982d",
+        "fromColumn": "area_code",
+        "fromTable": "public vw_caz_and_wards_map",
+        "toColumn": "area_code",
+        "toTable": "public vw_dim_wards"
       },
       {
-        "name": "9c1feba2-9f4a-f801-6f84-18fabb89bf01",
+        "name": "154c6aac-ff7c-9db2-11f2-004d2c23cd74",
         "fromColumn": "caz_tier",
-        "fromTable": "public caz_respiratory_master",
-        "toColumn": "map_id",
-        "toTable": "public vw_caz_and_sites_map"
+        "fromTable": "public vw_caz_and_wards_map",
+        "isActive": false,
+        "toColumn": "caz_tier",
+        "toTable": "public dim_caz_tiers"
+      },
+      {
+        "name": "656b7e24-f877-0dd4-f6a1-f85280747bb9",
+        "fromColumn": "site_id",
+        "fromTable": "public vw_caz_and_sites_map",
+        "toColumn": "site_id",
+        "toTable": "public monitoring_sites"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -8600,6 +8608,19 @@
             "lineageTag": "5db0561c-e9db-4626-9cbf-66cd5ffb3437",
             "sourceColumn": "distance_to_caz_metres",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "site_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "eed01871-bd43-4dd3-9194-4d89282481e6",
+            "sourceColumn": "site_id",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "2418b6e9-2041-4184-9ab1-a08e6cad6ecd",
@@ -9031,6 +9052,180 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "public vw_caz_and_wards_map",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "map_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "70d70557-7b26-4826-b02e-b34d54c9e04e",
+            "sourceColumn": "map_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "map_label",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b9f0217c-b095-4e55-b4b2-19b11b50bddb",
+            "sourceColumn": "map_label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wkt_geometry",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "be8e24c0-bc3a-4eaf-a032-701edf945320",
+            "sourceColumn": "wkt_geometry",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "layer_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "241a3aa1-0471-4ddf-80c3-9f3611502acb",
+            "sourceColumn": "layer_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "caz_tier",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "676f6481-d130-4b0f-b1a8-6b8206acd543",
+            "sourceColumn": "caz_tier",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "area_code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f34c83f2-30fc-4f11-adda-1acf2f79149a",
+            "sourceColumn": "area_code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "area_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c0af58d3-6436-4a58-9344-2b0294d83711",
+            "sourceColumn": "area_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "distance_to_caz_metres",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5b6ef864-c687-45c2-8930-5812760f3012",
+            "sourceColumn": "distance_to_caz_metres",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "latitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "fea1b7b8-3129-4852-b766-959c9c929377",
+            "sourceColumn": "latitude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "longitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "346909da-fd7f-4d01-ba8b-e8586e886774",
+            "sourceColumn": "longitude",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "d0f52041-7749-4669-ae25-decdaf2e1450",
+        "partitions": [
+          {
+            "name": "public vw_caz_and_wards_map",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
+                "    public_vw_caz_and_wards_map = Source{[Schema=\"public\",Item=\"vw_caz_and_wards_map\"]}[Data]",
+                "in",
+                "    public_vw_caz_and_wards_map"
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }

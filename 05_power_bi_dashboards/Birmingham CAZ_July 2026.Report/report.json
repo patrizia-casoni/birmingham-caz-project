@@ -23,12 +23,67 @@
   "sections": [
     {
       "config": "{}",
+      "displayName": "0.Executive Summary",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "20971da355b1446c4b45",
+      "ordinal": 2,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "4. Health Spatial",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "350a3283c18bdb342e97",
+      "ordinal": 6,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "3. Fleet Modernisation",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "5f708b4f5ba200d99ba8",
+      "ordinal": 5,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
       "displayName": "Caz Tiers/Wards",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "678e859f3be20031a056",
       "ordinal": 1,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "1.Spatial Baseline",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "a3ce2fef28d67701d9b9",
+      "ordinal": 3,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "5. Health Trends",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "a94a03fc36edb650dc79",
+      "ordinal": 7,
       "visualContainers": [],
       "width": 1280.00
     },
@@ -50,6 +105,17 @@
           "z": 0.00
         }
       ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "2. Environmental Trends",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "fa74a384148cb3ad3255",
+      "ordinal": 4,
+      "visualContainers": [],
       "width": 1280.00
     }
   ]
