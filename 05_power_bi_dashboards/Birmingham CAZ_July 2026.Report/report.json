@@ -88,7 +88,7 @@
       "width": 1280.00
     },
     {
-      "config": "{}",
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"200L\"}}}}}]}}",
       "displayName": "Caz Tiers / Monitoring Sites",
       "displayOption": 1,
       "filters": "[]",

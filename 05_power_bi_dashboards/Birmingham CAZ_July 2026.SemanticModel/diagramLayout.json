@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 113.37990399999983,
+        "x": 1121.0437791744978,
         "y": 0
       },
       "nodes": [
@@ -45,7 +45,7 @@
             "height": 296,
             "width": 319.40745655597038
           },
-          "zIndex": 4
+          "zIndex": 9
         },
         {
           "location": {
@@ -58,7 +58,7 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 9
+          "zIndex": 8
         },
         {
           "location": {
@@ -71,7 +71,7 @@
             "height": 128,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 4
         },
         {
           "location": {
@@ -84,7 +84,7 @@
             "height": 300,
             "width": 235.98621991990626
           },
-          "zIndex": 6
+          "zIndex": 5
         },
         {
           "location": {
@@ -110,7 +110,7 @@
             "height": 300,
             "width": 311.42495627905328
           },
-          "zIndex": 8
+          "zIndex": 7
         },
         {
           "location": {
@@ -123,7 +123,20 @@
             "height": 394.87534630691584,
             "width": 471.37222420715534
           },
-          "zIndex": 7
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 3211.0065559017748,
+            "y": 346.60367334343118
+          },
+          "nodeIndex": "public vw_ward_hospital_admissions",
+          "nodeLineageTag": "98c98f39-e0c9-4dba-bccb-5783026f089e",
+          "size": {
+            "height": 405.66892899999971,
+            "width": 329.6642939999997
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

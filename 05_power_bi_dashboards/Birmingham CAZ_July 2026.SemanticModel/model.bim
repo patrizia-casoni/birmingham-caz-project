@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -6867,6 +6867,21 @@
         "fromTable": "public vw_caz_and_sites_map",
         "toColumn": "site_id",
         "toTable": "public monitoring_sites"
+      },
+      {
+        "name": "5ca64d78-596e-4983-9a81-28f1f8c687cf",
+        "fromColumn": "fiscal_start_date",
+        "fromTable": "public vw_ward_hospital_admissions",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_81ea8e75-b811-4632-b7d6-7ec1ab602b6c"
+      },
+      {
+        "name": "7ddcf9a9-5b63-6d62-f37d-0248ce52ce31",
+        "fromColumn": "area_code",
+        "fromTable": "public vw_ward_hospital_admissions",
+        "toColumn": "area_code",
+        "toTable": "public vw_dim_wards"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -9226,6 +9241,347 @@
             }
           }
         ]
+      },
+      {
+        "name": "public vw_ward_hospital_admissions",
+        "columns": [
+          {
+            "name": "health_condition",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1a3a9495-01ab-43c3-90f5-83bbbbf274f6",
+            "sourceColumn": "health_condition",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "area_code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9ca9baad-41a9-4cf8-a9f9-c7e23e54dadb",
+            "sourceColumn": "area_code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fiscal_start_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "3b204a7f-5f81-4b81-9dba-b6a0f1b9face",
+            "sourceColumn": "fiscal_start_date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_81ea8e75-b811-4632-b7d6-7ec1ab602b6c"
+                },
+                "isDefault": true,
+                "relationship": "5ca64d78-596e-4983-9a81-28f1f8c687cf"
+              }
+            ]
+          },
+          {
+            "name": "fiscal_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "70c99026-2b32-41dc-b1b4-7822f012d7ac",
+            "sourceColumn": "fiscal_year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "admissions",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "bb7cb458-1819-42c9-8632-3358c03d690f",
+            "sourceColumn": "admissions",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "population",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a419e818-ba45-4c23-965d-7ed203f08c30",
+            "sourceColumn": "population",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "standardised_rate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "38354b16-95a3-4aec-8e2a-84ae91248ea5",
+            "sourceColumn": "standardised_rate",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "98c98f39-e0c9-4dba-bccb-5783026f089e",
+        "partitions": [
+          {
+            "name": "public vw_ward_hospital_admissions",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
+                "    public_vw_ward_hospital_admissions = Source{[Schema=\"public\",Item=\"vw_ward_hospital_admissions\"]}[Data]",
+                "in",
+                "    public_vw_ward_hospital_admissions"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_81ea8e75-b811-4632-b7d6-7ec1ab602b6c",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "670cec63-ced0-492f-a41f-f15837ea2aa1",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "82a0618f-c334-426e-9ec5-0676bf275d56",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "b256f8cc-11de-4dc6-9a9a-aa576ed8cee1",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "7ebf3061-a1e6-4b52-9a43-766f8c63ecb9",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "bb8e6a7f-7916-4af8-a1a9-07c61eeab0a9",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "efbc5bb0-42a5-4319-bff6-6aef6b27d97f",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "10c91c30-9554-4f2c-9e4e-f459b474d645",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "3848a3ea-88a2-40ab-82cc-87111e279045",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "c68545b2-5fff-47a2-b2a3-75d83adec2f1",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "eda4db7b-27cf-484f-a336-de39e8315507",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "41591f5b-5cfe-4156-9a2e-66844e66e987",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "0574ee26-b292-4773-b87a-34145d1ba565"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "e264a162-0d7c-4985-8956-c4cc3c00dba3",
+        "partitions": [
+          {
+            "name": "LocalDateTable_81ea8e75-b811-4632-b7d6-7ec1ab602b6c",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('public vw_ward_hospital_admissions'[fiscal_start_date])), 1, 1), Date(Year(MAX('public vw_ward_hospital_admissions'[fiscal_start_date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
       }
     ]
   }
