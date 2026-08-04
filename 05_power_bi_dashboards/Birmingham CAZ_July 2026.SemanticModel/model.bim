@@ -16168,7 +16168,7 @@
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
               },
               {
                 "name": "PBI_FormatHint",
@@ -16183,14 +16183,14 @@
             "dataType": "double",
             "lineageTag": "1a7053c6-0adb-4e70-b2f3-ebc582ea32ef",
             "sourceColumn": "latitude",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "longitude",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "Automatic"
+                "value": "User"
               },
               {
                 "name": "PBI_FormatHint",
@@ -16205,7 +16205,7 @@
             "dataType": "double",
             "lineageTag": "daa3c46c-eac0-4353-be48-21d0b6904ad1",
             "sourceColumn": "longitude",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "data_source",
@@ -17168,6 +17168,7 @@
             ],
             "dataType": "dateTime",
             "formatString": "Long Date",
+            "isHidden": true,
             "lineageTag": "d40ac4fc-63a1-431c-8a46-c37d6d1f610a",
             "sourceColumn": "end_date",
             "summarizeBy": "none",
@@ -17277,8 +17278,8 @@
               "SWITCH (",
               "    'public vw_caz_and_sites_map'[map_label],",
               "    \"Ladywood\", \"left\",",
-              "    \"St Chads Queensway\", \"left\",",
-              "    \"Colmore Row\", \"above\",",
+              "    \"St Chads Queensway\", \"above\",",
+              "    \"Colmore Row\", \"right\",",
               "    \"A4540 Roadside\", \"right\",",
               "    \"below\"",
               ")"
@@ -18380,6 +18381,7 @@
               }
             ],
             "dataType": "string",
+            "isHidden": true,
             "lineageTag": "53a70121-3430-4bb6-be8a-60256e03d8ed",
             "sourceColumn": "Column1",
             "summarizeBy": "none"
@@ -18427,6 +18429,35 @@
               ")"
             ],
             "lineageTag": "095248d8-8592-4146-a70a-d13f35d80055"
+          },
+          {
+            "name": "NO2_Avg_2018",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE('public analytics_site_yearly_summary'[annualised_mean]),",
+              "    'public analytics_site_yearly_summary'[year] = 2018",
+              ")"
+            ],
+            "lineageTag": "c8c8f7fe-dd8f-41f6-aa62-5489d9f6acb7"
+          },
+          {
+            "name": "NO2_%_Change",
+            "expression": [
+              "",
+              "VAR Avg2018 = CALCULATE(AVERAGE('public analytics_site_yearly_summary'[annualised_mean]), 'public analytics_site_yearly_summary'[year] = 2018)",
+              "VAR AvgCurrent = AVERAGE('public analytics_site_yearly_summary'[annualised_mean])",
+              "RETURN",
+              "DIVIDE(AvgCurrent - Avg2018, Avg2018)"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "e0f6380a-b1db-42ae-a0e3-ca60b7709c0b"
           }
         ],
         "partitions": [
