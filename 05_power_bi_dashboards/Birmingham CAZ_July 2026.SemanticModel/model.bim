@@ -5621,7 +5621,10 @@
                       "Weight": 0.582
                     }
                   }
-                ]
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
               },
               "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy": {
                 "Definition": {
@@ -5646,7 +5649,10 @@
                       "Weight": 0.97
                     }
                   }
-                ]
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
               },
               "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.day": {
                 "Definition": {
@@ -5782,7 +5788,10 @@
                       "Weight": 0.597
                     }
                   }
-                ]
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
               },
               "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.month": {
                 "Definition": {
@@ -5918,7 +5927,10 @@
                       "Weight": 0.6
                     }
                   }
-                ]
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
               },
               "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.quarter": {
                 "Definition": {
@@ -6054,7 +6066,10 @@
                       "Weight": 0.6
                     }
                   }
-                ]
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
               },
               "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.year": {
                 "Definition": {
@@ -6190,7 +6205,10 @@
                       "Weight": 0.6
                     }
                   }
-                ]
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
               },
               "public_vw_caz_and_sites_map.label_position": {
                 "Definition": {
@@ -10921,6 +10939,155 @@
                   }
                 ]
               },
+              "v_Measures_measure.NO2__change": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "NO2_%_Change"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "NO2_%_change": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "no2_ percentage _change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "no2_ pct _change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "no2_%_ alteration": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "no2_%_ modification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "no2_%_ variation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "no2_%_ transformation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "no2_%_ revolution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "no2_%_ conversion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "no2_%_ adjustment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "no2_%_ amendment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.NO2_avg_2018": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "NO2_Avg_2018"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "NO2 avg 2018": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "NO2_Avg_2018": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "no2 average 2018": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.column_1": {
                 "Definition": {
                   "Binding": {
@@ -10942,7 +11109,10 @@
                       "Weight": 0.99
                     }
                   }
-                ]
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
               },
               "v_Measures_measure.dynamic_transparency": {
                 "Definition": {
@@ -11007,6 +11177,155 @@
                       },
                       "State": "Suggested",
                       "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.v99_Perc_NO2_Avg_201899_perc_NO2_avg_2018": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "99_Perc_NO2_Avg_2018"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "99 perc NO2 avg 2018": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "99_Perc_NO2_Avg_2018": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "99 perc no2 average 2018": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.v99_Perc_NO2___Change99_Perc_NO2__change": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "99_Perc_NO2_%_Change"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "99_Perc_NO2_%_change": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "99_perc_no2_ percentage _change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.617
+                    }
+                  },
+                  {
+                    "99_perc_no2_ pct _change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ alteration": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ modification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ variation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ transformation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ revolution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ conversion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ adjustment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "99_perc_no2_%_ amendment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
                     }
                   }
                 ]
@@ -11240,6 +11559,138 @@
                   "public_analytics_site_yearly_summary.site_name": {
                     "Target": {
                       "Entity": "public_analytics_site_yearly_summary.site_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_has_v_Measures_measure_NO2__change": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.NO2__change"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summaries_have_NO2__change",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary"
+                    }
+                  },
+                  "v_Measures_measure.NO2__change": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.NO2__change"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_has_v_Measures_measure_NO2_avg_2018": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.NO2_avg_2018"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summaries_have_NO2_avg_2018",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary"
+                    }
+                  },
+                  "v_Measures_measure.NO2_avg_2018": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.NO2_avg_2018"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_has_v_Measures_measure_v99_Perc_NO2_Avg_201899_perc_NO2_avg_2018": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.v99_Perc_NO2_Avg_201899_perc_NO2_avg_2018"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summaries_have_99_perc_NO2_avg_2018",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary"
+                    }
+                  },
+                  "v_Measures_measure.v99_Perc_NO2_Avg_201899_perc_NO2_avg_2018": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.v99_Perc_NO2_Avg_201899_perc_NO2_avg_2018"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_has_v_Measures_measure_v99_Perc_NO2___Change99_Perc_NO2__change": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.v99_Perc_NO2___Change99_Perc_NO2__change"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summaries_have_99_Perc_NO2__change",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary"
+                    }
+                  },
+                  "v_Measures_measure.v99_Perc_NO2___Change99_Perc_NO2__change": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.v99_Perc_NO2___Change99_Perc_NO2__change"
                     }
                   }
                 },
@@ -12093,7 +12544,7 @@
                         "Role": "public_monitoring_site.end_date"
                       }
                     },
-                    "ID": "end_dates_have_end_date_hierarchies1",
+                    "ID": "end_dates_have_end_date_hierarchies",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -12126,7 +12577,7 @@
                         "Role": "public_monitoring_site.end_date.variation.date_hierarchy"
                       }
                     },
-                    "ID": "end_date_hierarchies_have_end_days1",
+                    "ID": "end_date_hierarchies_have_end_days",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -12159,7 +12610,7 @@
                         "Role": "public_monitoring_site.end_date.variation.date_hierarchy"
                       }
                     },
-                    "ID": "end_date_hierarchies_have_end_months1",
+                    "ID": "end_date_hierarchies_have_end_months",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -12192,7 +12643,7 @@
                         "Role": "public_monitoring_site.end_date.variation.date_hierarchy"
                       }
                     },
-                    "ID": "end_date_hierarchies_have_end_quarters1",
+                    "ID": "end_date_hierarchies_have_end_quarters",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -12225,7 +12676,7 @@
                         "Role": "public_monitoring_site.end_date.variation.date_hierarchy"
                       }
                     },
-                    "ID": "end_date_hierarchies_have_end_years1",
+                    "ID": "end_date_hierarchies_have_end_years",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -12869,171 +13320,6 @@
                 },
                 "State": "Generated"
               },
-              "public_vw_caz_and_sites_map_end_date_has_variation_date_hierarchy": {
-                "Binding": {
-                  "ConceptualEntity": "public vw_caz_and_sites_map"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                      },
-                      "Subject": {
-                        "Role": "public_vw_caz_and_sites_map.end_date"
-                      }
-                    },
-                    "ID": "end_dates_have_end_date_hierarchies",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_vw_caz_and_sites_map.end_date": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date"
-                    }
-                  },
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_vw_caz_and_sites_map_end_date_variation_date_hierarchy_has_day": {
-                "Binding": {
-                  "ConceptualEntity": "public vw_caz_and_sites_map"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.day"
-                      },
-                      "Subject": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "end_date_hierarchies_have_end_days",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                    }
-                  },
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.day": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.day"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_vw_caz_and_sites_map_end_date_variation_date_hierarchy_has_month": {
-                "Binding": {
-                  "ConceptualEntity": "public vw_caz_and_sites_map"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.month"
-                      },
-                      "Subject": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "end_date_hierarchies_have_end_months",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                    }
-                  },
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.month": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.month"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_vw_caz_and_sites_map_end_date_variation_date_hierarchy_has_quarter": {
-                "Binding": {
-                  "ConceptualEntity": "public vw_caz_and_sites_map"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.quarter"
-                      },
-                      "Subject": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "end_date_hierarchies_have_end_quarters",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                    }
-                  },
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.quarter": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.quarter"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_vw_caz_and_sites_map_end_date_variation_date_hierarchy_has_year": {
-                "Binding": {
-                  "ConceptualEntity": "public vw_caz_and_sites_map"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.year"
-                      },
-                      "Subject": {
-                        "Role": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                      }
-                    },
-                    "ID": "end_date_hierarchies_have_end_years",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy"
-                    }
-                  },
-                  "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.year": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date.variation.date_hierarchy.year"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
               "public_vw_caz_and_sites_map_has_CAZ_display_label": {
                 "Binding": {
                   "ConceptualEntity": "public vw_caz_and_sites_map"
@@ -13194,39 +13480,6 @@
                   "public_vw_caz_and_sites_map.distance_to_caz_metres": {
                     "Target": {
                       "Entity": "public_vw_caz_and_sites_map.distance_to_caz_metres"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_vw_caz_and_sites_map_has_end_date": {
-                "Binding": {
-                  "ConceptualEntity": "public vw_caz_and_sites_map"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_vw_caz_and_sites_map.end_date"
-                      },
-                      "Subject": {
-                        "Role": "public_vw_caz_and_sites_map"
-                      }
-                    },
-                    "ID": "public_vw_caz_and_sites_maps_have_end_dates",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_vw_caz_and_sites_map": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map"
-                    }
-                  },
-                  "public_vw_caz_and_sites_map.end_date": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date"
                     }
                   }
                 },
@@ -13604,48 +13857,6 @@
                     "Target": {
                       "Entity": "public_vw_caz_and_sites_map.wkt_geometry"
                     }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_vw_caz_and_sites_map_is_ended_on_end_date": {
-                "Binding": {
-                  "ConceptualEntity": "public vw_caz_and_sites_map"
-                },
-                "Phrasings": [
-                  {
-                    "ID": "public_vw_caz_and_sites_maps_are_ended_on_end_dates",
-                    "State": "Generated",
-                    "Verb": {
-                      "Object": {
-                        "Role": "public_vw_caz_and_sites_map"
-                      },
-                      "Verbs": [
-                        {
-                          "end": {
-                            "State": "Generated"
-                          }
-                        }
-                      ]
-                    },
-                    "Weight": 0.9
-                  }
-                ],
-                "Roles": {
-                  "public_vw_caz_and_sites_map": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map"
-                    }
-                  },
-                  "public_vw_caz_and_sites_map.end_date": {
-                    "Target": {
-                      "Entity": "public_vw_caz_and_sites_map.end_date"
-                    }
-                  }
-                },
-                "SemanticSlots": {
-                  "When": {
-                    "Role": "public_vw_caz_and_sites_map.end_date"
                   }
                 },
                 "State": "Generated"
@@ -14915,39 +15126,6 @@
                   "public_vw_ward_hospital_admission.standardised_rate": {
                     "Target": {
                       "Entity": "public_vw_ward_hospital_admission.standardised_rate"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "v_Measures_measure_has_column_1": {
-                "Binding": {
-                  "ConceptualEntity": "_Measures"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "v_Measures_measure.column_1"
-                      },
-                      "Subject": {
-                        "Role": "v_Measures_measure"
-                      }
-                    },
-                    "ID": "Phrasing_measures_have_column_1",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "v_Measures_measure": {
-                    "Target": {
-                      "Entity": "v_Measures_measure"
-                    }
-                  },
-                  "v_Measures_measure.column_1": {
-                    "Target": {
-                      "Entity": "v_Measures_measure.column_1"
                     }
                   }
                 },
@@ -18442,7 +18620,8 @@
               "",
               "CALCULATE(",
               "    AVERAGE('public analytics_site_yearly_summary'[annualised_mean]),",
-              "    'public analytics_site_yearly_summary'[year] = 2018",
+              "    'public analytics_site_yearly_summary'[year] = 2018,",
+              "    REMOVEFILTERS('public dim_years') ",
               ")"
             ],
             "lineageTag": "c8c8f7fe-dd8f-41f6-aa62-5489d9f6acb7"
@@ -18451,13 +18630,48 @@
             "name": "NO2_%_Change",
             "expression": [
               "",
-              "VAR Avg2018 = CALCULATE(AVERAGE('public analytics_site_yearly_summary'[annualised_mean]), 'public analytics_site_yearly_summary'[year] = 2018)",
+              "VAR Avg2018 = [NO2_Avg_2018]",
               "VAR AvgCurrent = AVERAGE('public analytics_site_yearly_summary'[annualised_mean])",
               "RETURN",
               "DIVIDE(AvgCurrent - Avg2018, Avg2018)"
             ],
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "e0f6380a-b1db-42ae-a0e3-ca60b7709c0b"
+          },
+          {
+            "name": "99_Perc_NO2_Avg_2018",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE('public analytics_site_yearly_summary'[p99_no2]),",
+              "    'public analytics_site_yearly_summary'[year] = 2018,",
+              "    REMOVEFILTERS('public dim_years')",
+              ")"
+            ],
+            "lineageTag": "0473c705-976f-45e7-bda4-99afd50c8bc3"
+          },
+          {
+            "name": "99_Perc_NO2_%_Change",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR Avg2018 = [99_Perc_NO2_Avg_2018]",
+              "VAR AvgCurrent = AVERAGE('public analytics_site_yearly_summary'[p99_no2])",
+              "RETURN",
+              "DIVIDE(AvgCurrent - Avg2018, Avg2018)"
+            ],
+            "lineageTag": "addad2f0-34e2-4cdf-8f7c-10cf6d4f4b8c"
           }
         ],
         "partitions": [
