@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -15639,6 +15639,28 @@
         "toCardinality": "many",
         "toColumn": "area_code",
         "toTable": "public vw_ward_hospital_admissions"
+      },
+      {
+        "name": "6e6f3798-56f6-4dff-83cb-deaa0b1f1845",
+        "fromColumn": "exact_timestamp",
+        "fromTable": "public analytics_top19_hourly_peaks",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_d5ac0195-9f4e-40a0-abb8-3824a77bd7bd"
+      },
+      {
+        "name": "49b9e74d-d87c-07a6-b95b-e50e3a10ff7f",
+        "fromColumn": "site_id",
+        "fromTable": "public analytics_top19_hourly_peaks",
+        "toColumn": "site_id",
+        "toTable": "public monitoring_sites"
+      },
+      {
+        "name": "bb410e9c-dd1e-6bbd-2225-2ba61626faea",
+        "fromColumn": "year",
+        "fromTable": "public analytics_top19_hourly_peaks",
+        "toColumn": "calendar_year",
+        "toTable": "public dim_years"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -18970,6 +18992,377 @@
             }
           }
         ]
+      },
+      {
+        "name": "public analytics_top19_hourly_peaks",
+        "columns": [
+          {
+            "name": "site_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ff857dfc-3481-46e5-a414-14fdf9dbdac0",
+            "sourceColumn": "site_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "site_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e6049e1-f252-4c16-9aed-d1e104f6df77",
+            "sourceColumn": "site_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "12cb96e5-df0c-491f-b275-5e6f559aa2cc",
+            "sourceColumn": "year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5e02549f-81f4-4876-9c48-6f7137440f12",
+            "sourceColumn": "month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "6d76bc1c-69c6-440f-bf3b-4af7c4536b95",
+            "sourceColumn": "day",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f75c3cce-d71d-4ec6-9551-0dc95aa2f76f",
+            "sourceColumn": "hour",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "exact_timestamp",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "6aa5a626-bb64-4a60-b176-57ab9a7274ec",
+            "sourceColumn": "exact_timestamp",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_d5ac0195-9f4e-40a0-abb8-3824a77bd7bd"
+                },
+                "isDefault": true,
+                "relationship": "6e6f3798-56f6-4dff-83cb-deaa0b1f1845"
+              }
+            ]
+          },
+          {
+            "name": "hourly_no2_value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "474a21b7-55cc-4582-91a7-785f0592660b",
+            "sourceColumn": "hourly_no2_value",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "peak_rank",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "60df6d2d-8167-402f-bd33-de3bd0584ba6",
+            "sourceColumn": "peak_rank",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "607cfad5-01f3-40fc-8edd-550a70bbbe95",
+        "partitions": [
+          {
+            "name": "public analytics_top19_hourly_peaks",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
+                "    public_analytics_top19_hourly_peaks = Source{[Schema=\"public\",Item=\"analytics_top19_hourly_peaks\"]}[Data]",
+                "in",
+                "    public_analytics_top19_hourly_peaks"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_d5ac0195-9f4e-40a0-abb8-3824a77bd7bd",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isNameInferred": true,
+            "lineageTag": "faa53dfd-5795-4dfb-9766-91db9e622fe2",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "lineageTag": "ad6d8920-d28b-4469-8e46-d686283a2dd2",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "lineageTag": "29d88bab-9fe8-4a00-baa4-c2289b1ec685",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "lineageTag": "ec7119f7-05ab-41b2-ade5-ba870df59ed8",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "lineageTag": "088a3922-3501-4476-aeef-97b16ef179b8",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "lineageTag": "256c09c5-4546-4264-a3ea-ceb78a1e18e1",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "lineageTag": "433a29b5-7c3f-4f78-afc9-0a20642fd63a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "736146e3-b9ac-4fbd-a92c-341ef2bb9f61",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "786be777-d883-4806-86a8-6bf52a2d0ae1",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "a1db7ea7-0542-4476-8de1-2af19c53a8b4",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "9f9133c9-45e5-4e8c-bbce-46a470860004",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "f575613f-bc95-446c-af3a-d7e9c6c59019"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "17bee589-21d8-4425-ac13-7253f19ab15b",
+        "partitions": [
+          {
+            "name": "LocalDateTable_d5ac0195-9f4e-40a0-abb8-3824a77bd7bd",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('public analytics_top19_hourly_peaks'[exact_timestamp])), 1, 1), Date(Year(MAX('public analytics_top19_hourly_peaks'[exact_timestamp])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
       }
     ]
   }

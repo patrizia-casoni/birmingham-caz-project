@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2170.0328759017775,
+        "x": 457.7713515872486,
         "y": 0
       },
       "nodes": [
@@ -150,10 +150,23 @@
             "width": 234
           },
           "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 3874.6708499017745,
+            "y": 322.60367334343118
+          },
+          "nodeIndex": "public analytics_top19_hourly_peaks",
+          "nodeLineageTag": "607cfad5-01f3-40fc-8edd-550a70bbbe95",
+          "size": {
+            "height": 379.2633669999999,
+            "width": 342.06522099999984
+          },
+          "zIndex": 12
         }
       ],
       "name": "All tables",
-      "zoomValue": 56.447393005377847,
+      "zoomValue": 56.44739300537789,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
