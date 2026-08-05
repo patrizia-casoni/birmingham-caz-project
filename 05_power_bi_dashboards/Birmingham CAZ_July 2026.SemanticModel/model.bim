@@ -213,41 +213,63 @@
                   }
                 ]
               },
-              "public_analytics_site_yearly_summary.p_99_no_2": {
+              "public_analytics_site_yearly_summary.p_998_no_2_value": {
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "public analytics_site_yearly_summary",
-                    "ConceptualProperty": "p99_no2"
+                    "ConceptualProperty": "p998_no2_value"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "p 99 no 2": {
+                    "p 998 no 2 value": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "p99_no2": {
+                    "p998_no2_value": {
                       "State": "Generated",
                       "Type": "Noun",
                       "Weight": 0.99
                     }
                   },
                   {
-                    "no 2": {
+                    "value": {
                       "State": "Generated",
                       "Weight": 0.97
                     }
                   },
                   {
-                    "99 no 2": {
+                    "2 value": {
                       "State": "Generated",
                       "Weight": 0.97
                     }
                   },
                   {
-                    "p 99 number 2": {
+                    "no 2 value": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "998 no 2 value": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "p 998 number 2 value": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "998 number 2 value": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -257,7 +279,7 @@
                     }
                   },
                   {
-                    "99 number 2": {
+                    "number 2 value": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -267,13 +289,73 @@
                     }
                   },
                   {
-                    "number 2": {
+                    "p 998 no 2 assessment": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.582
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "998 no 2 assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "no 2 assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "p 998 no 2 worth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.504
+                    }
+                  },
+                  {
+                    "p 998 no 2 price": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.504
+                    }
+                  },
+                  {
+                    "p 998 no 2 cost": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.504
+                    }
+                  },
+                  {
+                    "p 998 no 2 charge": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.504
                     }
                   }
                 ]
@@ -546,13 +628,11 @@
                     "ConceptualProperty": "year"
                   }
                 },
-                "SemanticType": "Time",
                 "State": "Generated",
                 "Terms": [
                   {
                     "year": {
-                      "State": "Generated",
-                      "Type": "Noun"
+                      "State": "Generated"
                     }
                   },
                   {
@@ -11088,6 +11168,151 @@
                   }
                 ]
               },
+              "v_Measures_measure.P998_dynamic_value": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "P998_Dynamic_Value"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "P998 dynamic value": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "P998_Dynamic_Value": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "value": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "dynamic value": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "p998 dynamic assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "dynamic assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "p998 dynamic worth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "p998 dynamic price": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "p998 dynamic cost": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "p998 dynamic charge": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "p998 dynamic rate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "dynamic worth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "dynamic price": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "P99.8 NO2 (µg/m³) - 2024": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.column_1": {
                 "Definition": {
                   "Binding": {
@@ -11185,31 +11410,32 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "99_Perc_NO2_Avg_2018"
+                    "ConceptualProperty": "998_Perc_18/19_Baseline"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "99 perc NO2 avg 2018": {
+                    "998_Perc_18/19_Baseline": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "99_Perc_NO2_Avg_2018": {
+                    "998_Perc_18": {
                       "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
+                      "Weight": 0.97
                     }
                   },
                   {
-                    "99 perc no2 average 2018": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.605
+                    "998_Perc_18 19_Baseline": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "19_Baseline": {
+                      "State": "Generated",
+                      "Weight": 0.97
                     }
                   }
                 ]
@@ -11218,18 +11444,18 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "99_Perc_NO2_%_Change"
+                    "ConceptualProperty": "998_Perc_%_Change"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "99_Perc_NO2_%_change": {
+                    "998_Perc_%_change": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "99_perc_no2_ percentage _change": {
+                    "998_perc_ percentage _change": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11239,7 +11465,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_ pct _change": {
+                    "998_perc_ pct _change": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11249,7 +11475,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ alteration": {
+                    "998_perc_%_ alteration": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11259,7 +11485,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ modification": {
+                    "998_perc_%_ modification": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11269,7 +11495,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ variation": {
+                    "998_perc_%_ variation": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11279,7 +11505,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ transformation": {
+                    "998_perc_%_ transformation": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11289,7 +11515,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ revolution": {
+                    "998_perc_%_ revolution": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11299,7 +11525,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ conversion": {
+                    "998_perc_%_ conversion": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11309,7 +11535,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ adjustment": {
+                    "998_perc_%_ adjustment": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11319,7 +11545,7 @@
                     }
                   },
                   {
-                    "99_perc_no2_%_ amendment": {
+                    "998_perc_%_ amendment": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -11399,7 +11625,7 @@
                 },
                 "State": "Generated"
               },
-              "public_analytics_site_yearly_summary_has_p_99_no_2": {
+              "public_analytics_site_yearly_summary_has_p_998_no_2_value": {
                 "Binding": {
                   "ConceptualEntity": "public analytics_site_yearly_summary"
                 },
@@ -11407,13 +11633,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "public_analytics_site_yearly_summary.p_99_no_2"
+                        "Role": "public_analytics_site_yearly_summary.p_998_no_2_value"
                       },
                       "Subject": {
                         "Role": "public_analytics_site_yearly_summary"
                       }
                     },
-                    "ID": "public_analytics_site_yearly_summaries_have_p_99_no_2",
+                    "ID": "public_analytics_site_yearly_summaries_have_p_998_no_2_values",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -11424,9 +11650,9 @@
                       "Entity": "public_analytics_site_yearly_summary"
                     }
                   },
-                  "public_analytics_site_yearly_summary.p_99_no_2": {
+                  "public_analytics_site_yearly_summary.p_998_no_2_value": {
                     "Target": {
-                      "Entity": "public_analytics_site_yearly_summary.p_99_no_2"
+                      "Entity": "public_analytics_site_yearly_summary.p_998_no_2_value"
                     }
                   }
                 },
@@ -11630,6 +11856,39 @@
                 },
                 "State": "Generated"
               },
+              "public_analytics_site_yearly_summary_has_v_Measures_measure_P998_dynamic_value": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.P998_dynamic_value"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summaries_have_P998_dynamic_value",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary"
+                    }
+                  },
+                  "v_Measures_measure.P998_dynamic_value": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.P998_dynamic_value"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_analytics_site_yearly_summary_has_v_Measures_measure_v99_Perc_NO2_Avg_201899_perc_NO2_avg_2018": {
                 "Binding": {
                   "ConceptualEntity": "public analytics_site_yearly_summary"
@@ -11644,7 +11903,7 @@
                         "Role": "public_analytics_site_yearly_summary"
                       }
                     },
-                    "ID": "public_analytics_site_yearly_summaries_have_99_perc_NO2_avg_2018",
+                    "ID": "public_analytics_site_yearly_summaries_have_998_Perc_18_19_Baseline",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -11677,7 +11936,7 @@
                         "Role": "public_analytics_site_yearly_summary"
                       }
                     },
-                    "ID": "public_analytics_site_yearly_summaries_have_99_Perc_NO2__change",
+                    "ID": "public_analytics_site_yearly_summaries_have_998_Perc__change",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -15972,7 +16231,7 @@
                 "property": "IsHidden"
               }
             ],
-            "dataType": "int64",
+            "dataType": "double",
             "formatString": "0",
             "lineageTag": "e1ced574-9add-4b65-8c22-7be10c39329c",
             "sourceColumn": "year",
@@ -16019,7 +16278,7 @@
             "summarizeBy": "none"
           },
           {
-            "name": "p99_no2",
+            "name": "p998_no2_value",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -16030,14 +16289,9 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
             "dataType": "double",
-            "lineageTag": "4e28b64a-d635-42ec-bb50-dafdcbe1b80b",
-            "sourceColumn": "p99_no2",
+            "lineageTag": "42c9b2bb-c41b-445f-96d6-7a4f6b5774b9",
+            "sourceColumn": "p998_no2_value",
             "summarizeBy": "sum"
           }
         ],
@@ -18639,7 +18893,7 @@
             "lineageTag": "e0f6380a-b1db-42ae-a0e3-ca60b7709c0b"
           },
           {
-            "name": "99_Perc_NO2_Avg_2018",
+            "name": "998_Perc_18/19_Baseline",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -18649,15 +18903,27 @@
             "expression": [
               "",
               "CALCULATE(",
-              "    AVERAGE('public analytics_site_yearly_summary'[p99_no2]),",
-              "    'public analytics_site_yearly_summary'[year] = 2018,",
+              "    AVERAGE('public analytics_site_yearly_summary'[p998_no2_value]),",
+              "    'public analytics_site_yearly_summary'[year] IN {2018, 2019},",
               "    REMOVEFILTERS('public dim_years')",
               ")"
             ],
             "lineageTag": "0473c705-976f-45e7-bda4-99afd50c8bc3"
           },
           {
-            "name": "99_Perc_NO2_%_Change",
+            "name": "998_Perc_%_Change",
+            "expression": [
+              "",
+              "VAR CurrentAvg = [P998_Dynamic_Value] ",
+              "VAR PrePandemicBaseline = [998_Perc_18/19_Baseline]",
+              "RETURN",
+              "DIVIDE(CurrentAvg - PrePandemicBaseline, PrePandemicBaseline)"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "addad2f0-34e2-4cdf-8f7c-10cf6d4f4b8c"
+          },
+          {
+            "name": "P998_Dynamic_Value",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -18666,12 +18932,26 @@
             ],
             "expression": [
               "",
-              "VAR Avg2018 = [99_Perc_NO2_Avg_2018]",
-              "VAR AvgCurrent = AVERAGE('public analytics_site_yearly_summary'[p99_no2])",
-              "RETURN",
-              "DIVIDE(AvgCurrent - Avg2018, Avg2018)"
+              "VAR CurrentValue = AVERAGE('public analytics_site_yearly_summary'[p998_no2_value])",
+              "",
+              "VAR LastValidYear = ",
+              "    CALCULATE(",
+              "        MAX('public analytics_site_yearly_summary'[year]),",
+              "        NOT ISBLANK('public analytics_site_yearly_summary'[p998_no2_value]),",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "    ",
+              "VAR FallbackValue = ",
+              "    CALCULATE(",
+              "        AVERAGE('public analytics_site_yearly_summary'[p998_no2_value]),",
+              "        'public dim_years'[calendar_year] = LastValidYear,",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "    ",
+              "RETURN ",
+              "    IF(ISBLANK(CurrentValue), FallbackValue, CurrentValue)"
             ],
-            "lineageTag": "addad2f0-34e2-4cdf-8f7c-10cf6d4f4b8c"
+            "lineageTag": "caef21ee-269b-4a0b-84d5-92b83a082316"
           }
         ],
         "partitions": [
