@@ -2,14 +2,14 @@
   "name": "CY24SU08",
   "dataColors": [
     "#E16A86",
-        "#CB7F2F",
-        "#9F9400",
-        "#50A315",
-        "#00AC79",
-        "#00AAB7",
-        "#009ADE",
-        "#A87BE4",
-        "#DA65B3"
+    "#CB7F2F",
+    "#9F9400",
+    "#50A315",
+    "#00AC79",
+    "#00AAB7",
+    "#009ADE",
+    "#A87BE4",
+    "#DA65B3"
   ],
   "foreground": "#252423",
   "foregroundNeutralSecondary": "#605E5C",
