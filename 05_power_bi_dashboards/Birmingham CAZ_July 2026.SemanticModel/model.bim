@@ -26,6 +26,1481 @@
         "linguisticMetadata": {
           "content": {
             "Entities": {
+              "dim_day_of_week": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_days_of_week"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "dim day of week": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "dim_days_of_week": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "dim day": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "dim_day_of_week.day_of_week_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_days_of_week",
+                    "ConceptualProperty": "day_of_week_name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "day of week name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "day_of_week_name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "day of week nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "day of week title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "day of week label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "day of week tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  }
+                ]
+              },
+              "dim_day_of_week.day_of_week_num": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_days_of_week",
+                    "ConceptualProperty": "day_of_week_num"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "day of week num": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "day_of_week_num": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "day of week number": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  }
+                ]
+              },
+              "dim_day_of_week.day_of_week_short": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_days_of_week",
+                    "ConceptualProperty": "day_of_week_short"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "day of week short": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "day_of_week_short": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "Day of Week": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "dim_hour": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_hours"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "dim hour": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "dim_hours": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "dim period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "dim era": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.475
+                    }
+                  },
+                  {
+                    "dim epoch": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.475
+                    }
+                  },
+                  {
+                    "dim age": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  }
+                ]
+              },
+              "dim_hour.hour": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_hours",
+                    "ConceptualProperty": "hour"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "hour": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "era": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "epoch": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "age": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "dim_hour.hour_12_format": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_hours",
+                    "ConceptualProperty": "hour_12_format"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "hour 12 format": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "hour_12_format": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "format": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "12 format": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "hour 12 arrangement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 12 setup": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 12 presentation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 12 organization": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 12 layout": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 12 system": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "12 arrangement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "12 setup": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "12 presentation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "12 organization": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  }
+                ]
+              },
+              "dim_hour.hour_24_format": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_hours",
+                    "ConceptualProperty": "hour_24_format"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "hour 24 format": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "hour_24_format": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "format": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "24 format": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "hour 24 arrangement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 24 setup": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 24 presentation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 24 organization": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 24 layout": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "hour 24 system": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "24 arrangement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "24 setup": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "24 presentation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "24 organization": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  }
+                ]
+              },
+              "dim_month": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_months"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "dim month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "dim_months": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "dim mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "dim_month.month_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_months",
+                    "ConceptualProperty": "month_name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "month name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "month_name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "month nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "month title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "month label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "month tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "mth name": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "Month": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "dim_month.month_num": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_months",
+                    "ConceptualProperty": "month_num"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "month num": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "month_num": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "month number": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "mth num": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  }
+                ]
+              },
+              "dim_month.month_short": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "dim_months",
+                    "ConceptualProperty": "month_short"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "month short": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "month_short": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "short": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "mth short": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "small": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "little": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "petite": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "squat": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "diminutive": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "brief": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "quick": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "rapid": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "fleeting": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_hourly_weekly_profile": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "public analytics_site_hourly_weekly_profile": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_hourly_weekly_profile.avg_hourly_no_2": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "avg_hourly_no2"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "avg hourly no 2": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "avg_hourly_no2": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "average hourly no 2": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "avg hourly number 2": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_hourly_weekly_profile.day_of_week_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "day_of_week_name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "day of week name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "day_of_week_name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "day of week nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "day of week title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "day of week label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "day of week tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_hourly_weekly_profile.day_of_week_num": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "day_of_week_num"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "day of week num": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "day_of_week_num": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "day of week number": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "public_analytics_site_hourly_weekly_profile.hour": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "hour"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "hour": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "era": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "epoch": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "age": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "public_analytics_site_hourly_weekly_profile.max_hourly_no_2": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "max_hourly_no2"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "max hourly no 2": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "max_hourly_no2": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "no 2": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "hourly no 2": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "maximum hourly no 2": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "max hourly number 2": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "hourly number 2": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "number 2": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_hourly_weekly_profile.month": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "month"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "public_analytics_site_hourly_weekly_profile.sample_count": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "sample_count"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "sample count": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "sample_count": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "sample amount": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_hourly_weekly_profile.site_id": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "site_id"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "site id": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "site_id": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "site identification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "site identity": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "site identifier": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "website": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "campus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "homepage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "site credential": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "place": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "spot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "public_analytics_site_hourly_weekly_profile.site_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "site_name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "site name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "site_name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "website": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "campus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "homepage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "site nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "place": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "spot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_hourly_weekly_profile.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_hourly_weekly_profiles",
+                    "ConceptualProperty": "year"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
               "public_analytics_site_yearly_summary": {
                 "Definition": {
                   "Binding": {
@@ -12333,6 +13808,719 @@
             },
             "Language": "en-US",
             "Relationships": {
+              "dim_day_of_week_has_day_of_week_name": {
+                "Binding": {
+                  "ConceptualEntity": "dim_days_of_week"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_day_of_week.day_of_week_name"
+                      },
+                      "Subject": {
+                        "Role": "dim_day_of_week"
+                      }
+                    },
+                    "ID": "dim_day_of_week_have_day_of_week_name",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_day_of_week": {
+                    "Target": {
+                      "Entity": "dim_day_of_week"
+                    }
+                  },
+                  "dim_day_of_week.day_of_week_name": {
+                    "Target": {
+                      "Entity": "dim_day_of_week.day_of_week_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_day_of_week_has_day_of_week_num": {
+                "Binding": {
+                  "ConceptualEntity": "dim_days_of_week"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_day_of_week.day_of_week_num"
+                      },
+                      "Subject": {
+                        "Role": "dim_day_of_week"
+                      }
+                    },
+                    "ID": "dim_day_of_week_have_day_of_week_num",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_day_of_week": {
+                    "Target": {
+                      "Entity": "dim_day_of_week"
+                    }
+                  },
+                  "dim_day_of_week.day_of_week_num": {
+                    "Target": {
+                      "Entity": "dim_day_of_week.day_of_week_num"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_day_of_week_has_day_of_week_short": {
+                "Binding": {
+                  "ConceptualEntity": "dim_days_of_week"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_day_of_week.day_of_week_short"
+                      },
+                      "Subject": {
+                        "Role": "dim_day_of_week"
+                      }
+                    },
+                    "ID": "dim_day_of_week_have_day_of_week_short",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_day_of_week": {
+                    "Target": {
+                      "Entity": "dim_day_of_week"
+                    }
+                  },
+                  "dim_day_of_week.day_of_week_short": {
+                    "Target": {
+                      "Entity": "dim_day_of_week.day_of_week_short"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_hour_has_hour": {
+                "Binding": {
+                  "ConceptualEntity": "dim_hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_hour.hour"
+                      },
+                      "Subject": {
+                        "Role": "dim_hour"
+                      }
+                    },
+                    "ID": "dim_hours_have_hours",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_hour": {
+                    "Target": {
+                      "Entity": "dim_hour"
+                    }
+                  },
+                  "dim_hour.hour": {
+                    "Target": {
+                      "Entity": "dim_hour.hour"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_hour_has_hour_12_format": {
+                "Binding": {
+                  "ConceptualEntity": "dim_hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_hour.hour_12_format"
+                      },
+                      "Subject": {
+                        "Role": "dim_hour"
+                      }
+                    },
+                    "ID": "dim_hours_have_hour_12_formats",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_hour": {
+                    "Target": {
+                      "Entity": "dim_hour"
+                    }
+                  },
+                  "dim_hour.hour_12_format": {
+                    "Target": {
+                      "Entity": "dim_hour.hour_12_format"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_hour_has_hour_24_format": {
+                "Binding": {
+                  "ConceptualEntity": "dim_hours"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_hour.hour_24_format"
+                      },
+                      "Subject": {
+                        "Role": "dim_hour"
+                      }
+                    },
+                    "ID": "dim_hours_have_hour_24_formats",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_hour": {
+                    "Target": {
+                      "Entity": "dim_hour"
+                    }
+                  },
+                  "dim_hour.hour_24_format": {
+                    "Target": {
+                      "Entity": "dim_hour.hour_24_format"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_month_has_month_name": {
+                "Binding": {
+                  "ConceptualEntity": "dim_months"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_month.month_name"
+                      },
+                      "Subject": {
+                        "Role": "dim_month"
+                      }
+                    },
+                    "ID": "dim_months_have_month_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_month": {
+                    "Target": {
+                      "Entity": "dim_month"
+                    }
+                  },
+                  "dim_month.month_name": {
+                    "Target": {
+                      "Entity": "dim_month.month_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_month_has_month_num": {
+                "Binding": {
+                  "ConceptualEntity": "dim_months"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_month.month_num"
+                      },
+                      "Subject": {
+                        "Role": "dim_month"
+                      }
+                    },
+                    "ID": "dim_months_have_month_nums",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_month": {
+                    "Target": {
+                      "Entity": "dim_month"
+                    }
+                  },
+                  "dim_month.month_num": {
+                    "Target": {
+                      "Entity": "dim_month.month_num"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_month_has_month_short": {
+                "Binding": {
+                  "ConceptualEntity": "dim_months"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_month.month_short"
+                      },
+                      "Subject": {
+                        "Role": "dim_month"
+                      }
+                    },
+                    "ID": "dim_months_have_month_shorts",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_month": {
+                    "Target": {
+                      "Entity": "dim_month"
+                    }
+                  },
+                  "dim_month.month_short": {
+                    "Target": {
+                      "Entity": "dim_month.month_short"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_avg_hourly_no_2": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile.avg_hourly_no_2"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_avg_hourly_no_2",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile.avg_hourly_no_2": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile.avg_hourly_no_2"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_day_of_week_name": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile.day_of_week_name"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_day_of_week_name",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile.day_of_week_name": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile.day_of_week_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_dim_day_of_week": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_day_of_week"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_dim_day_of_week",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      },
+                      "Subject": {
+                        "Role": "dim_day_of_week"
+                      }
+                    },
+                    "ID": "dim_day_of_week_have_public_analytics_site_hourly_weekly_profiles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_day_of_week": {
+                    "Target": {
+                      "Entity": "dim_day_of_week"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_dim_hour": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_hour"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_dim_hours",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      },
+                      "Subject": {
+                        "Role": "dim_hour"
+                      }
+                    },
+                    "ID": "dim_hours_have_public_analytics_site_hourly_weekly_profiles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_hour": {
+                    "Nouns": [
+                      {
+                        "hour": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "dim_hour"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_dim_month": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_month"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_dim_months",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      },
+                      "Subject": {
+                        "Role": "dim_month"
+                      }
+                    },
+                    "ID": "dim_months_have_public_analytics_site_hourly_weekly_profiles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_month": {
+                    "Nouns": [
+                      {
+                        "month": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "dim_month"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_max_hourly_no_2": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile.max_hourly_no_2"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_max_hourly_no_2",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile.max_hourly_no_2": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile.max_hourly_no_2"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_public_dim_year": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_dim_year"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_public_dim_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      },
+                      "Subject": {
+                        "Role": "public_dim_year"
+                      }
+                    },
+                    "ID": "public_dim_years_have_public_analytics_site_hourly_weekly_profiles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  },
+                  "public_dim_year": {
+                    "Nouns": [
+                      {
+                        "year": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "public_dim_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_public_monitoring_site": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_monitoring_site"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_public_monitoring_sites",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      },
+                      "Subject": {
+                        "Role": "public_monitoring_site"
+                      }
+                    },
+                    "ID": "public_monitoring_sites_have_public_analytics_site_hourly_weekly_profiles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  },
+                  "public_monitoring_site": {
+                    "Target": {
+                      "Entity": "public_monitoring_site"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_sample_count": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile.sample_count"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_sample_counts",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile.sample_count": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile.sample_count"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_hourly_weekly_profile_has_site_name": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_hourly_weekly_profiles"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_hourly_weekly_profile.site_name"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_hourly_weekly_profile"
+                      }
+                    },
+                    "ID": "public_analytics_site_hourly_weekly_profiles_have_site_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_hourly_weekly_profile": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile"
+                    }
+                  },
+                  "public_analytics_site_hourly_weekly_profile.site_name": {
+                    "Target": {
+                      "Entity": "public_analytics_site_hourly_weekly_profile.site_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_analytics_site_yearly_summary_has_annualised_mean": {
                 "Binding": {
                   "ConceptualEntity": "public analytics_site_yearly_summary"
@@ -20894,6 +23082,7 @@
             "isDataTypeInferred": true,
             "isNameInferred": true,
             "lineageTag": "365a9389-2cbc-4e72-8d03-ede33395d905",
+            "sortByColumn": "month_num",
             "sourceColumn": "[month_name]",
             "summarizeBy": "none",
             "type": "calculatedTableColumn"
@@ -20910,6 +23099,7 @@
             "isDataTypeInferred": true,
             "isNameInferred": true,
             "lineageTag": "dbabd375-1e07-494f-8e41-50d02a2bf3da",
+            "sortByColumn": "month_num",
             "sourceColumn": "[month_short]",
             "summarizeBy": "none",
             "type": "calculatedTableColumn"
@@ -21002,6 +23192,7 @@
             "isDataTypeInferred": true,
             "isNameInferred": true,
             "lineageTag": "9b0d7c59-d312-4975-96d9-ff4562d5384e",
+            "sortByColumn": "day_of_week_num",
             "sourceColumn": "[day_of_week_short]",
             "summarizeBy": "none",
             "type": "calculatedTableColumn"
