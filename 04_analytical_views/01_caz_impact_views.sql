@@ -454,3 +454,63 @@ ORDER BY
 -- ============================================================================
 CREATE INDEX idx_top19_site_year 
     ON analytics_top19_hourly_peaks(site_id, year);
+
+
+
+-- ============================================================================
+-- TITLE: Analytics Site Hourly & Monthly Profiles
+-- DESCRIPTION: Aggregates NO2 readings by site, year, month, and hour to 
+--              support seasonal and diumal diagnostic views in Power BI.
+-- DEPENDENCIES: stg_final_annualised_means, no2_readings
+-- ============================================================================
+
+DROP TABLE IF EXISTS analytics_site_hourly_monthly_profiles;
+
+CREATE TABLE analytics_site_hourly_monthly_profiles AS
+
+WITH valid_site_years AS (
+    -- Step 1: Retain the strict completeness rule (PASS% status)
+    SELECT 
+        site_id, 
+        reading_year, 
+        site_name
+    FROM 
+        stg_final_annualised_means
+    WHERE 
+        laqm_annual_mean_status LIKE 'PASS%'
+)
+
+-- Step 2: Aggregate regular hourly data across each site, year, month, and hour
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month,
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    -- Calculate average and max pollution levels for specific hour/month combinations
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0 -- Clean out equipment error codes
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- ============================================================================
+-- INDEXES FOR POWER BI PERFORMANCE
+-- ============================================================================
+-- Composite index to ensure rapid filtering by site, year, and month in Power BI
+CREATE INDEX idx_hourly_monthly_profile_filters 
+    ON analytics_site_hourly_monthly_profiles(site_id, year, month);

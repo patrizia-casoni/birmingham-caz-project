@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\",\"public analytics_site_hourly_monthly_profiles\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -20643,6 +20643,153 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "public analytics_site_hourly_monthly_profiles",
+        "columns": [
+          {
+            "name": "site_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a9686074-166e-421b-9025-7c151e6b114b",
+            "sourceColumn": "site_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "site_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d2c42ad0-5bc4-4632-9b92-86616e3bf351",
+            "sourceColumn": "site_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "2f204735-34b2-4ef3-888d-17c61db2d1eb",
+            "sourceColumn": "year",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "c7aa94ad-9c01-4560-93e0-c8eb2d0604be",
+            "sourceColumn": "month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "68457d7b-e50d-46ff-a52f-3bdf0b07a389",
+            "sourceColumn": "hour",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_hourly_no2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "44aaf536-846e-474e-83fe-e4da9862cc7d",
+            "sourceColumn": "avg_hourly_no2",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "max_hourly_no2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "de6ba33b-0388-492f-a3a1-b91a38dacb42",
+            "sourceColumn": "max_hourly_no2",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "sample_count",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "08c68998-df4f-499d-820d-a716c7dfdc52",
+            "sourceColumn": "sample_count",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "01dc3092-fd5c-43f3-8ae6-3dc10faa92d9",
+        "partitions": [
+          {
+            "name": "public analytics_site_hourly_monthly_profiles",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
+                "    public_analytics_site_hourly_monthly_profiles = Source{[Schema=\"public\",Item=\"analytics_site_hourly_monthly_profiles\"]}[Data]",
+                "in",
+                "    public_analytics_site_hourly_monthly_profiles"
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }
