@@ -514,3 +514,64 @@ GROUP BY
 -- Composite index to ensure rapid filtering by site, year, and month in Power BI
 CREATE INDEX idx_hourly_monthly_profile_filters 
     ON analytics_site_hourly_monthly_profiles(site_id, year, month);
+
+
+-- ============================================================================
+-- TITLE: Analytics Site Hourly & Weekly Profiles
+-- DESCRIPTION: Aggregates NO2 readings by site, year, month, day of week, 
+--              and hour to support granular diurnal and weekly diagnostics.
+--              Note: This replaces the legacy monthly profiles table.
+-- ============================================================================
+
+DROP TABLE IF EXISTS analytics_site_hourly_weekly_profiles;
+
+CREATE TABLE analytics_site_hourly_weekly_profiles AS
+
+WITH valid_site_years AS (
+    SELECT 
+        site_id, 
+        reading_year, 
+        site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month,
+    
+    -- Extract Day of Week (1 = Monday through 7 = Sunday in PostgreSQL ISODOW)
+    EXTRACT(ISODOW FROM r.date_time) AS day_of_week_num,
+    
+    -- Extract Day Name (FM removes trailing blank spaces from PostgreSQL default)
+    TO_CHAR(r.date_time, 'FMDay') AS day_of_week_name,
+    
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(ISODOW FROM r.date_time),
+    TO_CHAR(r.date_time, 'FMDay'),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- ============================================================================
+-- INDEX FOR POWER BI PERFORMANCE
+-- ============================================================================
+CREATE INDEX idx_hourly_weekly_profile_filters 
+    ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);

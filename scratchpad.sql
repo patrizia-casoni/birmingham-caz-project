@@ -189,3 +189,495 @@ from caz_traffic_compliance;
 DROP TABLE IF EXISTS public.birmingham_wards;
 
 
+UPDATE monitoring_sites
+SET longitude = -1.896791
+WHERE site_id = 'BCA2';
+
+
+
+DROP TABLE IF EXISTS analytics_site_yearly_summary;
+
+CREATE TABLE analytics_site_yearly_summary AS
+SELECT 
+    fam.site_id,
+    fam.site_name,
+    fam.reading_year AS year,
+    fam.final_annualised_mean AS annualised_mean,
+    fam.laqm_annual_mean_status,
+    -- Only calculate p99.8 for valid years where data capture is sufficient
+    CASE 
+        WHEN fam.laqm_annual_mean_status LIKE 'PASS%' THEN 
+            (SELECT PERCENTILE_CONT(0.998) WITHIN GROUP (ORDER BY r.no2) 
+             FROM no2_readings r 
+             WHERE r.site_id = fam.site_id 
+               AND EXTRACT(YEAR FROM r.date_time) = fam.reading_year)
+        ELSE NULL 
+    END AS p998_no2_value
+FROM 
+    stg_final_annualised_means fam
+ORDER BY 
+    fam.site_id, 
+    fam.reading_year;
+
+/*******************************************************************************
+  SECTION 2.2B: ACUTE PEAK (99.8th PERCENTILE) ELIGIBILITY AUDIT
+  Purpose: 
+    1. Evaluates temporal coverage against strict 99.8th percentile requirements.
+    2. Flags incomplete years to prevent seasonal bias in peak exceedance calculations.
+    3. Assigns remediation directives (Calculate Direct vs. Nullify & Proxy).
+*******************************************************************************/
+
+WITH cleaned_readings AS (
+    SELECT 
+        site_id,
+        date_time,
+        EXTRACT(YEAR FROM date_time) AS reading_year,
+        EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE 
+            WHEN no2 < -1.0 THEN NULL 
+            ELSE no2 
+        END AS no2_diagnosed
+    FROM no2_readings
+),
+
+monthly_completeness AS (
+    SELECT 
+        site_id,
+        reading_year,
+        reading_month,
+        CASE 
+            WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
+            ELSE 0 
+        END AS is_valid_month
+    FROM cleaned_readings
+    GROUP BY site_id, reading_year, reading_month
+)
+
+SELECT 
+    site_id,
+    reading_year,
+    SUM(is_valid_month) AS valid_months_count,
+    
+    -- Percentile Data Validity Status
+    CASE 
+        WHEN SUM(is_valid_month) >= 9 THEN 'VALID'
+        ELSE 'INVALID (Seasonal Bias Risk)'
+    END AS percentile_99_8_status,
+    
+    -- Downstream Pipeline Directive
+    CASE 
+        WHEN SUM(is_valid_month) >= 9 
+            THEN 'Compute PERCENTILE_CONT(0.998) from hourly data'
+        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
+            THEN 'Nullify Percentile; Flag via DEFRA > 60 µg/m³ Mean Proxy'
+        ELSE 'Suppress from acute peak reporting entirely'
+    END AS remediation_instruction
+
+FROM monthly_completeness
+GROUP BY site_id, reading_year
+ORDER BY site_id, reading_year;
+
+
+
+
+-- ============================================================================
+-- VIEW: analytics_site_yearly_summary
+-- DESCRIPTION: Consolidates regulatory annualised compliance means with 
+--              robust empirical peak pollution values (P99.8). Percentile 
+--              calculations are restricted to valid years (PASS) to prevent 
+--              statistical distortion. Designed for Power BI reporting layers.
+-- ============================================================================
+DROP TABLE IF EXISTS analytics_site_yearly_summary;
+
+CREATE TABLE analytics_site_yearly_summary AS
+
+WITH cleaned_yearly_percentiles AS (
+    -- Step 1: Clean raw data (-1.0 exclusion) and aggregate percentiles efficiently
+    SELECT 
+        site_id,
+        EXTRACT(YEAR FROM date_time) AS reading_year,
+        PERCENTILE_CONT(0.998) WITHIN GROUP (ORDER BY no2) AS p998_no2_value
+    FROM no2_readings
+    WHERE no2 >= -1.0 
+    GROUP BY site_id, EXTRACT(YEAR FROM date_time)
+)
+
+-- Step 2: Join safe percentiles to the finalized LAQM staging table
+SELECT 
+    fam.site_id,
+    fam.site_name,
+    fam.reading_year AS year,
+    fam.final_annualised_mean AS annualised_mean,
+    fam.laqm_annual_mean_status,
+    
+    -- Step 3: Enforce strict data governance (only valid years get a percentile)
+    CASE 
+        WHEN fam.laqm_annual_mean_status LIKE 'PASS%' THEN p.p998_no2_value
+        ELSE NULL 
+    END AS p998_no2_value
+
+FROM stg_final_annualised_means fam
+LEFT JOIN cleaned_yearly_percentiles p 
+    ON fam.site_id = p.site_id 
+    AND fam.reading_year = p.reading_year
+ORDER BY 
+    fam.site_id, 
+    fam.reading_year;
+
+
+-- ============================================================================
+-- TABLE: analytics_top19_hourly_peaks
+-- DESCRIPTION: Isolates the exact 19 highest hourly NO2 readings per site/year.
+--              Since the 19th highest hour defines the 99.8th percentile 
+--              threshold, this table provides exact drill-through transparency 
+--              for executives. Restricted to LAQM-valid years.
+-- ============================================================================
+DROP TABLE IF EXISTS analytics_top19_hourly_peaks;
+
+CREATE TABLE analytics_top19_hourly_peaks AS
+
+WITH valid_site_years AS (
+    -- Step 1: Identify eligible sites/years based on strict 9-month data capture
+    SELECT 
+        site_id, 
+        reading_year, 
+        site_name
+    FROM 
+        stg_final_annualised_means
+    WHERE 
+        laqm_annual_mean_status LIKE 'PASS%'
+),
+
+ranked_hourly_readings AS (
+    -- Step 2: Join raw data to valid years and rank the highest NO2 hours
+    SELECT 
+        r.site_id,
+        v.site_name,
+        r.date_time AS exact_timestamp,
+        EXTRACT(YEAR FROM r.date_time) AS year,
+        EXTRACT(MONTH FROM r.date_time) AS month,
+        EXTRACT(DAY FROM r.date_time) AS day,
+        EXTRACT(HOUR FROM r.date_time) AS hour,
+        r.no2 AS hourly_no2_value,
+        
+        -- Rank readings highest to lowest, resetting for each site and year
+        ROW_NUMBER() OVER (
+            PARTITION BY r.site_id, EXTRACT(YEAR FROM r.date_time) 
+            ORDER BY r.no2 DESC
+        ) AS peak_rank
+        
+    FROM 
+        no2_readings r
+    INNER JOIN 
+        valid_site_years v 
+        ON r.site_id = v.site_id 
+        AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+    WHERE 
+        r.no2 >= -1.0 -- Clean out equipment error codes
+)
+
+-- Step 3: Extract only the top 19 hours
+SELECT 
+    site_id,
+    site_name,
+    year,
+    month,
+    day,
+    hour,
+    exact_timestamp,
+    hourly_no2_value,
+    peak_rank
+FROM 
+    ranked_hourly_readings
+WHERE 
+    peak_rank <= 19
+ORDER BY 
+    site_id, 
+    year, 
+    peak_rank;
+
+-- ============================================================================
+-- INDEXES FOR POWER BI PERFORMANCE
+-- ============================================================================
+CREATE INDEX idx_top19_site_year 
+    ON analytics_top19_hourly_peaks(site_id, year);
+
+
+DROP TABLE IF EXISTS analytics_site_hourly_profiles;
+
+CREATE TABLE analytics_site_hourly_profiles AS
+
+WITH valid_site_years AS (
+    -- Step 1: Retain the strict completeness rule (PASS% status)
+    SELECT 
+        site_id, 
+        reading_year, 
+        site_name
+    FROM 
+        stg_final_annualised_means
+    WHERE 
+        laqm_annual_mean_status LIKE 'PASS%'
+)
+
+-- Step 2: Aggregate regular hourly data across each site and year (0 to 23 hours)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    -- Calculate average and max pollution levels for each specific hour of the day
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+    
+    WITH valid_site_years AS (
+    SELECT site_id, reading_year, site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month, -- Added Month
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0 
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(HOUR FROM r.date_time);
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0 -- Clean out equipment error codes
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- ============================================================================
+-- INDEXES FOR POWER BI PERFORMANCE
+-- ============================================================================
+CREATE INDEX idx_hourly_profile_site_year 
+    ON analytics_site_hourly_profiles(site_id, year);
+
+
+
+CREATE TABLE analytics_site_hourly_monthly_profiles AS
+
+WITH valid_site_years AS (
+    SELECT site_id, reading_year, site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month, -- Added Month
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0 
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- ============================================================================
+-- INDEXES FOR POWER BI PERFORMANCE
+-- ============================================================================
+CREATE INDEX idx_hourly_monthly_profile_filters 
+    ON analytics_site_hourly_monthly_profiles(site_id, year, month);
+
+
+-- ============================================================================
+-- TITLE: Analytics Site Hourly, Daily, & Monthly Profiles
+-- DESCRIPTION: Aggregates NO2 readings by site, year, month, day of week, 
+--              and hour to support granular diurnal and weekly diagnostics.
+-- ============================================================================
+
+DROP TABLE IF EXISTS analytics_site_hourly_weekly_profiles;
+
+CREATE TABLE analytics_site_hourly_weekly_profiles AS
+
+WITH valid_site_years AS (
+    SELECT site_id, reading_year, site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month,
+    -- Extract Day of Week (1 = Monday through 7 = Sunday in PostgreSQL ISODOW)
+    EXTRACT(ISODOW FROM r.date_time) AS day_of_week_num,
+    TO_CHAR(r.date_time, 'Day') AS day_of_week_name,
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(ISODOW FROM r.date_time),
+    TO_CHAR(r.date_time, 'Day'),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- Index for multi-attribute filtering in Power BI
+CREATE INDEX idx_hourly_weekly_profile_filters 
+    ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);
+
+
+
+
+
+-- ============================================================================
+-- TITLE: Analytics Site Hourly, Daily, & Monthly Profiles
+-- DESCRIPTION: Aggregates NO2 readings by site, year, month, day of week, 
+--              and hour to support granular diurnal and weekly diagnostics.
+-- ============================================================================
+
+DROP TABLE IF EXISTS analytics_site_hourly_weekly_profiles;
+
+CREATE TABLE analytics_site_hourly_weekly_profiles AS
+
+WITH valid_site_years AS (
+    SELECT site_id, reading_year, site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month,
+    -- Extract Day of Week (1 = Monday through 7 = Sunday in PostgreSQL ISODOW)
+    EXTRACT(ISODOW FROM r.date_time) AS day_of_week_num,
+    TO_CHAR(r.date_time, 'Day') AS day_of_week_name,
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(ISODOW FROM r.date_time),
+    TO_CHAR(r.date_time, 'Day'),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- Index for multi-attribute filtering in Power BI
+CREATE INDEX idx_hourly_weekly_profile_filters 
+    ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);
+
+
+
+
+
+
+
+
+
+-- ============================================================================
+-- TITLE: Analytics Site Hourly, Daily, & Monthly Profiles
+-- DESCRIPTION: Aggregates NO2 readings by site, year, month, day of week, 
+--              and hour to support granular diurnal and weekly diagnostics.
+-- ============================================================================
+
+DROP TABLE IF EXISTS analytics_site_hourly_weekly_profiles;
+
+CREATE TABLE analytics_site_hourly_weekly_profiles AS
+
+WITH valid_site_years AS (
+    SELECT site_id, reading_year, site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month,
+    -- Extract Day of Week (1 = Monday through 7 = Sunday in PostgreSQL ISODOW)
+    EXTRACT(ISODOW FROM r.date_time) AS day_of_week_num,
+    TO_CHAR(r.date_time, 'Day') AS day_of_week_name,
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(ISODOW FROM r.date_time),
+    TO_CHAR(r.date_time, 'Day'),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- Index for multi-attribute filtering in Power BI
+CREATE INDEX idx_hourly_weekly_profile_filters 
+    ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);

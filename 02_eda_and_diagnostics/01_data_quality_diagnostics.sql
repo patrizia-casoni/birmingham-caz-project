@@ -326,17 +326,6 @@ FROM monthly_completeness
 GROUP BY site_id, reading_year
 ORDER BY site_id, reading_year;
 
--- Step 4: Final output combining annual compliance status with site metadata
-SELECT 
-    a.site_id,
-    a.reading_year,
-    a.total_monitored_months,
-    a.valid_months_count,
-    a.yearly_avg_monthly_capture_pct,
-    a.laqm_action_required
-FROM annual_laqm_assessment a
-ORDER BY a.site_id, a.reading_year;
-
 -- =============================================================================
 -- 2.3 Traffic Data Quality & Statistical Profiling Diagnostic
 -- Table: caz_traffic_compliance
@@ -595,5 +584,53 @@ GROUP BY site_id, fiscal_year
 ORDER BY site_id, fiscal_year;
 
 
+-- ============================================================================
+-- TITLE: Analytics Site Hourly, Daily, & Monthly Profiles
+-- DESCRIPTION: Aggregates NO2 readings by site, year, month, day of week, 
+--              and hour to support granular diurnal and weekly diagnostics.
+-- ============================================================================
 
+DROP TABLE IF EXISTS analytics_site_hourly_weekly_profiles;
+
+CREATE TABLE analytics_site_hourly_weekly_profiles AS
+
+WITH valid_site_years AS (
+    SELECT site_id, reading_year, site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month,
+    -- Extract Day of Week (1 = Monday through 7 = Sunday in PostgreSQL ISODOW)
+    EXTRACT(ISODOW FROM r.date_time) AS day_of_week_num,
+    TO_CHAR(r.date_time, 'Day') AS day_of_week_name,
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(ISODOW FROM r.date_time),
+    TO_CHAR(r.date_time, 'Day'),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- Index for multi-attribute filtering in Power BI
+CREATE INDEX idx_hourly_weekly_profile_filters 
+    ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);
 

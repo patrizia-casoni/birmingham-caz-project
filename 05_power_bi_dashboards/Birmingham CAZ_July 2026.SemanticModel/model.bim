@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\",\"public analytics_site_hourly_monthly_profiles\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\",\"public analytics_site_hourly_weekly_profiles\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -16930,6 +16930,41 @@
         "fromTable": "public analytics_top19_hourly_peaks",
         "toColumn": "calendar_year",
         "toTable": "public dim_years"
+      },
+      {
+        "name": "3fc8e62f-de02-4f7e-dad5-a4e6d7f26908",
+        "fromColumn": "site_id",
+        "fromTable": "public analytics_site_hourly_weekly_profiles",
+        "toColumn": "site_id",
+        "toTable": "public monitoring_sites"
+      },
+      {
+        "name": "39d96d02-3a43-51a5-c4a0-f7616a4308d2",
+        "fromColumn": "year",
+        "fromTable": "public analytics_site_hourly_weekly_profiles",
+        "toColumn": "calendar_year",
+        "toTable": "public dim_years"
+      },
+      {
+        "name": "cc5f85ab-88a6-1629-53ee-49be14dd34a9",
+        "fromColumn": "month",
+        "fromTable": "public analytics_site_hourly_weekly_profiles",
+        "toColumn": "month_num",
+        "toTable": "dim_months"
+      },
+      {
+        "name": "e65b9569-627d-0a6d-b6ef-a76931fd30d9",
+        "fromColumn": "day_of_week_num",
+        "fromTable": "public analytics_site_hourly_weekly_profiles",
+        "toColumn": "day_of_week_num",
+        "toTable": "dim_days_of_week"
+      },
+      {
+        "name": "e5645fe2-99f6-1b40-052e-f618f9a2c51a",
+        "fromColumn": "hour",
+        "fromTable": "public analytics_site_hourly_weekly_profiles",
+        "toColumn": "hour",
+        "toTable": "dim_hours"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -20645,7 +20680,7 @@
         "showAsVariationsOnly": true
       },
       {
-        "name": "public analytics_site_hourly_monthly_profiles",
+        "name": "public analytics_site_hourly_weekly_profiles",
         "columns": [
           {
             "name": "site_id",
@@ -20656,7 +20691,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "a9686074-166e-421b-9025-7c151e6b114b",
+            "lineageTag": "8de82c47-c9f2-4f8c-8b10-8af2fd9f9e22",
             "sourceColumn": "site_id",
             "summarizeBy": "none"
           },
@@ -20669,7 +20704,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "d2c42ad0-5bc4-4632-9b92-86616e3bf351",
+            "lineageTag": "9e175a71-5c71-458b-a595-2ea301f33a68",
             "sourceColumn": "site_name",
             "summarizeBy": "none"
           },
@@ -20686,9 +20721,9 @@
               }
             ],
             "dataType": "double",
-            "lineageTag": "2f204735-34b2-4ef3-888d-17c61db2d1eb",
+            "lineageTag": "5e9b8470-5af3-426f-ab0e-0b465a579ede",
             "sourceColumn": "year",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "month",
@@ -20703,9 +20738,39 @@
               }
             ],
             "dataType": "double",
-            "lineageTag": "c7aa94ad-9c01-4560-93e0-c8eb2d0604be",
+            "lineageTag": "0c50d45d-0c33-403e-be50-21046035b4e4",
             "sourceColumn": "month",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
+          },
+          {
+            "name": "day_of_week_num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "a54d2cbe-500a-42be-975b-76ccda67c579",
+            "sourceColumn": "day_of_week_num",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "day_of_week_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0a2e9fa4-deb7-4f8e-b8ca-e8cd40479d36",
+            "sourceColumn": "day_of_week_name",
+            "summarizeBy": "none"
           },
           {
             "name": "hour",
@@ -20720,9 +20785,9 @@
               }
             ],
             "dataType": "double",
-            "lineageTag": "68457d7b-e50d-46ff-a52f-3bdf0b07a389",
+            "lineageTag": "bbb7de6f-d129-4800-bef5-2963cc232222",
             "sourceColumn": "hour",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "avg_hourly_no2",
@@ -20737,7 +20802,7 @@
               }
             ],
             "dataType": "double",
-            "lineageTag": "44aaf536-846e-474e-83fe-e4da9862cc7d",
+            "lineageTag": "1b3bbf7e-fe76-4bc7-bc56-2a193fa15643",
             "sourceColumn": "avg_hourly_no2",
             "summarizeBy": "sum"
           },
@@ -20754,7 +20819,7 @@
               }
             ],
             "dataType": "double",
-            "lineageTag": "de6ba33b-0388-492f-a3a1-b91a38dacb42",
+            "lineageTag": "f4562b91-7888-4e81-8ffc-93a4c3050aaf",
             "sourceColumn": "max_hourly_no2",
             "summarizeBy": "sum"
           },
@@ -20768,25 +20833,283 @@
             ],
             "dataType": "int64",
             "formatString": "0",
-            "lineageTag": "08c68998-df4f-499d-820d-a716c7dfdc52",
+            "lineageTag": "36506d84-8d8b-4312-81cf-919130ae3e34",
             "sourceColumn": "sample_count",
             "summarizeBy": "sum"
           }
         ],
-        "lineageTag": "01dc3092-fd5c-43f3-8ae6-3dc10faa92d9",
+        "lineageTag": "678eaa31-43a0-45cb-a4b6-0e5ca428cec3",
         "partitions": [
           {
-            "name": "public analytics_site_hourly_monthly_profiles",
+            "name": "public analytics_site_hourly_weekly_profiles",
             "mode": "import",
             "source": {
               "expression": [
                 "let",
                 "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
-                "    public_analytics_site_hourly_monthly_profiles = Source{[Schema=\"public\",Item=\"analytics_site_hourly_monthly_profiles\"]}[Data]",
+                "    public_analytics_site_hourly_weekly_profiles = Source{[Schema=\"public\",Item=\"analytics_site_hourly_weekly_profiles\"]}[Data]",
                 "in",
-                "    public_analytics_site_hourly_monthly_profiles"
+                "    public_analytics_site_hourly_weekly_profiles"
               ],
               "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_months",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "d6ac5b07907248beae6de3f02f9fad99"
+          }
+        ],
+        "columns": [
+          {
+            "name": "month_num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "d9da494f-f249-49c9-8baf-0aaf9ae205f6",
+            "sourceColumn": "[month_num]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "month_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "365a9389-2cbc-4e72-8d03-ede33395d905",
+            "sourceColumn": "[month_name]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "month_short",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "dbabd375-1e07-494f-8e41-50d02a2bf3da",
+            "sourceColumn": "[month_short]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "57d8ebe2-6a8c-445f-bb5e-f168b3d15383",
+        "partitions": [
+          {
+            "name": "dim_months",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "DATATABLE(",
+                "    \"month_num\", INTEGER,",
+                "    \"month_name\", STRING,",
+                "    \"month_short\", STRING,",
+                "    {",
+                "        {1, \"January\", \"Jan\"},",
+                "        {2, \"February\", \"Feb\"},",
+                "        {3, \"March\", \"Mar\"},",
+                "        {4, \"April\", \"Apr\"},",
+                "        {5, \"May\", \"May\"},",
+                "        {6, \"June\", \"Jun\"},",
+                "        {7, \"July\", \"Jul\"},",
+                "        {8, \"August\", \"Aug\"},",
+                "        {9, \"September\", \"Sep\"},",
+                "        {10, \"October\", \"Oct\"},",
+                "        {11, \"November\", \"Nov\"},",
+                "        {12, \"December\", \"Dec\"}",
+                "    }",
+                ")"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_days_of_week",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "19c4feafffca49a9ab18cb136838bbda"
+          }
+        ],
+        "columns": [
+          {
+            "name": "day_of_week_num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "e0f03fbb-8615-4cc3-b7c6-fca75a7e2cf7",
+            "sourceColumn": "[day_of_week_num]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "day_of_week_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "d5a72051-1cf5-4273-8e18-dfb90af9b3d4",
+            "sourceColumn": "[day_of_week_name]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "day_of_week_short",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "9b0d7c59-d312-4975-96d9-ff4562d5384e",
+            "sourceColumn": "[day_of_week_short]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "9c0637a8-7761-4e7b-ae9c-47acedb01f7d",
+        "partitions": [
+          {
+            "name": "dim_days_of_week",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "DATATABLE(",
+                "    \"day_of_week_num\", INTEGER,",
+                "    \"day_of_week_name\", STRING,",
+                "    \"day_of_week_short\", STRING,",
+                "    {",
+                "        {1, \"Monday\", \"Mon\"},",
+                "        {2, \"Tuesday\", \"Tue\"},",
+                "        {3, \"Wednesday\", \"Wed\"},",
+                "        {4, \"Thursday\", \"Thu\"},",
+                "        {5, \"Friday\", \"Fri\"},",
+                "        {6, \"Saturday\", \"Sat\"},",
+                "        {7, \"Sunday\", \"Sun\"}",
+                "    }",
+                ")"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_hours",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "355dc011db364bdf8a8ef56f896888bb"
+          }
+        ],
+        "columns": [
+          {
+            "name": "hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "4d7d1492-6a6a-4653-bc0a-acf91ed1d5a7",
+            "sourceColumn": "[hour]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "hour_24_format",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "55e65bc8-5022-4e2b-a504-c53ffff4906f",
+            "sourceColumn": "[hour_24_format]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "hour_12_format",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "bf532ff0-bd7a-4515-b6dc-c94ab022c9c8",
+            "sourceColumn": "[hour_12_format]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "9cbc238d-aa1c-4c65-aebf-11960065f4e2",
+        "partitions": [
+          {
+            "name": "dim_hours",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "SELECTCOLUMNS(",
+                "    GENERATESERIES(0, 23, 1),",
+                "    \"hour\", [Value],",
+                "    \"hour_24_format\", FORMAT(TIME([Value], 0, 0), \"HH:00\"),",
+                "    \"hour_12_format\", FORMAT(TIME([Value], 0, 0), \"hh:00 AM/PM\")",
+                ")"
+              ],
+              "type": "calculated"
             }
           }
         ]
