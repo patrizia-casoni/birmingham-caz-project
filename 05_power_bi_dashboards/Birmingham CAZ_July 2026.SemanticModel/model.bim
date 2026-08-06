@@ -650,6 +650,860 @@
                   "Value": "Hidden"
                 }
               },
+              "public_analytics_top19_hourly_peak": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "public analytics_top19_hourly_peak": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.day": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "day"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "day": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.exact_timestamp": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "exact_timestamp"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "exact timestamp": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "exact_timestamp": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "date": {
+                      "State": "Generated",
+                      "Weight": 0.7
+                    }
+                  },
+                  {
+                    "timestamp": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "Hierarchy": "Date Hierarchy",
+                    "VariationSet": "Variation",
+                    "VariationSource": "exact_timestamp"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "exact timestamp date hierarchy": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date hierarchy": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "hierarchy": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "timestamp date hierarchy": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.day": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Day",
+                    "VariationSet": "Variation",
+                    "VariationSource": "exact_timestamp"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "exact timestamp day": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "day": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "timestamp day": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.month": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Month",
+                    "VariationSet": "Variation",
+                    "VariationSource": "exact_timestamp"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "exact timestamp month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "timestamp month": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "exact timestamp mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "timestamp mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.quarter": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Quarter",
+                    "VariationSet": "Variation",
+                    "VariationSource": "exact_timestamp"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "exact timestamp quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "timestamp quarter": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "exact timestamp qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.846
+                    }
+                  },
+                  {
+                    "timestamp qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.833
+                    }
+                  },
+                  {
+                    "qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.818
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Year",
+                    "VariationSet": "Variation",
+                    "VariationSource": "exact_timestamp"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "exact timestamp year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "timestamp year": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "exact timestamp yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "timestamp yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.hour": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "hour"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "hour": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "era": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "epoch": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.466
+                    }
+                  },
+                  {
+                    "age": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.hourly_no_2_value": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "hourly_no2_value"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "hourly no 2 value": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "hourly_no2_value": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "value": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "2 value": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "no 2 value": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "hourly number 2 value": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.599
+                    }
+                  },
+                  {
+                    "number 2 value": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "hourly no 2 assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "no 2 assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "2 assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "hourly no 2 worth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "hourly no 2 price": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "hourly no 2 cost": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "hourly no 2 charge": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "hourly no 2 rate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.month": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "month"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.peak_rank": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "peak_rank"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "peak rank": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "peak_rank": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.site_id": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "site_id"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "site id": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "site_id": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "site identification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "site identity": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "site identifier": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "website": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "campus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "homepage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "site credential": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "place": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "spot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "public_analytics_top19_hourly_peak.site_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "site_name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "site name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "site_name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "website": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "campus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "homepage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "site nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "place": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "spot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "public_analytics_top19_hourly_peak.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_top19_hourly_peaks",
+                    "ConceptualProperty": "year"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
               "public_analytics_yearly_traffic_summary": {
                 "Definition": {
                   "Binding": {
@@ -11302,7 +12156,7 @@
                     }
                   },
                   {
-                    "Tier 4: P99.8 NO2 (µg/m³) - 2024": {
+                    "P998 NO2 (µg/m³)": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -11444,114 +12298,34 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "998_Perc_%_Change"
+                    "ConceptualProperty": "998_Perc_%_Change_Dynamic"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "998_Perc_%_change": {
+                    "998_Perc_%_Change_Dynamic": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "998_perc_ percentage _change": {
+                    "998_perc_ percentage _change_dynamic": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.617
+                      "Weight": 0.609
                     }
                   },
                   {
-                    "998_perc_ pct _change": {
+                    "998_perc_ pct _change_dynamic": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.599
-                    }
-                  },
-                  {
-                    "998_perc_%_ alteration": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "998_perc_%_ modification": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "998_perc_%_ variation": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "998_perc_%_ transformation": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "998_perc_%_ revolution": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "998_perc_%_ conversion": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "998_perc_%_ adjustment": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
-                    }
-                  },
-                  {
-                    "998_perc_%_ amendment": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.514
+                      "Weight": 0.591
                     }
                   }
                 ]
@@ -11936,7 +12710,7 @@
                         "Role": "public_analytics_site_yearly_summary"
                       }
                     },
-                    "ID": "public_analytics_site_yearly_summaries_have_998_Perc__change",
+                    "ID": "public_analytics_site_yearly_summaries_have_998_Perc__Change_Dynamic",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -11950,6 +12724,501 @@
                   "v_Measures_measure.v99_Perc_NO2___Change99_Perc_NO2__change": {
                     "Target": {
                       "Entity": "v_Measures_measure.v99_Perc_NO2___Change99_Perc_NO2__change"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_exact_timestamp_has_variation_date_hierarchy": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp"
+                      }
+                    },
+                    "ID": "exact_timestamps_have_exact_timestamp_date_hierarchies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak.exact_timestamp": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_exact_timestamp_variation_date_hierarchy_has_day": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.day"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "exact_timestamp_date_hierarchies_have_exact_timestamp_days",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.day": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.day"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_exact_timestamp_variation_date_hierarchy_has_month": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.month"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "exact_timestamp_date_hierarchies_have_exact_timestamp_months",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.month": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.month"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_exact_timestamp_variation_date_hierarchy_has_quarter": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.quarter"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "exact_timestamp_date_hierarchies_have_exact_timestamp_quarters",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.quarter": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.quarter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_exact_timestamp_variation_date_hierarchy_has_year": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.year"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "exact_timestamp_date_hierarchies_have_exact_timestamp_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.year": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp.variation.date_hierarchy.year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_day": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.day"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_days",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.day": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.day"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_exact_timestamp": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.exact_timestamp"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_exact_timestamps",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.exact_timestamp": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.exact_timestamp"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_hour": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.hour"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_hours",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.hour": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.hour"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_hourly_no_2_value": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.hourly_no_2_value"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_hourly_no_2_values",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.hourly_no_2_value": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.hourly_no_2_value"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_month": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.month"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_months",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.month": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.month"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_peak_rank": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.peak_rank"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_peak_ranks",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.peak_rank": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.peak_rank"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_public_dim_year": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_dim_year"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_public_dim_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      },
+                      "Subject": {
+                        "Role": "public_dim_year"
+                      }
+                    },
+                    "ID": "public_dim_years_have_public_analytics_top19_hourly_peaks",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_dim_year": {
+                    "Nouns": [
+                      {
+                        "year": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "public_dim_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_public_monitoring_site": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_monitoring_site"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_public_monitoring_sites",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      },
+                      "Subject": {
+                        "Role": "public_monitoring_site"
+                      }
+                    },
+                    "ID": "public_monitoring_sites_have_public_analytics_top19_hourly_peaks",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_monitoring_site": {
+                    "Target": {
+                      "Entity": "public_monitoring_site"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_top19_hourly_peak_has_site_name": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_top19_hourly_peaks"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_top19_hourly_peak.site_name"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_top19_hourly_peak"
+                      }
+                    },
+                    "ID": "public_analytics_top19_hourly_peaks_have_site_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_top19_hourly_peak": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak"
+                    }
+                  },
+                  "public_analytics_top19_hourly_peak.site_name": {
+                    "Target": {
+                      "Entity": "public_analytics_top19_hourly_peak.site_name"
                     }
                   }
                 },
@@ -18924,22 +20193,33 @@
             ],
             "expression": [
               "",
-              "CALCULATE(",
-              "    AVERAGE('public analytics_site_yearly_summary'[p998_no2_value]),",
-              "    'public analytics_site_yearly_summary'[year] IN {2018, 2019},",
-              "    REMOVEFILTERS('public dim_years')",
-              ")"
+              "VAR StandardBaseline = ",
+              "    CALCULATE(",
+              "        AVERAGE('public analytics_site_yearly_summary'[p998_no2_value]),",
+              "        'public analytics_site_yearly_summary'[year] IN {2018, 2019},",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "VAR FallbackBaseline2022 = ",
+              "    CALCULATE(",
+              "        AVERAGE('public analytics_site_yearly_summary'[p998_no2_value]),",
+              "        'public analytics_site_yearly_summary'[year] = 2022,",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "RETURN ",
+              "    IF(ISBLANK(StandardBaseline), FallbackBaseline2022, StandardBaseline)"
             ],
             "lineageTag": "0473c705-976f-45e7-bda4-99afd50c8bc3"
           },
           {
-            "name": "998_Perc_%_Change",
+            "name": "998_Perc_%_Change_Dynamic",
             "expression": [
               "",
-              "VAR CurrentAvg = [P998_Dynamic_Value] ",
-              "VAR PrePandemicBaseline = [998_Perc_18/19_Baseline]",
-              "RETURN",
-              "DIVIDE(CurrentAvg - PrePandemicBaseline, PrePandemicBaseline)"
+              "DIVIDE(",
+              "    [P998_Dynamic_Value] - [998_Perc_18/19_Baseline],",
+              "    [998_Perc_18/19_Baseline]",
+              ")"
             ],
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "addad2f0-34e2-4cdf-8f7c-10cf6d4f4b8c"
