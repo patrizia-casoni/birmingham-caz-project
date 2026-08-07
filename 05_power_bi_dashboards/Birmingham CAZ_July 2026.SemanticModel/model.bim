@@ -4578,6 +4578,865 @@
                   }
                 ]
               },
+              "public_caz_traffic_compliance": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "public caz_traffic_compliance": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.compliant_vehicle": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "ConceptualProperty": "compliant_vehicles"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "compliant vehicle": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "compliant_vehicles": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "vehicle": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "compliant car": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "compliant lorry": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "car": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "lorry": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "compliant bus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "compliant van": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "compliant automobile": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "compliant truck": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "bus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "van": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.date": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "ConceptualProperty": "date"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "date": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "moment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.date.variation.date_hierarchy": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "Hierarchy": "Date Hierarchy",
+                    "VariationSet": "Variation",
+                    "VariationSource": "date"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "date hierarchy": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.date.variation.date_hierarchy.day": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Day",
+                    "VariationSet": "Variation",
+                    "VariationSource": "date"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "day": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date day": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "moment day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "period day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.date.variation.date_hierarchy.month": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Month",
+                    "VariationSet": "Variation",
+                    "VariationSource": "date"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date month": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "mth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "moment month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "period month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.date.variation.date_hierarchy.quarter": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Quarter",
+                    "VariationSet": "Variation",
+                    "VariationSource": "date"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date quarter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.833
+                    }
+                  },
+                  {
+                    "qtr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.818
+                    }
+                  },
+                  {
+                    "moment quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "period quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.date.variation.date_hierarchy.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "Hierarchy": "Date Hierarchy",
+                    "HierarchyLevel": "Year",
+                    "VariationSet": "Variation",
+                    "VariationSource": "date"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "date yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "moment year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "period year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.noncompliant_vehicle": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "ConceptualProperty": "noncompliant_vehicles"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "noncompliant vehicle": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "noncompliant_vehicles": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "vehicle": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "noncompliant car": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "noncompliant lorry": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "car": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "lorry": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "noncompliant bus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "noncompliant van": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "noncompliant automobile": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "noncompliant truck": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "bus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "van": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.total_vehicle": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "ConceptualProperty": "total_vehicles"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "total vehicle": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "total_vehicles": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "vehicle": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "aggregate vehicle": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "overall vehicle": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "total car": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "total lorry": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "car": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "lorry": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "total bus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "total van": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "total automobile": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "total truck": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.vehicle_type": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "ConceptualProperty": "vehicle_type"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "vehicle type": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "vehicle_type": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "type": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "vehicle category": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "vehicle genre": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "vehicle manner": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "vehicle variety": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "category": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "genre": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "manner": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "variety": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "vehicle brand": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "vehicle class": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
+              "public_caz_traffic_compliance.year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public caz_traffic_compliance",
+                    "ConceptualProperty": "Year"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "year": {
+                      "State": "Generated",
+                      "Type": "Noun"
+                    }
+                  },
+                  {
+                    "yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
               "public_dim_caz_tier": {
                 "Definition": {
                   "Binding": {
@@ -5404,12 +6263,6 @@
                     }
                   },
                   {
-                    "date day": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "culmination date day": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -5490,17 +6343,17 @@
                     }
                   },
                   {
-                    "moment day": {
+                    "cease date day": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "cease date day": {
+                    "end time day": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -5540,12 +6393,6 @@
                     }
                   },
                   {
-                    "date month": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "end date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -5557,16 +6404,6 @@
                   },
                   {
                     "end mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -5644,6 +6481,16 @@
                       "Type": "Noun",
                       "Weight": 0.6
                     }
+                  },
+                  {
+                    "conclusion month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
                   }
                 ]
               },
@@ -5676,12 +6523,6 @@
                     }
                   },
                   {
-                    "date quarter": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "end date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -5693,16 +6534,6 @@
                   },
                   {
                     "end qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.833
-                    }
-                  },
-                  {
-                    "date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -5780,6 +6611,16 @@
                       "Type": "Noun",
                       "Weight": 0.6
                     }
+                  },
+                  {
+                    "conclusion quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
                   }
                 ]
               },
@@ -5812,12 +6653,6 @@
                     }
                   },
                   {
-                    "date year": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "end date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -5829,16 +6664,6 @@
                   },
                   {
                     "end yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -5909,6 +6734,16 @@
                   },
                   {
                     "completion year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "conclusion year": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -6750,12 +7585,6 @@
                     }
                   },
                   {
-                    "date day": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "commencement date day": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -6793,16 +7622,6 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.609
-                    }
-                  },
-                  {
-                    "moment day": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
                     }
                   },
                   {
@@ -6854,6 +7673,16 @@
                       "Type": "Noun",
                       "Weight": 0.591
                     }
+                  },
+                  {
+                    "kick off date day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.484
+                    }
                   }
                 ]
               },
@@ -6886,12 +7715,6 @@
                     }
                   },
                   {
-                    "date month": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "start date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -6903,16 +7726,6 @@
                   },
                   {
                     "start mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -6972,17 +7785,27 @@
                     }
                   },
                   {
-                    "moment month": {
+                    "beginning date month": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "beginning date month": {
+                    "first date month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "initiation date month": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -7022,12 +7845,6 @@
                     }
                   },
                   {
-                    "date quarter": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "start date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -7039,16 +7856,6 @@
                   },
                   {
                     "start qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.833
-                    }
-                  },
-                  {
-                    "date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -7108,17 +7915,27 @@
                     }
                   },
                   {
-                    "moment quarter": {
+                    "beginning date quarter": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "beginning date quarter": {
+                    "first date quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "initiation date quarter": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -7158,12 +7975,6 @@
                     }
                   },
                   {
-                    "date year": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "start date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -7175,16 +7986,6 @@
                   },
                   {
                     "start yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -7244,17 +8045,27 @@
                     }
                   },
                   {
-                    "moment year": {
+                    "beginning date year": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "beginning date year": {
+                    "first date year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "initiation date year": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -8092,12 +8903,6 @@
                     }
                   },
                   {
-                    "date day": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "culmination date day": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -8178,17 +8983,17 @@
                     }
                   },
                   {
-                    "moment day": {
+                    "cease date day": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "cease date day": {
+                    "end time day": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -8231,12 +9036,6 @@
                     }
                   },
                   {
-                    "date month": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "end date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -8248,16 +9047,6 @@
                   },
                   {
                     "end mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -8335,6 +9124,16 @@
                       "Type": "Noun",
                       "Weight": 0.6
                     }
+                  },
+                  {
+                    "conclusion month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
                   }
                 ],
                 "Visibility": {
@@ -8370,12 +9169,6 @@
                     }
                   },
                   {
-                    "date quarter": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "end date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -8387,16 +9180,6 @@
                   },
                   {
                     "end qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.833
-                    }
-                  },
-                  {
-                    "date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -8474,6 +9257,16 @@
                       "Type": "Noun",
                       "Weight": 0.6
                     }
+                  },
+                  {
+                    "conclusion quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
                   }
                 ],
                 "Visibility": {
@@ -8509,12 +9302,6 @@
                     }
                   },
                   {
-                    "date year": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "end date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -8526,16 +9313,6 @@
                   },
                   {
                     "end yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -8606,6 +9383,16 @@
                   },
                   {
                     "completion year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "conclusion year": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -9775,12 +10562,6 @@
                     }
                   },
                   {
-                    "date day": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "commencement date day": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -9818,16 +10599,6 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.609
-                    }
-                  },
-                  {
-                    "moment day": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
                     }
                   },
                   {
@@ -9879,6 +10650,16 @@
                       "Type": "Noun",
                       "Weight": 0.591
                     }
+                  },
+                  {
+                    "kick off date day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.484
+                    }
                   }
                 ]
               },
@@ -9911,12 +10692,6 @@
                     }
                   },
                   {
-                    "date month": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "start date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -9928,16 +10703,6 @@
                   },
                   {
                     "start mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -9997,17 +10762,27 @@
                     }
                   },
                   {
-                    "moment month": {
+                    "beginning date month": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "beginning date month": {
+                    "first date month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "initiation date month": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -10047,12 +10822,6 @@
                     }
                   },
                   {
-                    "date quarter": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "start date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -10064,16 +10833,6 @@
                   },
                   {
                     "start qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.833
-                    }
-                  },
-                  {
-                    "date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -10133,17 +10892,27 @@
                     }
                   },
                   {
-                    "moment quarter": {
+                    "beginning date quarter": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "beginning date quarter": {
+                    "first date quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "initiation date quarter": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -10183,12 +10952,6 @@
                     }
                   },
                   {
-                    "date year": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "start date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -10200,16 +10963,6 @@
                   },
                   {
                     "start yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -10269,17 +11022,27 @@
                     }
                   },
                   {
-                    "moment year": {
+                    "beginning date year": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
                       "Type": "Noun",
-                      "Weight": 0.6
+                      "Weight": 0.597
                     }
                   },
                   {
-                    "beginning date year": {
+                    "first date year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "initiation date year": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -12351,12 +13114,6 @@
                     }
                   },
                   {
-                    "date day": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "fiscal commencement date day": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -12437,16 +13194,6 @@
                     }
                   },
                   {
-                    "moment day": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.6
-                    }
-                  },
-                  {
                     "fiscal start period day": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -12454,6 +13201,16 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.599
+                    }
+                  },
+                  {
+                    "fiscal kick off date day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
                     }
                   }
                 ]
@@ -12487,12 +13244,6 @@
                     }
                   },
                   {
-                    "date month": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "fiscal start date mth": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -12510,16 +13261,6 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.762
-                    }
-                  },
-                  {
-                    "date mth": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
                     }
                   },
                   {
@@ -12591,6 +13332,16 @@
                       "Type": "Noun",
                       "Weight": 0.61
                     }
+                  },
+                  {
+                    "fiscal initiation date month": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.61
+                    }
                   }
                 ]
               },
@@ -12623,12 +13374,6 @@
                     }
                   },
                   {
-                    "date quarter": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "fiscal start date qtr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -12646,16 +13391,6 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.846
-                    }
-                  },
-                  {
-                    "date qtr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.833
                     }
                   },
                   {
@@ -12727,6 +13462,16 @@
                       "Type": "Noun",
                       "Weight": 0.61
                     }
+                  },
+                  {
+                    "fiscal initiation date quarter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.61
+                    }
                   }
                 ]
               },
@@ -12759,12 +13504,6 @@
                     }
                   },
                   {
-                    "date year": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
                     "fiscal start date yr": {
                       "Source": {
                         "Agent": "Thesaurus"
@@ -12782,16 +13521,6 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.762
-                    }
-                  },
-                  {
-                    "date yr": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.75
                     }
                   },
                   {
@@ -12856,6 +13585,16 @@
                   },
                   {
                     "fiscal first date year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.61
+                    }
+                  },
+                  {
+                    "fiscal initiation date year": {
                       "Source": {
                         "Agent": "Thesaurus"
                       },
@@ -16034,6 +16773,389 @@
                   "public_caz_respiratory_master.ward_count": {
                     "Target": {
                       "Entity": "public_caz_respiratory_master.ward_count"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_date_has_variation_date_hierarchy": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance.date"
+                      }
+                    },
+                    "ID": "dates_have_date_hierarchies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance.date": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date"
+                    }
+                  },
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_date_variation_date_hierarchy_has_day": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy.day"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "date_hierarchies_have_days",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                    }
+                  },
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy.day": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy.day"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_date_variation_date_hierarchy_has_month": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy.month"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "date_hierarchies_have_months",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                    }
+                  },
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy.month": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy.month"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_date_variation_date_hierarchy_has_quarter": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy.quarter"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "date_hierarchies_have_quarters",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                    }
+                  },
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy.quarter": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy.quarter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_date_variation_date_hierarchy_has_year": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy.year"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                      }
+                    },
+                    "ID": "date_hierarchies_have_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy"
+                    }
+                  },
+                  "public_caz_traffic_compliance.date.variation.date_hierarchy.year": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date.variation.date_hierarchy.year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_has_compliant_vehicle": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.compliant_vehicle"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance"
+                      }
+                    },
+                    "ID": "public_caz_traffic_compliances_have_compliant_vehicles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance"
+                    }
+                  },
+                  "public_caz_traffic_compliance.compliant_vehicle": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.compliant_vehicle"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_has_date": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.date"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance"
+                      }
+                    },
+                    "ID": "public_caz_traffic_compliances_have_dates",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance"
+                    }
+                  },
+                  "public_caz_traffic_compliance.date": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.date"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_has_noncompliant_vehicle": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.noncompliant_vehicle"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance"
+                      }
+                    },
+                    "ID": "public_caz_traffic_compliances_have_noncompliant_vehicles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance"
+                    }
+                  },
+                  "public_caz_traffic_compliance.noncompliant_vehicle": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.noncompliant_vehicle"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_has_public_dim_year": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_dim_year"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance"
+                      }
+                    },
+                    "ID": "public_caz_traffic_compliances_have_public_dim_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance"
+                      },
+                      "Subject": {
+                        "Role": "public_dim_year"
+                      }
+                    },
+                    "ID": "public_dim_years_have_public_caz_traffic_compliances",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance"
+                    }
+                  },
+                  "public_dim_year": {
+                    "Nouns": [
+                      {
+                        "year": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "public_dim_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_has_total_vehicle": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.total_vehicle"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance"
+                      }
+                    },
+                    "ID": "public_caz_traffic_compliances_have_total_vehicles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance"
+                    }
+                  },
+                  "public_caz_traffic_compliance.total_vehicle": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.total_vehicle"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_caz_traffic_compliance_has_vehicle_type": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_traffic_compliance"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_traffic_compliance.vehicle_type"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_traffic_compliance"
+                      }
+                    },
+                    "ID": "public_caz_traffic_compliances_have_vehicle_types",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_caz_traffic_compliance": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance"
+                    }
+                  },
+                  "public_caz_traffic_compliance.vehicle_type": {
+                    "Target": {
+                      "Entity": "public_caz_traffic_compliance.vehicle_type"
                     }
                   }
                 },
