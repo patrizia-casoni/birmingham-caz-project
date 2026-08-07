@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\",\"public analytics_site_hourly_weekly_profiles\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_yearly_traffic_summary\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\",\"public analytics_site_hourly_weekly_profiles\",\"public caz_traffic_compliance\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -19153,6 +19153,21 @@
         "fromTable": "public analytics_site_hourly_weekly_profiles",
         "toColumn": "hour",
         "toTable": "dim_hours"
+      },
+      {
+        "name": "1c0e0eb2-5e9d-418a-88a8-23124a700c09",
+        "fromColumn": "date",
+        "fromTable": "public caz_traffic_compliance",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_fb94cd9c-a284-4540-8774-ed90ecbdb314"
+      },
+      {
+        "name": "7be80f72-e193-6bbe-cfe8-3cddba32f834",
+        "fromColumn": "Year",
+        "fromTable": "public caz_traffic_compliance",
+        "toColumn": "calendar_year",
+        "toTable": "public dim_years"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -23304,6 +23319,327 @@
             }
           }
         ]
+      },
+      {
+        "name": "public caz_traffic_compliance",
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "00e4c16c-5714-4eaa-8720-5d423b84d650",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_fb94cd9c-a284-4540-8774-ed90ecbdb314"
+                },
+                "isDefault": true,
+                "relationship": "1c0e0eb2-5e9d-418a-88a8-23124a700c09"
+              }
+            ]
+          },
+          {
+            "name": "vehicle_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2f87871b-a305-49a5-82c4-a2f25be00c30",
+            "sourceColumn": "vehicle_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "compliant_vehicles",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "847a7338-8b86-4024-9e09-fed7e9d72f4d",
+            "sourceColumn": "compliant_vehicles",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "noncompliant_vehicles",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ff5a15aa-cae5-47cf-b565-b3b880058463",
+            "sourceColumn": "noncompliant_vehicles",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "total_vehicles",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1893d9df-9086-4faa-b0d2-e21fee398a0b",
+            "sourceColumn": "total_vehicles",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "YEAR('public caz_traffic_compliance'[date])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "1c4987b4-bcc9-45c6-a80d-f1ea2021c0a6",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "5c210f12-c408-4f09-9cf2-b0f3f26df98c",
+        "partitions": [
+          {
+            "name": "public caz_traffic_compliance",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
+                "    public_caz_traffic_compliance = Source{[Schema=\"public\",Item=\"caz_traffic_compliance\"]}[Data]",
+                "in",
+                "    public_caz_traffic_compliance"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_fb94cd9c-a284-4540-8774-ed90ecbdb314",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isNameInferred": true,
+            "lineageTag": "e946fa03-03c8-44d1-a6ed-99fca8bf48c7",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "lineageTag": "957c9d5b-4e1c-46c5-b715-99d7603aa22c",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "lineageTag": "d16b28a2-cd24-40ed-9457-56c56910f8c0",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "lineageTag": "0a2dab85-b7be-4916-9ef7-5b09136a2a7c",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "lineageTag": "d186f605-d8e2-461d-8829-9c566cfb375e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "lineageTag": "b1c8d7a9-1c87-4caf-9bfc-a8bcfff11525",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "lineageTag": "cfed949c-5ae2-4669-aede-c5da433af14a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "dc1f0673-2eed-4044-9fb6-dd3f6625b53d",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "fa849804-842b-47ce-96d5-f3c1a2b69764",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "75cdf418-a9e6-4d69-9588-0b42592f8ce0",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "08898bf6-781e-48ac-aaf8-65d80447bf35",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "753c657b-4f4c-40a5-a1d6-5a5260c5eda7"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "66359220-a592-4abd-9ab0-1820c60ae2df",
+        "partitions": [
+          {
+            "name": "LocalDateTable_fb94cd9c-a284-4540-8774-ed90ecbdb314",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('public caz_traffic_compliance'[date])), 1, 1), Date(Year(MAX('public caz_traffic_compliance'[date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
       }
     ]
   }

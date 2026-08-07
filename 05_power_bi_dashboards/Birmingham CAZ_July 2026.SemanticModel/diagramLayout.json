@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 4025.2541969017775,
+        "x": 4426.0678293959845,
         "y": 0
       },
       "nodes": [
@@ -212,6 +212,19 @@
             "width": 234
           },
           "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 5579.8921709017732,
+            "y": 370.60367334343118
+          },
+          "nodeIndex": "public caz_traffic_compliance",
+          "nodeLineageTag": "5c210f12-c408-4f09-9cf2-b0f3f26df98c",
+          "size": {
+            "height": 200,
+            "width": 349.15146499999992
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
