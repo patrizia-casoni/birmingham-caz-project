@@ -46,6 +46,17 @@
   "sections": [
     {
       "config": "{}",
+      "displayName": "Fleet Modern 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "16e122b1a4ec9d630495",
+      "ordinal": 7,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
       "displayName": "0.Executive Summary",
       "displayOption": 1,
       "filters": "[]",
@@ -62,7 +73,7 @@
       "filters": "[]",
       "height": 720.00,
       "name": "350a3283c18bdb342e97",
-      "ordinal": 7,
+      "ordinal": 8,
       "visualContainers": [],
       "width": 1280.00
     },
@@ -85,6 +96,15 @@
           "z": 0.00
         },
         {
+          "config": "{\"name\":\"3f632fd8e535d91cd2c9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":657.375952922295,\"y\":392.8603909130859,\"z\":3,\"width\":583.8124534286097,\"height\":291.12363629415927,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(public caz_traffic_compliance.total_vehicles)\"}],\"Series\":[{\"queryRef\":\"public caz_traffic_compliance.vehicle_type\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"public caz_traffic_compliance\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public caz_traffic_compliance.total_vehicles)\",\"NativeReferenceName\":\"Sum of total_vehicles\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"vehicle_type\"},\"Name\":\"public caz_traffic_compliance.vehicle_type\",\"NativeReferenceName\":\"vehicle_type\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_vehicles\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"showTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Traffic Volume: Commercial and Other Vehicles'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"85c958ea3460a3a759ba\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"public caz_traffic_compliance\"}},\"Property\":\"vehicle_type\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public caz_traffic_compliance\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"vehicle_type\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Car'\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 291.12,
+          "width": 583.81,
+          "x": 657.38,
+          "y": 392.86,
+          "z": 3.00
+        },
+        {
           "config": "{\"name\":\"d0d3cbc2116c90dc5000\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":132.28397316365175,\"z\":1,\"width\":1280.3198831196294,\"height\":240.9458082623657,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\"}],\"Y2\":[{\"queryRef\":\"Sum(public analytics_yearly_traffic_summary.total_non_compliant_vehicles)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"public analytics_yearly_traffic_summary\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_caz_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\",\"NativeReferenceName\":\"Total Vehicles\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_non_compliant_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public analytics_yearly_traffic_summary.total_non_compliant_vehicles)\",\"NativeReferenceName\":\"Non-Compliant Vehicles\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_caz_vehicles\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\":{\"displayName\":\"Total Vehicles\"},\"Sum(public analytics_yearly_traffic_summary.total_non_compliant_vehicles)\":{\"displayName\":\"Non-Compliant Vehicles\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'CAZ Traffic Volume vs. Non-Compliance (2021-2025)'\"}}}}}]}}}",
           "filters": "[]",
           "height": 240.95,
@@ -92,6 +112,15 @@
           "x": 0.00,
           "y": 132.28,
           "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"d837b3870c32458022a0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":43.825063528153,\"y\":392.8603909130859,\"z\":2,\"width\":574.4213683868626,\"height\":291.12363629415927,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(public caz_traffic_compliance.total_vehicles)\"}],\"Series\":[{\"queryRef\":\"public caz_traffic_compliance.vehicle_type\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"public caz_traffic_compliance\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public caz_traffic_compliance.total_vehicles)\",\"NativeReferenceName\":\"Sum of total_vehicles\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"vehicle_type\"},\"Name\":\"public caz_traffic_compliance.vehicle_type\",\"NativeReferenceName\":\"vehicle_type\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_vehicles\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"showTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Traffic Volume: Cars'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"85c958ea3460a3a759ba\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"public caz_traffic_compliance\"}},\"Property\":\"vehicle_type\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public caz_traffic_compliance\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"vehicle_type\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Car'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 291.12,
+          "width": 574.42,
+          "x": 43.83,
+          "y": 392.86,
+          "z": 2.00
         }
       ],
       "width": 1280.00
@@ -312,7 +341,7 @@
       "filters": "[]",
       "height": 720.00,
       "name": "a94a03fc36edb650dc79",
-      "ordinal": 8,
+      "ordinal": 9,
       "visualContainers": [],
       "width": 1280.00
     },
