@@ -20085,7 +20085,6 @@
           }
         ],
         "crossFilteringBehavior": "bothDirections",
-        "fromCardinality": "one",
         "fromColumn": "year",
         "fromTable": "public analytics_yearly_traffic_summary",
         "toColumn": "calendar_year",
@@ -20800,6 +20799,19 @@
             "lineageTag": "42a822ef-3f11-4d5d-aba6-be6eba88e03b",
             "sourceColumn": "estimated_total_pollution_load",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "vehicle_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2ea504d6-4aef-42fe-82a2-f30786ba0c64",
+            "sourceColumn": "vehicle_type",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "ba4626b4-f14d-48b7-ab6b-59add70afbcc",

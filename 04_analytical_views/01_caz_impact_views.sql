@@ -59,18 +59,27 @@ ORDER BY
 --------------------------------------------------------------------------------
 -- INTERVIEW TALKING POINTS & METHODOLOGY (HOW TO DEFEND THIS MODEL):
 --
--- 1. OVERCOMING THE NAIVE BASELINE (WHY WE DID THIS):
+-- 1. ARCHITECTURAL UPDATE FOR POWER BI VISUALIZATION (`vehicle_type` INCLUSION):
+--    We updated the GROUP BY clause to include `vehicle_type` alongside the yearly 
+--    extraction. While aggregating solely by year gives a macro-level total, 
+--    retaining `vehicle_type` in the summary table allows Power BI to leverage 
+--    the `dim_years` bridge table and dynamically split the summary line into 
+--    individual category trend lines (Cars, LGVs, Unrecognised, etc.). This transforms 
+--    a single opaque metric into a granular diagnostic tool for tracking which 
+%    specific fleet segments are driving the pollution plateau.
+--
+-- 2. OVERCOMING THE NAIVE BASELINE (WHY WE DID THIS):
 --    The original SQL used a blanket multiplier (* 0.25) for all compliant vehicles. 
 --    This failed to capture the huge emission variance between engine types and 
 --    fuel profiles. We replaced it with a scientifically grounded Proxy Index.
 --
--- 2. METRIC ALIGNMENT (NO2 vs. NOx):
+-- 3. METRIC ALIGNMENT (NO2 vs. NOx):
 --    CAZ monitoring stations measure ambient NO2 (Nitrogen Dioxide) concentrations 
 --    at roadside locations, NOT laboratory NOx. Our weights specifically reflect 
 --    real-world urban NO2 tailpipe emissions and primary NO2 formation during 
 --    stop-and-go driving conditions.
 --
--- 3. DERIVATION OF PROXY WEIGHTS (CATEGORY BY CATEGORY):
+-- 4. DERIVATION OF PROXY WEIGHTS (CATEGORY BY CATEGORY):
 --
 --    * Non-Compliant Vehicles (Weight: 1.0):
 --      Baseline heavy polluters (e.g., Euro 5 or older diesels). Every non-compliant 
@@ -131,6 +140,7 @@ DROP TABLE IF EXISTS analytics_yearly_traffic_summary;
 CREATE TABLE analytics_yearly_traffic_summary AS
 SELECT 
     EXTRACT(YEAR FROM date) AS year,
+    vehicle_type,  -- Included to support multi-line breakdown by category in Power BI
     SUM(compliant_vehicles) AS total_compliant_vehicles,
     SUM(noncompliant_vehicles) AS total_non_compliant_vehicles,
     SUM(total_vehicles) AS total_caz_vehicles,
@@ -161,9 +171,8 @@ SELECT
     ) AS estimated_total_pollution_load
 
 FROM caz_traffic_compliance
-GROUP BY EXTRACT(YEAR FROM date)
-ORDER BY year ASC;
-
+GROUP BY EXTRACT(YEAR FROM date), vehicle_type
+ORDER BY year ASC, vehicle_type ASC;
 
 --------------------------------------------------------------------------------
 -- Master Table Creation: Birmingham Clean Air Zone (CAZ) & Respiratory Health

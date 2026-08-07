@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 4426.0678293959845,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -32,7 +32,7 @@
             "height": 272,
             "width": 377.00783423325277
           },
-          "zIndex": 6
+          "zIndex": 17
         },
         {
           "location": {
@@ -97,7 +97,7 @@
             "height": 347.54637235878261,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 6
         },
         {
           "location": {
@@ -136,7 +136,7 @@
             "height": 405.66892899999971,
             "width": 329.6642939999997
           },
-          "zIndex": 4
+          "zIndex": 5
         },
         {
           "location": {
@@ -149,7 +149,7 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 4
         },
         {
           "location": {
@@ -175,7 +175,7 @@
             "height": 346.06058599999983,
             "width": 411.15609999999924
           },
-          "zIndex": 1
+          "zIndex": 2
         },
         {
           "location": {
@@ -211,7 +211,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 3
         },
         {
           "location": {
@@ -224,7 +224,7 @@
             "height": 200,
             "width": 349.15146499999992
           },
-          "zIndex": 0
+          "zIndex": 1
         }
       ],
       "name": "All tables",
