@@ -20650,7 +20650,7 @@
                 "property": "IsHidden"
               }
             ],
-            "dataType": "int64",
+            "dataType": "double",
             "formatString": "0",
             "lineageTag": "c8e37e4b-09e2-4634-9eba-862b5147074e",
             "sourceColumn": "year",
