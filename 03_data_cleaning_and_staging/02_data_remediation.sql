@@ -172,6 +172,123 @@ LEFT JOIN full_ref_avgs f ON m.site_id = f.target_site_id AND m.reading_year = f
 
 
 --------------------------------------------------------------------------------
+-- TITLE: Staging - Impute Unrecognised Vehicles (Physical Table)
+-- PURPOSE: Dynamically splits monthly 'Unrecognised' vehicle counts across ALL 
+--          vehicle types based on monthly traffic shares. 
+--          Chargeable vehicles are sub-split into compliant/non-compliant counts.
+--          'Motorcycles and Other' receive their share of total vehicles, but 
+--          their compliance fields remain NULL per the schema constraint.
+-- ARCHITECTURE: Medallion (Silver Layer)
+--------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS analytics_imputed_traffic_monthly;
+
+CREATE TABLE analytics_imputed_traffic_monthly AS
+
+WITH 
+-- Step 1: Isolate ALL recognized traffic (Cars, LGVs, AND Motorcycles)
+recognized_totals AS (
+    SELECT 
+        date,
+        vehicle_type,
+        compliant_vehicles,
+        noncompliant_vehicles,
+        total_vehicles
+    FROM caz_traffic_compliance
+    WHERE vehicle_type != 'Unrecognised'
+),
+
+-- Step 2: Calculate total recognized volume per month to determine distribution base
+monthly_universe AS (
+    SELECT 
+        date,
+        SUM(total_vehicles) AS total_recognized_volume
+    FROM recognized_totals
+    GROUP BY date
+),
+
+-- Step 3: Calculate each category's share of ALL traffic
+category_monthly_shares AS (
+    SELECT 
+        r.date,
+        r.vehicle_type,
+        r.compliant_vehicles,
+        r.noncompliant_vehicles,
+        r.total_vehicles,
+        -- Share of this vehicle type relative to all known traffic that month
+        r.total_vehicles::NUMERIC / NULLIF(u.total_recognized_volume, 0) AS category_share
+    FROM recognized_totals r
+    JOIN monthly_universe u ON r.date = u.date
+),
+
+-- Step 4: Isolate the monthly 'Unrecognised' pool to be distributed
+unrecognised_pool AS (
+    SELECT 
+        date,
+        total_vehicles AS unrecognised_total_vehicles
+    FROM caz_traffic_compliance
+    WHERE vehicle_type = 'Unrecognised'
+),
+
+-- Step 5: Proportionally distribute unrecognised volume and conditionally apply splits
+imputed_unrecognised AS (
+    SELECT 
+        s.date,
+        s.vehicle_type,
+        -- Proportioned total volume from the unrecognised pool
+        ROUND(s.category_share * up.unrecognised_total_vehicles)::INTEGER AS imputed_total_vehicles,
+        
+        -- Conditionally apply compliance rate ONLY if the vehicle type has compliance data
+        CASE 
+            WHEN s.compliant_vehicles IS NOT NULL THEN 
+                ROUND((s.category_share * up.unrecognised_total_vehicles) * 
+                (s.compliant_vehicles::NUMERIC / s.total_vehicles))::INTEGER
+            ELSE NULL 
+        END AS imputed_compliant,
+        
+        CASE 
+            WHEN s.noncompliant_vehicles IS NOT NULL THEN 
+                ROUND((s.category_share * up.unrecognised_total_vehicles) * 
+                (s.noncompliant_vehicles::NUMERIC / s.total_vehicles))::INTEGER
+            ELSE NULL 
+        END AS imputed_noncompliant
+
+    FROM category_monthly_shares s
+    JOIN unrecognised_pool up ON s.date = up.date
+)
+
+-- Step 6: Combine ALL original recognized traffic with the imputed traffic
+SELECT 
+    date,
+    vehicle_type,
+    compliant_vehicles,
+    noncompliant_vehicles,
+    total_vehicles,
+    'Recognised Baseline' AS data_source_type
+FROM recognized_totals
+
+UNION ALL
+
+SELECT 
+    date,
+    vehicle_type,
+    imputed_compliant AS compliant_vehicles,
+    imputed_noncompliant AS noncompliant_vehicles,
+    imputed_total_vehicles AS total_vehicles,
+    'Imputed Unrecognised' AS data_source_type
+FROM imputed_unrecognised
+ORDER BY date ASC, vehicle_type ASC, data_source_type ASC;
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------
 -- STAGE 1: Reference Site Mapping (Fiscal Year Basis)
 -- Description: Maps target sites requiring annualisation to nearby background 
 --              reference sites using UK NHS fiscal years (April–March).
