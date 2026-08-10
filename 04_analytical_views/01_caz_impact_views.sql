@@ -64,98 +64,38 @@ SELECT
 FROM analytics_imputed_traffic_monthly;
 
 
-
---------------------------------------------------------------------------------
--- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
--- PURPOSE: Aggregates yearly traffic volumes, calculates baseline absolute variances 
---          from 2022, and computes a Weighted Fleet Pollution Load Index to 
---          evaluate whether traffic growth offsets vehicle compliance gains.
--- TARGET: Output table optimized for direct ingestion into Tableau for dual-axis 
---          air quality (NO2) correlation analysis.
---------------------------------------------------------------------------------
-
 --------------------------------------------------------------------------------
 -- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
 -- PURPOSE: Aggregates yearly traffic volumes and computes a Vehicle-Specific 
---          Weighted Fleet NO2 Pollution Load Index to evaluate whether traffic 
---          volume growth offsets vehicle compliance gains ("Dampening Effect").
+--          Weighted Fleet NO2 Pollution Load Index. 
+--
+-- ARCHITECTURE NOTE FOR BI: 
+--          While this script calculates pollution load statically for ad-hoc 
+--          database querying, the Power BI dashboard does NOT use this table. 
+--          Instead, Power BI connects to the granular 'vw_powerbi_traffic' view 
+--          and calculates pollution load dynamically via DAX. This enables 
+--          seamless cross-filtering and interactive drill-downs in the UI.
 --------------------------------------------------------------------------------
--- INTERVIEW TALKING POINTS & METHODOLOGY (HOW TO DEFEND THIS MODEL):
+-- INTERVIEW TALKING POINTS & METHODOLOGY:
 --
--- 1. ARCHITECTURAL UPDATE FOR POWER BI VISUALIZATION (`vehicle_type` INCLUSION):
---    We updated the GROUP BY clause to include `vehicle_type` alongside the yearly 
---    extraction. While aggregating solely by year gives a macro-level total, 
---    retaining `vehicle_type` in the summary table allows Power BI to leverage 
---    the `dim_years` bridge table and dynamically split the summary line into 
---    individual category trend lines (Cars, LGVs, Unrecognised, etc.). This transforms 
---    a single opaque metric into a granular diagnostic tool for tracking which 
-%    specific fleet segments are driving the pollution plateau.
+-- 1. BASE DATA (IMPUTED TOTALS):
+--    This table builds on top of 'analytics_imputed_traffic_monthly', meaning 
+--    'Unrecognised' camera misreads have already been mathematically distributed 
+--    across known vehicle categories based on monthly probability shares.
 --
--- 2. OVERCOMING THE NAIVE BASELINE (WHY WE DID THIS):
---    The original SQL used a blanket multiplier (* 0.25) for all compliant vehicles. 
---    This failed to capture the huge emission variance between engine types and 
---    fuel profiles. We replaced it with a scientifically grounded Proxy Index.
+-- 2. METRIC ALIGNMENT (NO2 vs. NOx):
+--    CAZ monitoring stations measure ambient NO2 (Nitrogen Dioxide). Our weights 
+--    specifically reflect real-world urban NO2 tailpipe emissions and primary NO2 
+--    formation during stop-and-go driving conditions, NOT laboratory NOx.
 --
--- 3. METRIC ALIGNMENT (NO2 vs. NOx):
---    CAZ monitoring stations measure ambient NO2 (Nitrogen Dioxide) concentrations 
---    at roadside locations, NOT laboratory NOx. Our weights specifically reflect 
---    real-world urban NO2 tailpipe emissions and primary NO2 formation during 
---    stop-and-go driving conditions.
---
--- 4. DERIVATION OF PROXY WEIGHTS (CATEGORY BY CATEGORY):
---
---    * Non-Compliant Vehicles (Weight: 1.0):
---      Baseline heavy polluters (e.g., Euro 5 or older diesels). Every non-compliant 
---      vehicle receives full baseline weighting.
---
---    * Compliant Cars (Weight: 0.327):
---      Derived from UK Department for Transport (DfT) and RAC Foundation fleet stats.
---      Filtering for CAZ compliance yields an estimated compliant car composition of:
---        - 18% Zero-Emission EVs / Hydrogen (Weight: 0.0)
---        - 47% Compliant Petrol / Petrol Hybrids (Weight: 0.10)
---        - 35% Euro 6 Diesels (Weight: 0.80 — High real-world urban NO2 emissions)
---      Formula: (0.18 * 0.0) + (0.47 * 0.10) + (0.35 * 0.80) = 0.327
---
---    * Compliant LGVs / Vans (Weight: 0.725):
---      Commercial van fleets lag behind passenger cars in electrification. DfT stats 
---      show compliant van traffic is ~90% Euro 6 Diesel, 5% Petrol, and 5% EV.
---      Euro 6 diesel vans emit high primary NO2 under urban delivery driving cycles.
---      Formula: (0.05 * 0.0) + (0.05 * 0.10) + (0.90 * 0.80) = 0.725
---
---    * Compliant HGVs & Buses/Coaches (Weight: 0.15):
---      Heavy-duty Euro VI engines utilize highly effective Selective Catalytic 
---      Reduction (SCR) systems. Real-world testing demonstrates that Euro VI heavy 
---      vehicles emit significantly less ambient NO2 per vehicle in urban traffic 
---      than Euro 6 diesel passenger cars.
---
---    * Compliant Mini-Buses (Weight: 0.65):
---      DfT data confirms minibuses are overwhelmingly diesel-powered and built on 
---      commercial LGV/van chassis (e.g., Ford Transit, Mercedes Sprinter). Thus, 
---      their real-world NO2 footprint closely tracks LGVs (0.725) rather than 
---      full-size Euro VI buses (0.15).
---
---    * Compliant Exempt Vehicles (Weight: 0.60):
---      CAZ exemptions overwhelmingly consist of Wheelchair Accessible Vehicles 
---      (WAVs), emergency vehicles, and council utility fleets. These are built 
---      on heavy-duty diesel or van chassis rather than standard passenger cars.
---
---    * Unrecognised Vehicles (Weight: 0.50 on total_vehicles) - STATISTICAL IMPUTATION:
---      ANPR camera misreads are Missing Completely at Random (MCAR). Filtering them out 
---      would artificially under-report the city's total pollution footprint. Instead, we 
---      calculate the mathematical Expectation Value (E[X]) based on known Birmingham 
---      CAZ traffic distributions. With passenger cars accounting for ~80% of daily 
---      unique vehicles, LGVs making up roughly 8.3% to 9%, 
---      and HGVs around 1.1%:
---        - Cars (80% probability) * 0.40 approx weight = 0.32
---        - LGVs (9% probability) * 0.75 approx weight = 0.0675
---        - HGVs (1% probability) * 0.50 approx weight = 0.005
---        - Expected Value (E[X]) = ~0.3925
---      We round this up to a conservative 0.50 "blended fleet average" multiplier 
---      to provide a statistically neutral safety net, acknowledging that commercial 
---      vehicles run longer daily hours and are more prone to obscured plates.
---
---    * Motorcycles & Other (Weight: 0.10 on total_vehicles):
---      Small engine displacement results in a naturally low NO2 footprint.
+-- 3. DERIVATION OF PROXY WEIGHTS:
+--    * Non-Compliant Vehicles: 1.0 (Baseline heavy polluters)
+--    * Compliant Cars: 0.327 (Mix of EV, Petrol, and Euro 6 Diesel)
+--    * Compliant LGVs: 0.725 (Overwhelmingly Euro 6 Diesel, high primary NO2)
+--    * Compliant HGVs/Buses: 0.15 (Highly effective SCR systems)
+--    * Compliant Mini-Buses: 0.65 (Van chassis, tracks close to LGVs)
+--    * Compliant Exempt: 0.60 (Heavy-duty diesel/van chassis)
+--    * Motorcycles & Other: 0.10 (Small engine displacement)
 --------------------------------------------------------------------------------
 
 DROP TABLE IF EXISTS analytics_yearly_traffic_summary;
@@ -163,7 +103,7 @@ DROP TABLE IF EXISTS analytics_yearly_traffic_summary;
 CREATE TABLE analytics_yearly_traffic_summary AS
 SELECT 
     EXTRACT(YEAR FROM date) AS year,
-    vehicle_type,  -- Included to support multi-line breakdown by category in Power BI
+    vehicle_type,  
     SUM(compliant_vehicles) AS total_compliant_vehicles,
     SUM(noncompliant_vehicles) AS total_non_compliant_vehicles,
     SUM(total_vehicles) AS total_caz_vehicles,
@@ -181,103 +121,20 @@ SELECT
     -- Data-Driven Vehicle-Specific NO2 Pollution Load Index
     SUM(
         CASE 
-            WHEN vehicle_type = 'Car' THEN (noncompliant_vehicles * 1.0) + (compliant_vehicles * 0.327)
-            WHEN vehicle_type = 'LGV' THEN (noncompliant_vehicles * 1.0) + (compliant_vehicles * 0.725)
-            WHEN vehicle_type = 'HGV' THEN (noncompliant_vehicles * 1.0) + (compliant_vehicles * 0.15)
-            WHEN vehicle_type = 'Bus/Coach' THEN (noncompliant_vehicles * 1.0) + (compliant_vehicles * 0.15)
-            WHEN vehicle_type = 'Mini-Bus' THEN (noncompliant_vehicles * 1.0) + (compliant_vehicles * 0.65)
-            WHEN vehicle_type = 'Exempt' THEN (noncompliant_vehicles * 1.0) + (compliant_vehicles * 0.60) 
-            WHEN vehicle_type = 'Unrecognised' THEN (total_vehicles * 0.50) 
+            WHEN vehicle_type = 'Car' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.327)
+            WHEN vehicle_type = 'LGV' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.725)
+            WHEN vehicle_type = 'HGV' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.15)
+            WHEN vehicle_type = 'Bus/Coach' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.15)
+            WHEN vehicle_type = 'Mini-Bus' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.65)
+            WHEN vehicle_type = 'Exempt' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.60) 
             WHEN vehicle_type = 'Motorcycles and Other' THEN (total_vehicles * 0.10) 
             ELSE (total_vehicles * 0.50) 
         END
     ) AS estimated_total_pollution_load
 
-FROM caz_traffic_compliance
+FROM analytics_imputed_traffic_monthly
 GROUP BY EXTRACT(YEAR FROM date), vehicle_type
 ORDER BY year ASC, vehicle_type ASC;
-
---------------------------------------------------------------------------------
--- Master Table Creation: Birmingham Clean Air Zone (CAZ) & Respiratory Health
--- Description: Integrates fiscal-year annualised NO2 air quality metrics with 
---              hospital admission rates by CAZ tier and fiscal year, and computes 
---              Year-over-Year (YoY) percentage changes.
---------------------------------------------------------------------------------
-
-DROP TABLE IF EXISTS caz_respiratory_master;
-
-CREATE TABLE caz_respiratory_master AS
-WITH annual_air_quality AS (
-    -- Step 1: Average out the annualised NO2 means per CAZ tier using monitoring sites metadata
-    SELECT 
-        m.caz_tier,
-        f.fiscal_year,
-        AVG(f.final_annualised_mean) AS annualised_no2_mean
-    FROM stg_final_annualised_means_fy f
-    JOIN monitoring_sites m ON f.site_id = m.site_id
-    WHERE f.final_annualised_mean IS NOT NULL
-      AND m.caz_tier IS NOT NULL
-    GROUP BY m.caz_tier, f.fiscal_year
-),
-caz_tier_air_quality AS (
-    -- Step 2: Aggregate air quality exposure up to the CAZ tier level per fiscal year
-    SELECT 
-        caz_tier,
-        fiscal_year,
-        ROUND(AVG(annualised_no2_mean)::numeric, 2) AS avg_caz_no2_exposure
-    FROM annual_air_quality
-    GROUP BY caz_tier, fiscal_year
-),
-aggregated_admissions AS (
-    -- Step 3: Aggregate annual hospital admission rates per CAZ tier and fiscal year
-    SELECT 
-        w.caz_tier,
-        h.fiscal_year,
-        ROUND(AVG(CASE WHEN h.health_condition ILIKE '%copd%' THEN h.standardised_rate END)::numeric, 2) AS avg_copd_standardised_rate,
-        ROUND(AVG(CASE WHEN h.health_condition ILIKE '%respiratory%' THEN h.standardised_rate END)::numeric, 2) AS avg_respiratory_standardised_rate,
-        COUNT(DISTINCT w.area_code) AS ward_count
-    FROM wards_metadata AS w
-    JOIN birmingham_hospital_admissions AS h 
-    ON w.area_code = h.area_code
-    GROUP BY w.caz_tier, h.fiscal_year
-),
-combined_metrics AS (
-    -- Step 4: Combine air quality exposure and hospital admissions by tier and fiscal year
-    SELECT 
-        COALESCE(a.caz_tier, h.caz_tier) AS caz_tier,
-        COALESCE(a.fiscal_year, h.fiscal_year) AS fiscal_year,
-        a.avg_caz_no2_exposure,
-        h.avg_copd_standardised_rate,
-        h.avg_respiratory_standardised_rate,
-        h.ward_count
-    FROM caz_tier_air_quality a
-    FULL OUTER JOIN aggregated_admissions h 
-        ON a.caz_tier = h.caz_tier AND a.fiscal_year = h.fiscal_year
-)
--- Step 5: Apply window functions to calculate YoY percentage change per tier for both exposure and health outcomes
-SELECT 
-    caz_tier,
-    fiscal_year,
-    avg_caz_no2_exposure,
-    ROUND(
-        ((avg_caz_no2_exposure - LAG(avg_caz_no2_exposure) OVER (PARTITION BY caz_tier ORDER BY fiscal_year)) 
-        / NULLIF(LAG(avg_caz_no2_exposure) OVER (PARTITION BY caz_tier ORDER BY fiscal_year), 0)) * 100, 
-        2
-    ) AS no2_yoy_pct_change,
-    avg_copd_standardised_rate,
-    ROUND(
-        ((avg_copd_standardised_rate - LAG(avg_copd_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year)) 
-        / NULLIF(LAG(avg_copd_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year), 0)) * 100, 
-        2
-    ) AS copd_yoy_pct_change,
-    avg_respiratory_standardised_rate,
-    ROUND(
-        ((avg_respiratory_standardised_rate - LAG(avg_respiratory_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year)) 
-        / NULLIF(LAG(avg_respiratory_standardised_rate) OVER (PARTITION BY caz_tier ORDER BY fiscal_year), 0)) * 100, 
-        2
-    ) AS respiratory_yoy_pct_change,
-    ward_count
-FROM combined_metrics;
 
 --------------------------------------------------------------------------------
 -- VIEW: vw_hospital_wards_map
