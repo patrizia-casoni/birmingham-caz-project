@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.57\",\"type\":2},\"customTheme\":{\"name\":\"ColorBrewer_Colorblind_Safe5620211669967404.json\",\"version\":\"5.57\",\"type\":1}},\"activeSectionIndex\":6,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.57\",\"type\":2},\"customTheme\":{\"name\":\"ColorBrewer_Colorblind_Safe5620211669967404.json\",\"version\":\"5.57\",\"type\":1}},\"activeSectionIndex\":6,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
   "layoutOptimization": 0,
   "pods": [
     {
@@ -46,17 +46,6 @@
   "sections": [
     {
       "config": "{}",
-      "displayName": "Fleet Modern 2",
-      "displayOption": 1,
-      "filters": "[]",
-      "height": 720.00,
-      "name": "16e122b1a4ec9d630495",
-      "ordinal": 7,
-      "visualContainers": [],
-      "width": 1280.00
-    },
-    {
-      "config": "{}",
       "displayName": "0.Executive Summary",
       "displayOption": 1,
       "filters": "[]",
@@ -68,12 +57,71 @@
     },
     {
       "config": "{}",
+      "displayName": "Duplicate of 3. Fleet Modernisation",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "2f73d40c0a78094db236",
+      "ordinal": 7,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"497e7b6ec02d4ea69b98\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":118.01068694618002,\"z\":1000,\"width\":1280.278731637046,\"height\":241.51024305264747,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(public vw_powerbi_traffic.noncompliant_vehicles)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"public vw_powerbi_traffic\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"noncompliant_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public vw_powerbi_traffic.noncompliant_vehicles)\",\"NativeReferenceName\":\"Sum of noncompliant_vehicles\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"noncompliant_vehicles\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\":{\"displayName\":\"Total Vehicles\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Non-Compliant Traffic Volume (2021-2025)'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 241.51,
+          "width": 1280.28,
+          "x": 0.00,
+          "y": 118.01,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"5843a80b8525a25d13e9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":386.6124065792935,\"z\":2000,\"width\":617.3122688659539,\"height\":333.37397682083343,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Series\":[{\"queryRef\":\"public vw_powerbi_traffic.vehicle_type\"}],\"Y\":[{\"queryRef\":\"Sum(public vw_powerbi_traffic.noncompliant_vehicles)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"public vw_powerbi_traffic\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"vehicle_type\"},\"Name\":\"public vw_powerbi_traffic.vehicle_type\",\"NativeReferenceName\":\"vehicle_type\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"noncompliant_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public vw_powerbi_traffic.noncompliant_vehicles)\",\"NativeReferenceName\":\"Sum of noncompliant_vehicles\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"noncompliant_vehicles\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"showTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Non-Compliant Traffic: Cars'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"193e9741c29519e144b4\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"public vw_powerbi_traffic\"}},\"Property\":\"vehicle_type\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public vw_powerbi_traffic\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"vehicle_type\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Car'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 333.37,
+          "width": 617.31,
+          "x": 0.00,
+          "y": 386.61,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"86e0ba360392c1c97469\",\"layouts\":[{\"id\":0,\"position\":{\"x\":656.6073003543411,\"y\":386.6124065792935,\"z\":3000,\"width\":623.6501771705324,\"height\":333.37397682083343,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Series\":[{\"queryRef\":\"public vw_powerbi_traffic.vehicle_type\"}],\"Y\":[{\"queryRef\":\"Sum(public vw_powerbi_traffic.noncompliant_vehicles)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"public vw_powerbi_traffic\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"vehicle_type\"},\"Name\":\"public vw_powerbi_traffic.vehicle_type\",\"NativeReferenceName\":\"vehicle_type\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"noncompliant_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public vw_powerbi_traffic.noncompliant_vehicles)\",\"NativeReferenceName\":\"Sum of noncompliant_vehicles\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"noncompliant_vehicles\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"showTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Non-Compliant Traffic:  Commercial and Other '\"}}}}}]}}}",
+          "filters": "[{\"name\":\"f241db20ec08976c8390\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"public vw_powerbi_traffic\"}},\"Property\":\"vehicle_type\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public vw_powerbi_traffic\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"vehicle_type\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Car'\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 333.37,
+          "width": 623.65,
+          "x": 656.61,
+          "y": 386.61,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"a8a706a99b6080636b10\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1100.791633826102,\"y\":9.448855225975125,\"z\":0,\"width\":179.52824929352738,\"height\":103.93740748572638,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{}}],\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"items\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"header\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Year'\"}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"38D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#808080'\"}}}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 103.94,
+          "width": 179.53,
+          "x": 1100.79,
+          "y": 9.45,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
       "displayName": "4. Health Spatial",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "350a3283c18bdb342e97",
-      "ordinal": 8,
+      "ordinal": 9,
+      "visualContainers": [],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "5cc14154092ea37bca8e",
+      "ordinal": 11,
       "visualContainers": [],
       "width": 1280.00
     },
@@ -114,7 +162,7 @@
           "z": 3004.00
         },
         {
-          "config": "{\"name\":\"d0d3cbc2116c90dc5000\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":118.01068694618002,\"z\":1000,\"width\":1280.278731637046,\"height\":241.51024305264747,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"public analytics_yearly_traffic_summary\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_caz_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\",\"NativeReferenceName\":\"Total Vehicles\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"total_caz_vehicles\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\":{\"displayName\":\"Total Vehicles\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'CAZ Total Traffic Volume (2021-2025)'\"}}}}}]}}}",
+          "config": "{\"name\":\"d0d3cbc2116c90dc5000\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":118.01068694618002,\"z\":1000,\"width\":1280.278731637046,\"height\":241.51024305264747,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"public dim_years.calendar_year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"public dim_years\",\"Type\":0},{\"Name\":\"p2\",\"Entity\":\"public analytics_yearly_traffic_summary\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"calendar_year\"},\"Name\":\"public dim_years.calendar_year\",\"NativeReferenceName\":\"calendar_year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p2\"}},\"Property\":\"total_caz_vehicles\"}},\"Function\":0},\"Name\":\"Sum(public analytics_yearly_traffic_summary.total_caz_vehicles)\",\"NativeReferenceName\":\"Sum of total_caz_vehicles\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p2\"}},\"Property\":\"total_caz_vehicles\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'CAZ Total Traffic Volume (2021-2025)'\"}}}}}]}}}",
           "filters": "[]",
           "height": 241.51,
           "width": 1280.28,
@@ -341,7 +389,7 @@
       "filters": "[]",
       "height": 720.00,
       "name": "a94a03fc36edb650dc79",
-      "ordinal": 9,
+      "ordinal": 10,
       "visualContainers": [],
       "width": 1280.00
     },
@@ -364,6 +412,17 @@
           "z": 0.00
         }
       ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Pullution Load Treands",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "e6abe04be8ac5b8770b3",
+      "ordinal": 8,
+      "visualContainers": [],
       "width": 1280.00
     }
   ],

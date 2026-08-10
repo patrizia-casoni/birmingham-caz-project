@@ -23328,6 +23328,42 @@
           }
         ],
         "lineageTag": "4d25af4f-9040-40eb-aac4-4a6bcf578f72",
+        "measures": [
+          {
+            "name": "Estimated Pollution Load",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "SUMX(",
+              "    'public vw_powerbi_traffic',",
+              "    ",
+              "    -- 1. Calculate Non-Compliant Load (Baseline Heavy Polluters: Weight = 1.0)",
+              "    (COALESCE('public vw_powerbi_traffic'[noncompliant_vehicles], 0) * 1.0) ",
+              "    ",
+              "    +",
+              "    ",
+              "    -- 2. Calculate Compliant & Special Category Loads via Proxy Weights",
+              "    SWITCH(",
+              "        'public vw_powerbi_traffic'[vehicle_type],",
+              "        \"Car\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.327,",
+              "        \"LGV\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.725,",
+              "        \"HGV\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.15,",
+              "        \"Bus/Coach\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.15,",
+              "        \"Mini-Bus\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.65,",
+              "        \"Exempt\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.60,",
+              "        \"Motorcycles and Other\", ('public vw_powerbi_traffic'[total_vehicles] * 0.10),",
+              "        0",
+              "    )",
+              ")"
+            ],
+            "lineageTag": "b7e85227-e7e3-416d-b5ec-a2a2705d1ff5"
+          }
+        ],
         "partitions": [
           {
             "name": "public vw_powerbi_traffic",
