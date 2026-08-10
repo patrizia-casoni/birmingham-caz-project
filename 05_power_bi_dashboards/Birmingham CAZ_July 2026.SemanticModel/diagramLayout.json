@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 3590.6708499017745,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -20,19 +20,6 @@
             "width": 359.13185495409618
           },
           "zIndex": 12
-        },
-        {
-          "location": {
-            "x": 0,
-            "y": 669.20734668686237
-          },
-          "nodeIndex": "public analytics_yearly_traffic_summary",
-          "nodeLineageTag": "ba4626b4-f14d-48b7-ab6b-59add70afbcc",
-          "size": {
-            "height": 272,
-            "width": 377.00783423325277
-          },
-          "zIndex": 16
         },
         {
           "location": {
