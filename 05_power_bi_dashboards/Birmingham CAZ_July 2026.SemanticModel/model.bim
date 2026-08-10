@@ -858,6 +858,355 @@
                   }
                 ]
               },
+              "map_remote_control": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Map Remote Control"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "map remote control": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "control": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "remote control": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "map remote regulator": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map remote controller": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map remote governor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map remote rheostat": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map remote resistor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map remote mechanism": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map remote device": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "remote regulator": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "remote controller": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "remote governor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  }
+                ]
+              },
+              "map_remote_control.area_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Map Remote Control",
+                    "ConceptualProperty": "area_name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "area name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "area_name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "area": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "region": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locality": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "neighbourhood": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "area nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "area title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "area label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "area tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "district": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "continent": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "map_remote_control.caz_tier": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Map Remote Control",
+                    "ConceptualProperty": "caz_tier"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "caz tier": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "caz_tier": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "caz row": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "caz level": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "caz layer": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "caz stage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "caz rank": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "caz step": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "caz story": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  }
+                ]
+              },
               "public_analytics_site_hourly_weekly_profile": {
                 "Definition": {
                   "Binding": {
@@ -13749,6 +14098,128 @@
                   }
                 ]
               },
+              "v_Measures_measure.COPD_rate": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "COPD Rate"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "COPD rate": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "rate": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "copd degree": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "copd frequency": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "copd percentage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "copd ratio": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "copd quotient": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "degree": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "frequency": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "ratio": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "quotient": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "copd amount": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.NO2__change": {
                 "Definition": {
                   "Binding": {
@@ -14091,6 +14562,218 @@
                   }
                 ]
               },
+              "v_Measures_measure.map_anchor_max": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Map Anchor Max"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "map anchor max": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "anchor max": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "map anchor maximum": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "anchor maximum": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.map_anchor_min": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Map Anchor Min"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "map anchor min": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "anchor min": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "map anchor minimum": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "anchor minimum": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.map_smart_filter": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Map Smart Filter"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "map smart filter": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "filter": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "smart filter": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "map smart strainer": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map smart sifter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "smart strainer": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "smart sifter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "map smart sieve": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "map smart mesh": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "map smart riddle": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "map smart screen": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "strainer": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "sifter": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.pollution_load__change_20222025": {
                 "Definition": {
                   "Binding": {
@@ -14118,13 +14801,129 @@
                     }
                   },
                   {
-                    "% Change (2022-2025)": {
+                    "% Change (2022-25)": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
                       },
                       "State": "Suggested",
                       "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.show_on_map": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Show on Map"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "show on map": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "demonstration on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "expression on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "illustration on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "confirmation on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "appearance on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "indication on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "spectacle on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "display on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "performance on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "cabaret on map": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
                     }
                   }
                 ]
@@ -14540,6 +15339,117 @@
                     "Target": {
                       "Entity": "dim_month.month_short"
                     }
+                  }
+                },
+                "State": "Generated"
+              },
+              "map_remote_control_has_area_name": {
+                "Binding": {
+                  "ConceptualEntity": "Map Remote Control"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "map_remote_control.area_name"
+                      },
+                      "Subject": {
+                        "Role": "map_remote_control"
+                      }
+                    },
+                    "ID": "map_remote_controls_have_area_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "map_remote_control": {
+                    "Target": {
+                      "Entity": "map_remote_control"
+                    }
+                  },
+                  "map_remote_control.area_name": {
+                    "Target": {
+                      "Entity": "map_remote_control.area_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "map_remote_control_has_caz_tier": {
+                "Binding": {
+                  "ConceptualEntity": "Map Remote Control"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "map_remote_control.caz_tier"
+                      },
+                      "Subject": {
+                        "Role": "map_remote_control"
+                      }
+                    },
+                    "ID": "map_remote_controls_have_caz_tiers",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "map_remote_control": {
+                    "Target": {
+                      "Entity": "map_remote_control"
+                    }
+                  },
+                  "map_remote_control.caz_tier": {
+                    "Target": {
+                      "Entity": "map_remote_control.caz_tier"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "map_remote_control_in_area_name": {
+                "Binding": {
+                  "ConceptualEntity": "Map Remote Control"
+                },
+                "Phrasings": [
+                  {
+                    "ID": "map_remote_controls_are_in_area_names",
+                    "Preposition": {
+                      "Object": {
+                        "Role": "map_remote_control.area_name"
+                      },
+                      "Prepositions": [
+                        {
+                          "in": {
+                            "State": "Generated"
+                          }
+                        }
+                      ],
+                      "Subject": {
+                        "Role": "map_remote_control"
+                      }
+                    },
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "map_remote_control": {
+                    "Target": {
+                      "Entity": "map_remote_control"
+                    }
+                  },
+                  "map_remote_control.area_name": {
+                    "Target": {
+                      "Entity": "map_remote_control.area_name"
+                    }
+                  }
+                },
+                "SemanticSlots": {
+                  "Where": {
+                    "Role": "map_remote_control.area_name"
                   }
                 },
                 "State": "Generated"
@@ -19451,6 +20361,105 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD_rate": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD_rate"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_COPD_rate",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.COPD_rate": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD_rate"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_map_anchor_max": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.map_anchor_max"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_map_anchor_max",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.map_anchor_max": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.map_anchor_max"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_map_anchor_min": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.map_anchor_min"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_map_anchor_min",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.map_anchor_min": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.map_anchor_min"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "v_Measures_measure_has_dynamic_transparency": {
                 "Binding": {
                   "ConceptualEntity": "_Measures"
@@ -19479,6 +20488,72 @@
                   "v_Measures_measure.dynamic_transparency": {
                     "Target": {
                       "Entity": "v_Measures_measure.dynamic_transparency"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_map_smart_filter": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.map_smart_filter"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_map_smart_filter",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.map_smart_filter": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.map_smart_filter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_show_on_map": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.show_on_map"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_show_on_map",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.show_on_map": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.show_on_map"
                     }
                   }
                 },
@@ -22486,7 +23561,7 @@
               },
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "changedProperties": [
@@ -22495,6 +23570,7 @@
               }
             ],
             "dataType": "double",
+            "formatString": "#,0",
             "lineageTag": "38354b16-95a3-4aec-8e2a-84ae91248ea5",
             "sourceColumn": "standardised_rate",
             "summarizeBy": "sum"
@@ -22911,6 +23987,96 @@
             ],
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "547fa5d0-c1fe-47e4-b93a-28e77f7050ad"
+          },
+          {
+            "name": "Map Smart Filter",
+            "expression": [
+              "",
+              "VAR SelectedWards = VALUES('Ward Slicer'[area_name])",
+              "VAR CurrentLayer = MAX('public vw_caz_and_wards_map'[layer_type]",
+              "VAR CurrentWard = MAX('public vw_caz_and_wards_map'[area_name]",
+              "",
+              "RETURN",
+              "IF(",
+              "    Cur= \"CAZ Boundary\", ",
+              "    1,  -- Always return 1 to protect and show the CAZ rings",
+              "    IF(",
+              "        ISFILTERED('Ward Slicer'[area_name]),",
+              "        IF(CurrentWard IN SelectedWards, 1, 0), -- Show 1 if selected, 0 if not",
+              "        1   -- Show everything (return 1) if nothing is selected in the slicer",
+              "    )",
+              ")"
+            ],
+            "lineageTag": "9a34879f-9080-4de8-8270-3f73e47014e2"
+          },
+          {
+            "name": "Show on Map",
+            "expression": [
+              "",
+              "IF(",
+              "    MAX('public vw_caz_and_wards_map'[layer_type]) = \"CAZ Boundary\", ",
+              "    1, ",
+              "    IF(",
+              "        MAX('public vw_caz_and_wards_map'[area_name]) IN VALUES('Map Remote Control'[area_name]), ",
+              "        1, ",
+              "        0 ",
+              "    )",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "d6697cda-efdf-4221-ac70-61350b876224"
+          },
+          {
+            "name": "COPD Rate",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE('public vw_ward_hospital_admissions'[standardised_rate]),",
+              "    'public vw_ward_hospital_admissions'[health_condition] = \"COPD\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "e12ce8db-2830-4240-b717-0aca27501b15"
+          },
+          {
+            "name": "Map Anchor Max",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    MAX('public vw_ward_hospital_admissions'[standardised_rate]),",
+              "    REMOVEFILTERS('Map Remote Control'[area_name])",
+              ")"
+            ],
+            "lineageTag": "97c96615-ef93-431f-baf4-f184aaa628b3"
+          },
+          {
+            "name": "Map Anchor Min",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    MIN('public vw_ward_hospital_admissions'[standardised_rate]),",
+              "    REMOVEFILTERS('Map Remote Control'[area_name])",
+              ")"
+            ],
+            "lineageTag": "36f7e530-97d7-4e03-a84a-d488213faf3a"
           }
         ],
         "partitions": [
@@ -24107,6 +25273,67 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "Map Remote Control",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "71aaf5fba0414a93a3dade346cd9f928"
+          }
+        ],
+        "columns": [
+          {
+            "name": "caz_tier",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "3e0c40d4-a288-4891-b311-c73724a93c0b",
+            "sourceColumn": "public vw_caz_and_wards_map[caz_tier]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "area_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "bebd791a-e5d2-4723-b0cd-6b049a8f6c95",
+            "sourceColumn": "public vw_caz_and_wards_map[area_name]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "db550496-877d-41a6-a0f1-896d08f9c020",
+        "partitions": [
+          {
+            "name": "Map Remote Control",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "SUMMARIZE(",
+                "    FILTER('public vw_caz_and_wards_map', 'public vw_caz_and_wards_map'[layer_type] = \"Ward Boundary\"),",
+                "    'public vw_caz_and_wards_map'[caz_tier],",
+                "    'public vw_caz_and_wards_map'[area_name]",
+                ")"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
       }
     ]
   }
