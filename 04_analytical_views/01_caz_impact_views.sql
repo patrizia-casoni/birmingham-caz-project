@@ -43,6 +43,29 @@ ORDER BY
     fam.reading_year;
 
 --------------------------------------------------------------------------------
+-- TITLE: Presentation - Power BI Imputed Traffic View
+-- PURPOSE: Provides a clean, lightweight semantic layer for Power BI.
+--          Extracts 'year' (cast as INTEGER) for seamless mapping to dim_years.
+--          All heavy imputation is pre-calculated in the physical staging table.
+-- ARCHITECTURE: Medallion (Gold Layer)
+--------------------------------------------------------------------------------
+
+DROP VIEW IF EXISTS vw_powerbi_traffic;
+
+CREATE VIEW vw_powerbi_traffic AS 
+SELECT 
+    date,
+    EXTRACT(YEAR FROM date)::INTEGER AS year,  -- Cast to integer for perfect Power BI joins
+    vehicle_type,
+    compliant_vehicles,
+    noncompliant_vehicles,
+    total_vehicles,
+    data_source_type
+FROM analytics_imputed_traffic_monthly;
+
+
+
+--------------------------------------------------------------------------------
 -- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
 -- PURPOSE: Aggregates yearly traffic volumes, calculates baseline absolute variances 
 --          from 2022, and computes a Weighted Fleet Pollution Load Index to 
