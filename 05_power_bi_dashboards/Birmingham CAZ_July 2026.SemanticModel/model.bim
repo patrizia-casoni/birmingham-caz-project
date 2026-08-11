@@ -14098,6 +14098,202 @@
                   }
                 ]
               },
+              "v_Measures_measure.COPD_YoY__change": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "COPD YoY % Change"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "COPD YoY % change": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "copd yoy percentage change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.617
+                    }
+                  },
+                  {
+                    "copd yoy % alteration": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % modification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % variation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % transformation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % revolution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % conversion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % adjustment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % amendment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "copd yoy % difference": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "% Change": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.COPD__change_19_20_to_24_25": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "COPD % Change (19/20 to 24/25)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "COPD % change (19/20 to 24/25)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "COPD % change": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "COPD % change (19": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "20 to 24": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "COPD % change ( 19 20 to 24 25 )": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "copd percentage change (19": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "copd pct change (19": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "COPD % Change FY20 - FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.COPD_rate": {
                 "Definition": {
                   "Binding": {
@@ -14216,6 +14412,26 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.485
+                    }
+                  },
+                  {
+                    "COPD": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  },
+                  {
+                    "COPD Rate FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   }
                 ]
@@ -14562,6 +14778,50 @@
                   }
                 ]
               },
+              "v_Measures_measure.map_fill_scale_COPD": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Map Fill Scale COPD"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "map fill scale COPD": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "scale COPD": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "fill scale COPD": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.map_fill_scale_resp": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Map Fill Scale Resp"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "map fill scale resp": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.map_smart_filter": {
                 "Definition": {
                   "Binding": {
@@ -14718,6 +14978,318 @@
                   },
                   {
                     "% Change (2022-25)": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.resp_disease_YoY__change": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Resp Disease YoY % Change"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "resp disease YoY % change": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "resp disease yoy percentage change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "resp disease yoy pct change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "resp disease yoy % alteration": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "resp disease yoy % modification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "resp disease yoy % variation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "resp disease yoy % transformation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "resp disease yoy % revolution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "resp disease yoy % conversion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "resp disease yoy % adjustment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "resp disease yoy % amendment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "% Change": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.resp_disease__change_19_20_to_24_25": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Resp Disease % Change (19/20 to 24/25)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "resp disease % change (19/20 to 24/25)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "resp disease % change": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "resp disease % change (19": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "20 to 24": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "resp disease % change ( 19 20 to 24 25 )": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "Resp. Disease % Change FY20 - FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.resp_disease_rate": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Resp Disease Rate"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "resp disease rate": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "resp disease degree": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "resp disease frequency": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "resp disease percentage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "resp disease ratio": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "resp disease quotient": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "resp disease amount": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "resp disease proportion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "resp disease speed": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "resp disease level": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "resp disease scale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "Resp. Disease": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  },
+                  {
+                    "Resp. Disease Rate FY25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -20310,7 +20882,7 @@
                 },
                 "State": "Generated"
               },
-              "public_vw_ward_hospital_admission_has_v_Measures_measure_map_anchor_max": {
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_resp_disease_rate": {
                 "Binding": {
                   "ConceptualEntity": "public vw_ward_hospital_admissions"
                 },
@@ -20318,13 +20890,13 @@
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "v_Measures_measure.map_anchor_max"
+                        "Role": "v_Measures_measure.resp_disease_rate"
                       },
                       "Subject": {
                         "Role": "public_vw_ward_hospital_admission"
                       }
                     },
-                    "ID": "public_vw_ward_hospital_admissions_have_map_anchor_max",
+                    "ID": "public_vw_ward_hospital_admissions_have_resp_disease_rate",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -20335,42 +20907,75 @@
                       "Entity": "public_vw_ward_hospital_admission"
                     }
                   },
-                  "v_Measures_measure.map_anchor_max": {
+                  "v_Measures_measure.resp_disease_rate": {
                     "Target": {
-                      "Entity": "v_Measures_measure.map_anchor_max"
+                      "Entity": "v_Measures_measure.resp_disease_rate"
                     }
                   }
                 },
                 "State": "Generated"
               },
-              "public_vw_ward_hospital_admission_has_v_Measures_measure_map_anchor_min": {
+              "v_Measures_measure_has_COPD_YoY__change": {
                 "Binding": {
-                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                  "ConceptualEntity": "_Measures"
                 },
                 "Phrasings": [
                   {
                     "Attribute": {
                       "Object": {
-                        "Role": "v_Measures_measure.map_anchor_min"
+                        "Role": "v_Measures_measure.COPD_YoY__change"
                       },
                       "Subject": {
-                        "Role": "public_vw_ward_hospital_admission"
+                        "Role": "v_Measures_measure"
                       }
                     },
-                    "ID": "public_vw_ward_hospital_admissions_have_map_anchor_min",
+                    "ID": "Phrasing_measures_have_COPD_YoY__change",
                     "State": "Generated",
                     "Weight": 0.99
                   }
                 ],
                 "Roles": {
-                  "public_vw_ward_hospital_admission": {
+                  "v_Measures_measure": {
                     "Target": {
-                      "Entity": "public_vw_ward_hospital_admission"
+                      "Entity": "v_Measures_measure"
                     }
                   },
-                  "v_Measures_measure.map_anchor_min": {
+                  "v_Measures_measure.COPD_YoY__change": {
                     "Target": {
-                      "Entity": "v_Measures_measure.map_anchor_min"
+                      "Entity": "v_Measures_measure.COPD_YoY__change"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_COPD__change_19_20_to_24_25": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD__change_19_20_to_24_25"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_COPD__change_19_20_to_24_25",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.COPD__change_19_20_to_24_25": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD__change_19_20_to_24_25"
                     }
                   }
                 },
@@ -20409,6 +21014,72 @@
                 },
                 "State": "Generated"
               },
+              "v_Measures_measure_has_map_fill_scale_COPD": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.map_fill_scale_COPD"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_map_fill_scale_COPD",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.map_fill_scale_COPD": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.map_fill_scale_COPD"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_map_fill_scale_resp": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.map_fill_scale_resp"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_map_fill_scale_resp",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.map_fill_scale_resp": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.map_fill_scale_resp"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "v_Measures_measure_has_map_smart_filter": {
                 "Binding": {
                   "ConceptualEntity": "_Measures"
@@ -20437,6 +21108,72 @@
                   "v_Measures_measure.map_smart_filter": {
                     "Target": {
                       "Entity": "v_Measures_measure.map_smart_filter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_resp_disease_YoY__change": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.resp_disease_YoY__change"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_resp_disease_YoY__change",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.resp_disease_YoY__change": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.resp_disease_YoY__change"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_resp_disease__change_19_20_to_24_25": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.resp_disease__change_19_20_to_24_25"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_resp_disease__change_19_20_to_24_25",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.resp_disease__change_19_20_to_24_25": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.resp_disease__change_19_20_to_24_25"
                     }
                   }
                 },
@@ -24030,6 +24767,126 @@
               ")"
             ],
             "lineageTag": "bd4ebce4-9435-4174-b187-209f8f7e9d99"
+          },
+          {
+            "name": "COPD YoY % Change",
+            "expression": [
+              "",
+              "VAR CurrentYearText = MAX('public dim_years'[fiscal_year])",
+              "VAR CurrentYearValue = [COPD Rate]",
+              "",
+              "-- Calculate the previous year's text string",
+              "VAR PrevYearStart = VALUE(LEFT(CurrentYearText, 4)) - 1",
+              "VAR PrevYearEnd = RIGHT(LEFT(CurrentYearText, 4), 2)",
+              "VAR PrevYearString = PrevYearStart & \"/\" & PrevYearEnd",
+              "",
+              "-- Fetch the COPD rate for that previous year",
+              "VAR PreviousYearValue = ",
+              "    CALCULATE(",
+              "        [COPD Rate],",
+              "        REMOVEFILTERS('public dim_years'[fiscal_year]),",
+              "        'public dim_years'[fiscal_year] = PrevYearString",
+              "    )",
+              "",
+              "RETURN",
+              "-- Only calculate the change if BOTH years have actual data",
+              "IF(",
+              "    NOT ISBLANK(CurrentYearValue) && NOT ISBLANK(PreviousYearValue),",
+              "    DIVIDE(CurrentYearValue - PreviousYearValue, PreviousYearValue)",
+              ")"
+            ],
+            "formatString": "0.0%;-0.0%;0.0%",
+            "lineageTag": "51d74c38-cf35-411d-b1fd-b317ef0f2041"
+          },
+          {
+            "name": "Resp Disease YoY % Change",
+            "expression": [
+              "",
+              "VAR CurrentYearText = MAX('public dim_years'[fiscal_year])",
+              "VAR CurrentYearValue = [Resp Disease Rate]",
+              "",
+              "-- Calculate the previous year's text string",
+              "VAR PrevYearStart = VALUE(LEFT(CurrentYearText, 4)) - 1",
+              "VAR PrevYearEnd = RIGHT(LEFT(CurrentYearText, 4), 2)",
+              "VAR PrevYearString = PrevYearStart & \"/\" & PrevYearEnd",
+              "",
+              "-- Fetch the COPD rate for that previous year",
+              "VAR PreviousYearValue = ",
+              "    CALCULATE(",
+              "        [Resp Disease Rate],",
+              "        REMOVEFILTERS('public dim_years'[fiscal_year]),",
+              "        'public dim_years'[fiscal_year] = PrevYearString",
+              "    )",
+              "",
+              "RETURN",
+              "-- Only calculate the change if BOTH years have actual data",
+              "IF(",
+              "    NOT ISBLANK(CurrentYearValue) && NOT ISBLANK(PreviousYearValue),",
+              "    DIVIDE(CurrentYearValue - PreviousYearValue, PreviousYearValue)",
+              ")"
+            ],
+            "formatString": "0.0%;-0.0%;0.0%",
+            "lineageTag": "5f0d1fd1-2dff-40e8-9194-71cfd845c313"
+          },
+          {
+            "name": "COPD % Change (19/20 to 24/25)",
+            "expression": [
+              "",
+              "-- 1. Grab the Pre-CAZ Baseline (2019/20)",
+              "VAR BaselineValue = ",
+              "    CALCULATE(",
+              "        [COPD Rate],",
+              "        'public dim_years'[fiscal_year] = \"2019/20\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "-- 2. Grab the Current State (2024/25)",
+              "VAR CurrentValue = ",
+              "    CALCULATE(",
+              "        [COPD Rate],",
+              "        'public dim_years'[fiscal_year] = \"2024/25\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "RETURN",
+              "-- 3. Calculate the overall percentage change",
+              "IF(",
+              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
+              ")"
+            ],
+            "formatString": "0.0%;-0.0%;0.0%",
+            "lineageTag": "d6b2bec1-9ab5-477a-9771-82a24b371119"
+          },
+          {
+            "name": "Resp Disease % Change (19/20 to 24/25)",
+            "expression": [
+              "",
+              "-- 1. Grab the Pre-CAZ Baseline (2019/20)",
+              "VAR BaselineValue = ",
+              "    CALCULATE(",
+              "        [Resp Disease Rate],",
+              "        'public dim_years'[fiscal_year] = \"2019/20\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "-- 2. Grab the Current State (2024/25)",
+              "VAR CurrentValue = ",
+              "    CALCULATE(",
+              "        [Resp Disease Rate],",
+              "        'public dim_years'[fiscal_year] = \"2024/25\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "RETURN",
+              "-- 3. Calculate the overall percentage change",
+              "IF(",
+              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
+              ")"
+            ],
+            "formatString": "0.0%;-0.0%;0.0%",
+            "lineageTag": "88c15943-a609-443a-a3b5-36cd225a0335"
           }
         ],
         "partitions": [
