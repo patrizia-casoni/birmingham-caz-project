@@ -23939,9 +23939,10 @@
               "    CurrentLayer = \"CAZ Boundary\",",
               "    1, -- Protects the rings and keeps them visible",
               "    IF(",
-              "        ISFILTERED('Map Remote Control'[area_name]), ",
-              "        IF(CurrentWard IN SelectedWards, 1, 0), -- Filters wards if the Ward Slicer is clicked",
-              "        1 -- Shows all wards if nothing is clicked",
+              "        -- Look at BOTH levels of the slicer hierarchy:",
+              "        ISFILTERED('Map Remote Control'[area_name]) || ISFILTERED('Map Remote Control'[caz_tier]), ",
+              "        IF(CurrentWard IN SelectedWards, 1, 0), -- Show only the wards inside the selected tier/ward",
+              "        1 -- Show all wards if the slicer is completely empty",
               "    )",
               ")"
             ],
