@@ -23973,7 +23973,48 @@
             "lineageTag": "e12ce8db-2830-4240-b717-0aca27501b15"
           },
           {
-            "name": "Map Fill Scale",
+            "name": "Map Fill Scale Resp",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "IF(",
+              "    MAX('public vw_caz_and_wards_map'[layer_type]) = \"CAZ Boundary\",",
+              "    -1,            -- Gives the CAZ rings a negative dummy value",
+              "    [Resp Disease Rate]    -- Passes the true COPD score for the wards",
+              ")"
+            ],
+            "lineageTag": "c4d7e1fd-24f3-4def-9de7-1db06e8dcf17"
+          },
+          {
+            "name": "Resp Disease Rate",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE('public vw_ward_hospital_admissions'[standardised_rate]),",
+              "    'public vw_ward_hospital_admissions'[health_condition] = \"Respiratory Disease\",",
+              "    -- This TREATAS function acts as an invisible bridge, pushing the selected year from your slicer directly into this calculation without breaking the map!",
+              "    TREATAS(",
+              "        VALUES('public dim_years'[fiscal_year]), ",
+              "        'public vw_ward_hospital_admissions'[fiscal_year]",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "80294519-4284-4f3c-8dcf-cc0a9f4bada5"
+          },
+          {
+            "name": "Map Fill Scale COPD",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -23988,7 +24029,7 @@
               "    [COPD Rate]    -- Passes the true COPD score for the wards",
               ")"
             ],
-            "lineageTag": "c4d7e1fd-24f3-4def-9de7-1db06e8dcf17"
+            "lineageTag": "bd4ebce4-9435-4174-b187-209f8f7e9d99"
           }
         ],
         "partitions": [
