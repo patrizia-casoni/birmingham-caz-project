@@ -14562,90 +14562,6 @@
                   }
                 ]
               },
-              "v_Measures_measure.map_anchor_max": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "Map Anchor Max"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "map anchor max": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "anchor max": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "map anchor maximum": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.739
-                    }
-                  },
-                  {
-                    "anchor maximum": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
-                    }
-                  }
-                ]
-              },
-              "v_Measures_measure.map_anchor_min": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "Map Anchor Min"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "map anchor min": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "anchor min": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "map anchor minimum": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.739
-                    }
-                  },
-                  {
-                    "anchor minimum": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.727
-                    }
-                  }
-                ]
-              },
               "v_Measures_measure.map_smart_filter": {
                 "Definition": {
                   "Binding": {
@@ -23992,34 +23908,40 @@
             "name": "Map Smart Filter",
             "expression": [
               "",
-              "VAR SelectedWards = VALUES('Ward Slicer'[area_name])",
-              "VAR CurrentLayer = MAX('public vw_caz_and_wards_map'[layer_type]",
-              "VAR CurrentWard = MAX('public vw_caz_and_wards_map'[area_name]",
+              "VAR SelectedWards = VALUES('Map Remote Control'[area_name])",
+              "VAR CurrentLayer = MAX('public vw_caz_and_wards_map'[layer_type])",
+              "VAR CurrentWard = MAX('public vw_caz_and_wards_map'[area_name])",
               "",
               "RETURN",
               "IF(",
-              "    Cur= \"CAZ Boundary\", ",
-              "    1,  -- Always return 1 to protect and show the CAZ rings",
+              "    CurrentLayer = \"CAZ Boundary\",",
+              "    1, -- Always return 1 to protect and show the CAZ rings",
               "    IF(",
-              "        ISFILTERED('Ward Slicer'[area_name]),",
+              "        ISFILTERED('Map Remote Control'[area_name]),",
               "        IF(CurrentWard IN SelectedWards, 1, 0), -- Show 1 if selected, 0 if not",
-              "        1   -- Show everything (return 1) if nothing is selected in the slicer",
+              "        1 -- Show everything (return 1) if nothing is selected in the slicer",
               "    )",
               ")"
             ],
+            "formatString": "0",
             "lineageTag": "9a34879f-9080-4de8-8270-3f73e47014e2"
           },
           {
             "name": "Show on Map",
             "expression": [
               "",
+              "VAR SelectedWards = VALUES('Map Remote Control'[area_name])",
+              "VAR CurrentLayer = MAX('public vw_caz_and_wards_map'[layer_type])",
+              "VAR CurrentWard = MAX('public vw_caz_and_wards_map'[area_name])",
+              "",
+              "RETURN",
               "IF(",
-              "    MAX('public vw_caz_and_wards_map'[layer_type]) = \"CAZ Boundary\", ",
-              "    1, ",
+              "    CurrentLayer = \"CAZ Boundary\",",
+              "    1, -- Protects the rings and keeps them visible",
               "    IF(",
-              "        MAX('public vw_caz_and_wards_map'[area_name]) IN VALUES('Map Remote Control'[area_name]), ",
-              "        1, ",
-              "        0 ",
+              "        ISFILTERED('Map Remote Control'[area_name]), ",
+              "        IF(CurrentWard IN SelectedWards, 1, 0), -- Filters wards if the Ward Slicer is clicked",
+              "        1 -- Shows all wards if nothing is clicked",
               "    )",
               ")"
             ],
@@ -24038,14 +23960,19 @@
               "",
               "CALCULATE(",
               "    AVERAGE('public vw_ward_hospital_admissions'[standardised_rate]),",
-              "    'public vw_ward_hospital_admissions'[health_condition] = \"COPD\"",
+              "    'public vw_ward_hospital_admissions'[health_condition] = \"COPD\",",
+              "    -- This TREATAS function acts as an invisible bridge, pushing the selected year from your slicer directly into this calculation without breaking the map!",
+              "    TREATAS(",
+              "        VALUES('public dim_years'[fiscal_year]), ",
+              "        'public vw_ward_hospital_admissions'[fiscal_year]",
+              "    )",
               ")"
             ],
             "formatString": "#,0",
             "lineageTag": "e12ce8db-2830-4240-b717-0aca27501b15"
           },
           {
-            "name": "Map Anchor Max",
+            "name": "Map Fill Scale",
             "annotations": [
               {
                 "name": "PBI_FormatHint",
@@ -24054,29 +23981,13 @@
             ],
             "expression": [
               "",
-              "CALCULATE(",
-              "    MAX('public vw_ward_hospital_admissions'[standardised_rate]),",
-              "    REMOVEFILTERS('Map Remote Control'[area_name])",
+              "IF(",
+              "    MAX('public vw_caz_and_wards_map'[layer_type]) = \"CAZ Boundary\",",
+              "    -1,            -- Gives the CAZ rings a negative dummy value",
+              "    [COPD Rate]    -- Passes the true COPD score for the wards",
               ")"
             ],
-            "lineageTag": "97c96615-ef93-431f-baf4-f184aaa628b3"
-          },
-          {
-            "name": "Map Anchor Min",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "expression": [
-              "",
-              "CALCULATE(",
-              "    MIN('public vw_ward_hospital_admissions'[standardised_rate]),",
-              "    REMOVEFILTERS('Map Remote Control'[area_name])",
-              ")"
-            ],
-            "lineageTag": "36f7e530-97d7-4e03-a84a-d488213faf3a"
+            "lineageTag": "c4d7e1fd-24f3-4def-9de7-1db06e8dcf17"
           }
         ],
         "partitions": [
