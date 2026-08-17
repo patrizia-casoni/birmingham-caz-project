@@ -15477,6 +15477,16 @@
                       "State": "Suggested",
                       "Weight": 0.9
                     }
+                  },
+                  {
+                    "% Change": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
                   }
                 ]
               },
@@ -15734,6 +15744,76 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.52
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.NO2__change_19_20_to_24_25": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "NO2 % Change (19/20 to 24/25)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "NO2 % change (19/20 to 24/25)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "NO2 % change": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "NO2 % change (19": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "20 to 24": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "NO2 % change ( 19 20 to 24 25 )": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "no2 percentage change (19": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "no2 pct change (19": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "% Change": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   }
                 ]
@@ -16340,6 +16420,16 @@
                   },
                   {
                     "Resp. Disease % Change FY20 - FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  },
+                  {
+                    "% Change": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -22605,6 +22695,39 @@
                 },
                 "State": "Generated"
               },
+              "v_Measures_measure_has_NO2__change_19_20_to_24_25": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.NO2__change_19_20_to_24_25"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_NO2__change_19_20_to_24_25",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.NO2__change_19_20_to_24_25": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.NO2__change_19_20_to_24_25"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "v_Measures_measure_has_dynamic_transparency": {
                 "Binding": {
                   "ConceptualEntity": "_Measures"
@@ -26493,7 +26616,7 @@
               "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
               ")"
             ],
-            "formatString": "0.0%;-0.0%;0.0%",
+            "formatString": "0%;-0%;0%",
             "lineageTag": "d6b2bec1-9ab5-477a-9771-82a24b371119"
           },
           {
@@ -26523,8 +26646,38 @@
               "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
               ")"
             ],
-            "formatString": "0.0%;-0.0%;0.0%",
+            "formatString": "0%;-0%;0%",
             "lineageTag": "88c15943-a609-443a-a3b5-36cd225a0335"
+          },
+          {
+            "name": "NO2 % Change (19/20 to 24/25)",
+            "expression": [
+              "",
+              "-- 1. Grab the Pre-CAZ Baseline (2019/20)",
+              "VAR BaselineValue = ",
+              "    CALCULATE(",
+              "        AVERAGE('public analytics_site_yearly_summary_fy'[final_annualised_mean]),",
+              "        'public dim_years'[fiscal_year] = \"2019/20\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "-- 2. Grab the Current State (2024/25)",
+              "VAR CurrentValue = ",
+              "    CALCULATE(",
+              "        AVERAGE('public analytics_site_yearly_summary_fy'[final_annualised_mean]),",
+              "        'public dim_years'[fiscal_year] = \"2024/25\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "RETURN",
+              "-- 3. Calculate the overall percentage change",
+              "IF(",
+              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "8ffc1a43-8c77-4e96-8e3b-2a18ba8b2ced"
           }
         ],
         "partitions": [
@@ -27871,13 +28024,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "0.0",
             "lineageTag": "8286800d-23ea-4cd3-8cec-66f35032afc0",
             "sourceColumn": "final_annualised_mean",
             "summarizeBy": "sum"
