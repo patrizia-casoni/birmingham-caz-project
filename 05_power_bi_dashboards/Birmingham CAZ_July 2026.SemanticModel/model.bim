@@ -26,6 +26,470 @@
         "linguisticMetadata": {
           "content": {
             "Entities": {
+              "analytics_correlation_summary": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Analytics_Correlation_Summary"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "analytics correlation summary": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Analytics_Correlation_Summary": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "summary": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "correlation summary": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "analytics correlation synopsis": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "analytics correlation explanation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "analytics correlation extraction": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "analytics correlation summarisation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "correlation synopsis": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "correlation explanation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "correlation extraction": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "correlation summarisation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "analytics correlation review": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "analytics correlation abstract": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  }
+                ]
+              },
+              "analytics_correlation_summary.Yearly_NO2_and_Yearly_NonCompliant_Traffic_correlation_for_calendar_year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Analytics_Correlation_Summary",
+                    "ConceptualProperty": "Yearly_NO2 and Yearly_NonCompliant_Traffic correlation for calendar_year"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Yearly_NO2 and Yearly_NonCompliant_Traffic correlation for calendar_year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Yearly_NO2 Yearly_NonCompliant_Traffic correlation for calendar_year": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "Yearly_NonCompliant_Traffic correlation for calendar_year": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "yearly_no2 yearly_noncompliant_traffic association for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "yearly_no2 yearly_noncompliant_traffic connection for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "yearly_no2 yearly_noncompliant_traffic relationship for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "yearly_noncompliant_traffic association for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "yearly_noncompliant_traffic connection for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "yearly_noncompliant_traffic relationship for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "yearly_no2 yearly_noncompliant_traffic link for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.504
+                    }
+                  },
+                  {
+                    "yearly_no2 yearly_noncompliant_traffic parallel for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.504
+                    }
+                  },
+                  {
+                    "yearly_no2 yearly_noncompliant_traffic correspondence for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.504
+                    }
+                  },
+                  {
+                    "yearly_noncompliant_traffic link for calendar_year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "NO2/Non-Compliant Correlation": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "analytics_correlation_summary.calendar_year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Analytics_Correlation_Summary",
+                    "ConceptualProperty": "calendar_year"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "calendar year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "calendar_year": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "year": {
+                      "State": "Generated",
+                      "Weight": 0.7
+                    }
+                  },
+                  {
+                    "calendar yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "analytics_correlation_summary.yearly_NO2": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Analytics_Correlation_Summary",
+                    "ConceptualProperty": "Yearly_NO2"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "yearly NO2": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Yearly_NO2": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "NO2": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "analytics_correlation_summary.yearly_non_compliant_traffic": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Analytics_Correlation_Summary",
+                    "ConceptualProperty": "Yearly_NonCompliant_Traffic"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "yearly non compliant traffic": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Yearly_NonCompliant_Traffic": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "yearly non compliant circulation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "yearly non compliant transportation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.489
+                    }
+                  },
+                  {
+                    "yearly non compliant movement": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.489
+                    }
+                  },
+                  {
+                    "yearly non compliant passage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.474
+                    }
+                  },
+                  {
+                    "yearly non compliant travel": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.474
+                    }
+                  },
+                  {
+                    "yearly non compliant transport": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.474
+                    }
+                  },
+                  {
+                    "yearly non compliant transfer": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.474
+                    }
+                  },
+                  {
+                    "yearly non compliant interchange": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.474
+                    }
+                  },
+                  {
+                    "yearly non compliant commerce": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.464
+                    }
+                  },
+                  {
+                    "yearly non compliant trade": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.45
+                    }
+                  }
+                ]
+              },
               "dim_day_of_week": {
                 "Definition": {
                   "Binding": {
@@ -2473,6 +2937,728 @@
                 "Visibility": {
                   "Value": "Hidden"
                 }
+              },
+              "public_analytics_site_yearly_summary_fy": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "public analytics_site_yearly_summary_fy": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_yearly_summary_fy.assigned_reference_site_id": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy",
+                    "ConceptualProperty": "assigned_reference_site_id"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "assigned reference site id": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "assigned_reference_site_id": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "reference site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "reference site id": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "assigned reference site identification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.771
+                    }
+                  },
+                  {
+                    "assigned reference site identity": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.771
+                    }
+                  },
+                  {
+                    "assigned reference site identifier": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.771
+                    }
+                  },
+                  {
+                    "reference site identification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "reference site identity": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "reference site identifier": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "reference website": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "reference campus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "reference homepage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "reference locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_yearly_summary_fy.final_annualised_mean": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy",
+                    "ConceptualProperty": "final_annualised_mean"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "final annualised mean": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "final_annualised_mean": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_yearly_summary_fy.fiscal_year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy",
+                    "ConceptualProperty": "fiscal_year"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "fiscal year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "fiscal_year": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "fiscal yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "fisc year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "accounting year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "budget year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "fiscal date": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "fiscal day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "tax year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "public_analytics_site_yearly_summary_fy.laqm_annual_mean_status": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy",
+                    "ConceptualProperty": "laqm_annual_mean_status"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "laqm annual mean status": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "laqm_annual_mean_status": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "laqm annual mean category": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.771
+                    }
+                  },
+                  {
+                    "laqm annual mean importance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.771
+                    }
+                  },
+                  {
+                    "laqm annual mean prestige": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.771
+                    }
+                  },
+                  {
+                    "laqm annual mean prominence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.771
+                    }
+                  },
+                  {
+                    "laqm annual mean condition": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "laqm annual mean class": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "laqm annual mean grade": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "laqm annual mean level": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "laqm annual mean position": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "laqm annual mean rank": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_yearly_summary_fy.site_id": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy",
+                    "ConceptualProperty": "site_id"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "site id": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "site_id": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "site identification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "site identity": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "site identifier": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "website": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "campus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "homepage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "site credential": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "place": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "spot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "public_analytics_site_yearly_summary_fy.site_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy",
+                    "ConceptualProperty": "site_name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "site name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "site_name": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "site": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "website": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "campus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "homepage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "locale": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "site nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "site tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "place": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "spot": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "public_analytics_site_yearly_summary_fy.valid_months_count": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public analytics_site_yearly_summary_fy",
+                    "ConceptualProperty": "valid_months_count"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "valid months count": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "valid month count": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "valid_months_count": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "months count": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "month count": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.7566
+                    }
+                  },
+                  {
+                    "valid month amount": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "month amount": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
               },
               "public_analytics_top19_hourly_peak": {
                 "Definition": {
@@ -12245,7 +13431,7 @@
                     }
                   },
                   {
-                    "Tot Pollution Load": {
+                    "2025 Estimated Pollution Load": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -12255,7 +13441,7 @@
                     }
                   },
                   {
-                    "2025 Estimated Pollution Load": {
+                    "Tot Pollution Load": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -15279,7 +16465,7 @@
                     }
                   },
                   {
-                    "Resp. Disease": {
+                    "Resp. Disease Rate FY25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -15289,7 +16475,7 @@
                     }
                   },
                   {
-                    "Resp. Disease Rate FY25": {
+                    "Resp. Disease": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -15534,6 +16720,180 @@
             },
             "Language": "en-US",
             "Relationships": {
+              "analytics_correlation_summary_has_Yearly_NO2_and_Yearly_NonCompliant_Traffic_correlation_for_calendar_year": {
+                "Binding": {
+                  "ConceptualEntity": "Analytics_Correlation_Summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "analytics_correlation_summary.Yearly_NO2_and_Yearly_NonCompliant_Traffic_correlation_for_calendar_year"
+                      },
+                      "Subject": {
+                        "Role": "analytics_correlation_summary"
+                      }
+                    },
+                    "ID": "analytics_correlation_summaries_have_Yearly_NO2_and_Yearly_NonCompliant_Traffic_correlation_for_calendar_year",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "analytics_correlation_summary": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary"
+                    }
+                  },
+                  "analytics_correlation_summary.Yearly_NO2_and_Yearly_NonCompliant_Traffic_correlation_for_calendar_year": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary.Yearly_NO2_and_Yearly_NonCompliant_Traffic_correlation_for_calendar_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "analytics_correlation_summary_has_calendar_year": {
+                "Binding": {
+                  "ConceptualEntity": "Analytics_Correlation_Summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "analytics_correlation_summary.calendar_year"
+                      },
+                      "Subject": {
+                        "Role": "analytics_correlation_summary"
+                      }
+                    },
+                    "ID": "analytics_correlation_summaries_have_calendar_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "analytics_correlation_summary": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary"
+                    }
+                  },
+                  "analytics_correlation_summary.calendar_year": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary.calendar_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "analytics_correlation_summary_has_yearly_NO2": {
+                "Binding": {
+                  "ConceptualEntity": "Analytics_Correlation_Summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "analytics_correlation_summary.yearly_NO2"
+                      },
+                      "Subject": {
+                        "Role": "analytics_correlation_summary"
+                      }
+                    },
+                    "ID": "analytics_correlation_summaries_have_yearly_NO2",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "analytics_correlation_summary": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary"
+                    }
+                  },
+                  "analytics_correlation_summary.yearly_NO2": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary.yearly_NO2"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "analytics_correlation_summary_has_yearly_non_compliant_traffic": {
+                "Binding": {
+                  "ConceptualEntity": "Analytics_Correlation_Summary"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "analytics_correlation_summary.yearly_non_compliant_traffic"
+                      },
+                      "Subject": {
+                        "Role": "analytics_correlation_summary"
+                      }
+                    },
+                    "ID": "analytics_correlation_summaries_have_yearly_non_compliant_traffics",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "analytics_correlation_summary": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary"
+                    }
+                  },
+                  "analytics_correlation_summary.yearly_non_compliant_traffic": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary.yearly_non_compliant_traffic"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "analytics_correlation_summary_is_calendared_in_calendar_year": {
+                "Binding": {
+                  "ConceptualEntity": "Analytics_Correlation_Summary"
+                },
+                "Phrasings": [
+                  {
+                    "ID": "analytics_correlation_summaries_are_calendared_on_calendar_years",
+                    "State": "Generated",
+                    "Verb": {
+                      "Object": {
+                        "Role": "analytics_correlation_summary"
+                      },
+                      "Verbs": [
+                        {
+                          "calendar": {
+                            "State": "Generated"
+                          }
+                        }
+                      ]
+                    },
+                    "Weight": 0.9
+                  }
+                ],
+                "Roles": {
+                  "analytics_correlation_summary": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary"
+                    }
+                  },
+                  "analytics_correlation_summary.calendar_year": {
+                    "Target": {
+                      "Entity": "analytics_correlation_summary.calendar_year"
+                    }
+                  }
+                },
+                "SemanticSlots": {
+                  "When": {
+                    "Role": "analytics_correlation_summary.calendar_year"
+                  }
+                },
+                "State": "Generated"
+              },
               "dim_day_of_week_has_day_of_week_name": {
                 "Binding": {
                   "ConceptualEntity": "dim_days_of_week"
@@ -16353,6 +17713,270 @@
                   "public_analytics_site_hourly_weekly_profile.site_name": {
                     "Target": {
                       "Entity": "public_analytics_site_hourly_weekly_profile.site_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_fy_has_assigned_reference_site_id": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy.assigned_reference_site_id"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_assigned_reference_site_ids",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  },
+                  "public_analytics_site_yearly_summary_fy.assigned_reference_site_id": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy.assigned_reference_site_id"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_fy_has_final_annualised_mean": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy.final_annualised_mean"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_final_annualised_means",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  },
+                  "public_analytics_site_yearly_summary_fy.final_annualised_mean": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy.final_annualised_mean"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_fy_has_laqm_annual_mean_status": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy.laqm_annual_mean_status"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_laqm_annual_mean_statuses",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  },
+                  "public_analytics_site_yearly_summary_fy.laqm_annual_mean_status": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy.laqm_annual_mean_status"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_fy_has_public_dim_year": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_dim_year"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_public_dim_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      },
+                      "Subject": {
+                        "Role": "public_dim_year"
+                      }
+                    },
+                    "ID": "public_dim_years_have_public_analytics_site_yearly_summary_fies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  },
+                  "public_dim_year": {
+                    "Nouns": [
+                      {
+                        "fiscal year": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "public_dim_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_fy_has_public_monitoring_site": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_monitoring_site"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_public_monitoring_sites",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      },
+                      "Subject": {
+                        "Role": "public_monitoring_site"
+                      }
+                    },
+                    "ID": "public_monitoring_sites_have_public_analytics_site_yearly_summary_fies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  },
+                  "public_monitoring_site": {
+                    "Target": {
+                      "Entity": "public_monitoring_site"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_fy_has_site_name": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy.site_name"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_site_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  },
+                  "public_analytics_site_yearly_summary_fy.site_name": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy.site_name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_analytics_site_yearly_summary_fy_has_valid_months_count": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy.valid_months_count"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_valid_months_counts",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  },
+                  "public_analytics_site_yearly_summary_fy.valid_months_count": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy.valid_months_count"
                     }
                   }
                 },
@@ -26273,6 +27897,177 @@
                 "    public_analytics_site_yearly_summary_fy"
               ],
               "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Analytics_Correlation_Summary",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "249aeae988a8416aa7ee8763615bc920"
+          }
+        ],
+        "columns": [
+          {
+            "name": "calendar_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "e7372ba3-ab5c-4e37-9243-482448fbbf7c",
+            "sourceColumn": "public dim_years[calendar_year]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Yearly_NO2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "960402bb-6f89-4651-800c-f1df9d5b1b17",
+            "sourceColumn": "[Yearly_NO2]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Yearly_NonCompliant_Traffic",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "ca336c04-bd18-485d-8de7-86e6ff55caf2",
+            "sourceColumn": "[Yearly_NonCompliant_Traffic]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "3f79bd78-7048-4088-b78f-52cab384b32d",
+        "measures": [
+          {
+            "name": "Yearly_NO2 and Yearly_NonCompliant_Traffic correlation for calendar_year",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR __CORRELATION_TABLE = VALUES('Analytics_Correlation_Summary'[calendar_year])",
+              "VAR __COUNT =",
+              "\tCOUNTX(",
+              "\t\tKEEPFILTERS(__CORRELATION_TABLE),",
+              "\t\tCALCULATE(",
+              "\t\t\tSUM('Analytics_Correlation_Summary'[Yearly_NO2])",
+              "\t\t\t\t* SUM('Analytics_Correlation_Summary'[Yearly_NonCompliant_Traffic])",
+              "\t\t)",
+              "\t)",
+              "VAR __SUM_X =",
+              "\tSUMX(",
+              "\t\tKEEPFILTERS(__CORRELATION_TABLE),",
+              "\t\tCALCULATE(SUM('Analytics_Correlation_Summary'[Yearly_NO2]))",
+              "\t)",
+              "VAR __SUM_Y =",
+              "\tSUMX(",
+              "\t\tKEEPFILTERS(__CORRELATION_TABLE),",
+              "\t\tCALCULATE(SUM('Analytics_Correlation_Summary'[Yearly_NonCompliant_Traffic]))",
+              "\t)",
+              "VAR __SUM_XY =",
+              "\tSUMX(",
+              "\t\tKEEPFILTERS(__CORRELATION_TABLE),",
+              "\t\tCALCULATE(",
+              "\t\t\tSUM('Analytics_Correlation_Summary'[Yearly_NO2]) * SUM('Analytics_Correlation_Summary'[Yearly_NonCompliant_Traffic])",
+              "\t\t\t\t* 1.",
+              "\t\t)",
+              "\t)",
+              "VAR __SUM_X2 =",
+              "\tSUMX(",
+              "\t\tKEEPFILTERS(__CORRELATION_TABLE),",
+              "\t\tCALCULATE(SUM('Analytics_Correlation_Summary'[Yearly_NO2]) ^ 2)",
+              "\t)",
+              "VAR __SUM_Y2 =",
+              "\tSUMX(",
+              "\t\tKEEPFILTERS(__CORRELATION_TABLE),",
+              "\t\tCALCULATE(",
+              "\t\t\tSUM('Analytics_Correlation_Summary'[Yearly_NonCompliant_Traffic])",
+              "\t\t\t\t^ 2",
+              "\t\t)",
+              "\t)",
+              "RETURN",
+              "\tDIVIDE(",
+              "\t\t__COUNT * __SUM_XY - __SUM_X * __SUM_Y * 1.,",
+              "\t\tSQRT(",
+              "\t\t\t(__COUNT * __SUM_X2 - __SUM_X ^ 2)",
+              "\t\t\t\t* (__COUNT * __SUM_Y2 - __SUM_Y ^ 2)",
+              "\t\t)",
+              "\t)"
+            ],
+            "extendedProperties": [
+              {
+                "name": "MeasureTemplate",
+                "type": "json",
+                "value": {
+                  "daxTemplateName": "CorrelationCoefficient",
+                  "version": 0
+                }
+              }
+            ],
+            "lineageTag": "d5ea5c16-1e10-4878-acb2-68f2ec53e68d"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Analytics_Correlation_Summary",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "FILTER(",
+                "    ADDCOLUMNS(",
+                "        VALUES('public dim_years'[calendar_year]), ",
+                "        ",
+                "        \"Yearly_NonCompliant_Traffic\", ",
+                "        CALCULATE(",
+                "            SUM('public vw_powerbi_traffic'[noncompliant_vehicles])",
+                "        ),",
+                "        ",
+                "        \"Yearly_NO2\", ",
+                "        CALCULATE(",
+                "            AVERAGE('public analytics_site_yearly_summary'[annualised_mean]),",
+                "            -- THIS IS THE CRUCIAL ADDITION: ",
+                "            -- Replace \"1. Inside CAZ\" with whatever your exact Tier 1 name is in your database",
+                "            'public dim_caz_tiers'[caz_tier] = \"1. Inside CAZ\" ",
+                "        )",
+                "    ),",
+                "    -- Removes future years where data is blank",
+                "    NOT ISBLANK([Yearly_NonCompliant_Traffic]) && NOT ISBLANK([Yearly_NO2]) ",
+                ")"
+              ],
+              "type": "calculated"
             }
           }
         ]
