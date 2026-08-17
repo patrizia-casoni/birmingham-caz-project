@@ -550,3 +550,35 @@ GROUP BY
 -- ============================================================================
 CREATE INDEX idx_hourly_weekly_profile_filters 
     ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);
+
+
+/* =============================================================================
+   Title:      Create Analytical View: NO2 Annualised Means (Fiscal Year)
+   
+   Purpose:    Creates a production-ready analytical view for Power BI consumption. 
+               This view exposes NO2 annualised means aggregated by UK fiscal year 
+               (April - March) rather than calendar year.
+               
+   Rationale:  Health outcome data (COPD and overall Respiratory hospital 
+               admissions) is inherently tracked and reported by fiscal year. 
+               By aligning our environmental NO2 aggregations to match this exact 
+               same timeframe, we ensure an "apples-to-apples" temporal comparison 
+               in the final dashboard. This prevents seasonal data (like winter 
+               pollution spikes) from splitting across mismatched reporting buckets.
+               
+   Layer:      Analytics (Final presentation layer for BI tools)
+   Source:     stg_final_annualised_means_fy (Staging layer)
+   ============================================================================= */
+
+CREATE OR REPLACE VIEW analytics_site_yearly_summary_fy AS
+SELECT 
+    site_id,
+    site_name,
+    fiscal_year,
+    valid_months_count,
+    laqm_annual_mean_status,
+    assigned_reference_site_id,
+    final_annualised_mean
+FROM 
+    stg_final_annualised_means_fy;
+

@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\",\"public analytics_site_hourly_weekly_profiles\",\"public vw_powerbi_traffic\"]"
+        "value": "[\"public dim_caz_tiers\",\"public dim_years\",\"public analytics_site_yearly_summary\",\"public caz_respiratory_master\",\"public monitoring_sites\",\"public vw_dim_wards\",\"public vw_caz_and_sites_map\",\"public vw_caz_and_wards_map\",\"public vw_ward_hospital_admissions\",\"_Measures\",\"public analytics_top19_hourly_peaks\",\"public analytics_site_hourly_weekly_profiles\",\"public vw_powerbi_traffic\",\"public analytics_site_yearly_summary_fy\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -21485,6 +21485,20 @@
         "fromTable": "public vw_powerbi_traffic",
         "toColumn": "calendar_year",
         "toTable": "public dim_years"
+      },
+      {
+        "name": "9d1e0f65-3e05-52fd-86ae-6740634e9af8",
+        "fromColumn": "site_id",
+        "fromTable": "public analytics_site_yearly_summary_fy",
+        "toColumn": "site_id",
+        "toTable": "public monitoring_sites"
+      },
+      {
+        "name": "34153f20-4783-6c3c-863a-7b3109f83d5d",
+        "fromColumn": "fiscal_year",
+        "fromTable": "public analytics_site_yearly_summary_fy",
+        "toColumn": "fiscal_year",
+        "toTable": "public dim_years"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -26141,6 +26155,124 @@
                 ")"
               ],
               "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "public analytics_site_yearly_summary_fy",
+        "columns": [
+          {
+            "name": "site_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ff1200f9-f8f6-4488-8357-45d821550fb1",
+            "sourceColumn": "site_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "site_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "60e488c6-281c-4ba3-a65a-750673af5d9d",
+            "sourceColumn": "site_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fiscal_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9b248324-2135-48bf-821c-fba9b9661abe",
+            "sourceColumn": "fiscal_year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valid_months_count",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "4d18029a-0440-4556-81c8-dc149d48ac8b",
+            "sourceColumn": "valid_months_count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "laqm_annual_mean_status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a339a000-d0e7-4b53-9bf1-84a950a4c0e4",
+            "sourceColumn": "laqm_annual_mean_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "assigned_reference_site_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0d877570-783b-41e6-b675-5013e898dfee",
+            "sourceColumn": "assigned_reference_site_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "final_annualised_mean",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "8286800d-23ea-4cd3-8cec-66f35032afc0",
+            "sourceColumn": "final_annualised_mean",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "6985e41a-e8b7-4338-bcca-07063f41bbdd",
+        "partitions": [
+          {
+            "name": "public analytics_site_yearly_summary_fy",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5432\", \"postgres\"),",
+                "    public_analytics_site_yearly_summary_fy = Source{[Schema=\"public\",Item=\"analytics_site_yearly_summary_fy\"]}[Data]",
+                "in",
+                "    public_analytics_site_yearly_summary_fy"
+              ],
+              "type": "m"
             }
           }
         ]
