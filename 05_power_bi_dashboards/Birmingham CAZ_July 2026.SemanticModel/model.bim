@@ -23254,13 +23254,6 @@
         "toTable": "public dim_caz_tiers"
       },
       {
-        "name": "d820ee8f-ccf0-0a31-29a8-80b753f10550",
-        "fromColumn": "fiscal_year",
-        "fromTable": "public caz_respiratory_master",
-        "toColumn": "fiscal_year",
-        "toTable": "public dim_years"
-      },
-      {
         "name": "629da0a8-90a5-d9d5-406b-bd318d13094a",
         "fromColumn": "caz_tier",
         "fromTable": "public vw_dim_wards",
@@ -23409,11 +23402,25 @@
         "toTable": "public monitoring_sites"
       },
       {
-        "name": "34153f20-4783-6c3c-863a-7b3109f83d5d",
+        "name": "4afe8bfd-8025-359f-1354-cc4a060a4086",
+        "fromColumn": "fiscal_year",
+        "fromTable": "public vw_powerbi_traffic",
+        "toColumn": "fiscal_year",
+        "toTable": "Dim_Fiscal_Year"
+      },
+      {
+        "name": "57dff91d-0e2c-ba41-7a80-f3079a41e8cb",
         "fromColumn": "fiscal_year",
         "fromTable": "public analytics_site_yearly_summary_fy",
         "toColumn": "fiscal_year",
-        "toTable": "public dim_years"
+        "toTable": "Dim_Fiscal_Year"
+      },
+      {
+        "name": "10e37c75-b915-b20f-e2bb-239faad1f55f",
+        "fromColumn": "fiscal_year",
+        "fromTable": "public caz_respiratory_master",
+        "toColumn": "fiscal_year",
+        "toTable": "Dim_Fiscal_Year"
       }
     ],
     "sourceQueryCulture": "en-GB",
@@ -27872,6 +27879,19 @@
             "lineageTag": "9a275303-387c-4999-a689-ec500781b181",
             "sourceColumn": "data_source_type",
             "summarizeBy": "none"
+          },
+          {
+            "name": "fiscal_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "91b0b979-5370-4fcd-8546-4ab4cdde3141",
+            "sourceColumn": "fiscal_year",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "4d25af4f-9040-40eb-aac4-4a6bcf578f72",
@@ -28470,6 +28490,61 @@
                 "    NOT ISBLANK([Yearly_NonCompliant_Traffic]) && NOT ISBLANK([Yearly_NO2]) ",
                 ")"
               ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Fiscal_Year",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "750e55af167f4f29a44fdd91fcdb670c"
+          }
+        ],
+        "columns": [
+          {
+            "name": "calendar_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "555829c7-39de-4a1c-bec0-e42b40119032",
+            "sourceColumn": "public dim_years[calendar_year]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "fiscal_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "5b09f62f-49d7-4d8a-980a-fe6a48ef47a0",
+            "sourceColumn": "public dim_years[fiscal_year]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "a98b49f5-b8a0-4f61-b3fb-8d0c76d50308",
+        "partitions": [
+          {
+            "name": "Dim_Fiscal_Year",
+            "mode": "import",
+            "source": {
+              "expression": "'public dim_years'",
               "type": "calculated"
             }
           }

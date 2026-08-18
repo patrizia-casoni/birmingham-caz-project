@@ -63,6 +63,49 @@ SELECT
     data_source_type
 FROM analytics_imputed_traffic_monthly;
 
+/* ==============================================================================================
+TITLE: Power BI View Update - Traffic with Fiscal Year Integration
+=================================================================================================
+
+NOTES & CHANGELOG:
+- WHAT WAS CHANGED: 
+  Added a new calculated column `fiscal_year` (format: "YYYY/YY") derived from the `date` column. 
+  The calculation follows the standard UK fiscal calendar (April 1st to March 31st).
+  The original `year` column was explicitly cast as an INTEGER.
+
+- WHY THIS CHANGE WAS MADE:
+  To enable cross-filtering in the Power BI Executive Summary dashboard. Hospitalizations 
+  and respiratory health data are reported by fiscal year. By calculating the fiscal year 
+  at the database level, we can link this traffic view to a new 'Dim_Fiscal_Year' 
+  role-playing dimension table in Power BI. This allows decision-makers to view 
+  traffic compliance and health outcomes on the exact same timeline without relying 
+  on complex DAX dual-axis workarounds or duplicating the fact table.
+  The original `year` column is preserved as an integer so existing calendar-based 
+  relationships are not broken.
+============================================================================================== */
+
+DROP VIEW IF EXISTS vw_powerbi_traffic;
+
+CREATE VIEW vw_powerbi_traffic AS 
+SELECT 
+    date,
+    EXTRACT(YEAR FROM date)::INTEGER AS year,  -- Cast to integer for perfect Power BI joins
+    vehicle_type,
+    compliant_vehicles,
+    noncompliant_vehicles,
+    total_vehicles,
+    data_source_type,
+    
+    -- Dynamic UK Fiscal Year Calculation (April to March)
+    CASE 
+        WHEN EXTRACT(MONTH FROM date) >= 4 THEN 
+            EXTRACT(YEAR FROM date)::TEXT || '/' || RIGHT((EXTRACT(YEAR FROM date) + 1)::TEXT, 2)
+        ELSE 
+            (EXTRACT(YEAR FROM date) - 1)::TEXT || '/' || RIGHT(EXTRACT(YEAR FROM date)::TEXT, 2)
+    END AS fiscal_year
+
+FROM analytics_imputed_traffic_monthly;
+
 
 --------------------------------------------------------------------------------
 -- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
