@@ -5616,6 +5616,89 @@
                   }
                 ]
               },
+              "public_dim_caz_tier.tier_group": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public dim_caz_tiers",
+                    "ConceptualProperty": "Tier_Groups"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "tier group": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Tier_Groups": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "tier category": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "tier organization": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "tier bracket": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "tier class": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "tier crew": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "tier team": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
               "public_dim_year": {
                 "Definition": {
                   "Binding": {
@@ -15414,58 +15497,26 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "COPD % Change (19/20 to 24/25)"
+                    "ConceptualProperty": "COPD % Change FY20-FY25 (Dynamic)"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "COPD % change (19/20 to 24/25)": {
+                    "COPD % change FY20-FY25 (dynamic)": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "COPD % change": {
+                    "COPD % change FY20-FY25": {
                       "State": "Generated",
                       "Weight": 0.75
                     }
                   },
                   {
-                    "COPD % change (19": {
+                    "COPD % change FY20 FY25 (dynamic)": {
                       "State": "Generated",
                       "Weight": 0.97
-                    }
-                  },
-                  {
-                    "20 to 24": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "COPD % change ( 19 20 to 24 25 )": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "copd percentage change (19": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.624
-                    }
-                  },
-                  {
-                    "copd pct change (19": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.605
                     }
                   },
                   {
@@ -15479,7 +15530,7 @@
                     }
                   },
                   {
-                    "% Change": {
+                    "% Change FY20-FY25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -15752,62 +15803,30 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "NO2 % Change (19/20 to 24/25)"
+                    "ConceptualProperty": "NO2 % Change FY20-FY25 (Dynamic)"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "NO2 % change (19/20 to 24/25)": {
+                    "NO2 % change FY20-FY25 (dynamic)": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "NO2 % change": {
+                    "NO2 % change FY20-FY25": {
                       "State": "Generated",
                       "Weight": 0.75
                     }
                   },
                   {
-                    "NO2 % change (19": {
+                    "NO2 % change FY20 FY25 (dynamic)": {
                       "State": "Generated",
                       "Weight": 0.97
                     }
                   },
                   {
-                    "20 to 24": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "NO2 % change ( 19 20 to 24 25 )": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "no2 percentage change (19": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.624
-                    }
-                  },
-                  {
-                    "no2 pct change (19": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.605
-                    }
-                  },
-                  {
-                    "% Change": {
+                    "% Change FY20-FY25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -16384,36 +16403,24 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "Resp Disease % Change (19/20 to 24/25)"
+                    "ConceptualProperty": "Resp. Disease % Change FY20-FY25 (Dynamic)"
                   }
                 },
                 "State": "Generated",
                 "Terms": [
                   {
-                    "resp disease % change (19/20 to 24/25)": {
+                    "resp. disease % change FY20-FY25 (dynamic)": {
                       "State": "Generated"
                     }
                   },
                   {
-                    "resp disease % change": {
+                    "resp. disease % change FY20-FY25": {
                       "State": "Generated",
                       "Weight": 0.75
                     }
                   },
                   {
-                    "resp disease % change (19": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "20 to 24": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "resp disease % change ( 19 20 to 24 25 )": {
+                    "resp. disease % change FY20 FY25 (dynamic)": {
                       "State": "Generated",
                       "Weight": 0.97
                     }
@@ -16429,7 +16436,7 @@
                     }
                   },
                   {
-                    "% Change": {
+                    "% Change FY20-FY25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -19354,6 +19361,39 @@
                   "public_dim_caz_tier.geom": {
                     "Target": {
                       "Entity": "public_dim_caz_tier.geom"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_dim_caz_tier_has_tier_group": {
+                "Binding": {
+                  "ConceptualEntity": "public dim_caz_tiers"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_dim_caz_tier.tier_group"
+                      },
+                      "Subject": {
+                        "Role": "public_dim_caz_tier"
+                      }
+                    },
+                    "ID": "public_dim_caz_tiers_have_tier_groups",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_dim_caz_tier": {
+                    "Target": {
+                      "Entity": "public_dim_caz_tier"
+                    }
+                  },
+                  "public_dim_caz_tier.tier_group": {
+                    "Target": {
+                      "Entity": "public_dim_caz_tier.tier_group"
                     }
                   }
                 },
@@ -22563,6 +22603,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD__change_19_20_to_24_25": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD__change_19_20_to_24_25"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_COPD__change_FY20FY25_dynamic",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.COPD__change_19_20_to_24_25": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD__change_19_20_to_24_25"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD_rate": {
                 "Binding": {
                   "ConceptualEntity": "public vw_ward_hospital_admissions"
@@ -22662,39 +22735,6 @@
                 },
                 "State": "Generated"
               },
-              "v_Measures_measure_has_COPD__change_19_20_to_24_25": {
-                "Binding": {
-                  "ConceptualEntity": "_Measures"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "v_Measures_measure.COPD__change_19_20_to_24_25"
-                      },
-                      "Subject": {
-                        "Role": "v_Measures_measure"
-                      }
-                    },
-                    "ID": "Phrasing_measures_have_COPD__change_19_20_to_24_25",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "v_Measures_measure": {
-                    "Target": {
-                      "Entity": "v_Measures_measure"
-                    }
-                  },
-                  "v_Measures_measure.COPD__change_19_20_to_24_25": {
-                    "Target": {
-                      "Entity": "v_Measures_measure.COPD__change_19_20_to_24_25"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
               "v_Measures_measure_has_NO2__change_19_20_to_24_25": {
                 "Binding": {
                   "ConceptualEntity": "_Measures"
@@ -22709,7 +22749,7 @@
                         "Role": "v_Measures_measure"
                       }
                     },
-                    "ID": "Phrasing_measures_have_NO2__change_19_20_to_24_25",
+                    "ID": "Phrasing_measures_have_NO2__change_FY20FY25_dynamic",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -22907,7 +22947,7 @@
                         "Role": "v_Measures_measure"
                       }
                     },
-                    "ID": "Phrasing_measures_have_resp_disease__change_19_20_to_24_25",
+                    "ID": "Phrasing_measures_have_resp__disease__change_FY20FY25_dynamic",
                     "State": "Generated",
                     "Weight": 0.99
                   }
@@ -23298,6 +23338,29 @@
             "lineageTag": "da23f724-3653-4900-8b7e-f8aff956faa5",
             "sourceColumn": "geom",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Tier_Groups",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "SWITCH(TRUE(),",
+              "    CONTAINSSTRING('public dim_caz_tiers'[caz_tier], \"1\"), \"1. Inside CAZ\",",
+              "    CONTAINSSTRING('public dim_caz_tiers'[caz_tier], \"2\") || CONTAINSSTRING('public dim_caz_tiers'[caz_tier], \"3\"), \"2. Tiers 2 & 3\",",
+              "    CONTAINSSTRING('public dim_caz_tiers'[caz_tier], \"4\") || CONTAINSSTRING('public dim_caz_tiers'[caz_tier], \"5\"), \"3. Tiers 4 & 5\",",
+              "    \"Other\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "04235306-2d41-493c-a543-ac6c5769f25b",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "lineageTag": "e5abd806-e6cf-4dfb-b885-36d24e73e47e",
@@ -26590,57 +26653,58 @@
             "lineageTag": "5f0d1fd1-2dff-40e8-9194-71cfd845c313"
           },
           {
-            "name": "COPD % Change (19/20 to 24/25)",
+            "name": "COPD % Change FY20-FY25 (Dynamic)",
             "expression": [
               "",
-              "-- 1. Grab the Pre-CAZ Baseline (2019/20)",
+              "VAR SelectedTier = SELECTEDVALUE('public dim_caz_tiers'[Tier_Groups])",
+              "",
               "VAR BaselineValue = ",
               "    CALCULATE(",
               "        [COPD Rate],",
               "        'public dim_years'[fiscal_year] = \"2019/20\",",
-              "        REMOVEFILTERS('public dim_years')",
+              "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier",
               "    )",
               "",
-              "-- 2. Grab the Current State (2024/25)",
               "VAR CurrentValue = ",
               "    CALCULATE(",
               "        [COPD Rate],",
               "        'public dim_years'[fiscal_year] = \"2024/25\",",
-              "        REMOVEFILTERS('public dim_years')",
+              "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier",
               "    )",
               "",
               "RETURN",
-              "-- 3. Calculate the overall percentage change",
-              "IF(",
-              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
-              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
-              ")"
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)"
             ],
             "formatString": "0%;-0%;0%",
             "lineageTag": "d6b2bec1-9ab5-477a-9771-82a24b371119"
           },
           {
-            "name": "Resp Disease % Change (19/20 to 24/25)",
+            "name": "Resp. Disease % Change FY20-FY25 (Dynamic)",
             "expression": [
               "",
-              "-- 1. Grab the Pre-CAZ Baseline (2019/20)",
+              "// 1. Listen to the Dropdown Slicer",
+              "VAR SelectedTier = SELECTEDVALUE('public dim_caz_tiers'[Tier_Groups])",
+              "",
+              "// 2. Grab the Pre-CAZ Baseline (2019/20)",
               "VAR BaselineValue = ",
               "    CALCULATE(",
               "        [Resp Disease Rate],",
               "        'public dim_years'[fiscal_year] = \"2019/20\",",
+              "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier,",
               "        REMOVEFILTERS('public dim_years')",
               "    )",
               "",
-              "-- 2. Grab the Current State (2024/25)",
+              "// 3. Grab the Current State (2024/25)",
               "VAR CurrentValue = ",
               "    CALCULATE(",
               "        [Resp Disease Rate],",
               "        'public dim_years'[fiscal_year] = \"2024/25\",",
+              "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier,",
               "        REMOVEFILTERS('public dim_years')",
               "    )",
               "",
               "RETURN",
-              "-- 3. Calculate the overall percentage change",
+              "// 4. Calculate the overall percentage change",
               "IF(",
               "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
               "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
@@ -26650,30 +26714,31 @@
             "lineageTag": "88c15943-a609-443a-a3b5-36cd225a0335"
           },
           {
-            "name": "NO2 % Change (19/20 to 24/25)",
+            "name": "NO2 % Change FY20-FY25 (Dynamic)",
             "expression": [
               "",
-              "-- 1. Grab the Pre-CAZ Baseline (2019/20)",
-              "VAR BaselineValue = ",
+              "-- 1. Listen to the Dropdown Slicer",
+              "VAR SelectedTier = SELECTEDVALUE('public dim_caz_tiers'[Tier_Groups])",
+              "",
+              "-- 2. Grab the 2018 Baseline for the selected tier",
+              "VAR Avg2018 = ",
               "    CALCULATE(",
-              "        AVERAGE('public analytics_site_yearly_summary_fy'[final_annualised_mean]),",
-              "        'public dim_years'[fiscal_year] = \"2019/20\",",
-              "        REMOVEFILTERS('public dim_years')",
+              "        [NO2_Avg_2018],",
+              "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier",
               "    )",
               "",
-              "-- 2. Grab the Current State (2024/25)",
-              "VAR CurrentValue = ",
+              "-- 3. Grab the Current Value for the selected tier",
+              "VAR AvgCurrent = ",
               "    CALCULATE(",
-              "        AVERAGE('public analytics_site_yearly_summary_fy'[final_annualised_mean]),",
-              "        'public dim_years'[fiscal_year] = \"2024/25\",",
-              "        REMOVEFILTERS('public dim_years')",
+              "        AVERAGE('public analytics_site_yearly_summary'[annualised_mean]),",
+              "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier",
               "    )",
               "",
               "RETURN",
-              "-- 3. Calculate the overall percentage change",
+              "-- 4. Calculate the overall percentage change",
               "IF(",
-              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
-              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
+              "    NOT ISBLANK(Avg2018) && NOT ISBLANK(AvgCurrent),",
+              "    DIVIDE(AvgCurrent - Avg2018, Avg2018)",
               ")"
             ],
             "formatString": "0%;-0%;0%",
