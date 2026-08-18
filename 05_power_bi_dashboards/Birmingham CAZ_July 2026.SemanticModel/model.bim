@@ -15518,15 +15518,65 @@
                       "State": "Generated",
                       "Weight": 0.97
                     }
+                  }
+                ]
+              },
+              "v_Measures_measure.COPD__change_19_20_to_24_251": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "COPD % Change (19/20 to 24/25)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "COPD % change (19/20 to 24/25)": {
+                      "State": "Generated"
+                    }
                   },
                   {
-                    "COPD % Change FY20 - FY25": {
+                    "COPD % change": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "COPD % change (19": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "20 to 24": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "COPD % change ( 19 20 to 24 25 )": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "copd percentage change (19": {
                       "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
+                        "Agent": "Thesaurus"
                       },
                       "State": "Suggested",
-                      "Weight": 0.9
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "copd pct change (19": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
                     }
                   },
                   {
@@ -15670,16 +15720,6 @@
                       "State": "Suggested",
                       "Weight": 0.9
                     }
-                  },
-                  {
-                    "COPD Rate FY25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
                   }
                 ]
               },
@@ -15796,6 +15836,16 @@
                       "Type": "Noun",
                       "Weight": 0.52
                     }
+                  },
+                  {
+                    "% Change FY20-FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
                   }
                 ]
               },
@@ -15823,16 +15873,6 @@
                     "NO2 % change FY20 FY25 (dynamic)": {
                       "State": "Generated",
                       "Weight": 0.97
-                    }
-                  },
-                  {
-                    "% Change FY20-FY25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
                     }
                   }
                 ]
@@ -16273,6 +16313,38 @@
                   }
                 ]
               },
+              "v_Measures_measure.resp__disease__change_FY20FY25": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Resp. Disease % Change FY20-FY25"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "resp. disease % change FY20-FY25": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "resp. disease % change FY20 FY25": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "% Change FY20-FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.resp_disease_YoY__change": {
                 "Definition": {
                   "Binding": {
@@ -16424,26 +16496,6 @@
                       "State": "Generated",
                       "Weight": 0.97
                     }
-                  },
-                  {
-                    "Resp. Disease % Change FY20 - FY25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  },
-                  {
-                    "% Change FY20-FY25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
                   }
                 ]
               },
@@ -16573,6 +16625,16 @@
                   },
                   {
                     "Resp. Disease": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  },
+                  {
+                    "R. DISEASE": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -22735,6 +22797,39 @@
                 },
                 "State": "Generated"
               },
+              "v_Measures_measure_has_COPD__change_19_20_to_24_251": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD__change_19_20_to_24_251"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_COPD__change_19_20_to_24_25",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.COPD__change_19_20_to_24_251": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD__change_19_20_to_24_251"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "v_Measures_measure_has_NO2__change_19_20_to_24_25": {
                 "Binding": {
                   "ConceptualEntity": "_Measures"
@@ -22895,6 +22990,39 @@
                   "v_Measures_measure.map_smart_filter": {
                     "Target": {
                       "Entity": "v_Measures_measure.map_smart_filter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_resp__disease__change_FY20FY25": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.resp__disease__change_FY20FY25"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_resp__disease__change_FY20FY25",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.resp__disease__change_FY20FY25": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.resp__disease__change_FY20FY25"
                     }
                   }
                 },
@@ -26368,7 +26496,7 @@
               "RETURN",
               "DIVIDE(AvgCurrent - Avg2018, Avg2018)"
             ],
-            "formatString": "0.00%;-0.00%;0.00%",
+            "formatString": "0%;-0%;0%",
             "lineageTag": "e0f6380a-b1db-42ae-a0e3-ca60b7709c0b"
           },
           {
@@ -26743,6 +26871,66 @@
             ],
             "formatString": "0%;-0%;0%",
             "lineageTag": "8ffc1a43-8c77-4e96-8e3b-2a18ba8b2ced"
+          },
+          {
+            "name": "COPD % Change (19/20 to 24/25)",
+            "expression": [
+              "",
+              "// 1. Grab the Pre-CAZ Baseline (2019/20)",
+              "VAR BaselineValue = ",
+              "    CALCULATE(",
+              "        [COPD Rate],",
+              "        'public dim_years'[fiscal_year] = \"2019/20\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "// 2. Grab the Current State (2024/25)",
+              "VAR CurrentValue = ",
+              "    CALCULATE(",
+              "        [COPD Rate],",
+              "        'public dim_years'[fiscal_year] = \"2024/25\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "RETURN",
+              "// 3. Calculate the overall percentage change",
+              "IF(",
+              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "57ba3495-201a-4dac-b86e-01726b2c274c"
+          },
+          {
+            "name": "Resp. Disease % Change FY20-FY25",
+            "expression": [
+              "",
+              "// 1. Grab the Pre-CAZ Baseline (2019/20)",
+              "VAR BaselineValue = ",
+              "    CALCULATE(",
+              "        [Resp Disease Rate],",
+              "        'public dim_years'[fiscal_year] = \"2019/20\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "// 2. Grab the Current State (2024/25)",
+              "VAR CurrentValue = ",
+              "    CALCULATE(",
+              "        [Resp Disease Rate],",
+              "        'public dim_years'[fiscal_year] = \"2024/25\",",
+              "        REMOVEFILTERS('public dim_years')",
+              "    )",
+              "",
+              "RETURN",
+              "// 3. Calculate the overall percentage change",
+              "IF(",
+              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "e57235fd-ed49-45a7-ace8-1c695cb3d614"
           }
         ],
         "partitions": [
