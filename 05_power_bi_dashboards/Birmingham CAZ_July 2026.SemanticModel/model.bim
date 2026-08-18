@@ -647,6 +647,231 @@
                   }
                 ]
               },
+              "dim_fiscal_year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dim_Fiscal_Year"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "dim fiscal year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "Dim_Fiscal_Year": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "dim fiscal yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "dim fisc year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.615
+                    }
+                  },
+                  {
+                    "dim accounting year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "dim budget year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "dim fiscal date": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "dim fiscal day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  },
+                  {
+                    "dim tax year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.597
+                    }
+                  }
+                ]
+              },
+              "dim_fiscal_year.calendar_year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dim_Fiscal_Year",
+                    "ConceptualProperty": "calendar_year"
+                  }
+                },
+                "SemanticType": "Time",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "calendar year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "calendar_year": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "year": {
+                      "State": "Generated",
+                      "Weight": 0.7
+                    }
+                  },
+                  {
+                    "calendar yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
+              "dim_fiscal_year.fiscal_year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Dim_Fiscal_Year",
+                    "ConceptualProperty": "fiscal_year"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "fiscal year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "fiscal_year": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "fiscal yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "fisc year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "accounting year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "budget year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "fiscal date": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "fiscal day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "tax year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ]
+              },
               "dim_hour": {
                 "Definition": {
                   "Binding": {
@@ -13535,6 +13760,102 @@
                   }
                 ]
               },
+              "public_vw_powerbi_traffic.fiscal_year": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public vw_powerbi_traffic",
+                    "ConceptualProperty": "fiscal_year"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "fiscal year": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "fiscal_year": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "fiscal yr": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "fisc year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.6
+                    }
+                  },
+                  {
+                    "accounting year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "budget year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "fiscal date": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "fiscal day": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  },
+                  {
+                    "tax year": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.582
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
               "public_vw_powerbi_traffic.noncompliant_vehicle": {
                 "Definition": {
                   "Binding": {
@@ -16275,6 +16596,138 @@
                   }
                 ]
               },
+              "v_Measures_measure.noncompliant_traffic__change": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Non-Compliant Traffic % Change"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "non-compliant traffic % change": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "non compliant traffic % change": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "non compliant traffic percentage change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "non compliant traffic pct change": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "non compliant traffic % alteration": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "non compliant traffic % modification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "non compliant traffic % variation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "non compliant traffic % transformation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "non compliant traffic % revolution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "non compliant traffic % conversion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "non compliant traffic % adjustment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "non compliant traffic % amendment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.52
+                    }
+                  },
+                  {
+                    "% Change FY20-FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.pollution_load__change_20222025": {
                 "Definition": {
                   "Binding": {
@@ -17152,6 +17605,114 @@
                 },
                 "State": "Generated"
               },
+              "dim_fiscal_year_has_calendar_year": {
+                "Binding": {
+                  "ConceptualEntity": "Dim_Fiscal_Year"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_fiscal_year.calendar_year"
+                      },
+                      "Subject": {
+                        "Role": "dim_fiscal_year"
+                      }
+                    },
+                    "ID": "dim_fiscal_years_have_calendar_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_fiscal_year": {
+                    "Target": {
+                      "Entity": "dim_fiscal_year"
+                    }
+                  },
+                  "dim_fiscal_year.calendar_year": {
+                    "Target": {
+                      "Entity": "dim_fiscal_year.calendar_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_fiscal_year_has_fiscal_year": {
+                "Binding": {
+                  "ConceptualEntity": "Dim_Fiscal_Year"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_fiscal_year.fiscal_year"
+                      },
+                      "Subject": {
+                        "Role": "dim_fiscal_year"
+                      }
+                    },
+                    "ID": "dim_fiscal_years_have_fiscal_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_fiscal_year": {
+                    "Target": {
+                      "Entity": "dim_fiscal_year"
+                    }
+                  },
+                  "dim_fiscal_year.fiscal_year": {
+                    "Target": {
+                      "Entity": "dim_fiscal_year.fiscal_year"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "dim_fiscal_year_is_calendared_in_calendar_year": {
+                "Binding": {
+                  "ConceptualEntity": "Dim_Fiscal_Year"
+                },
+                "Phrasings": [
+                  {
+                    "ID": "dim_fiscal_years_are_calendared_on_calendar_years",
+                    "State": "Generated",
+                    "Verb": {
+                      "Object": {
+                        "Role": "dim_fiscal_year"
+                      },
+                      "Verbs": [
+                        {
+                          "calendar": {
+                            "State": "Generated"
+                          }
+                        }
+                      ]
+                    },
+                    "Weight": 0.9
+                  }
+                ],
+                "Roles": {
+                  "dim_fiscal_year": {
+                    "Target": {
+                      "Entity": "dim_fiscal_year"
+                    }
+                  },
+                  "dim_fiscal_year.calendar_year": {
+                    "Target": {
+                      "Entity": "dim_fiscal_year.calendar_year"
+                    }
+                  }
+                },
+                "SemanticSlots": {
+                  "When": {
+                    "Role": "dim_fiscal_year.calendar_year"
+                  }
+                },
+                "State": "Generated"
+              },
               "dim_hour_has_hour": {
                 "Binding": {
                   "ConceptualEntity": "dim_hours"
@@ -17910,6 +18471,59 @@
                 },
                 "State": "Generated"
               },
+              "public_analytics_site_yearly_summary_fy_has_dim_fiscal_year": {
+                "Binding": {
+                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_fiscal_year"
+                      },
+                      "Subject": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      }
+                    },
+                    "ID": "public_analytics_site_yearly_summary_fies_have_dim_fiscal_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_analytics_site_yearly_summary_fy"
+                      },
+                      "Subject": {
+                        "Role": "dim_fiscal_year"
+                      }
+                    },
+                    "ID": "dim_fiscal_years_have_public_analytics_site_yearly_summary_fies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_fiscal_year": {
+                    "Nouns": [
+                      {
+                        "fiscal year": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "dim_fiscal_year"
+                    }
+                  },
+                  "public_analytics_site_yearly_summary_fy": {
+                    "Target": {
+                      "Entity": "public_analytics_site_yearly_summary_fy"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_analytics_site_yearly_summary_fy_has_final_annualised_mean": {
                 "Binding": {
                   "ConceptualEntity": "public analytics_site_yearly_summary_fy"
@@ -17971,59 +18585,6 @@
                   "public_analytics_site_yearly_summary_fy.laqm_annual_mean_status": {
                     "Target": {
                       "Entity": "public_analytics_site_yearly_summary_fy.laqm_annual_mean_status"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_analytics_site_yearly_summary_fy_has_public_dim_year": {
-                "Binding": {
-                  "ConceptualEntity": "public analytics_site_yearly_summary_fy"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_dim_year"
-                      },
-                      "Subject": {
-                        "Role": "public_analytics_site_yearly_summary_fy"
-                      }
-                    },
-                    "ID": "public_analytics_site_yearly_summary_fies_have_public_dim_years",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  },
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_analytics_site_yearly_summary_fy"
-                      },
-                      "Subject": {
-                        "Role": "public_dim_year"
-                      }
-                    },
-                    "ID": "public_dim_years_have_public_analytics_site_yearly_summary_fies",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_analytics_site_yearly_summary_fy": {
-                    "Target": {
-                      "Entity": "public_analytics_site_yearly_summary_fy"
-                    }
-                  },
-                  "public_dim_year": {
-                    "Nouns": [
-                      {
-                        "fiscal year": {
-                          "State": "Generated"
-                        }
-                      }
-                    ],
-                    "Target": {
-                      "Entity": "public_dim_year"
                     }
                   }
                 },
@@ -19164,6 +19725,59 @@
                 },
                 "State": "Generated"
               },
+              "public_caz_respiratory_master_has_dim_fiscal_year": {
+                "Binding": {
+                  "ConceptualEntity": "public caz_respiratory_master"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_fiscal_year"
+                      },
+                      "Subject": {
+                        "Role": "public_caz_respiratory_master"
+                      }
+                    },
+                    "ID": "public_caz_respiratory_masters_have_dim_fiscal_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_caz_respiratory_master"
+                      },
+                      "Subject": {
+                        "Role": "dim_fiscal_year"
+                      }
+                    },
+                    "ID": "dim_fiscal_years_have_public_caz_respiratory_masters",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_fiscal_year": {
+                    "Nouns": [
+                      {
+                        "fiscal year": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "dim_fiscal_year"
+                    }
+                  },
+                  "public_caz_respiratory_master": {
+                    "Target": {
+                      "Entity": "public_caz_respiratory_master"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_caz_respiratory_master_has_no_2_yoy_pct_change": {
                 "Binding": {
                   "ConceptualEntity": "public caz_respiratory_master"
@@ -19238,59 +19852,6 @@
                   "public_dim_caz_tier": {
                     "Target": {
                       "Entity": "public_dim_caz_tier"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "public_caz_respiratory_master_has_public_dim_year": {
-                "Binding": {
-                  "ConceptualEntity": "public caz_respiratory_master"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_dim_year"
-                      },
-                      "Subject": {
-                        "Role": "public_caz_respiratory_master"
-                      }
-                    },
-                    "ID": "public_caz_respiratory_masters_have_public_dim_years",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  },
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "public_caz_respiratory_master"
-                      },
-                      "Subject": {
-                        "Role": "public_dim_year"
-                      }
-                    },
-                    "ID": "public_dim_years_have_public_caz_respiratory_masters",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "public_caz_respiratory_master": {
-                    "Target": {
-                      "Entity": "public_caz_respiratory_master"
-                    }
-                  },
-                  "public_dim_year": {
-                    "Nouns": [
-                      {
-                        "fiscal year": {
-                          "State": "Generated"
-                        }
-                      }
-                    ],
-                    "Target": {
-                      "Entity": "public_dim_year"
                     }
                   }
                 },
@@ -22047,6 +22608,59 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_powerbi_traffic_has_dim_fiscal_year": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "dim_fiscal_year"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_dim_fiscal_years",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_vw_powerbi_traffic"
+                      },
+                      "Subject": {
+                        "Role": "dim_fiscal_year"
+                      }
+                    },
+                    "ID": "dim_fiscal_years_have_public_vw_powerbi_traffics",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "dim_fiscal_year": {
+                    "Nouns": [
+                      {
+                        "fiscal year": {
+                          "State": "Generated"
+                        }
+                      }
+                    ],
+                    "Target": {
+                      "Entity": "dim_fiscal_year"
+                    }
+                  },
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_powerbi_traffic_has_estimated_pollution_load": {
                 "Binding": {
                   "ConceptualEntity": "public vw_powerbi_traffic"
@@ -22990,6 +23604,39 @@
                   "v_Measures_measure.map_smart_filter": {
                     "Target": {
                       "Entity": "v_Measures_measure.map_smart_filter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_noncompliant_traffic__change": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.noncompliant_traffic__change"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_noncompliant_traffic__change",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.noncompliant_traffic__change": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.noncompliant_traffic__change"
                     }
                   }
                 },
@@ -26660,7 +27307,7 @@
               "    'public vw_ward_hospital_admissions'[health_condition] = \"COPD\",",
               "    -- This TREATAS function acts as an invisible bridge, pushing the selected year from your slicer directly into this calculation without breaking the map!",
               "    TREATAS(",
-              "        VALUES('public dim_years'[fiscal_year]), ",
+              "        VALUES('Dim_Fiscal_Year'[fiscal_year]), ",
               "        'public vw_ward_hospital_admissions'[fiscal_year]",
               "    )",
               ")"
@@ -26701,7 +27348,7 @@
               "    'public vw_ward_hospital_admissions'[health_condition] = \"Respiratory Disease\",",
               "    -- This TREATAS function acts as an invisible bridge, pushing the selected year from your slicer directly into this calculation without breaking the map!",
               "    TREATAS(",
-              "        VALUES('public dim_years'[fiscal_year]), ",
+              "        VALUES('Dim_Fiscal_Year'[fiscal_year]), ",
               "        'public vw_ward_hospital_admissions'[fiscal_year]",
               "    )",
               ")"
@@ -26887,16 +27534,16 @@
               "VAR BaselineValue = ",
               "    CALCULATE(",
               "        [COPD Rate],",
-              "        'public dim_years'[fiscal_year] = \"2019/20\",",
-              "        REMOVEFILTERS('public dim_years')",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2019/20\",",
+              "        REMOVEFILTERS('Dim_Fiscal_Year'[fiscal_year])",
               "    )",
               "",
               "// 2. Grab the Current State (2024/25)",
               "VAR CurrentValue = ",
               "    CALCULATE(",
               "        [COPD Rate],",
-              "        'public dim_years'[fiscal_year] = \"2024/25\",",
-              "        REMOVEFILTERS('public dim_years')",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2024/25\",",
+              "        REMOVEFILTERS('Dim_Fiscal_Year'[fiscal_year])",
               "    )",
               "",
               "RETURN",
@@ -26938,6 +27585,36 @@
             ],
             "formatString": "0%;-0%;0%",
             "lineageTag": "e57235fd-ed49-45a7-ace8-1c695cb3d614"
+          },
+          {
+            "name": "Non-Compliant Traffic % Change",
+            "expression": [
+              "",
+              "// 1. Grab the Pre-CAZ/Launch Baseline (2021/22)",
+              "VAR BaselineValue = ",
+              "    CALCULATE(",
+              "        SUM('public vw_powerbi_traffic'[noncompliant_vehicles]),",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2021/22\",",
+              "        REMOVEFILTERS('Dim_Fiscal_Year')",
+              "    )",
+              "",
+              "// 2. Grab the Current State (2024/25)",
+              "VAR CurrentValue = ",
+              "    CALCULATE(",
+              "        SUM('public vw_powerbi_traffic'[noncompliant_vehicles]),",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2024/25\",",
+              "        REMOVEFILTERS('Dim_Fiscal_Year')",
+              "    )",
+              "",
+              "RETURN",
+              "// 3. Calculate the overall percentage change",
+              "IF(",
+              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "c2dea634-c884-43c4-a478-718324735b72"
           }
         ],
         "partitions": [
