@@ -15909,6 +15909,26 @@
                       "State": "Suggested",
                       "Weight": 0.9
                     }
+                  },
+                  {
+                    "COPD % Change FY20-25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  },
+                  {
+                    "Resp. Disease % Change FY20-25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
                   }
                 ]
               },
@@ -16040,6 +16060,38 @@
                       },
                       "State": "Suggested",
                       "Weight": 0.9
+                    }
+                  },
+                  {
+                    "COPD Rate FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.COPD_rate_map_slicer": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "COPD Rate (Map Slicer)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "COPD rate (map slicer)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "COPD rate": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -16794,6 +16846,28 @@
                       },
                       "State": "Suggested",
                       "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.resp__disease_rate_map_slicer": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Resp. Disease Rate (Map Slicer)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "resp. disease rate (map slicer)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "resp. disease rate": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -23345,6 +23419,72 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD_rate_map_slicer": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD_rate_map_slicer"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_COPD_rate_map_slicer",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.COPD_rate_map_slicer": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD_rate_map_slicer"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_resp__disease_rate_map_slicer": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.resp__disease_rate_map_slicer"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_resp__disease_rate_map_slicer",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.resp__disease_rate_map_slicer": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.resp__disease_rate_map_slicer"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_ward_hospital_admission_has_v_Measures_measure_resp_disease_rate": {
                 "Binding": {
                   "ConceptualEntity": "public vw_ward_hospital_admissions"
@@ -27343,15 +27483,26 @@
             ],
             "expression": [
               "",
+              "",
               "CALCULATE(",
+              "",
               "    AVERAGE('public vw_ward_hospital_admissions'[standardised_rate]),",
+              "",
               "    'public vw_ward_hospital_admissions'[health_condition] = \"Respiratory Disease\",",
+              "",
               "    -- This TREATAS function acts as an invisible bridge, pushing the selected year from your slicer directly into this calculation without breaking the map!",
+              "",
               "    TREATAS(",
-              "        VALUES('Dim_Fiscal_Year'[fiscal_year]), ",
+              "",
+              "        VALUES('Dim_Fiscal_Year'[fiscal_year]),",
+              "",
               "        'public vw_ward_hospital_admissions'[fiscal_year]",
+              "",
               "    )",
-              ")"
+              "",
+              ") ",
+              "",
+              ""
             ],
             "formatString": "#,0",
             "lineageTag": "80294519-4284-4f3c-8dcf-cc0a9f4bada5"
@@ -27615,6 +27766,65 @@
             ],
             "formatString": "0%;-0%;0%",
             "lineageTag": "c2dea634-c884-43c4-a478-718324735b72"
+          },
+          {
+            "name": "COPD Rate (Map Slicer)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [COPD Rate], ",
+              "    TREATAS(",
+              "        VALUES('Map Remote Control'[area_name]), ",
+              "        'public vw_dim_wards'[area_name]",
+              "    )",
+              ")"
+            ],
+            "lineageTag": "1d58b9db-61c5-4471-a15b-253dfee0e86a"
+          },
+          {
+            "name": "Resp. Disease Rate (Map Slicer)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Resp Disease Rate],  // Replace this with your actual base Respiratory measure",
+              "    TREATAS(",
+              "        VALUES('Map Remote Control'[area_name]), ",
+              "        'public vw_dim_wards'[area_name]",
+              "    )",
+              ")"
+            ],
+            "lineageTag": "48273627-ec8e-4bfd-b728-0f008b85ea44"
+          },
+          {
+            "name": "Resp Disease Rate FY25 (Map Slicer)",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE('public vw_ward_hospital_admissions'[standardised_rate]),",
+              "    'public vw_ward_hospital_admissions'[health_condition] = \"Respiratory Disease\",",
+              "    'public vw_ward_hospital_admissions'[fiscal_year] = \"2024/25\",",
+              "    ",
+              "    -- This invisible bridge connects the card to your Map Slicer",
+              "    TREATAS(",
+              "        VALUES('Map Remote Control'[area_name]), ",
+              "        'public vw_dim_wards'[area_name]",
+              "    )",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "701f2a1f-5223-4209-9798-77ef497e4dc7"
           }
         ],
         "partitions": [
