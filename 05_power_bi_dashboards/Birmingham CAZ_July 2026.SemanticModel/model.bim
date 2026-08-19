@@ -15846,7 +15846,7 @@
                 "Definition": {
                   "Binding": {
                     "ConceptualEntity": "_Measures",
-                    "ConceptualProperty": "COPD % Change (19/20 to 24/25)"
+                    "ConceptualProperty": "COPD % Change FY20-25 (Map Slicer)"
                   }
                 },
                 "State": "Generated",
@@ -27678,31 +27678,31 @@
             "lineageTag": "8ffc1a43-8c77-4e96-8e3b-2a18ba8b2ced"
           },
           {
-            "name": "COPD % Change (19/20 to 24/25)",
+            "name": "COPD % Change FY20-25 (Map Slicer)",
             "expression": [
               "",
-              "// 1. Grab the Pre-CAZ Baseline (2019/20)",
-              "VAR BaselineValue = ",
+              "VAR Baseline = ",
               "    CALCULATE(",
               "        [COPD Rate],",
               "        'Dim_Fiscal_Year'[fiscal_year] = \"2019/20\",",
-              "        REMOVEFILTERS('Dim_Fiscal_Year'[fiscal_year])",
+              "        TREATAS(",
+              "            VALUES('Map Remote Control'[area_name]), ",
+              "            'public vw_dim_wards'[area_name]",
+              "        )",
               "    )",
-              "",
-              "// 2. Grab the Current State (2024/25)",
-              "VAR CurrentValue = ",
+              "    ",
+              "VAR CurrentYear = ",
               "    CALCULATE(",
               "        [COPD Rate],",
               "        'Dim_Fiscal_Year'[fiscal_year] = \"2024/25\",",
-              "        REMOVEFILTERS('Dim_Fiscal_Year'[fiscal_year])",
+              "        TREATAS(",
+              "            VALUES('Map Remote Control'[area_name]), ",
+              "            'public vw_dim_wards'[area_name]",
+              "        )",
               "    )",
               "",
               "RETURN",
-              "// 3. Calculate the overall percentage change",
-              "IF(",
-              "    NOT ISBLANK(BaselineValue) && NOT ISBLANK(CurrentValue),",
-              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue)",
-              ")"
+              "DIVIDE(CurrentYear - Baseline, Baseline, 0)"
             ],
             "formatString": "0%;-0%;0%",
             "lineageTag": "57ba3495-201a-4dac-b86e-01726b2c274c"
@@ -27812,11 +27812,30 @@
             "expression": [
               "",
               "CALCULATE(",
-              "    AVERAGE('public vw_ward_hospital_admissions'[standardised_rate]),",
-              "    'public vw_ward_hospital_admissions'[health_condition] = \"Respiratory Disease\",",
-              "    'public vw_ward_hospital_admissions'[fiscal_year] = \"2024/25\",",
-              "    ",
-              "    -- This invisible bridge connects the card to your Map Slicer",
+              "    [Resp Disease Rate],",
+              "    'Dim_Fiscal_Year'[fiscal_year] = \"2024/25\",",
+              "    TREATAS(",
+              "        VALUES('Map Remote Control'[area_name]), ",
+              "        'public vw_dim_wards'[area_name]",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "701f2a1f-5223-4209-9798-77ef497e4dc7"
+          },
+          {
+            "name": "COPD Rate FY25 (Map Slicer)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [COPD Rate], ",
+              "    'Dim_Fiscal_Year'[fiscal_year] = \"2024/25\",",
               "    TREATAS(",
               "        VALUES('Map Remote Control'[area_name]), ",
               "        'public vw_dim_wards'[area_name]",
@@ -27824,7 +27843,42 @@
               ")"
             ],
             "formatString": "0",
-            "lineageTag": "701f2a1f-5223-4209-9798-77ef497e4dc7"
+            "lineageTag": "48d7497e-6d17-4725-8a9a-802546284f0b"
+          },
+          {
+            "name": "Resp Disease % Change FY20-25 (Map Slicer)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR Baseline = ",
+              "    CALCULATE(",
+              "        [Resp Disease Rate],",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2019/20\",",
+              "        TREATAS(",
+              "            VALUES('Map Remote Control'[area_name]), ",
+              "            'public vw_dim_wards'[area_name]",
+              "        )",
+              "    )",
+              "    ",
+              "VAR CurrentYear = ",
+              "    CALCULATE(",
+              "        [Resp Disease Rate],",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2024/25\",",
+              "        TREATAS(",
+              "            VALUES('Map Remote Control'[area_name]), ",
+              "            'public vw_dim_wards'[area_name]",
+              "        )",
+              "    )",
+              "",
+              "RETURN",
+              "DIVIDE(CurrentYear - Baseline, Baseline, 0)"
+            ],
+            "lineageTag": "8edc3519-0c8e-428b-af34-13f707f4295b"
           }
         ],
         "partitions": [
