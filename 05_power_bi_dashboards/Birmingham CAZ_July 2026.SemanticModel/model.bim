@@ -28243,12 +28243,6 @@
           },
           {
             "name": "Resp Disease % Change FY20-25 (Map Slicer)",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
             "expression": [
               "",
               "VAR Baseline = ",
@@ -28274,6 +28268,7 @@
               "RETURN",
               "DIVIDE(CurrentYear - Baseline, Baseline, 0)"
             ],
+            "formatString": "0%;-0%;0%",
             "lineageTag": "8edc3519-0c8e-428b-af34-13f707f4295b"
           },
           {
