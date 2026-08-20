@@ -27990,14 +27990,14 @@
               "VAR BaselineValue = ",
               "    CALCULATE(",
               "        [COPD Rate],",
-              "        'public dim_years'[fiscal_year] = \"2019/20\",",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2019/20\",",
               "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier",
               "    )",
               "",
               "VAR CurrentValue = ",
               "    CALCULATE(",
               "        [COPD Rate],",
-              "        'public dim_years'[fiscal_year] = \"2024/25\",",
+              "        'Dim_Fiscal_Year'[fiscal_year] = \"2024/25\",",
               "        'public dim_caz_tiers'[Tier_Groups] = SelectedTier",
               "    )",
               "",
@@ -28297,6 +28297,49 @@
             ],
             "formatString": "0%;-0%;0%",
             "lineageTag": "4ee0b5e7-d7f7-49ec-ad7b-56f6969818b4"
+          },
+          {
+            "name": "COPD % Change FY20-FY25 (Exec)",
+            "expression": [
+              "",
+              "VAR BaselineValue = ",
+              "    CALCULATE(",
+              "        [COPD Rate], ",
+              "        'public dim_years'[fiscal_year] = \"2019/20\"",
+              "    )",
+              "",
+              "VAR CurrentValue = ",
+              "    CALCULATE(",
+              "        [COPD Rate], ",
+              "        'public dim_years'[fiscal_year] = \"2024/25\"",
+              "    )",
+              "",
+              "RETURN",
+              "    DIVIDE(CurrentValue - BaselineValue, BaselineValue, 0)"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "0e3a4e6b-8dbc-47f7-a3de-daae806941c1"
+          },
+          {
+            "name": "Map Tier Colors",
+            "expression": [
+              "",
+              "VAR CurrentID = MAX('public vw_caz_and_sites_map'[map_id]) ",
+              "",
+              "RETURN",
+              "SWITCH(",
+              "    TRUE(),",
+              "    CurrentID = \"1. Inside CAZ\", \"#19456B\", ",
+              "    CurrentID = \"2. Close Boundary (<=500m)\", \"#286289\",",
+              "    CurrentID = \"3. Near Boundary (500m-2km)\", \"#699CBC\",",
+              "    CurrentID = \"4. Background (2km-5km)\", \"#B3D1E6\", ",
+              "    CurrentID = \"5. Outer Regional Control (>5km)\", \"#FFFFFF00\", ",
+              "    LEFT(CurrentID, 3) = \"BCA\", \"#A30000\",",
+              "    LEFT(CurrentID, 3) = \"UKA\", \"#A30000\",",
+              "    \"#FFFFFF00\" ",
+              ")"
+            ],
+            "lineageTag": "c1623854-945a-45a6-99ff-664bf2a76d57"
           }
         ],
         "partitions": [
