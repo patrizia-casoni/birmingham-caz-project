@@ -14243,6 +14243,128 @@
                   }
                 ]
               },
+              "public_vw_powerbi_traffic.vehicle_type_short": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "public vw_powerbi_traffic",
+                    "ConceptualProperty": "Vehicle Type (Short)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "vehicle type (short)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "vehicle type": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "vehicle category (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "vehicle genre (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "vehicle manner (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "vehicle variety (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.624
+                    }
+                  },
+                  {
+                    "vehicle brand (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "vehicle class (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "vehicle kind (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "vehicle style (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "vehicle form (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "vehicle grouping (short)": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  }
+                ]
+              },
               "public_vw_powerbi_traffic.year": {
                 "Definition": {
                   "Binding": {
@@ -15852,52 +15974,8 @@
                 "State": "Generated",
                 "Terms": [
                   {
-                    "COPD % change (19/20 to 24/25)": {
+                    "COPD % change FY20-25 (map slicer)": {
                       "State": "Generated"
-                    }
-                  },
-                  {
-                    "COPD % change": {
-                      "State": "Generated",
-                      "Weight": 0.75
-                    }
-                  },
-                  {
-                    "COPD % change (19": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "20 to 24": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "COPD % change ( 19 20 to 24 25 )": {
-                      "State": "Generated",
-                      "Weight": 0.97
-                    }
-                  },
-                  {
-                    "copd percentage change (19": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.624
-                    }
-                  },
-                  {
-                    "copd pct change (19": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.605
                     }
                   },
                   {
@@ -16061,15 +16139,27 @@
                       "State": "Suggested",
                       "Weight": 0.9
                     }
+                  }
+                ]
+              },
+              "v_Measures_measure.COPD_rate_FY25_map_slicer": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "COPD Rate FY25 (Map Slicer)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "COPD rate FY25 (map slicer)": {
+                      "State": "Generated"
+                    }
                   },
                   {
-                    "COPD Rate FY25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
+                    "COPD rate FY25": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -16648,6 +16738,38 @@
                   }
                 ]
               },
+              "v_Measures_measure.noncompliant__change_2225": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Non-Compliant % Change 22-25"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "non-compliant % change 22-25": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "non compliant % change 22 25": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "% Change 22-25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.noncompliant_traffic__change": {
                 "Definition": {
                   "Binding": {
@@ -17026,6 +17148,28 @@
                   }
                 ]
               },
+              "v_Measures_measure.resp_disease__change_FY2025_map_slicer": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Resp Disease % Change FY20-25 (Map Slicer)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "resp disease % change FY20-25 (map slicer)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "resp disease % change FY20-25": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.resp_disease_rate": {
                 "Definition": {
                   "Binding": {
@@ -17168,6 +17312,28 @@
                       },
                       "State": "Suggested",
                       "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.resp_disease_rate_FY25_map_slicer": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Resp Disease Rate FY25 (Map Slicer)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "resp disease rate FY25 (map slicer)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "resp disease rate FY25": {
+                      "State": "Generated",
+                      "Weight": 0.75
                     }
                   }
                 ]
@@ -17323,6 +17489,38 @@
                   },
                   {
                     ">>": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.total_vehicles__change_2225": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Total Vehicles % Change 22-25"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "total vehicles % change 22-25": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "total vehicles % change 22 25": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "% Change 22-25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -22887,6 +23085,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_noncompliant__change_2225": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.noncompliant__change_2225"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_noncompliant__change_2225",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.noncompliant__change_2225": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.noncompliant__change_2225"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_powerbi_traffic_has_v_Measures_measure_pollution_load__change_20222025": {
                 "Binding": {
                   "ConceptualEntity": "public vw_powerbi_traffic"
@@ -22920,6 +23151,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_total_vehicles__change_2225": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.total_vehicles__change_2225"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_total_vehicles__change_2225",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.total_vehicles__change_2225": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.total_vehicles__change_2225"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_powerbi_traffic_has_vehicle_type": {
                 "Binding": {
                   "ConceptualEntity": "public vw_powerbi_traffic"
@@ -22948,6 +23212,39 @@
                   "public_vw_powerbi_traffic.vehicle_type": {
                     "Target": {
                       "Entity": "public_vw_powerbi_traffic.vehicle_type"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_vehicle_type_short": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "public_vw_powerbi_traffic.vehicle_type_short"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_vehicle_type_short",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "public_vw_powerbi_traffic.vehicle_type_short": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic.vehicle_type_short"
                     }
                   }
                 },
@@ -23386,6 +23683,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD__change_19_20_to_24_251": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD__change_19_20_to_24_251"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_COPD__change_FY2025_map_slicer",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.COPD__change_19_20_to_24_251": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD__change_19_20_to_24_251"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD_rate": {
                 "Binding": {
                   "ConceptualEntity": "public vw_ward_hospital_admissions"
@@ -23414,6 +23744,39 @@
                   "v_Measures_measure.COPD_rate": {
                     "Target": {
                       "Entity": "v_Measures_measure.COPD_rate"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD_rate_FY25_map_slicer": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD_rate_FY25_map_slicer"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_COPD_rate_FY25_map_slicer",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.COPD_rate_FY25_map_slicer": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD_rate_FY25_map_slicer"
                     }
                   }
                 },
@@ -23485,6 +23848,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_resp_disease__change_FY2025_map_slicer": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.resp_disease__change_FY2025_map_slicer"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_resp_disease__change_FY2025_map_slicer",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.resp_disease__change_FY2025_map_slicer": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.resp_disease__change_FY2025_map_slicer"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_ward_hospital_admission_has_v_Measures_measure_resp_disease_rate": {
                 "Binding": {
                   "ConceptualEntity": "public vw_ward_hospital_admissions"
@@ -23518,6 +23914,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_resp_disease_rate_FY25_map_slicer": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.resp_disease_rate_FY25_map_slicer"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_resp_disease_rate_FY25_map_slicer",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.resp_disease_rate_FY25_map_slicer": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.resp_disease_rate_FY25_map_slicer"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "v_Measures_measure_has_COPD_YoY__change": {
                 "Binding": {
                   "ConceptualEntity": "_Measures"
@@ -23546,39 +23975,6 @@
                   "v_Measures_measure.COPD_YoY__change": {
                     "Target": {
                       "Entity": "v_Measures_measure.COPD_YoY__change"
-                    }
-                  }
-                },
-                "State": "Generated"
-              },
-              "v_Measures_measure_has_COPD__change_19_20_to_24_251": {
-                "Binding": {
-                  "ConceptualEntity": "_Measures"
-                },
-                "Phrasings": [
-                  {
-                    "Attribute": {
-                      "Object": {
-                        "Role": "v_Measures_measure.COPD__change_19_20_to_24_251"
-                      },
-                      "Subject": {
-                        "Role": "v_Measures_measure"
-                      }
-                    },
-                    "ID": "Phrasing_measures_have_COPD__change_19_20_to_24_25",
-                    "State": "Generated",
-                    "Weight": 0.99
-                  }
-                ],
-                "Roles": {
-                  "v_Measures_measure": {
-                    "Target": {
-                      "Entity": "v_Measures_measure"
-                    }
-                  },
-                  "v_Measures_measure.COPD__change_19_20_to_24_251": {
-                    "Target": {
-                      "Entity": "v_Measures_measure.COPD__change_19_20_to_24_251"
                     }
                   }
                 },
@@ -27879,6 +28275,28 @@
               "DIVIDE(CurrentYear - Baseline, Baseline, 0)"
             ],
             "lineageTag": "8edc3519-0c8e-428b-af34-13f707f4295b"
+          },
+          {
+            "name": "Total Vehicles % Change 22-25",
+            "expression": [
+              "",
+              "VAR Baseline = CALCULATE(SUM('public vw_powerbi_traffic'[total_vehicles]), 'public vw_powerbi_traffic'[year] = 2022)",
+              "VAR CurrentYr = CALCULATE(SUM('public vw_powerbi_traffic'[total_vehicles]), 'public vw_powerbi_traffic'[year] = 2025)",
+              "RETURN DIVIDE(CurrentYr - Baseline, Baseline, 0)"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "6dcbc587-e4ef-459a-b837-f8a840fe9333"
+          },
+          {
+            "name": "Non-Compliant % Change 22-25",
+            "expression": [
+              "",
+              "VAR Baseline = CALCULATE(SUM('public vw_powerbi_traffic'[noncompliant_vehicles]), 'public vw_powerbi_traffic'[year] = 2022)",
+              "VAR CurrentYr = CALCULATE(SUM('public vw_powerbi_traffic'[noncompliant_vehicles]), 'public vw_powerbi_traffic'[year] = 2025)",
+              "RETURN DIVIDE(CurrentYr - Baseline, Baseline, 0)"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "4ee0b5e7-d7f7-49ec-ad7b-56f6969818b4"
           }
         ],
         "partitions": [
@@ -28833,6 +29251,28 @@
             "lineageTag": "91b0b979-5370-4fcd-8546-4ab4cdde3141",
             "sourceColumn": "fiscal_year",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Vehicle Type (Short)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "IF(",
+              "    'public vw_powerbi_traffic'[vehicle_type] = \"Motorcycles and Other\", ",
+              "    \"Motorcycles +\", ",
+              "    'public vw_powerbi_traffic'[vehicle_type]",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "8b9f70a4-f31e-412a-9de5-00bce1c9a3f6",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "lineageTag": "4d25af4f-9040-40eb-aac4-4a6bcf578f72",
