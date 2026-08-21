@@ -490,6 +490,517 @@
                   }
                 ]
               },
+              "compliance_view": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Compliance View"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "compliance view": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "view": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "compliance opinion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "compliance interpretation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "compliance assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "opinion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "interpretation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "compliance understanding": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "understanding": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "compliance outlook": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.475
+                    }
+                  },
+                  {
+                    "compliance observation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.475
+                    }
+                  }
+                ]
+              },
+              "compliance_view.compliance_view": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Compliance View",
+                    "ConceptualProperty": "Compliance View"
+                  }
+                },
+                "NameType": "Name",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "compliance view": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "compliance view name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "view": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "compliance opinion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "compliance interpretation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "compliance assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "opinion": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "interpretation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "assessment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "compliance understanding": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "understanding": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "compliance outlook": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.475
+                    }
+                  },
+                  {
+                    "compliance observation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.475
+                    }
+                  }
+                ]
+              },
+              "compliance_view.compliance_view_field": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Compliance View",
+                    "ConceptualProperty": "Compliance View Fields"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "compliance view field": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "field": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "view field": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "compliance view arena": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "view arena": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "compliance view turf": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "compliance view ground": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "compliance view pitch": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "compliance view park": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "arena": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "view turf": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "view ground": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "view pitch": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
+              "compliance_view.compliance_view_order": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "Compliance View",
+                    "ConceptualProperty": "Compliance View Order"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "compliance view order": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "order": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "view order": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "compliance view instruction": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "compliance view direction": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "compliance view edict": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "view instruction": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "view direction": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "view edict": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "compliance view command": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "compliance view directive": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "compliance view demand": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "compliance view mandate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  }
+                ],
+                "Visibility": {
+                  "Value": "Hidden"
+                }
+              },
               "dim_day_of_week": {
                 "Definition": {
                   "Binding": {
@@ -3949,6 +4460,16 @@
                       "State": "Generated",
                       "Weight": 0.97
                     }
+                  },
+                  {
+                    "Date & Time": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
                   }
                 ]
               },
@@ -4396,6 +4917,16 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.499
+                    }
+                  },
+                  {
+                    "Hourly NO2": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   }
                 ]
@@ -13747,16 +14278,6 @@
                       "State": "Suggested",
                       "Weight": 0.9
                     }
-                  },
-                  {
-                    "Tot Pollution Load": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
                   }
                 ]
               },
@@ -17096,6 +17617,218 @@
                   }
                 ]
               },
+              "v_Measures_measure.pollution_load__compliant": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Pollution Load - Compliant"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "pollution load - compliant": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "pollution load compliant": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "pollution cargo compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "pollution consignment compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "pollution shipment compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "pollution weight compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "pollution freight compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "pollution burden compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "pollution capacity compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "Compliant": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.pollution_load__noncompliant": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Pollution Load - Non-Compliant"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "pollution load - non-compliant": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "pollution load non compliant": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.pollution_load__total": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Pollution Load - Total"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "pollution load - total": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "pollution load total": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "load total": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "pollution load - aggregate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "pollution load - overall": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.748
+                    }
+                  },
+                  {
+                    "pollution load aggregate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "pollution load overall": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "load aggregate": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "load overall": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.resp__disease__change_FY20FY25": {
                 "Definition": {
                   "Binding": {
@@ -17950,6 +18683,52 @@
                 "SemanticSlots": {
                   "When": {
                     "Role": "analytics_correlation_summary.calendar_year"
+                  }
+                },
+                "State": "Generated"
+              },
+              "compliance_view_has_compliance_view": {
+                "Binding": {
+                  "ConceptualEntity": "Compliance View"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "compliance_view.compliance_view"
+                      },
+                      "Subject": {
+                        "Role": "compliance_view"
+                      }
+                    },
+                    "ID": "compliance_views_have_compliance_views",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "ID": "compliance_views_are_names_IDs_of_compliance_views",
+                    "Name": {
+                      "Name": {
+                        "Role": "compliance_view.compliance_view"
+                      },
+                      "Subject": {
+                        "Role": "compliance_view"
+                      }
+                    },
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "compliance_view": {
+                    "Target": {
+                      "Entity": "compliance_view"
+                    }
+                  },
+                  "compliance_view.compliance_view": {
+                    "Target": {
+                      "Entity": "compliance_view.compliance_view"
+                    }
                   }
                 },
                 "State": "Generated"
@@ -23322,6 +24101,105 @@
                   "v_Measures_measure.pollution_load__change_20222025": {
                     "Target": {
                       "Entity": "v_Measures_measure.pollution_load__change_20222025"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_pollution_load__compliant": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.pollution_load__compliant"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_pollution_load__compliant",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.pollution_load__compliant": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.pollution_load__compliant"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_pollution_load__noncompliant": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.pollution_load__noncompliant"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_pollution_load__noncompliant",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.pollution_load__noncompliant": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.pollution_load__noncompliant"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_pollution_load__total": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.pollution_load__total"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_pollution_load__total",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.pollution_load__total": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.pollution_load__total"
                     }
                   }
                 },
@@ -28785,13 +29663,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "double",
+            "formatString": "0.0",
             "lineageTag": "474a21b7-55cc-4582-91a7-785f0592660b",
             "sourceColumn": "hourly_no2_value",
             "summarizeBy": "sum"
