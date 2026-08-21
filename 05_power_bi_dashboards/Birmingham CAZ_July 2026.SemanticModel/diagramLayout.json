@@ -264,6 +264,19 @@
             "width": 234
           },
           "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 6244.6239412259256,
+            "y": 374.22299200844725
+          },
+          "nodeIndex": "Compliance View",
+          "nodeLineageTag": "b3de4c01-dbb0-4c65-89ee-59898d91cc9a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

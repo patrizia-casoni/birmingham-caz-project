@@ -13739,7 +13739,7 @@
                     }
                   },
                   {
-                    "2025 Estimated Pollution Load": {
+                    "2025 Pollution Load": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -15979,16 +15979,6 @@
                     }
                   },
                   {
-                    "% Change FY20-FY25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  },
-                  {
                     "COPD % Change FY20-25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
@@ -15999,13 +15989,51 @@
                     }
                   },
                   {
-                    "Resp. Disease % Change FY20-25": {
+                    "RD % Change FY20-25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
                       },
                       "State": "Suggested",
                       "Weight": 0.9
+                    }
+                  },
+                  {
+                    "% Change FY20-FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.COPD__change_FY20FY25_exec": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "COPD % Change FY20-FY25 (Exec)"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "COPD % change FY20-FY25 (exec)": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "COPD % change FY20-FY25": {
+                      "State": "Generated",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "COPD % change FY20 FY25 (exec)": {
+                      "State": "Generated",
+                      "Weight": 0.97
                     }
                   }
                 ]
@@ -16738,6 +16766,134 @@
                   }
                 ]
               },
+              "v_Measures_measure.map_tier_colors": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Map Tier Colors"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "map tier colors": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "colors": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "tier colors": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "map tier insignia": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "map tier ensign": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "tier insignia": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "tier ensign": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "map tier insigne": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "map tier flag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "map tier standard": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "insignia": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "ensign": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "tier insigne": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.noncompliant__change_2225": {
                 "Definition": {
                   "Binding": {
@@ -17167,6 +17323,16 @@
                       "State": "Generated",
                       "Weight": 0.75
                     }
+                  },
+                  {
+                    "RD % Change FY20-25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
                   }
                 ]
               },
@@ -17334,6 +17500,16 @@
                     "resp disease rate FY25": {
                       "State": "Generated",
                       "Weight": 0.75
+                    }
+                  },
+                  {
+                    "RD Rate FY25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   }
                 ]
@@ -23716,6 +23892,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD__change_FY20FY25_exec": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_ward_hospital_admissions"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.COPD__change_FY20FY25_exec"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_ward_hospital_admission"
+                      }
+                    },
+                    "ID": "public_vw_ward_hospital_admissions_have_COPD__change_FY20FY25_exec",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_ward_hospital_admission": {
+                    "Target": {
+                      "Entity": "public_vw_ward_hospital_admission"
+                    }
+                  },
+                  "v_Measures_measure.COPD__change_FY20FY25_exec": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.COPD__change_FY20FY25_exec"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_ward_hospital_admission_has_v_Measures_measure_COPD_rate": {
                 "Binding": {
                   "ConceptualEntity": "public vw_ward_hospital_admissions"
@@ -24140,6 +24349,39 @@
                   "v_Measures_measure.map_smart_filter": {
                     "Target": {
                       "Entity": "v_Measures_measure.map_smart_filter"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "v_Measures_measure_has_map_tier_colors": {
+                "Binding": {
+                  "ConceptualEntity": "_Measures"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.map_tier_colors"
+                      },
+                      "Subject": {
+                        "Role": "v_Measures_measure"
+                      }
+                    },
+                    "ID": "Phrasing_measures_have_map_tier_colors",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "v_Measures_measure": {
+                    "Target": {
+                      "Entity": "v_Measures_measure"
+                    }
+                  },
+                  "v_Measures_measure.map_tier_colors": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.map_tier_colors"
                     }
                   }
                 },
@@ -28335,6 +28577,67 @@
               ")"
             ],
             "lineageTag": "c1623854-945a-45a6-99ff-664bf2a76d57"
+          },
+          {
+            "name": "Pollution Load - Non-Compliant",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "SUMX(",
+              "    'public vw_powerbi_traffic',",
+              "    COALESCE('public vw_powerbi_traffic'[noncompliant_vehicles], 0) * 1.0",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "e7281ea4-c802-4f85-84b3-54de426db815"
+          },
+          {
+            "name": "Pollution Load - Compliant",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "SUMX(",
+              "    'public vw_powerbi_traffic',",
+              "    SWITCH(",
+              "        'public vw_powerbi_traffic'[vehicle_type],",
+              "        \"Car\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.327,",
+              "        \"LGV\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.725,",
+              "        \"HGV\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.15,",
+              "        \"Bus/Coach\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.15,",
+              "        \"Mini-Bus\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.65,",
+              "        \"Exempt\", COALESCE('public vw_powerbi_traffic'[compliant_vehicles], 0) * 0.60,",
+              "        \"Motorcycles and Other\", ('public vw_powerbi_traffic'[total_vehicles] * 0.10),",
+              "        0",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "fa75aadf-8ded-46d2-a87f-c7028a5b14e8"
+          },
+          {
+            "name": "Pollution Load - Total",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "[Pollution Load - Non-Compliant] + [Pollution Load - Compliant]"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "d4df8417-dd42-4990-8199-55c6b027ad30"
           }
         ],
         "partitions": [
@@ -29964,6 +30267,104 @@
             "mode": "import",
             "source": {
               "expression": "'public dim_years'",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Compliance View",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "a4bec285217f402190cec6fb86895752"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Compliance View",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "8128a758-9fca-45e6-9c39-b310c745d7dc",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Compliance View Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Compliance View Order",
+            "sourceColumn": "[Value1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Compliance View Fields",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "208e6576-9ee5-44f2-9ba8-43c7067d4ca3",
+            "sortByColumn": "Compliance View Order",
+            "sourceColumn": "[Value2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Compliance View Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "ee13fad3-6886-49a9-ae6c-4623012a921e",
+            "sourceColumn": "[Value3]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "b3de4c01-dbb0-4c65-89ee-59898d91cc9a",
+        "partitions": [
+          {
+            "name": "Compliance View",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Total\", NAMEOF('_Measures'[Pollution Load - Total]), 0),",
+                "    (\"Non-Compliant\", NAMEOF('_Measures'[Pollution Load - Non-Compliant]), 1),",
+                "    (\"Compliant\", NAMEOF('_Measures'[Pollution Load - Compliant]), 2)",
+                "}"
+              ],
               "type": "calculated"
             }
           }
