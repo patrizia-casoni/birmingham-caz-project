@@ -16482,6 +16482,16 @@
                       "State": "Generated",
                       "Weight": 0.97
                     }
+                  },
+                  {
+                    "% Change FY20-25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
                   }
                 ]
               },
@@ -16847,6 +16857,16 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.52
+                    }
+                  },
+                  {
+                    "% Change FY20-25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   },
                   {
@@ -17568,7 +17588,7 @@
                     }
                   },
                   {
-                    "% Change FY20-FY25": {
+                    "% Change FY20-25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -28847,7 +28867,7 @@
               "    [998_Perc_18/19_Baseline]",
               ")"
             ],
-            "formatString": "0.00%;-0.00%;0.00%",
+            "formatString": "0%;-0%;0%",
             "lineageTag": "addad2f0-34e2-4cdf-8f7c-10cf6d4f4b8c"
           },
           {
@@ -28900,7 +28920,7 @@
               "RETURN",
               "    DIVIDE(Load2025 - Load2022, Load2022, 0)"
             ],
-            "formatString": "0.00%;-0.00%;0.00%",
+            "formatString": "0.0%;-0.0%;0.0%",
             "lineageTag": "547fa5d0-c1fe-47e4-b93a-28e77f7050ad"
           },
           {
@@ -29638,10 +29658,14 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
               }
             ],
             "dataType": "dateTime",
-            "formatString": "General Date",
+            "formatString": "d/m/yy hh:nn",
             "lineageTag": "6aa5a626-bb64-4a60-b176-57ab9a7274ec",
             "sourceColumn": "exact_timestamp",
             "summarizeBy": "none",
