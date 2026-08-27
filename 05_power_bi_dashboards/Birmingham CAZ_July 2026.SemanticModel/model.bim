@@ -16482,16 +16482,6 @@
                       "State": "Generated",
                       "Weight": 0.97
                     }
-                  },
-                  {
-                    "% Change FY20-25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
                   }
                 ]
               },
@@ -16511,16 +16501,6 @@
                   },
                   {
                     "COPD % Change FY20-25": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
-                  },
-                  {
-                    "RD % Change FY20-25": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -17087,6 +17067,72 @@
                   }
                 ]
               },
+              "v_Measures_measure.cars__of_total_traffic": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Cars % of Total Traffic"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "cars % of total traffic": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "car percentage of total traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "car pct of total traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.757
+                    }
+                  },
+                  {
+                    "car % of aggregate traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "car % of overall traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "Cars % of Total": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.column_1": {
                 "Definition": {
                   "Binding": {
@@ -17112,6 +17158,104 @@
                 "Visibility": {
                   "Value": "Hidden"
                 }
+              },
+              "v_Measures_measure.commercial__of_total_noncompliant": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Commercial % of Total Non-Compliant"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "commercial % of total non-compliant": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "commercial % of total non compliant": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "% of Total Non-Compliant": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.commercial__of_total_traffic": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Commercial % of Total Traffic"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "commercial % of total traffic": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "commercial percentage of total traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "commercial pct of total traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.757
+                    }
+                  },
+                  {
+                    "commercial % of aggregate traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "commercial % of overall traffic": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "% of Total Traffic": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
               },
               "v_Measures_measure.dynamic_transparency": {
                 "Definition": {
@@ -17599,6 +17743,68 @@
                   }
                 ]
               },
+              "v_Measures_measure.of_total_noncompliant": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "% of Total Non-Compliant"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "% of total non-compliant": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "% of total non compliant": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "percentage of total non compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "pct of total non compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.757
+                    }
+                  },
+                  {
+                    "% of aggregate non compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  },
+                  {
+                    "% of overall non compliant": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.605
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.pollution_load__change_20222025": {
                 "Definition": {
                   "Binding": {
@@ -18075,6 +18281,16 @@
                     "resp disease % change FY20-25": {
                       "State": "Generated",
                       "Weight": 0.75
+                    }
+                  },
+                  {
+                    "RD % Change FY 20-25": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   },
                   {
@@ -24060,6 +24276,105 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_cars__of_total_traffic": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.cars__of_total_traffic"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_cars__of_total_traffic",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.cars__of_total_traffic": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.cars__of_total_traffic"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_commercial__of_total_noncompliant": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.commercial__of_total_noncompliant"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_commercial__of_total_noncompliant",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.commercial__of_total_noncompliant": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.commercial__of_total_noncompliant"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_commercial__of_total_traffic": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.commercial__of_total_traffic"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_commercial__of_total_traffic",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.commercial__of_total_traffic": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.commercial__of_total_traffic"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_powerbi_traffic_has_v_Measures_measure_noncompliant__change_2225": {
                 "Binding": {
                   "ConceptualEntity": "public vw_powerbi_traffic"
@@ -24088,6 +24403,39 @@
                   "v_Measures_measure.noncompliant__change_2225": {
                     "Target": {
                       "Entity": "v_Measures_measure.noncompliant__change_2225"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_of_total_noncompliant": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.of_total_noncompliant"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have__of_total_noncompliant",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.of_total_noncompliant": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.of_total_noncompliant"
                     }
                   }
                 },
@@ -29536,6 +29884,68 @@
             ],
             "formatString": "#,0",
             "lineageTag": "d4df8417-dd42-4990-8199-55c6b027ad30"
+          },
+          {
+            "name": "Cars % of Total Traffic",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    SUM('public vw_powerbi_traffic'[total_vehicles]),",
+              "    CALCULATE(",
+              "        SUM('public vw_powerbi_traffic'[total_vehicles]),",
+              "        REMOVEFILTERS('public vw_powerbi_traffic'[vehicle_type])",
+              "    )",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "7f3df857-6aea-4a8a-a770-a66de8cb86b7"
+          },
+          {
+            "name": "% of Total Non-Compliant",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    SUM('public vw_powerbi_traffic'[noncompliant_vehicles]),",
+              "    CALCULATE(",
+              "        SUM('public vw_powerbi_traffic'[noncompliant_vehicles]),",
+              "        REMOVEFILTERS('public vw_powerbi_traffic'[vehicle_type])",
+              "    )",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "ddb30250-927c-440b-8636-0aea47334004"
+          },
+          {
+            "name": "Commercial % of Total Traffic",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    SUM('public vw_powerbi_traffic'[total_vehicles]),",
+              "    CALCULATE(",
+              "        SUM('public vw_powerbi_traffic'[total_vehicles]),",
+              "        REMOVEFILTERS('public vw_powerbi_traffic'[vehicle_type]),",
+              "        REMOVEFILTERS('public vw_powerbi_traffic'[Vehicle Type (Short)])",
+              "    )",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "14987c70-210d-43d5-b67a-5d0a233f7ff7"
+          },
+          {
+            "name": "Commercial % of Total Non-Compliant",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    SUM('public vw_powerbi_traffic'[noncompliant_vehicles]),",
+              "    CALCULATE(",
+              "        SUM('public vw_powerbi_traffic'[noncompliant_vehicles]),",
+              "        REMOVEFILTERS('public vw_powerbi_traffic'[vehicle_type]),",
+              "        REMOVEFILTERS('public vw_powerbi_traffic'[Vehicle Type (Short)])",
+              "    )",
+              ")"
+            ],
+            "formatString": "0%;-0%;0%",
+            "lineageTag": "e442fbdd-3e69-4ab4-a5ce-93c409af8da1"
           }
         ],
         "partitions": [
