@@ -17600,7 +17600,139 @@
                     }
                   },
                   {
-                    "% Change 22-25": {
+                    "% Change": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "v_Measures_measure.noncompliant_reduction": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Non-Compliant Reduction"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "non-compliant reduction": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "non compliant reduction": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "non-compliant diminution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "non-compliant cutback": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "non compliant diminution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "non compliant cutback": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "non-compliant discount": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "non-compliant decrease": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "non-compliant lessening": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "non-compliant drop": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "non-compliant saving": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "non-compliant bargain": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "Reduction": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -17932,16 +18064,6 @@
                       "Type": "Noun",
                       "Weight": 0.492
                     }
-                  },
-                  {
-                    "Compliant": {
-                      "Source": {
-                        "Agent": "PowerBI.VisualColumnRename",
-                        "Type": "External"
-                      },
-                      "State": "Suggested",
-                      "Weight": 0.9
-                    }
                   }
                 ]
               },
@@ -18051,6 +18173,16 @@
                       "State": "Suggested",
                       "Type": "Noun",
                       "Weight": 0.727
+                    }
+                  },
+                  {
+                    "Total": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
                     }
                   }
                 ]
@@ -18644,6 +18776,134 @@
                   }
                 ]
               },
+              "v_Measures_measure.total_traffic_growth": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Measures",
+                    "ConceptualProperty": "Total Traffic Growth"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "total traffic growth": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "growth": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "traffic growth": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "aggregate traffic growth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "overall traffic growth": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.591
+                    }
+                  },
+                  {
+                    "total traffic development": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "total traffic evolution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "total traffic progression": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "traffic development": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "traffic evolution": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "traffic progression": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "total traffic growing": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "total traffic progress": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  }
+                ]
+              },
               "v_Measures_measure.total_vehicles__change_2225": {
                 "Definition": {
                   "Binding": {
@@ -18665,7 +18925,7 @@
                     }
                   },
                   {
-                    "% Change 22-25": {
+                    "% Change": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -24408,6 +24668,39 @@
                 },
                 "State": "Generated"
               },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_noncompliant_reduction": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.noncompliant_reduction"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_noncompliant_reduction",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.noncompliant_reduction": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.noncompliant_reduction"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
               "public_vw_powerbi_traffic_has_v_Measures_measure_of_total_noncompliant": {
                 "Binding": {
                   "ConceptualEntity": "public vw_powerbi_traffic"
@@ -24568,6 +24861,39 @@
                   "v_Measures_measure.pollution_load__total": {
                     "Target": {
                       "Entity": "v_Measures_measure.pollution_load__total"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "public_vw_powerbi_traffic_has_v_Measures_measure_total_traffic_growth": {
+                "Binding": {
+                  "ConceptualEntity": "public vw_powerbi_traffic"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "v_Measures_measure.total_traffic_growth"
+                      },
+                      "Subject": {
+                        "Role": "public_vw_powerbi_traffic"
+                      }
+                    },
+                    "ID": "public_vw_powerbi_traffics_have_total_traffic_growth",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "public_vw_powerbi_traffic": {
+                    "Target": {
+                      "Entity": "public_vw_powerbi_traffic"
+                    }
+                  },
+                  "v_Measures_measure.total_traffic_growth": {
+                    "Target": {
+                      "Entity": "v_Measures_measure.total_traffic_growth"
                     }
                   }
                 },
@@ -29946,6 +30272,28 @@
             ],
             "formatString": "0%;-0%;0%",
             "lineageTag": "e442fbdd-3e69-4ab4-a5ce-93c409af8da1"
+          },
+          {
+            "name": "Total Traffic Growth",
+            "expression": [
+              "",
+              "VAR Baseline = CALCULATE(SUM('public vw_powerbi_traffic'[total_vehicles]), 'public vw_powerbi_traffic'[year] = 2022)",
+              "VAR CurrentYr = CALCULATE(SUM('public vw_powerbi_traffic'[total_vehicles]), 'public vw_powerbi_traffic'[year] = 2025)",
+              "RETURN CurrentYr - Baseline"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "510074ce-b9bf-428e-834f-7a56db0ab9db"
+          },
+          {
+            "name": "Non-Compliant Reduction",
+            "expression": [
+              "",
+              "VAR Baseline = CALCULATE(SUM('public vw_powerbi_traffic'[noncompliant_vehicles]), 'public vw_powerbi_traffic'[year] = 2022)",
+              "VAR CurrentYr = CALCULATE(SUM('public vw_powerbi_traffic'[noncompliant_vehicles]), 'public vw_powerbi_traffic'[year] = 2025)",
+              "RETURN CurrentYr - Baseline"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "927e151c-f146-4c48-ab51-19da6d5cd3d2"
           }
         ],
         "partitions": [
