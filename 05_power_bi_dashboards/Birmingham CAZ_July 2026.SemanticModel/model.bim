@@ -26856,7 +26856,7 @@
               },
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "changedProperties": [
@@ -26865,6 +26865,7 @@
               }
             ],
             "dataType": "double",
+            "formatString": "0",
             "lineageTag": "cf59397c-9421-496a-8d2a-e04415ce23aa",
             "sourceColumn": "annualised_mean",
             "summarizeBy": "sum"
@@ -29478,7 +29479,7 @@
             "annotations": [
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "expression": [
@@ -29489,6 +29490,7 @@
               "    REMOVEFILTERS('public dim_years') ",
               ")"
             ],
+            "formatString": "0",
             "lineageTag": "c8c8f7fe-dd8f-41f6-aa62-5489d9f6acb7"
           },
           {
@@ -29508,7 +29510,7 @@
             "annotations": [
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "expression": [
@@ -29530,6 +29532,7 @@
               "RETURN ",
               "    IF(ISBLANK(StandardBaseline), FallbackBaseline2022, StandardBaseline)"
             ],
+            "formatString": "0",
             "lineageTag": "0473c705-976f-45e7-bda4-99afd50c8bc3"
           },
           {
@@ -29549,7 +29552,7 @@
             "annotations": [
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "expression": [
@@ -29573,6 +29576,7 @@
               "RETURN ",
               "    IF(ISBLANK(CurrentValue), FallbackValue, CurrentValue)"
             ],
+            "formatString": "0",
             "lineageTag": "caef21ee-269b-4a0b-84d5-92b83a082316"
           },
           {
