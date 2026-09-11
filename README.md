@@ -50,13 +50,20 @@ This page provides a clear, foundational overview of the project's spatial archi
 
 To ensure clean visual rendering, I built a custom DAX measure (`Map Tier Colors`) that dynamically applies a blue gradient to these spatial zones while highlighting the active monitoring sites in striking red. This allows stakeholders to instantly grasp the study's core geographic infrastructure before diving into deeper analytics.
 
-
+<details>
+  <summary><b>🎥 Click to view the CAZ Spatial Map Build</b></summary>
+  <br>
+  <img src="assets/CAZ_Map_Build.gif">
+</details>
 
 * **Interactive Air Quality & Drill-Through Analysis**
 This dashboard page tracks Mean NO2 and 99.8th Percentile trends from 2018 to 2025, allowing users to cross-filter by CAZ tier and specific monitoring sites. KPI cards dynamically compare current averages and percentiles against the baseline year. Crucially, the 99.8th percentile line chart—which reveals that extreme pollution spikes are returning in some areas by 2025—features advanced drill-through capabilities. Users can drill into specific data points to investigate the exact date and time of the top 19 hourly pollution spikes for a given site in any year. The page also features a "View Heat Map" navigation button for further hourly pollution distribution analysis.
 
-
-
+<details>
+  <summary><b>🎥 Click to view the Air Quality Drill-Through in action</b></summary>
+  <br>
+  <img src="assets/Air_Quality_Drillthrough.gif">
+</details>
 
 **Key Insights & Conclusions:**
 
