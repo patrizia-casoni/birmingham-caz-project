@@ -16,4 +16,4 @@ Launched in June 2021 following a UK Government legal mandate, the Birmingham Cl
 * **`02_eda_and_diagnostics/`**: Diagnostic queries to validate spatial boundaries, sensor accuracy, and establish strict data completeness rules.
 * **`03_data_cleaning_and_staging/`**: Scripts to impute unrecognised vehicles, process calendar and fiscal NO2 annualisations, and classify sites and wards into 5 spatial CAZ tiers.
 * **`04_analytical_views/`**: The final, optimised SQL views feeding directly into Power BI, including unified spatial datasets.
-* **`05_power_bi_dashboards/`**: The final `.pbix` interactive dashboard file.
+* **`05_power_bi_dashboards/`**: The final interactive dashboard, saved as a Power BI Project (.pbip) to enable source control and separate the semantic model from the report layout.
