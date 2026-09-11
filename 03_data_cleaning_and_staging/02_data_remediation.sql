@@ -216,77 +216,6 @@ ORDER BY
     fam.reading_year;
 
 
---------------------------------------------------------------------------------
--- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
--- PURPOSE: Aggregates yearly traffic volumes and computes a Vehicle-Specific 
---          Weighted Fleet NO2 Pollution Load Index. 
---
--- ARCHITECTURE NOTE FOR BI: 
---          While this script calculates pollution load statically for ad-hoc 
---          database querying, the Power BI dashboard does NOT use this table. 
---          Instead, Power BI connects to the granular 'vw_powerbi_traffic' view 
---          and calculates pollution load dynamically via DAX. This enables 
---          seamless cross-filtering and interactive drill-downs in the UI.
---------------------------------------------------------------------------------
--- INTERVIEW TALKING POINTS & METHODOLOGY:
---
--- 1. BASE DATA (IMPUTED TOTALS):
---    This table builds on top of 'analytics_imputed_traffic_monthly', meaning 
---    'Unrecognised' camera misreads have already been mathematically distributed 
---    across known vehicle categories based on monthly probability shares.
---
--- 2. METRIC ALIGNMENT (NO2 vs. NOx):
---    CAZ monitoring stations measure ambient NO2 (Nitrogen Dioxide). Our weights 
---    specifically reflect real-world urban NO2 tailpipe emissions and primary NO2 
---    formation during stop-and-go driving conditions, NOT laboratory NOx.
---
--- 3. DERIVATION OF PROXY WEIGHTS:
---    * Non-Compliant Vehicles: 1.0 (Baseline heavy polluters)
---    * Compliant Cars: 0.327 (Mix of EV, Petrol, and Euro 6 Diesel)
---    * Compliant LGVs: 0.725 (Overwhelmingly Euro 6 Diesel, high primary NO2)
---    * Compliant HGVs/Buses: 0.15 (Highly effective SCR systems)
---    * Compliant Mini-Buses: 0.65 (Van chassis, tracks close to LGVs)
---    * Compliant Exempt: 0.60 (Heavy-duty diesel/van chassis)
---    * Motorcycles & Other: 0.10 (Small engine displacement)
---------------------------------------------------------------------------------
-
-DROP TABLE IF EXISTS analytics_yearly_traffic_summary;
-
-CREATE TABLE analytics_yearly_traffic_summary AS
-SELECT 
-    EXTRACT(YEAR FROM date) AS year,
-    vehicle_type,  
-    SUM(compliant_vehicles) AS total_compliant_vehicles,
-    SUM(noncompliant_vehicles) AS total_non_compliant_vehicles,
-    SUM(total_vehicles) AS total_caz_vehicles,
-    
-    ROUND(
-        (SUM(noncompliant_vehicles)::NUMERIC / NULLIF(SUM(total_vehicles), 0)::NUMERIC) * 100, 2
-    ) AS overall_non_compliant_pct,
-    
-    -- Absolute variance vs. 2022 baseline (Non-Compliant)
-    SUM(noncompliant_vehicles) - SUM(SUM(CASE WHEN EXTRACT(YEAR FROM date) = 2022 THEN noncompliant_vehicles END)) OVER () AS absolute_change_vs_2022_polluters,
-    
-    -- Absolute variance vs. 2022 baseline (Compliant)
-    SUM(compliant_vehicles) - SUM(SUM(CASE WHEN EXTRACT(YEAR FROM date) = 2022 THEN compliant_vehicles END)) OVER () AS absolute_change_vs_2022_clean,
-    
-    -- Data-Driven Vehicle-Specific NO2 Pollution Load Index
-    SUM(
-        CASE 
-            WHEN vehicle_type = 'Car' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.327)
-            WHEN vehicle_type = 'LGV' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.725)
-            WHEN vehicle_type = 'HGV' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.15)
-            WHEN vehicle_type = 'Bus/Coach' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.15)
-            WHEN vehicle_type = 'Mini-Bus' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.65)
-            WHEN vehicle_type = 'Exempt' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.60) 
-            WHEN vehicle_type = 'Motorcycles and Other' THEN (total_vehicles * 0.10) 
-            ELSE (total_vehicles * 0.50) 
-        END
-    ) AS estimated_total_pollution_load
-
-FROM analytics_imputed_traffic_monthly
-GROUP BY EXTRACT(YEAR FROM date), vehicle_type
-ORDER BY year ASC, vehicle_type ASC;
 
 
 --------------------------------------------------------------------------------
@@ -398,6 +327,77 @@ FROM imputed_unrecognised
 ORDER BY date ASC, vehicle_type ASC, data_source_type ASC;
 
 
+--------------------------------------------------------------------------------
+-- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
+-- PURPOSE: Aggregates yearly traffic volumes and computes a Vehicle-Specific 
+--          Weighted Fleet NO2 Pollution Load Index. 
+--
+-- ARCHITECTURE NOTE FOR BI: 
+--          While this script calculates pollution load statically for ad-hoc 
+--          database querying, the Power BI dashboard does NOT use this table. 
+--          Instead, Power BI connects to the granular 'vw_powerbi_traffic' view 
+--          and calculates pollution load dynamically via DAX. This enables 
+--          seamless cross-filtering and interactive drill-downs in the UI.
+--------------------------------------------------------------------------------
+-- INTERVIEW TALKING POINTS & METHODOLOGY:
+--
+-- 1. BASE DATA (IMPUTED TOTALS):
+--    This table builds on top of 'analytics_imputed_traffic_monthly', meaning 
+--    'Unrecognised' camera misreads have already been mathematically distributed 
+--    across known vehicle categories based on monthly probability shares.
+--
+-- 2. METRIC ALIGNMENT (NO2 vs. NOx):
+--    CAZ monitoring stations measure ambient NO2 (Nitrogen Dioxide). Our weights 
+--    specifically reflect real-world urban NO2 tailpipe emissions and primary NO2 
+--    formation during stop-and-go driving conditions, NOT laboratory NOx.
+--
+-- 3. DERIVATION OF PROXY WEIGHTS:
+--    * Non-Compliant Vehicles: 1.0 (Baseline heavy polluters)
+--    * Compliant Cars: 0.327 (Mix of EV, Petrol, and Euro 6 Diesel)
+--    * Compliant LGVs: 0.725 (Overwhelmingly Euro 6 Diesel, high primary NO2)
+--    * Compliant HGVs/Buses: 0.15 (Highly effective SCR systems)
+--    * Compliant Mini-Buses: 0.65 (Van chassis, tracks close to LGVs)
+--    * Compliant Exempt: 0.60 (Heavy-duty diesel/van chassis)
+--    * Motorcycles & Other: 0.10 (Small engine displacement)
+--------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS analytics_yearly_traffic_summary;
+
+CREATE TABLE analytics_yearly_traffic_summary AS
+SELECT 
+    EXTRACT(YEAR FROM date) AS year,
+    vehicle_type,  
+    SUM(compliant_vehicles) AS total_compliant_vehicles,
+    SUM(noncompliant_vehicles) AS total_non_compliant_vehicles,
+    SUM(total_vehicles) AS total_caz_vehicles,
+    
+    ROUND(
+        (SUM(noncompliant_vehicles)::NUMERIC / NULLIF(SUM(total_vehicles), 0)::NUMERIC) * 100, 2
+    ) AS overall_non_compliant_pct,
+    
+    -- Absolute variance vs. 2022 baseline (Non-Compliant)
+    SUM(noncompliant_vehicles) - SUM(SUM(CASE WHEN EXTRACT(YEAR FROM date) = 2022 THEN noncompliant_vehicles END)) OVER () AS absolute_change_vs_2022_polluters,
+    
+    -- Absolute variance vs. 2022 baseline (Compliant)
+    SUM(compliant_vehicles) - SUM(SUM(CASE WHEN EXTRACT(YEAR FROM date) = 2022 THEN compliant_vehicles END)) OVER () AS absolute_change_vs_2022_clean,
+    
+    -- Data-Driven Vehicle-Specific NO2 Pollution Load Index
+    SUM(
+        CASE 
+            WHEN vehicle_type = 'Car' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.327)
+            WHEN vehicle_type = 'LGV' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.725)
+            WHEN vehicle_type = 'HGV' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.15)
+            WHEN vehicle_type = 'Bus/Coach' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.15)
+            WHEN vehicle_type = 'Mini-Bus' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.65)
+            WHEN vehicle_type = 'Exempt' THEN (COALESCE(noncompliant_vehicles, 0) * 1.0) + (COALESCE(compliant_vehicles, 0) * 0.60) 
+            WHEN vehicle_type = 'Motorcycles and Other' THEN (total_vehicles * 0.10) 
+            ELSE (total_vehicles * 0.50) 
+        END
+    ) AS estimated_total_pollution_load
+
+FROM analytics_imputed_traffic_monthly
+GROUP BY EXTRACT(YEAR FROM date), vehicle_type
+ORDER BY year ASC, vehicle_type ASC;
 
 
 
