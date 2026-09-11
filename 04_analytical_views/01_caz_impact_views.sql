@@ -196,22 +196,6 @@ SELECT
 FROM 
     monitoring_sites;
     
-    /* =================================================================================================
-VIEW NAME: public.vw_caz_and_wards_map
-PURPOSE:   Provides a unified spatial dataset for Power BI (Icon Map Pro) to render both 
-           CAZ boundaries and Ward polygons on a single map layer.
-
-RATIONALE & ARCHITECTURE:
-1. Polymorphic Dimension: 
-   Combines 'caz_tier' and 'area_code' into a single 'map_id' column to filter downstream 
-   fact tables from one map visual.
-2. 32k Limit Prevention (CAZ Tiers): 
-   Applies ST_Simplify and rounding to 5 decimal places to the raw 'geom' MULTIPOLYGON.
-3. 32k Limit Prevention (Wards): 
-   Because vw_dim_wards outputs an unsimplified WKT text string, we use ST_GeomFromText() 
-   to cast it back to a spatial object, simplify the vertices, and round the text output 
-   to 5 decimal places to prevent visual rendering failures in Power BI.
-================================================================================================= */
 
 /* =================================================================================================
 VIEW NAME: public.vw_caz_and_wards_map
