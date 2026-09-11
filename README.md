@@ -2,7 +2,7 @@
 
 Launched in June 2021 following a UK Government legal mandate, the Birmingham Clean Air Zone (CAZ) was implemented to tackle persistent breaches of legal Nitrogen Dioxide (NO2) limits by accelerating the modernisation of the city’s vehicle fleet. This data project analyses the policy's progress between 2018 and 2025 across three core pillars: air quality improvements, fleet compliance, and early signals in respiratory hospital admissions. By engineering a custom 5-Tier Spatial Framework to categorise both monitoring sites and hospital wards based on their distance from the zone, this study evaluates the true environmental and public health impact of the policy. Through a detailed analysis of the volume, type, and compliance of vehicles entering the CAZ, alongside regional air quality and health trends, the project provides a data-driven foundation to understand what should happen next based on the evidence observed so far.
 
-## Tech Stack
+## 1. Tech Stack
 
 * **Database & Architecture:** PostgreSQL, DBeaver, Star Schema Data Modelling
 * **Geospatial Analysis:** PostGIS, QGIS
@@ -10,7 +10,7 @@ Launched in June 2021 following a UK Government legal mandate, the Birmingham Cl
 * **Languages:** SQL, DAX
 * **Version Control:** Git, GitHub
 
-## Repository Structure
+## 2. Repository Structure
 
 * **`01_database_setup/`**: SQL scripts for building the PostgreSQL star schema, configuring PostGIS, and importing raw CSV/GeoJSON data.
 * **`02_eda_and_diagnostics/`**: Diagnostic queries to validate spatial boundaries, sensor accuracy, and establish strict data completeness rules.
@@ -19,7 +19,7 @@ Launched in June 2021 following a UK Government legal mandate, the Birmingham Cl
 * **`05_power_bi_dashboards/`**: The final interactive dashboard, saved as a Power BI Project (.pbip) to enable source control and separate the semantic model from the report layout.
 * **`data/`**: The raw source files (e.g. CSVs and spatial data) used for the initial ingestion into the PostgreSQL database.
 
-* ## 4. Challenges & Solutions
+## 3. Challenges & Solutions
 
 * **Handling Incomplete Sensor Data & Annualisation:**
   * **The Challenge:** Sensor outages and historical data gaps made raw NO2 averages unreliable and complicated standard data imputation.
@@ -36,4 +36,31 @@ Launched in June 2021 following a UK Government legal mandate, the Birmingham Cl
 * **Aligning Disparate Datasets for Correlation:**
   * **The Challenge:** To prove the CAZ's real-world impact, emissions data needed to be correlated with NHS respiratory hospitalisations. However, the NHS data was only provided as annual fiscal year totals (April–March) with no monthly breakdown available. Because NO2 and traffic data are recorded by standard calendar years, they could not be directly compared.
   * **The Solution:** I standardized the entire project around the NHS fiscal calendar. I wrote SQL logic to translate the daily traffic data into fiscal years, and completely rebuilt the complex NO2 annualisation pipeline from scratch so that all 9-month completeness rules and background site estimations operated on a strict April-to-March basis. This allowed all three datasets to be seamlessly joined and cross-filtered in Power BI.
+ 
+ ## 4. Dashboard & Insights
+
+* **Visualizing the Spatial Proximity Tiers**
+This page provides a clear, foundational overview of the project's spatial architecture. To prevent visual clutter, the Icon Map Pro visual focuses strictly on mapping the NO2 monitoring sites across five strategic spatial classifications:
+
+  * **Tier 1:** Inside CAZ (Direct policy enforcement zone)
+  * **Tier 2:** Close Boundary / Ring Road (<=500m from the CAZ)
+  * **Tier 3:** Near Boundary (500m to 2km)
+  * **Tier 4:** Background (2km to 5km)
+  * **Tier 5:** Outer Regional Control (>5km from the CAZ)
+
+To ensure clean visual rendering, I built a custom DAX measure (`Map Tier Colors`) that dynamically applies a blue gradient to these spatial zones while highlighting the active monitoring sites in striking red. This allows stakeholders to instantly grasp the study's core geographic infrastructure before diving into deeper analytics.
+
+
+
+* **Interactive Air Quality & Drill-Through Analysis**
+This dashboard page tracks Mean NO2 and 99.8th Percentile trends from 2018 to 2025, allowing users to cross-filter by CAZ tier and specific monitoring sites. KPI cards dynamically compare current averages and percentiles against the baseline year. Crucially, the 99.8th percentile line chart—which reveals that extreme pollution spikes are returning in some areas by 2025—features advanced drill-through capabilities. Users can drill into specific data points to investigate the exact date and time of the top 19 hourly pollution spikes for a given site in any year. The page also features a "View Heat Map" navigation button for further hourly pollution distribution analysis.
+
+
+
+
+**Key Insights & Conclusions:**
+
+* **The Spatial Health Ripple Effect:** The CAZ achieved its primary initial goal. NO2 levels dropped significantly inside the zone, which directly correlated with a measurable improvement in COPD hospitalisations within the CAZ and its close boundary (<=500m). Furthermore, the data proved that these dual benefits—reduced NO2 and lower hospital admissions—were not confined to the centre, but successfully radiated outwards.
+* **The Limits of Fleet Modernization:** While the CAZ successfully removed 58,000 highly polluting vehicles, overall traffic grew by 88,000. Crucially, the data revealed that 85% of all vehicles entering the CAZ are personal cars. Because the policy penalizes engine types rather than total traffic volume, net pollution has remained flat over the past year, even though highly polluting vehicles dropped by 52%.
+* **Localized Spikes & The Next Policy Frontier:** By 2025, hourly pollution spikes (99.8th percentile) started growing again in a number of areas. The heat maps reveal that these spikes are highly localized and tied to the specific economic busy hours of different areas. Moving forward, city policy must shift toward reducing total car volume by deploying targeted public transport interventions precisely mapped to these localized peak hours. Crucially, these alternatives must be convenient and lower-cost; if public transit remains considerably more expensive than driving, people will simply continue to use their cars.
 
