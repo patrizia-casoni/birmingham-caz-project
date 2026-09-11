@@ -170,6 +170,52 @@ LEFT JOIN stg_reference_mapping map ON m.site_id = map.site_id AND m.reading_yea
 LEFT JOIN ratios r ON m.site_id = r.target_site_id AND m.reading_year = r.reading_year
 LEFT JOIN full_ref_avgs f ON m.site_id = f.target_site_id AND m.reading_year = f.reading_year;
 
+
+-- ============================================================================
+-- TABLE: analytics_site_yearly_summary
+-- DESCRIPTION: Consolidates regulatory annualised compliance means with 
+--              robust empirical peak pollution values (P99.8). Percentile 
+--              calculations are restricted to valid years (PASS) to prevent 
+--              statistical distortion. Designed for Power BI reporting layers.
+-- ============================================================================
+DROP TABLE IF EXISTS analytics_site_yearly_summary;
+
+CREATE TABLE analytics_site_yearly_summary AS
+
+WITH cleaned_yearly_percentiles AS (
+    -- Step 1: Clean raw data (-1.0 exclusion) and aggregate percentiles efficiently
+    SELECT 
+        site_id,
+        EXTRACT(YEAR FROM date_time) AS reading_year,
+        PERCENTILE_CONT(0.998) WITHIN GROUP (ORDER BY no2) AS p998_no2_value
+    FROM no2_readings
+    WHERE no2 >= -1.0 
+    GROUP BY site_id, EXTRACT(YEAR FROM date_time)
+)
+
+-- Step 2: Join safe percentiles to the finalized LAQM staging table
+SELECT 
+    fam.site_id,
+    fam.site_name,
+    fam.reading_year AS year,
+    fam.final_annualised_mean AS annualised_mean,
+    fam.laqm_annual_mean_status,
+    
+    -- Step 3: Enforce strict data governance (only valid years get a percentile)
+    CASE 
+        WHEN fam.laqm_annual_mean_status LIKE 'PASS%' THEN p.p998_no2_value
+        ELSE NULL 
+    END AS p998_no2_value
+
+FROM stg_final_annualised_means fam
+LEFT JOIN cleaned_yearly_percentiles p 
+    ON fam.site_id = p.site_id 
+    AND fam.reading_year = p.reading_year
+ORDER BY 
+    fam.site_id, 
+    fam.reading_year;
+
+
 --------------------------------------------------------------------------------
 -- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
 -- PURPOSE: Aggregates yearly traffic volumes and computes a Vehicle-Specific 
