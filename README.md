@@ -13,7 +13,7 @@ Launched in June 2021 following a UK Government legal mandate, the Birmingham Cl
 ## Repository Structure
 
 * **`01_database_setup/`**: SQL scripts for building the PostgreSQL star schema, configuring PostGIS, and importing raw CSV/GeoJSON data.
-* **`02_eda_and_diagnostics/`**: Diagnostic queries to validate spatial boundaries, sensor accuracy, and establish strict data completeness rules for annualisation.
-* **`03_data_cleaning_and_staging/`**: Scripts to clean anomalies, impute unrecognised vehicle types, and process NO2 annualisations.
+* **`02_eda_and_diagnostics/`**: Diagnostic queries to validate spatial boundaries, sensor accuracy, and establish strict data completeness rules.
+* **`03_data_cleaning_and_staging/`**: Scripts to impute unrecognised vehicles, process calendar and fiscal NO2 annualisations, and classify sites and wards into 5 spatial CAZ tiers.
 * **`04_analytical_views/`**: The final, optimised SQL views feeding directly into Power BI, including unified spatial datasets.
 * **`05_power_bi_dashboards/`**: The final `.pbix` interactive dashboard file.
