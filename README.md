@@ -18,3 +18,9 @@ Launched in June 2021 following a UK Government legal mandate, the Birmingham Cl
 * **`04_analytical_views/`**: The final, optimised SQL views feeding directly into Power BI, including unified spatial datasets.
 * **`05_power_bi_dashboards/`**: The final interactive dashboard, saved as a Power BI Project (.pbip) to enable source control and separate the semantic model from the report layout.
 * **`data/`**: The raw source files (e.g. CSVs and spatial data) used for the initial ingestion into the PostgreSQL database.
+
+* ## 4. Challenges & Solutions
+
+* **Handling Incomplete Sensor Data & Annualisation:**
+  * **The Challenge:** Sensor outages and historical data gaps made raw NO2 averages unreliable and complicated standard data imputation.
+  * **The Solution:** Built a strict SQL pipeline that first filtered out severe equipment errors (NO2 < -1.0) before enforcing a 75% monthly completeness rule. Reliable years (9+ valid months) were kept as-is, and unusable years (<3 months) were dropped entirely. For partial years (3–8 months), I engineered a spatial algorithm to dynamically match the incomplete site to its nearest valid background monitor, imputing the missing data by applying a scaling ratio that reflects the normal proportional difference between the two sites.
