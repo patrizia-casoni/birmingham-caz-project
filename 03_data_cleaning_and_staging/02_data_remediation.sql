@@ -594,3 +594,144 @@ LEFT JOIN stg_reference_mapping_fy map ON m.site_id = map.site_id AND m.fiscal_y
 LEFT JOIN ratios r ON m.site_id = r.target_site_id AND m.fiscal_year = r.fiscal_year
 LEFT JOIN full_ref_avgs f ON m.site_id = f.target_site_id AND m.fiscal_year = f.fiscal_year;
 
+-- ============================================================================
+-- TABLE: analytics_top19_hourly_peaks
+-- DESCRIPTION: Isolates the exact 19 highest hourly NO2 readings per site/year.
+--              Since the 19th highest hour defines the 99.8th percentile 
+--              threshold, this table provides exact drill-through transparency 
+--              for executives. Restricted to LAQM-valid years.
+-- ============================================================================
+DROP TABLE IF EXISTS analytics_top19_hourly_peaks;
+
+CREATE TABLE analytics_top19_hourly_peaks AS
+
+WITH valid_site_years AS (
+    -- Step 1: Identify eligible sites/years based on strict 9-month data capture
+    SELECT 
+        site_id, 
+        reading_year, 
+        site_name
+    FROM 
+        stg_final_annualised_means
+    WHERE 
+        laqm_annual_mean_status LIKE 'PASS%'
+),
+
+ranked_hourly_readings AS (
+    -- Step 2: Join raw data to valid years and rank the highest NO2 hours
+    SELECT 
+        r.site_id,
+        v.site_name,
+        r.date_time AS exact_timestamp,
+        EXTRACT(YEAR FROM r.date_time) AS year,
+        EXTRACT(MONTH FROM r.date_time) AS month,
+        EXTRACT(DAY FROM r.date_time) AS day,
+        EXTRACT(HOUR FROM r.date_time) AS hour,
+        r.no2 AS hourly_no2_value,
+        
+        -- Rank readings highest to lowest, resetting for each site and year
+        ROW_NUMBER() OVER (
+            PARTITION BY r.site_id, EXTRACT(YEAR FROM r.date_time) 
+            ORDER BY r.no2 DESC
+        ) AS peak_rank
+        
+    FROM 
+        no2_readings r
+    INNER JOIN 
+        valid_site_years v 
+        ON r.site_id = v.site_id 
+        AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+    WHERE 
+        r.no2 >= -1.0 -- Clean out equipment error codes
+)
+
+-- Step 3: Extract only the top 19 hours
+SELECT 
+    site_id,
+    site_name,
+    year,
+    month,
+    day,
+    hour,
+    exact_timestamp,
+    hourly_no2_value,
+    peak_rank
+FROM 
+    ranked_hourly_readings
+WHERE 
+    peak_rank <= 19
+ORDER BY 
+    site_id, 
+    year, 
+    peak_rank;
+
+-- ============================================================================
+-- INDEXES FOR POWER BI PERFORMANCE
+-- ============================================================================
+CREATE INDEX idx_top19_site_year 
+    ON analytics_top19_hourly_peaks(site_id, year);
+
+
+
+-- ============================================================================
+-- TITLE: Analytics Site Hourly & Weekly Profiles
+-- DESCRIPTION: Aggregates NO2 readings by site, year, month, day of week, 
+--              and hour to support granular diurnal and weekly diagnostics.
+--              Note: This replaces the legacy monthly profiles table.
+-- ============================================================================
+
+DROP TABLE IF EXISTS analytics_site_hourly_weekly_profiles;
+
+CREATE TABLE analytics_site_hourly_weekly_profiles AS
+
+WITH valid_site_years AS (
+    SELECT 
+        site_id, 
+        reading_year, 
+        site_name
+    FROM stg_final_annualised_means
+    WHERE laqm_annual_mean_status LIKE 'PASS%'
+)
+SELECT 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time) AS year,
+    EXTRACT(MONTH FROM r.date_time) AS month,
+    
+    -- Extract Day of Week (1 = Monday through 7 = Sunday in PostgreSQL ISODOW)
+    EXTRACT(ISODOW FROM r.date_time) AS day_of_week_num,
+    
+    -- Extract Day Name (FM removes trailing blank spaces from PostgreSQL default)
+    TO_CHAR(r.date_time, 'FMDay') AS day_of_week_name,
+    
+    EXTRACT(HOUR FROM r.date_time) AS hour,
+    
+    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
+    MAX(r.no2) AS max_hourly_no2,
+    COUNT(r.no2) AS sample_count
+    
+FROM 
+    no2_readings r
+INNER JOIN 
+    valid_site_years v 
+    ON r.site_id = v.site_id 
+    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
+WHERE 
+    r.no2 >= -1.0
+GROUP BY 
+    r.site_id,
+    v.site_name,
+    EXTRACT(YEAR FROM r.date_time),
+    EXTRACT(MONTH FROM r.date_time),
+    EXTRACT(ISODOW FROM r.date_time),
+    TO_CHAR(r.date_time, 'FMDay'),
+    EXTRACT(HOUR FROM r.date_time);
+
+-- ============================================================================
+-- INDEX FOR POWER BI PERFORMANCE
+-- ============================================================================
+CREATE INDEX idx_hourly_weekly_profile_filters 
+    ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);
+
+
+
