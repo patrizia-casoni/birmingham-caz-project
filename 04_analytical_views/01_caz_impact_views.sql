@@ -42,46 +42,26 @@ ORDER BY
     fam.site_id, 
     fam.reading_year;
 
---------------------------------------------------------------------------------
--- TITLE: Presentation - Power BI Imputed Traffic View
--- PURPOSE: Provides a clean, lightweight semantic layer for Power BI.
---          Extracts 'year' (cast as INTEGER) for seamless mapping to dim_years.
---          All heavy imputation is pre-calculated in the physical staging table.
--- ARCHITECTURE: Medallion (Gold Layer)
---------------------------------------------------------------------------------
-
-DROP VIEW IF EXISTS vw_powerbi_traffic;
-
-CREATE VIEW vw_powerbi_traffic AS 
-SELECT 
-    date,
-    EXTRACT(YEAR FROM date)::INTEGER AS year,  -- Cast to integer for perfect Power BI joins
-    vehicle_type,
-    compliant_vehicles,
-    noncompliant_vehicles,
-    total_vehicles,
-    data_source_type
-FROM analytics_imputed_traffic_monthly;
-
 /* ==============================================================================================
-TITLE: Power BI View Update - Traffic with Fiscal Year Integration
+TITLE: Presentation - Power BI Imputed Traffic View (Fiscal Year Integration)
+ARCHITECTURE: Medallion (Gold Layer)
+PURPOSE: Provides a clean, lightweight semantic layer for Power BI. 
+         All heavy imputation is pre-calculated in the physical staging table.
 =================================================================================================
 
 NOTES & CHANGELOG:
 - WHAT WAS CHANGED: 
   Added a new calculated column `fiscal_year` (format: "YYYY/YY") derived from the `date` column. 
   The calculation follows the standard UK fiscal calendar (April 1st to March 31st).
-  The original `year` column was explicitly cast as an INTEGER.
+  The original `year` column was explicitly cast as an INTEGER for seamless mapping to dim_years.
 
 - WHY THIS CHANGE WAS MADE:
-  To enable cross-filtering in the Power BI Executive Summary dashboard. Hospitalizations 
+  To enable cross-filtering in the Power BI Executive Summary dashboard. Hospitalisations 
   and respiratory health data are reported by fiscal year. By calculating the fiscal year 
-  at the database level, we can link this traffic view to a new 'Dim_Fiscal_Year' 
+  at the database level, we can link this traffic view to a new 'dim_years' 
   role-playing dimension table in Power BI. This allows decision-makers to view 
   traffic compliance and health outcomes on the exact same timeline without relying 
   on complex DAX dual-axis workarounds or duplicating the fact table.
-  The original `year` column is preserved as an integer so existing calendar-based 
-  relationships are not broken.
 ============================================================================================== */
 
 DROP VIEW IF EXISTS vw_powerbi_traffic;
@@ -105,7 +85,6 @@ SELECT
     END AS fiscal_year
 
 FROM analytics_imputed_traffic_monthly;
-
 
 --------------------------------------------------------------------------------
 -- TITLE: Clean Air Zone (CAZ) Yearly Traffic Summary & Pollution Load Pipeline
