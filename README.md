@@ -24,3 +24,9 @@ Launched in June 2021 following a UK Government legal mandate, the Birmingham Cl
 * **Handling Incomplete Sensor Data & Annualisation:**
   * **The Challenge:** Sensor outages and historical data gaps made raw NO2 averages unreliable and complicated standard data imputation.
   * **The Solution:** Built a strict SQL pipeline that first filtered out severe equipment errors (NO2 < -1.0) before enforcing a 75% monthly completeness rule. Reliable years (9+ valid months) were kept as-is, and unusable years (<3 months) were dropped entirely. For partial years (3–8 months), I engineered a spatial algorithm to dynamically match the incomplete site to its nearest valid background monitor, imputing the missing data by applying a scaling ratio that reflects the normal proportional difference between the two sites.
+ 
+* **Geospatial Proximity Classification:**
+  * **The Challenge:** Geographically distinct datasets—lat/long points for NO2 monitoring sites versus polygon areas for hospital wards—lacked a shared spatial hierarchy. This made it impossible to analyze the CAZ's ripple effect outward into areas outside the centre of Birmingham.
+  * **The Solution:** Utilized PostGIS to project all coordinates to EPSG:27700. I then calculated exact edge-to-edge distances from the CAZ boundary, unifying both the NO2 and hospitalisation datasets into a single 5-tier proximity system for seamless categorisation and reporting.
+
+
