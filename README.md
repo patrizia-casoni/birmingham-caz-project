@@ -77,3 +77,13 @@ This dashboard page tracks Mean NO2 and 99.8th Percentile trends from 2018 to 20
 * **The Limits of Fleet Modernization:** While the CAZ successfully removed 58,000 highly polluting vehicles, overall traffic grew by 88,000. Crucially, the data revealed that 85% of all vehicles entering the CAZ are personal cars. Because the policy penalizes engine types rather than total traffic volume, net pollution has remained flat over the past year, even though highly polluting vehicles dropped by 52%.
 * **Localized Spikes & The Next Policy Frontier:** By 2025, hourly pollution spikes (99.8th percentile) started growing again in a number of areas. The heat maps reveal that these spikes are highly localized and tied to the specific economic busy hours of different areas. Moving forward, city policy must shift toward reducing total car volume by deploying targeted public transport interventions precisely mapped to these localized peak hours. Crucially, these alternatives must be convenient and lower-cost; if public transit remains considerably more expensive than driving, people will simply continue to use their cars.
 
+## 6. How to Reproduce This Work
+
+1. **Prerequisites:** Install PostgreSQL (with PostGIS) and Power BI Desktop.
+2. **Schema & Spatial Setup:** Execute `01_database_setup/01a_relational_schema_setup.sql` and `01_database_setup/01b_spatial_configuration.sql`.
+3. **Data Import:** Update local paths and run `01_database_setup/02_data_import.sql`.
+4. **Staging & Remediation:** Run scripts in `03_data_cleaning_and_staging/`, followed by `01_database_setup/03_star_schema.sql`.
+5. **Analytical Views:** Execute `04_analytical_views/01_caz_impact_views.sql`.
+6. **Dashboard:** Open `05_power_bi_dashboards/Birmingham CAZ_July 2026.pbip` in Power BI.
+
+
