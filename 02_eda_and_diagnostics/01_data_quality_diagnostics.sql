@@ -1,28 +1,16 @@
 /*******************************************************************************
-  PHASE 1: DATA QUALITY DIAGNOSTICS
+  PHASE 2: DATA QUALITY DIAGNOSTICS
   Project: Birmingham CAZ Data Engineering Pipeline
   
-  Contains comprehensive diagnostic assertions across all project tables:
-    - Section 1: Monitoring Sites Metadata (monitoring_sites)
-    - Section 2: NO2 Time-Series Readings (no2_readings)
-    - Section 3: Traffic & Hospital Admissions Quality Diagnostics
-    - Section 4: PostGIS Spatial Reference & Tier Classification Diagnostics
+  Contains comprehensive diagnostic assertions across all project tables, 
+  structured to mirror the thematic flow of the Power BI dashboard.
 *******************************************************************************/
 
--- =============================================================================
--- SECTION 1: MONITORING SITES METADATA TABLE (monitoring_sites)
--- =============================================================================
+/* ==============================================================================
+   PART 1: SPATIAL ARCHITECTURE & METADATA (Monitoring Sites, Wards, Polygons)
+============================================================================== */
 
--- =============================================================================
--- 1.1 Identifier Integrity Checks
--- =============================================================================
-
--- NOTE: site_id primary key uniqueness is enforced at schema creation (DDL).
--- Primary key diagnostic skipped as constraint active.
-
-
--- 1.1b. Business Logic Audit: Descriptive Identifier Uniqueness
--- Checks if multiple distinct site_ids were assigned to the same site_name
+-- 1.1 Monitoring Sites: Identifier Integrity (Business Logic Audit)
 SELECT 
     site_name, 
     COUNT(DISTINCT site_id) AS distinct_site_ids,
@@ -31,10 +19,7 @@ FROM monitoring_sites
 GROUP BY site_name
 HAVING COUNT(*) > 1;
 
-
--- -----------------------------------------------------------------------------
--- 1.2 Completeness Audit Across All Columns
--- -----------------------------------------------------------------------------
+-- 1.2 Monitoring Sites: Completeness Audit Across All Columns
 SELECT 
     COUNT(*) AS total_records,
     COUNT(*) - COUNT(site_id)     AS site_id_nulls,
@@ -48,94 +33,125 @@ SELECT
     COUNT(*) - COUNT(end_date)    AS end_date_nulls
 FROM monitoring_sites;
 
-
--- -----------------------------------------------------------------------------
--- 1.3 Categorical Variables Distributions
--- -----------------------------------------------------------------------------
-SELECT 
-    'site_type' AS column_name, 
-    site_type AS category_value, 
-    COUNT(*) AS site_count
-FROM monitoring_sites 
-GROUP BY site_type
-
+-- 1.3 Monitoring Sites: Categorical Variables Distributions
+SELECT 'site_type' AS column_name, site_type AS category_value, COUNT(*) AS site_count
+FROM monitoring_sites GROUP BY site_type
 UNION ALL
-
-SELECT 
-    'caz_zone', 
-    caz_zone, 
-    COUNT(*) 
-FROM monitoring_sites 
-GROUP BY caz_zone
-
+SELECT 'caz_zone', caz_zone, COUNT(*) 
+FROM monitoring_sites GROUP BY caz_zone
 UNION ALL
-
-SELECT 
-    'data_source', 
-    data_source, 
-    COUNT(*) 
-FROM monitoring_sites 
-GROUP BY data_source
-
+SELECT 'data_source', data_source, COUNT(*) 
+FROM monitoring_sites GROUP BY data_source
 ORDER BY column_name, category_value;
 
-
--- -----------------------------------------------------------------------------
--- 1.4 Spatial Boundary Assertion
--- Checks for out-of-bounds locations.
--- Target Bounding Box (Birmingham Metropolitan Area):
---   Latitude:  52.30 to 52.60
---   Longitude: -2.05 to -1.70
--- -----------------------------------------------------------------------------
+-- 1.4 Monitoring Sites: Spatial Boundary Assertion (Birmingham Metro Area)
 SELECT 
-    site_id, 
-    site_name, 
-    latitude, 
-    longitude,
+    site_id, site_name, latitude, longitude,
     CASE 
         WHEN latitude NOT BETWEEN 52.30 AND 52.60 THEN 'Latitude Out of Bounds'
         WHEN longitude NOT BETWEEN -2.05 AND -1.70 THEN 'Longitude Out of Bounds'
         ELSE 'Within Birmingham Metro Area' 
     END AS spatial_flag
 FROM monitoring_sites
-WHERE latitude NOT BETWEEN 52.30 AND 52.60
-   OR longitude NOT BETWEEN -2.05 AND -1.70;
+WHERE latitude NOT BETWEEN 52.30 AND 52.60 OR longitude NOT BETWEEN -2.05 AND -1.70;
 
-
--- -----------------------------------------------------------------------------
--- 1.5 Temporal Boundaries & Date Logic Sanity Check
--- -----------------------------------------------------------------------------
+-- 1.5 Monitoring Sites: Temporal Boundaries & Decommissioned Sites
 SELECT 
-    MIN(start_date) AS earliest_site_start,
-    MAX(start_date) AS latest_site_start,
-    MIN(end_date)   AS earliest_site_end,
-    MAX(end_date)   AS latest_site_end,
-    -- Assertion: Count instances where end date precedes start date (Should return 0)
+    MIN(start_date) AS earliest_site_start, MAX(start_date) AS latest_site_start,
+    MIN(end_date)   AS earliest_site_end, MAX(end_date)   AS latest_site_end,
     COUNT(CASE WHEN end_date < start_date THEN 1 END) AS invalid_date_logic_count
 FROM monitoring_sites;
 
--- 1.5b. Diagnostic Drill-Down: Identify decommissioned site(s)
+SELECT site_id, site_name, site_type, caz_zone, start_date, end_date
+FROM monitoring_sites WHERE end_date IS NOT NULL;
+
+-- 1.6 Wards Metadata: Total Ward Count Integrity (Expecting 69)
 SELECT 
-    site_id,
-    site_name,
-    site_type,
-    caz_zone,
-    start_date,
-    end_date
+    COUNT(*) AS total_wards_logged,
+    COUNT(DISTINCT area_code) AS unique_area_codes,
+    CASE 
+        WHEN COUNT(*) = 69 AND COUNT(DISTINCT area_code) = 69 THEN 'PASS: All 69 Unique Wards Accounted For'
+        ELSE 'FAIL: Incorrect Ward Count or Duplicate Area Codes'
+    END AS count_check
+FROM wards_metadata;
+
+-- 1.7 Wards Metadata: Area Name Uniqueness & Whitespace Hygiene
+SELECT 
+    COUNT(area_name) AS total_names,
+    COUNT(DISTINCT area_name) AS unique_names,
+    COUNT(CASE WHEN area_name != TRIM(area_name) THEN 1 END) AS names_with_whitespace,
+    CASE 
+        WHEN COUNT(area_name) = COUNT(DISTINCT area_name) AND COUNT(CASE WHEN area_name != TRIM(area_name) THEN 1 END) = 0 THEN 'PASS: All Names Unique & Clean'
+        ELSE 'FAIL: Duplicate Names or Whitespace Detected'
+    END AS name_integrity_check
+FROM wards_metadata;
+
+-- 1.8 Wards Metadata: Geographic Bounds Verification
+SELECT 
+    MIN(latitude) AS min_lat, MAX(latitude) AS max_lat,
+    MIN(longitude) AS min_lon, MAX(longitude) AS max_lon,
+    COUNT(CASE WHEN latitude NOT BETWEEN 52.30 AND 52.60 OR longitude NOT BETWEEN -2.05 AND -1.70 THEN 1 END) AS out_of_bounds_coords
+FROM wards_metadata;
+
+-- 1.9 PostGIS Spatial Setup Diagnostic Verification
+-- Asserts SRID, Dimensions, and Geometry Types across spatial tables
+SELECT 
+    'caz_polygon' AS spatial_table, id, name, 
+    ST_SRID(geom) AS srid, ST_NDims(geom) AS dimensions, ST_GeometryType(geom) AS geom_type 
+FROM caz_polygon
+UNION ALL
+SELECT 
+    'monitoring_sites', site_id AS id, site_name AS name,
+    ST_SRID(geom_27700) AS srid, ST_NDims(geom_27700) AS dimensions, ST_GeometryType(geom_27700) AS geom_type
 FROM monitoring_sites
-WHERE end_date IS NOT NULL;
+LIMIT 1;
 
-/*******************************************************************************
-  SECTION 2: NO2 TIME-SERIES READINGS DIAGNOSTICS (no2_readings)
-  Schema: (site_id, date_time, no2)
-  Assumptions: FK and Composite PK constraints enforced at database layer.
-*******************************************************************************/
 
--- -----------------------------------------------------------------------------
--- 1B.1 Column-Level Completeness Audit
--- Quantifies total record volume and NULL counts across all three columns.
--- -----------------------------------------------------------------------------
+/* ==============================================================================
+   PART 2: FLEET STATUS & TRAFFIC DIAGNOSTICS (caz_traffic_compliance)
+============================================================================== */
 
+-- 2.1 Traffic Data: Missingness & Logic Anomalies
+SELECT 
+    COUNT(*) AS total_rows,
+    COUNT(CASE WHEN compliant_vehicles IS NULL THEN 1 END) AS compliance_nulls,
+    ROUND(100.0 * COUNT(CASE WHEN compliant_vehicles IS NULL THEN 1 END) / COUNT(*), 2) AS compliance_nulls_pct,
+    COUNT(CASE WHEN compliant_vehicles < 0 THEN 1 END) AS negative_compliant_count,
+    COUNT(CASE WHEN noncompliant_vehicles < 0 THEN 1 END) AS negative_noncompliant_count,
+    COUNT(CASE WHEN total_vehicles < 0 THEN 1 END) AS negative_total_count,
+    COUNT(CASE WHEN compliant_vehicles = 0 THEN 1 END) AS zero_compliant_count,
+    COUNT(CASE WHEN noncompliant_vehicles = 0 THEN 1 END) AS zero_noncompliant_count,
+    COUNT(CASE WHEN total_vehicles = 0 THEN 1 END) AS zero_total_count,
+    COUNT(DISTINCT vehicle_type) AS distinct_vehicle_types
+FROM caz_traffic_compliance;
+
+-- 2.2 Traffic Data: Summary Statistics by Vehicle Type
+SELECT 
+    vehicle_type,
+    MIN(compliant_vehicles) AS min_compliant, MAX(compliant_vehicles) AS max_compliant,
+    ROUND(AVG(compliant_vehicles), 1) AS avg_compliant,
+    MIN(noncompliant_vehicles) AS min_noncompliant, MAX(noncompliant_vehicles) AS max_noncompliant,
+    ROUND(AVG(noncompliant_vehicles), 1) AS avg_noncompliant,
+    MIN(total_vehicles) AS min_total, MAX(total_vehicles) AS max_total,
+    ROUND(AVG(total_vehicles), 1) AS avg_total,
+    ROUND(MIN(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS min_compliance_rate_pct,
+    ROUND(MAX(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS max_compliance_rate_pct,
+    ROUND(AVG(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS avg_compliance_rate_pct
+FROM caz_traffic_compliance
+GROUP BY vehicle_type ORDER BY vehicle_type;
+
+-- 2.3 Traffic Data: Temporal Bounds & Alignment Check
+SELECT 
+    vehicle_type, MIN(date) AS start_date, MAX(date) AS end_date, COUNT(DISTINCT date) AS unique_months
+FROM caz_traffic_compliance
+GROUP BY vehicle_type ORDER BY vehicle_type;
+
+
+/* ==============================================================================
+   PART 3: AIR QUALITY DIAGNOSTICS (no2_readings)
+============================================================================== */
+
+-- 3.1 NO2 Readings: Column-Level Completeness Audit
 SELECT
     COUNT(*) AS total_records,
     COUNT(*) - COUNT(site_id)   AS site_id_nulls,
@@ -144,493 +160,144 @@ SELECT
     ROUND(((COUNT(*) - COUNT(no2))::numeric / COUNT(*)) * 100, 2) AS no2_nulls_percentage
 FROM no2_readings;
 
--- -----------------------------------------------------------------------------
--- 1B.2 Temporal Horizon & Clock Sanity Check
--- Asserts earliest and latest timestamps while flagging invalid future dates.
--- -----------------------------------------------------------------------------
+-- 3.2 NO2 Readings: Temporal Horizon & Clock Sanity Check
 SELECT 
-    MIN(date_time) AS earliest_reading,
-    MAX(date_time) AS latest_reading,
+    MIN(date_time) AS earliest_reading, MAX(date_time) AS latest_reading,
     COUNT(CASE WHEN date_time > CURRENT_TIMESTAMP THEN 1 END) AS future_readings_count
 FROM no2_readings;
 
-
--- -----------------------------------------------------------------------------
--- 1B.3 Statistical Distribution & Physical Boundary Assertions (by Site)
--- Calculates baseline metrics per site and flags sensor hardware anomalies:
---   - Negative values (zero-point drift / calibration errors)
---   - Zero values (frozen/stuck sensor output)
---   - Extreme spikes > 500 µg/m³ (physically implausible electrical noise)
--- -----------------------------------------------------------------------------
+-- 3.3 NO2 Readings: Statistical Distribution & Physical Boundary Assertions (by Site)
 SELECT 
-    site_id,
-    site_name,
-    COUNT(*) AS total_readings,
-    MIN(no2) AS min_no2,
-    MAX(no2) AS max_no2,
-    ROUND(AVG(no2)::numeric, 2) AS avg_no2,
+    site_id, site_name, COUNT(*) AS total_readings,
+    MIN(no2) AS min_no2, MAX(no2) AS max_no2, ROUND(AVG(no2)::numeric, 2) AS avg_no2,
     PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY no2) AS median_no2,
-    -- Physical anomaly counts
     COUNT(CASE WHEN no2 < 0 THEN 1 END)   AS negative_values,
     COUNT(CASE WHEN no2 = 0 THEN 1 END)   AS zero_values,
     COUNT(CASE WHEN no2 > 500 THEN 1 END) AS extreme_spikes
 FROM no2_readings
-GROUP BY site_id
-ORDER BY site_id;
+GROUP BY site_id ORDER BY site_id;
 
-
--- -----------------------------------------------------------------------------
--- 1B.4 Negative Value Severity Breakdown
--- Differentiates acceptable baseline zero-drift (-1.0 to 0 µg/m³) from
--- severe hardware malfunctions (< -1.0 µg/m³).
--- -----------------------------------------------------------------------------
+-- 3.4 NO2 Readings: Negative Value Severity Breakdown
 SELECT
-    site_id,
-    site_name,
-    COUNT(*) AS total_site_readings,
-    
-    -- Negative breakdown
+    site_id, site_name, COUNT(*) AS total_site_readings,
     COUNT(CASE WHEN no2 < 0 THEN 1 END) AS total_negative_readings,
-    
     COUNT(CASE WHEN no2 BETWEEN -1.0 AND 0 THEN 1 END) AS minor_drift_count,
-    ROUND(
-        (COUNT(CASE WHEN no2 BETWEEN -1.0 AND 0 THEN 1 END)::numeric / COUNT(*)) * 100, 
-        4
-    ) AS minor_drift_pct_of_site_total,
-    
+    ROUND((COUNT(CASE WHEN no2 BETWEEN -1.0 AND 0 THEN 1 END)::numeric / COUNT(*)) * 100, 4) AS minor_drift_pct_of_site_total,
     COUNT(CASE WHEN no2 < -1.0 THEN 1 END) AS severe_anomaly_count,
-    ROUND(
-        (COUNT(CASE WHEN no2 < -1.0 THEN 1 END)::numeric / COUNT(*)) * 100, 
-        4
-    ) AS severe_anomaly_pct_of_site_total,
-    
+    ROUND((COUNT(CASE WHEN no2 < -1.0 THEN 1 END)::numeric / COUNT(*)) * 100, 4) AS severe_anomaly_pct_of_site_total,
     MIN(no2) AS worst_negative_reading
 FROM no2_readings AS r
-INNER JOIN monitoring_sites AS s
-    USING (site_id)
-GROUP BY site_id, site_name
-ORDER BY site_id, site_name;
+INNER JOIN monitoring_sites AS s USING (site_id)
+GROUP BY site_id, site_name ORDER BY site_id, site_name;
 
-/*******************************************************************************
-  SECTION 2.2A: DATA CAPTURE & ANNUAL MEAN AUDIT (LAQM Compliance)
-  Purpose: 
-    1. Nullifies severe negative anomalies (< -1.0 ug/m3) dynamically.
-    2. Measures monthly data capture using DEFRA's 75% threshold.
-    3. Categorises site-years for Annual Mean processing (Pass vs. Annualise vs. Reject).
-*******************************************************************************/
-
+-- 3.5 NO2 Readings: Data Capture & Annual Mean Audit (Calendar Year)
 WITH cleaned_readings AS (
     SELECT 
-        site_id,
-        date_time,
-        EXTRACT(YEAR FROM date_time) AS reading_year,
-        EXTRACT(MONTH FROM date_time) AS reading_month,
-        CASE 
-            WHEN no2 < -1.0 THEN NULL 
-            ELSE no2 
-        END AS no2_diagnosed
+        site_id, EXTRACT(YEAR FROM date_time) AS reading_year, EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE WHEN no2 < -1.0 THEN NULL ELSE no2 END AS no2_diagnosed
     FROM no2_readings
 ),
-
 monthly_completeness AS (
     SELECT 
-        site_id,
-        reading_year,
-        reading_month,
-        COUNT(*) AS total_expected_slots,
-        COUNT(no2_diagnosed) AS valid_readings_count,
-        ROUND(
-            (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) * 100, 
-            2
-        ) AS monthly_data_capture_pct,
-        CASE 
-            WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
-            ELSE 0 
-        END AS is_valid_month
-    FROM cleaned_readings
-    GROUP BY site_id, reading_year, reading_month
+        site_id, reading_year, reading_month,
+        ROUND((COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) * 100, 2) AS monthly_data_capture_pct,
+        CASE WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1 ELSE 0 END AS is_valid_month
+    FROM cleaned_readings GROUP BY site_id, reading_year, reading_month
 )
-
 SELECT 
-    site_id,
-    reading_year,
-    COUNT(reading_month) AS total_monitored_months,
-    SUM(is_valid_month) AS valid_months_count,
-    ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
+    site_id, reading_year, COUNT(reading_month) AS total_monitored_months,
+    SUM(is_valid_month) AS valid_months_count, ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
     CASE 
-        WHEN SUM(is_valid_month) >= 9 
-            THEN 'PASS (Use As-Is)'
-        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
-            THEN 'ACTION (Requires Annualisation)'
+        WHEN SUM(is_valid_month) >= 9 THEN 'PASS (Use As-Is)'
+        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 THEN 'ACTION (Requires Annualisation)'
         ELSE 'ACTION (Exclude - Insufficient Data)'
     END AS laqm_annual_mean_status
-FROM monthly_completeness
-GROUP BY site_id, reading_year
-ORDER BY site_id, reading_year;
+FROM monthly_completeness GROUP BY site_id, reading_year ORDER BY site_id, reading_year;
 
-/*******************************************************************************
-  SECTION 2.2B: ACUTE PEAK (99.8th PERCENTILE) ELIGIBILITY AUDIT
-  Purpose: 
-    1. Evaluates temporal coverage against strict 99.8th percentile requirements.
-    2. Flags incomplete years to prevent seasonal bias in peak exceedance calculations.
-    3. Assigns remediation directives (Calculate Direct vs. Nullify & Proxy).
-*******************************************************************************/
-
+-- 3.6 NO2 Readings: Acute Peak (99.8th Percentile) Eligibility Audit
 WITH cleaned_readings AS (
     SELECT 
-        site_id,
-        date_time,
-        EXTRACT(YEAR FROM date_time) AS reading_year,
-        EXTRACT(MONTH FROM date_time) AS reading_month,
-        CASE 
-            WHEN no2 < -1.0 THEN NULL 
-            ELSE no2 
-        END AS no2_diagnosed
+        site_id, EXTRACT(YEAR FROM date_time) AS reading_year, EXTRACT(MONTH FROM date_time) AS reading_month,
+        CASE WHEN no2 < -1.0 THEN NULL ELSE no2 END AS no2_diagnosed
     FROM no2_readings
 ),
-
 monthly_completeness AS (
     SELECT 
-        site_id,
-        reading_year,
-        reading_month,
-        CASE 
-            WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
-            ELSE 0 
-        END AS is_valid_month
-    FROM cleaned_readings
-    GROUP BY site_id, reading_year, reading_month
+        site_id, reading_year, reading_month,
+        CASE WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1 ELSE 0 END AS is_valid_month
+    FROM cleaned_readings GROUP BY site_id, reading_year, reading_month
 )
-
 SELECT 
-    site_id,
-    reading_year,
-    SUM(is_valid_month) AS valid_months_count,
-    
-    -- Percentile Data Validity Status
+    site_id, reading_year, SUM(is_valid_month) AS valid_months_count,
+    CASE WHEN SUM(is_valid_month) >= 9 THEN 'VALID' ELSE 'INVALID (Seasonal Bias Risk)' END AS percentile_99_8_status,
     CASE 
-        WHEN SUM(is_valid_month) >= 9 THEN 'VALID'
-        ELSE 'INVALID (Seasonal Bias Risk)'
-    END AS percentile_99_8_status,
-    
-    -- Downstream Pipeline Directive
-    CASE 
-        WHEN SUM(is_valid_month) >= 9 
-            THEN 'Compute PERCENTILE_CONT(0.998) from hourly data'
-        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
-            THEN 'Nullify Percentile; Flag via DEFRA > 60 µg/m³ Mean Proxy'
+        WHEN SUM(is_valid_month) >= 9 THEN 'Compute PERCENTILE_CONT(0.998) from hourly data'
+        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 THEN 'Nullify Percentile; Flag via DEFRA > 60 µg/m³ Mean Proxy'
         ELSE 'Suppress from acute peak reporting entirely'
     END AS remediation_instruction
+FROM monthly_completeness GROUP BY site_id, reading_year ORDER BY site_id, reading_year;
 
-FROM monthly_completeness
-GROUP BY site_id, reading_year
-ORDER BY site_id, reading_year;
-
--- =============================================================================
--- 2.3 Traffic Data Quality & Statistical Profiling Diagnostic
--- Table: caz_traffic_compliance
--- =============================================================================
-
--- -----------------------------------------------------------------------------
--- CHECK 1: Missingness & Logic Anomalies (Column-by-Column)
--- -----------------------------------------------------------------------------
-SELECT 
-    COUNT(*) AS total_rows,
-    
-    -- Missingness (Compliant & Non-Compliant tied by DDL constraint)
-    COUNT(CASE WHEN compliant_vehicles IS NULL THEN 1 END) AS compliance_nulls,
-    ROUND(
-        100.0 * COUNT(CASE WHEN compliant_vehicles IS NULL THEN 1 END) / COUNT(*), 
-        2
-    ) AS compliance_nulls_pct,
-    
-    -- Negative Values Count (per column)
-    COUNT(CASE WHEN compliant_vehicles < 0 THEN 1 END) AS negative_compliant_count,
-    COUNT(CASE WHEN noncompliant_vehicles < 0 THEN 1 END) AS negative_noncompliant_count,
-    COUNT(CASE WHEN total_vehicles < 0 THEN 1 END) AS negative_total_count,
-    
-    -- Zero Traffic Count (per column)
-    COUNT(CASE WHEN compliant_vehicles = 0 THEN 1 END) AS zero_compliant_count,
-    COUNT(CASE WHEN noncompliant_vehicles = 0 THEN 1 END) AS zero_noncompliant_count,
-    COUNT(CASE WHEN total_vehicles = 0 THEN 1 END) AS zero_total_count,
-    
-    -- Categorical Integrity
-    COUNT(DISTINCT vehicle_type) AS distinct_vehicle_types
-
-FROM caz_traffic_compliance;
-
-
--- -----------------------------------------------------------------------------
--- CHECK 2: Summary Statistics by Vehicle Type
--- -----------------------------------------------------------------------------
-SELECT 
-    vehicle_type,
-    
-    -- Compliant Vehicles
-    MIN(compliant_vehicles) AS min_compliant,
-    MAX(compliant_vehicles) AS max_compliant,
-    ROUND(AVG(compliant_vehicles), 1) AS avg_compliant,
-    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY compliant_vehicles) AS median_compliant,
-    
-    -- Non-Compliant Vehicles
-    MIN(noncompliant_vehicles) AS min_noncompliant,
-    MAX(noncompliant_vehicles) AS max_noncompliant,
-    ROUND(AVG(noncompliant_vehicles), 1) AS avg_noncompliant,
-    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY noncompliant_vehicles) AS median_noncompliant,
-    
-    -- Total Vehicles
-    MIN(total_vehicles) AS min_total,
-    MAX(total_vehicles) AS max_total,
-    ROUND(AVG(total_vehicles), 1) AS avg_total,
-    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY total_vehicles) AS median_total,
-    
-    -- Compliance Rate (%) Summary
-    ROUND(MIN(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS min_compliance_rate_pct,
-    ROUND(MAX(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS max_compliance_rate_pct,
-    ROUND(AVG(100.0 * compliant_vehicles / NULLIF(total_vehicles, 0)), 2) AS avg_compliance_rate_pct,
-    ROUND(
-        PERCENTILE_CONT(0.50) WITHIN GROUP (
-            ORDER BY (100.0 * compliant_vehicles / NULLIF(total_vehicles, 0))
-        )::NUMERIC, 2
-    ) AS median_compliance_rate_pct
-    
-FROM caz_traffic_compliance
-GROUP BY vehicle_type
-ORDER BY vehicle_type;
-
--- -----------------------------------------------------------------------------
--- CHECK 3: Vehicle Type Temporal Bounds & Alignment Check
--- -----------------------------------------------------------------------------
-SELECT 
-    vehicle_type,
-    MIN(date) AS start_date,
-    MAX(date) AS end_date,
-    COUNT(DISTINCT date) AS unique_months
-FROM caz_traffic_compliance
-GROUP BY vehicle_type
-ORDER BY vehicle_type;
-
--- =============================================================================
--- Wards Metadata Data Quality Diagnostic
--- Table: wards_metadata
--- Description: Direct-load validation covering volume, uniqueness, string 
---              hygiene, and spatial bounding box integrity.
--- =============================================================================
-
--- -----------------------------------------------------------------------------
--- CHECK 1: Total Ward Count Integrity (Expecting All 69 Birmingham Wards)
--- -----------------------------------------------------------------------------
-SELECT 
-    COUNT(*) AS total_wards_logged,
-    COUNT(DISTINCT area_code) AS unique_area_codes,
-    CASE 
-        WHEN COUNT(*) = 69 AND COUNT(DISTINCT area_code) = 69 
-        THEN 'PASS: All 69 Unique Wards Accounted For'
-        ELSE 'FAIL: Incorrect Ward Count or Duplicate Area Codes'
-    END AS count_check
-FROM wards_metadata;
-
-
--- -----------------------------------------------------------------------------
--- CHECK 2: Area Name Uniqueness & Whitespace Hygiene
--- -----------------------------------------------------------------------------
-SELECT 
-    COUNT(area_name) AS total_names,
-    COUNT(DISTINCT area_name) AS unique_names,
-    COUNT(CASE WHEN area_name != TRIM(area_name) THEN 1 END) AS names_with_whitespace,
-    CASE 
-        WHEN COUNT(area_name) = COUNT(DISTINCT area_name) 
-         AND COUNT(CASE WHEN area_name != TRIM(area_name) THEN 1 END) = 0 
-        THEN 'PASS: All Names Unique & Clean'
-        ELSE 'FAIL: Duplicate Names or Whitespace Detected'
-    END AS name_integrity_check
-FROM wards_metadata;
-
-
--- -----------------------------------------------------------------------------
--- CHECK 3: Geographic Bounds Verification (Unified Birmingham Bounding Box)
--- -----------------------------------------------------------------------------
-SELECT 
-    MIN(latitude) AS min_lat,
-    MAX(latitude) AS max_lat,
-    MIN(longitude) AS min_lon,
-    MAX(longitude) AS max_lon,
-    COUNT(
+-- 3.7 NO2 Readings: Fiscal Year Translation & Annualisation Assessment (NHS April-March)
+WITH cleaned_readings AS (
+    SELECT 
+        site_id, EXTRACT(MONTH FROM date_time) AS reading_month,
         CASE 
-            WHEN latitude NOT BETWEEN 52.30 AND 52.60 
-              OR longitude NOT BETWEEN -2.05 AND -1.70 
-            THEN 1 
-        END
-    ) AS out_of_bounds_coords
-FROM wards_metadata;
+            WHEN EXTRACT(MONTH FROM date_time) >= 4 THEN EXTRACT(YEAR FROM date_time)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) + 1 - 2000)::text, 2, '0')
+            ELSE (EXTRACT(YEAR FROM date_time) - 1)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) - 2000)::text, 2, '0')
+        END AS fiscal_year,
+        CASE WHEN no2 < -1.0 THEN NULL ELSE no2 END AS no2_diagnosed
+    FROM no2_readings
+),
+monthly_completeness AS (
+    SELECT 
+        site_id, fiscal_year, reading_month,
+        ROUND((COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) * 100, 2) AS monthly_data_capture_pct,
+        CASE WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1 ELSE 0 END AS is_valid_month
+    FROM cleaned_readings GROUP BY site_id, fiscal_year, reading_month
+)
+SELECT 
+    site_id, fiscal_year, COUNT(reading_month) AS total_monitored_months,
+    SUM(is_valid_month) AS valid_months_count, ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
+    CASE 
+        WHEN SUM(is_valid_month) >= 9 THEN 'PASS (Use As-Is)'
+        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 THEN 'ACTION (Requires Annualisation)'
+        ELSE 'ACTION (Exclude - Insufficient Data)'
+    END AS laqm_annual_mean_status
+FROM monthly_completeness GROUP BY site_id, fiscal_year ORDER BY site_id, fiscal_year;
 
--- =============================================================================
--- Hospital Admissions Data Quality Diagnostic
--- Table: birmingham_hospital_admissions
--- Description: Direct-load validation covering system-generated logic, 
---              numeric sanity, and longitudinal panel balance.
--- =============================================================================
 
--- -----------------------------------------------------------------------------
--- CHECK 1: System-Generated Fiscal Year Completeness
--- -----------------------------------------------------------------------------
+/* ==============================================================================
+   PART 4: HEALTH IMPACT DIAGNOSTICS (birmingham_hospital_admissions)
+============================================================================== */
+
+-- 4.1 Health Data: System-Generated Fiscal Year Completeness
 SELECT 
     COUNT(*) AS total_rows,
     COUNT(*) - COUNT(fiscal_year) AS missing_fiscal_years,
     CASE 
-        WHEN COUNT(*) = COUNT(fiscal_year) 
-        THEN 'PASS: Fiscal Year Auto-Generation Complete'
+        WHEN COUNT(*) = COUNT(fiscal_year) THEN 'PASS: Fiscal Year Auto-Generation Complete'
         ELSE 'FAIL: NULL Values Found in Fiscal Year'
     END AS fiscal_year_check
 FROM birmingham_hospital_admissions;
 
-
--- -----------------------------------------------------------------------------
--- CHECK 2: Metric Range & Numeric Sanity
--- Note: admissions and standardised_rate can legitimately be 0 (e.g., zero 
---       recorded hospital visits in a ward for a given condition), but must 
---       never be negative (< 0). Population must be strictly positive (> 0).
--- -----------------------------------------------------------------------------
+-- 4.2 Health Data: Metric Range & Numeric Sanity
 SELECT 
-    MIN(admissions) AS min_admissions,
-    MAX(admissions) AS max_admissions,
-    MIN(population) AS min_population,
-    MAX(population) AS max_population,
-    MIN(standardised_rate) AS min_std_rate,
-    MAX(standardised_rate) AS max_std_rate,
+    MIN(admissions) AS min_admissions, MAX(admissions) AS max_admissions,
+    MIN(population) AS min_population, MAX(population) AS max_population,
+    MIN(standardised_rate) AS min_std_rate, MAX(standardised_rate) AS max_std_rate,
     COUNT(CASE WHEN admissions < 0 OR population <= 0 OR standardised_rate < 0 THEN 1 END) AS invalid_metric_rows,
     CASE 
-        WHEN COUNT(CASE WHEN admissions < 0 OR population <= 0 OR standardised_rate < 0 THEN 1 END) = 0 
-        THEN 'PASS: All Numeric Metrics Within Valid Ranges'
+        WHEN COUNT(CASE WHEN admissions < 0 OR population <= 0 OR standardised_rate < 0 THEN 1 END) = 0 THEN 'PASS: All Numeric Metrics Within Valid Ranges'
         ELSE 'FAIL: Negative or Zero Values Detected in Metrics'
     END AS metric_range_check
 FROM birmingham_hospital_admissions;
 
-
--- -----------------------------------------------------------------------------
--- CHECK 3: Health Condition Panel Balance & Temporal Coverage
--- -----------------------------------------------------------------------------
+-- 4.3 Health Data: Health Condition Panel Balance & Temporal Coverage
 SELECT 
     health_condition,
-    MIN(fiscal_start_date) AS earliest_start_date,
-    MAX(fiscal_start_date) AS latest_start_date,
+    MIN(fiscal_start_date) AS earliest_start_date, MAX(fiscal_start_date) AS latest_start_date,
     COUNT(DISTINCT fiscal_start_date) AS total_fiscal_periods,
     COUNT(DISTINCT area_code) AS wards_covered,
     COUNT(*) AS total_records
 FROM birmingham_hospital_admissions
-GROUP BY health_condition
-ORDER BY health_condition;
-
---------------------------------------------------------------------------------
--- Data Diagnostics: Fiscal Year Translation & Annualisation Assessment
--- Description: Translates calendar years into UK NHS fiscal years (April–March) 
---              for monitoring wards, and checks monthly completeness to 
---              determine which years require annualisation.
---------------------------------------------------------------------------------
-
-WITH cleaned_readings AS (
-    SELECT 
-        site_id,
-        date_time,
-        EXTRACT(YEAR FROM date_time) AS reading_year,
-        EXTRACT(MONTH FROM date_time) AS reading_month,
-        -- Dynamically assign UK NHS Fiscal Year (e.g., '2022/23')
-        CASE 
-            WHEN EXTRACT(MONTH FROM date_time) >= 4 
-            THEN EXTRACT(YEAR FROM date_time)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) + 1 - 2000)::text, 2, '0')
-            ELSE (EXTRACT(YEAR FROM date_time) - 1)::text || '/' || LPAD((EXTRACT(YEAR FROM date_time) - 2000)::text, 2, '0')
-        END AS fiscal_year,
-        CASE 
-            WHEN no2 < -1.0 THEN NULL 
-            ELSE no2 
-        END AS no2_diagnosed
-    FROM no2_readings
-),
-
-monthly_completeness AS (
-    SELECT 
-        site_id,
-        fiscal_year,
-        reading_month,
-        COUNT(*) AS total_expected_slots,
-        COUNT(no2_diagnosed) AS valid_readings_count,
-        ROUND(
-            (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) * 100, 
-            2
-        ) AS monthly_data_capture_pct,
-        CASE 
-            WHEN (COUNT(no2_diagnosed)::NUMERIC / COUNT(*)::NUMERIC) >= 0.75 THEN 1
-            ELSE 0 
-        END AS is_valid_month
-    FROM cleaned_readings
-    GROUP BY site_id, fiscal_year, reading_month
-)
-
-SELECT 
-    site_id,
-    fiscal_year,
-    COUNT(reading_month) AS total_monitored_months,
-    SUM(is_valid_month) AS valid_months_count,
-    ROUND(AVG(monthly_data_capture_pct), 2) AS yearly_avg_monthly_capture_pct,
-    CASE 
-        WHEN SUM(is_valid_month) >= 9 
-            THEN 'PASS (Use As-Is)'
-        WHEN SUM(is_valid_month) BETWEEN 3 AND 8 
-            THEN 'ACTION (Requires Annualisation)'
-        ELSE 'ACTION (Exclude - Insufficient Data)'
-    END AS laqm_annual_mean_status
-FROM monthly_completeness
-GROUP BY site_id, fiscal_year
-ORDER BY site_id, fiscal_year;
-
-
--- ============================================================================
--- TITLE: Analytics Site Hourly, Daily, & Monthly Profiles
--- DESCRIPTION: Aggregates NO2 readings by site, year, month, day of week, 
---              and hour to support granular diurnal and weekly diagnostics.
--- ============================================================================
-
-DROP TABLE IF EXISTS analytics_site_hourly_weekly_profiles;
-
-CREATE TABLE analytics_site_hourly_weekly_profiles AS
-
-WITH valid_site_years AS (
-    SELECT site_id, reading_year, site_name
-    FROM stg_final_annualised_means
-    WHERE laqm_annual_mean_status LIKE 'PASS%'
-)
-SELECT 
-    r.site_id,
-    v.site_name,
-    EXTRACT(YEAR FROM r.date_time) AS year,
-    EXTRACT(MONTH FROM r.date_time) AS month,
-    -- Extract Day of Week (1 = Monday through 7 = Sunday in PostgreSQL ISODOW)
-    EXTRACT(ISODOW FROM r.date_time) AS day_of_week_num,
-    TO_CHAR(r.date_time, 'Day') AS day_of_week_name,
-    EXTRACT(HOUR FROM r.date_time) AS hour,
-    
-    ROUND(AVG(r.no2)::numeric, 2) AS avg_hourly_no2,
-    MAX(r.no2) AS max_hourly_no2,
-    COUNT(r.no2) AS sample_count
-    
-FROM 
-    no2_readings r
-INNER JOIN 
-    valid_site_years v 
-    ON r.site_id = v.site_id 
-    AND EXTRACT(YEAR FROM r.date_time) = v.reading_year
-WHERE 
-    r.no2 >= -1.0
-GROUP BY 
-    r.site_id,
-    v.site_name,
-    EXTRACT(YEAR FROM r.date_time),
-    EXTRACT(MONTH FROM r.date_time),
-    EXTRACT(ISODOW FROM r.date_time),
-    TO_CHAR(r.date_time, 'Day'),
-    EXTRACT(HOUR FROM r.date_time);
-
--- Index for multi-attribute filtering in Power BI
-CREATE INDEX idx_hourly_weekly_profile_filters 
-    ON analytics_site_hourly_weekly_profiles(site_id, year, month, day_of_week_num);
-
+GROUP BY health_condition ORDER BY health_condition;
