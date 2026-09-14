@@ -48,14 +48,18 @@ This page provides a clear, foundational overview of the project's spatial archi
   * **Tier 4:** Background (2km to 5km)
   * **Tier 5:** Outer Regional Control (>5km from the CAZ)
 
-To ensure clean visual rendering, I built a custom DAX measure (`Map Tier Colors`) that dynamically applies a blue gradient to these spatial zones while highlighting the active monitoring sites in striking red. This allows stakeholders to instantly grasp the study's core geographic infrastructure before diving into deeper analytics.
+To optimize performance, I processed all spatial data upstream in PostgreSQL. By using a `UNION`, I combined the `dim_caz_tiers` (boundary polygons) and `monitoring_sites` tables into a single database view. To make this work seamlessly, I explicitly converted the raw latitude and longitude coordinates into Well-Known Text (WKT) `POINT` strings, allowing both the points and polygons to share a single geometry column. 
+
+Next, I had to overcome Power BI's strict character limits, which initially caused the complex CAZ polygons to break the visual. I resolved this natively in PostGIS by applying `ST_Simplify()` to reduce the map's vertex count and `ST_AsText()` to round the coordinates to five decimal places, ensuring flawless rendering. 
+
+Finally, because Icon Map Pro cannot natively format multiple distinct layers, I created a custom DAX measure (`Map Tier Colors`) to apply a blue gradient to the spatial zones while highlighting the active monitoring sites in striking red.
 
 <details>
   <summary><b>🎥 Click to view the CAZ Spatial Map Build</b></summary>
   <br>
   <img src="assets/CAZ_Map_Build.gif">
 </details>
-
+<br>
 
 * **Interactive Air Quality & Drill-Through Analysis**
 This dashboard page tracks Mean NO2 and 99.8th Percentile trends from 2018 to 2025, allowing users to cross-filter by CAZ tier and specific monitoring sites. KPI cards dynamically compare the selected year's averages and percentiles against the 2018 baseline. Crucially, the 99.8th percentile line chart—which reveals that extreme pollution spikes are returning in some areas by 2025—features advanced drill-through capabilities. Users can drill into specific data points to investigate the exact date and time of the top 19 hourly pollution spikes for a given site in any year. The page also features a "View Heat Map" navigation button for further hourly pollution distribution analysis.
