@@ -1,22 +1,22 @@
 /*******************************************************************************
-  PHASE 1 (STAGING): SPATIAL TIER CLASSIFICATION
-  Project: Birmingham CAZ Data Engineering Pipeline
+  PHASE 3: DATA CLEANING & STAGING
+  File: 01_classify_spatial_tiers.sql
   
   Description:
     Classifies monitoring sites and wards relative to the A4540 CAZ boundary 
     using British National Grid (EPSG:27700) meter distances.
     
-    Tiers Defined:
-      - 1. Inside CAZ: Within the ring road polygon
-      - 2. Close Boundary: Straddles boundary OR <= 500m from ring road
-      - 3. Near Boundary: 500m to 2,000m (2km) from ring road
-      - 4. Background: 2,000m to 5,000m (local control group)
-      - 5. Outer Regional Control: > 5,000m (macro-level regional trend baseline)
+  Tiers Defined:
+    - 1. Inside CAZ: Within the ring road polygon
+    - 2. Close Boundary: Straddles boundary OR <= 500m from ring road
+    - 3. Near Boundary: 500m to 2,000m (2km) from ring road
+    - 4. Background: 2,000m to 5,000m (local control group)
+    - 5. Outer Regional Control: > 5,000m (macro-level regional trend baseline)
 *******************************************************************************/
 
--- =============================================================================
--- 1. ADD CLASSIFICATION COLUMNS (If not already present)
--- =============================================================================
+/* ==============================================================================
+   STEP 1: PREPARE SCHEMA (Add Classification Columns)
+============================================================================== */
 ALTER TABLE monitoring_sites 
 ADD COLUMN IF NOT EXISTS caz_tier VARCHAR(50),
 ADD COLUMN IF NOT EXISTS distance_to_caz_metres NUMERIC(10, 2);
@@ -26,9 +26,9 @@ ADD COLUMN IF NOT EXISTS caz_tier VARCHAR(50),
 ADD COLUMN IF NOT EXISTS distance_to_caz_metres NUMERIC(10, 2);
 
 
--- =============================================================================
--- 2. UPDATE MONITORING SITES WITH SPATIAL TIERS
--- =============================================================================
+/* ==============================================================================
+   STEP 2: CLASSIFY MONITORING SITES (Calculate Map Tiers & Distances)
+============================================================================== */
 WITH site_tier_calculation AS (
     SELECT 
         ms.site_id,
@@ -54,9 +54,9 @@ FROM site_tier_calculation AS stc
 WHERE ms.site_id = stc.site_id;
 
 
--- =============================================================================
--- 3. UPDATE MUNICIPAL WARDS WITH SPATIAL TIERS
--- =============================================================================
+/* ==============================================================================
+   STEP 3: CLASSIFY MUNICIPAL WARDS (Calculate Map Tiers & Distances)
+============================================================================== */
 WITH ward_tier_calculation AS (
     SELECT 
         w.area_code,
@@ -94,28 +94,17 @@ FROM ward_tier_calculation AS wtc
 WHERE w.area_code = wtc.area_code;
 
 
--- =============================================================================
--- 4. VERIFICATION QUERIES
--- Quick audit of distribution across spatial tiers for both tables
--- =============================================================================
+/* ==============================================================================
+   STEP 4: POST-STAGING VERIFICATION
+   Quick audit of distribution across spatial tiers for both tables
+============================================================================== */
 SELECT 
-    'Monitoring Sites' AS entity_type,
-    caz_tier,
-    COUNT(*) AS total_count,
-    MIN(distance_to_caz_metres) AS min_distance_m,
-    MAX(distance_to_caz_metres) AS max_distance_m
-FROM monitoring_sites
-GROUP BY caz_tier
-
+    'Monitoring Sites' AS entity_type, caz_tier, COUNT(*) AS total_count,
+    MIN(distance_to_caz_metres) AS min_distance_m, MAX(distance_to_caz_metres) AS max_distance_m
+FROM monitoring_sites GROUP BY caz_tier
 UNION ALL
-
 SELECT 
-    'Municipal Wards' AS entity_type,
-    caz_tier,
-    COUNT(*) AS total_count,
-    MIN(distance_to_caz_metres) AS min_distance_m,
-    MAX(distance_to_caz_metres) AS max_distance_m
-FROM wards_metadata
-GROUP BY caz_tier
-
+    'Municipal Wards' AS entity_type, caz_tier, COUNT(*) AS total_count,
+    MIN(distance_to_caz_metres) AS min_distance_m, MAX(distance_to_caz_metres) AS max_distance_m
+FROM wards_metadata GROUP BY caz_tier
 ORDER BY entity_type, caz_tier;
