@@ -56,8 +56,9 @@ To ensure clean visual rendering, I built a custom DAX measure (`Map Tier Colors
   <img src="assets/CAZ_Map_Build.gif">
 </details>
 
+
 * **Interactive Air Quality & Drill-Through Analysis**
-This dashboard page tracks Mean NO2 and 99.8th Percentile trends from 2018 to 2025, allowing users to cross-filter by CAZ tier and specific monitoring sites. KPI cards dynamically compare current averages and percentiles against the baseline year. Crucially, the 99.8th percentile line chart—which reveals that extreme pollution spikes are returning in some areas by 2025—features advanced drill-through capabilities. Users can drill into specific data points to investigate the exact date and time of the top 19 hourly pollution spikes for a given site in any year. The page also features a "View Heat Map" navigation button for further hourly pollution distribution analysis.
+This dashboard page tracks Mean NO2 and 99.8th Percentile trends from 2018 to 2025, allowing users to cross-filter by CAZ tier and specific monitoring sites. KPI cards dynamically compare the selected year's averages and percentiles against the 2018 baseline. Crucially, the 99.8th percentile line chart—which reveals that extreme pollution spikes are returning in some areas by 2025—features advanced drill-through capabilities. Users can drill into specific data points to investigate the exact date and time of the top 19 hourly pollution spikes for a given site in any year. The page also features a "View Heat Map" navigation button for further hourly pollution distribution analysis.
 
 <details>
   <summary><b>🎥 Click to view the Air Quality Drill-Through in action</b></summary>
@@ -65,7 +66,8 @@ This dashboard page tracks Mean NO2 and 99.8th Percentile trends from 2018 to 20
   <img src="assets/Air_Quality_Drillthrough.gif">
 </details>
 
-**Key Insights & Conclusions:**
+
+## 5. Key Insights & Conclusions
 
 * **The Spatial Health Ripple Effect:** The CAZ achieved its primary initial goal. NO2 levels dropped significantly inside the zone, which directly correlated with a measurable improvement in COPD hospitalisations within the CAZ and its close boundary (<=500m). Furthermore, the data proved that these dual benefits—reduced NO2 and lower hospital admissions—were not confined to the centre, but successfully radiated outwards.
 * **The Limits of Fleet Modernization:** While the CAZ successfully removed 58,000 highly polluting vehicles, overall traffic grew by 88,000. Crucially, the data revealed that 85% of all vehicles entering the CAZ are personal cars. Because the policy penalizes engine types rather than total traffic volume, net pollution has remained flat over the past year, even though highly polluting vehicles dropped by 52%.
